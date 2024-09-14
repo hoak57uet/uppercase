@@ -219,7 +219,9 @@
             document.getElementById('lineCount').textContent = lineCount;
 
             // Sentence case
-            const sentenceCase = inputText.charAt(0).toUpperCase() + inputText.slice(1).toLowerCase();
+            const sentenceCase = inputText
+                                .toLowerCase()
+                                .replace(/(^\s*\w|[\.\!\?]\s*\w)/g, (char) => char.toUpperCase());
             document.getElementById('sentenceCase').value = sentenceCase;
 
             // lower case
