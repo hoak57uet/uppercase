@@ -1,1 +1,121 @@
-uppercase here
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Transformer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .text-input, .text-output {
+            width: 50%;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .output-box {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Transformer</h1>
+    <div class="container">
+        <div class="text-input">
+            <h2>Nhập đoạn văn bản</h2>
+            <textarea id="userInput" placeholder="Nhập văn bản tại đây..." oninput="transformText()"></textarea>
+        </div>
+        <div class="text-output">
+            <div class="output-box">
+                <h2>Sentence case</h2>
+                <textarea id="sentenceCase" readonly></textarea>
+            </div>
+            <div class="output-box">
+                <h2>lower case</h2>
+                <textarea id="lowerCase" readonly></textarea>
+            </div>
+            <div class="output-box">
+                <h2>UPPER CASE</h2>
+                <textarea id="upperCase" readonly></textarea>
+            </div>
+            <div class="output-box">
+                <h2>Capitalized Case</h2>
+                <textarea id="capitalizedCase" readonly></textarea>
+            </div>
+            <div class="output-box">
+                <h2>aLtErNaTiNg cAsE</h2>
+                <textarea id="alternatingCase" readonly></textarea>
+            </div>
+            <div class="output-box">
+                <h2>Title Case</h2>
+                <textarea id="titleCase" readonly></textarea>
+            </div>
+            <div class="output-box">
+                <h2>InVeRsE CaSe</h2>
+                <textarea id="inverseCase" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function transformText() {
+            const inputText = document.getElementById('userInput').value;
+
+            // Sentence case
+            const sentenceCase = inputText.charAt(0).toUpperCase() + inputText.slice(1).toLowerCase();
+            document.getElementById('sentenceCase').value = sentenceCase;
+
+            // lower case
+            const lowerCase = inputText.toLowerCase();
+            document.getElementById('lowerCase').value = lowerCase;
+
+            // UPPER CASE
+            const upperCase = inputText.toUpperCase();
+            document.getElementById('upperCase').value = upperCase;
+
+            // Capitalized Case
+            const capitalizedCase = inputText.replace(/\b\w/g, (char) => char.toUpperCase());
+            document.getElementById('capitalizedCase').value = capitalizedCase;
+
+            // aLtErNaTiNg cAsE
+            const alternatingCase = inputText.split('').map((char, i) =>
+                i % 2 === 0 ? char.toLowerCase() : char.toUpperCase()
+            ).join('');
+            document.getElementById('alternatingCase').value = alternatingCase;
+
+            // Title Case
+            const titleCase = inputText.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+            document.getElementById('titleCase').value = titleCase;
+
+            // InVeRsE CaSe
+            const inverseCase = inputText.split('').map((char) =>
+                char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()
+            ).join('');
+            document.getElementById('inverseCase').value = inverseCase;
+        }
+    </script>
+</body>
+</html>
