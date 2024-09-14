@@ -221,7 +221,7 @@
             // Sentence case
             const sentenceCase = inputText
                                 .toLowerCase()
-                                .replace(/(^\s*\w|[\.\!\?]\s*\w)/g, (char) => char.toUpperCase());
+                                .replace(/(^\s*\w|[.!?]\s*\w)/g, (match) => match.toUpperCase());
             document.getElementById('sentenceCase').value = sentenceCase;
 
             // lower case
