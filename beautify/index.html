@@ -1,0 +1,247 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>Beautify Your Text Online | Remove Extra Spaces, Correct Capitalization & More</title>
+    <link rel="canonical" href="self.html"/>
+    <style amp-custom>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .textarea-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        textarea {
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* Giữ lại dấu xuống dòng */
+        }
+
+        .output-box {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .options label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .copy-button {
+            width: 10px;
+            right: 5px;
+            bottom: 5px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            font-size: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+        }
+
+        .copy-icon {
+            color: #333;
+        }
+
+        .copied-message {
+            right: 5px;
+            bottom: 35px;
+            font-size: 12px;
+            color: green;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Text Beautifier – Correct Common Writing Mistakes Easily</h1>
+    <p>Enter your text into the box below, and we'll instantly correct common mistakes such as extra spaces, missing
+        capitalization after periods, and more. Choose how you'd like to improve your text with our customizable
+        options.</p>
+
+    <div class="textarea-container">
+        <!-- Input text area -->
+        <div class="output-box">
+            <label for="outputText">Enter your text</label>
+            <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+        </div>
+        <!-- Output text area -->
+        <div class="output-box">
+            <label for="outputText">Beautified Paragraph</label>
+            <textarea id="outputText" placeholder="Your beautified text will appear here..." readonly></textarea>
+            <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+            <button class="copy-button" onclick="copyText('outputText', 'copiedMessage1')">
+                <span class="copy-icon">📋</span>
+            </button>
+        </div>
+    </div>
+
+<!--    <div class="options">-->
+<!--        <label>-->
+<!--            <input type="radio" name="option" value="beautify" on="change:resetOutput()" checked> Beautify-->
+<!--        </label>-->
+<!--        <label>-->
+<!--            <input type="radio" name="option" value="remove-spaces" on="change:resetOutput()"> Space remove only-->
+<!--        </label>-->
+<!--    </div>-->
+
+    <section id="how-it-works"  style="text-align: left;">
+        <h2>How It Works</h2>
+        <p>Our <strong>text correction tool</strong> is designed to help you refine and enhance your writing by addressing common text formatting issues. Here’s how it works:</p>
+
+        <h3>Automatic Correction of Common Errors</h3>
+        <p>Our tool automatically identifies and corrects <strong>common mistakes</strong> such as extra spaces, missing capitalization after punctuation marks, and multiple line breaks. This ensures that your text is formatted consistently and professionally.</p>
+
+        <h3>Sentence Case Adjustment</h3>
+        <p>The tool ensures that each sentence begins with a <strong>capital letter</strong>, providing a polished and proper sentence case. This adjustment improves readability and gives your text a more professional appearance.</p>
+
+        <h3>Whitespace Management</h3>
+        <p>We eliminate unnecessary spaces, including spaces before punctuation marks and multiple consecutive spaces. The tool also manages <strong>line breaks</strong> effectively, ensuring that your document doesn’t have redundant empty lines, which can make your text look disorganized.</p>
+
+        <h3>Easy to Use</h3>
+        <p>Simply paste your text into the input box, select your preferred correction option, and view the refined output instantly. Our <strong>user-friendly interface</strong> makes it easy for anyone to improve their text without needing advanced editing skills.</p>
+
+        <h3>Preserves Structure</h3>
+        <p>The tool maintains the original structure of your text, including paragraphs and line breaks, while applying the necessary corrections. This ensures that your text’s formatting remains intact and professional.</p>
+
+        <h3>Enhanced Readability</h3>
+        <p>By correcting common formatting issues and applying proper text case adjustments, our tool helps you create <strong>well-structured, readable text</strong> that effectively communicates your message.</p>
+
+        <p>With our <strong>text correction tool</strong>, you can effortlessly improve the quality of your writing and ensure that your documents are presented in the best possible light. Whether you're preparing professional reports, crafting content for your website, or simply polishing personal notes, our tool provides a quick and efficient solution for <strong>text refinement</strong>.</p>
+    </section>
+
+</div>
+
+<script>
+    // Copy text function
+    function copyText(textAreaId, messageId) {
+        const textArea = document.getElementById(textAreaId);
+        const message = document.getElementById(messageId);
+
+        textArea.select();
+        document.execCommand('copy');
+
+        message.style.opacity = 1;
+        setTimeout(() => {
+            message.style.opacity = 0;
+        }, 1000);
+    }
+
+    // Beautify and remove spaces functions
+    function beautifyText(text) {
+        // Loại bỏ dấu cách thừa và nhiều dấu xuống dòng thành một dấu xuống dòng
+        text = text.trim()
+            .replace(/\s+(?=[.!?])/g, '')    // Loại bỏ dấu cách trước dấu kết thúc câu
+            .replace(/([.!?])([^\s\n])/g, '$1 $2') // Đảm bảo có một dấu cách sau dấu kết thúc câu
+            .replace(/(\n\s*){2,}/g, '\n')   // Thay thế nhiều dấu xuống dòng bằng một dấu xuống dòng
+            .replace(/(\s{2,})/g, ' ');      // Thay thế nhiều dấu cách liên tiếp bằng một dấu cách
+
+        // Đảm bảo rằng ký tự đầu tiên của văn bản và sau dấu câu được viết hoa
+        let result = '';
+        let capitalizeNext = true;
+
+        for (let i = 0; i < text.length; i++) {
+            let currentChar = text[i];
+
+            // Kiểm tra nếu ký tự trước dấu xuống dòng là một chữ cái và không có dấu chấm
+            if (currentChar === '\n' && /[a-záàảãạăắằẳẵặâấầẩẫậđ]$/i.test(result) && !/[.!?]$/.test(result)) {
+                result += '.'; // Thêm dấu chấm trước dấu xuống dòng
+            }
+
+            if (capitalizeNext && /[a-záàảãạăắằẳẵặâấầẩẫậđ]/i.test(currentChar)) {
+                result += currentChar.toUpperCase();
+                capitalizeNext = false;
+            } else {
+                result += currentChar;
+            }
+
+            // Đặt cờ viết hoa ký tự tiếp theo nếu gặp dấu kết thúc câu hoặc dấu xuống dòng
+            if (/[.!?]/.test(currentChar) || currentChar === '\n') {
+                capitalizeNext = true;
+            }
+        }
+
+        return result;
+    }
+
+
+
+
+
+    function charUppercase(c) {
+        console.log(c)
+        console.log(c === 'đ')
+        if (c === 'đ')
+            return 'Đ';
+        return c.toUpperCase()
+    }
+
+    function removeSpaces(text) {
+        return text.replace(/\s+/g, ' '); // Only remove extra spaces
+    }
+
+    // Event listener to handle input changes and mode
+    document.getElementById('inputText').addEventListener('input', function () {
+        const inputText = this.value;
+        const mode = 'beautify'
+        let resultText = '';
+
+        if (mode === 'beautify') {
+            resultText = beautifyText(inputText);
+        } else if (mode === 'remove-spaces') {
+            resultText = removeSpaces(inputText);
+        }
+
+        document.getElementById('outputText').value = resultText;
+    });
+
+    // Reset output when changing options
+    function resetOutput() {
+        document.getElementById('outputText').value = '';
+    }
+</script>
+</body>
+</html>
