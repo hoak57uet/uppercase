@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Transformer Online | Convert to Sentence Case, Upper Case, Lower Case & More</title>
-    <meta name="description" content="A tool to transform text into various cases including Sentence case, lower case, UPPER CASE, Capitalized Case, aLtErNaTiNg cAsE, Title Case, and InVeRsE CaSe.">
+    <meta name="description"
+          content="A tool to transform text into various cases including Sentence case, lower case, UPPER CASE, Capitalized Case, aLtErNaTiNg cAsE, Title Case, and InVeRsE CaSe.">
     <meta name="robots" content="index, follow">
     <style>
         body {
@@ -125,154 +126,160 @@
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <h1>Text Transformer</h1>
-        <div class="container">
-            <div class="text-input">
-                <label for="userInput">Enter your text</label>
-                <textarea id="userInput" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
-                <div class="counts">
-                    Character Count: <span id="charCount">0</span> | 
-                    Word Count: <span id="wordCount">0</span> | 
-                    Sentence Count: <span id="sentenceCount">0</span> | 
-                    Line Count: <span id="lineCount">0</span>
-                </div>
+<div class="wrapper">
+    <h1>Text Transformer</h1>
+    <div class="container">
+        <div class="text-input">
+            <label for="userInput">Enter your text</label>
+            <textarea id="userInput" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
             </div>
-            <div class="text-output">
-                <div class="output-box">
-                    <label for="sentenceCase">Sentence case</label>
-                    <textarea id="sentenceCase" class="output" readonly></textarea>
-                    <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-                    <button class="copy-button" onclick="copyText('sentenceCase', 'copiedMessage1')">
-                        <span class="copy-icon">📋</span>
-                    </button>
-                </div>
-                <div class="output-box">
-                    <label for="lowerCase">lower case</label>
-                    <textarea id="lowerCase" class="output" readonly></textarea>
-                    <span class="copied-message" id="copiedMessage2">Copied ✓</span>
-                    <button class="copy-button" onclick="copyText('lowerCase', 'copiedMessage2')">
-                        <span class="copy-icon">📋</span>
-                    </button>
-                </div>
-                <div class="output-box">
-                    <label for="upperCase">UPPER CASE</label>
-                    <textarea id="upperCase" class="output" readonly></textarea>
-                    <span class="copied-message" id="copiedMessage3">Copied ✓</span>
-                    <button class="copy-button" onclick="copyText('upperCase', 'copiedMessage3')">
-                        <span class="copy-icon">📋</span>
-                    </button>
-                </div>
-                <div class="output-box">
-                    <label for="capitalizedCase">Capitalized Case</label>
-                    <textarea id="capitalizedCase" class="output" readonly></textarea>
-                    <span class="copied-message" id="copiedMessage4">Copied ✓</span>
-                    <button class="copy-button" onclick="copyText('capitalizedCase', 'copiedMessage4')">
-                        <span class="copy-icon">📋</span>
-                    </button>
-                </div>
-                <div class="output-box">
-                    <label for="alternatingCase">aLtErNaTiNg cAsE</label>
-                    <textarea id="alternatingCase" class="output" readonly></textarea>
-                    <span class="copied-message" id="copiedMessage5">Copied ✓</span>
-                    <button class="copy-button" onclick="copyText('alternatingCase', 'copiedMessage5')">
-                        <span class="copy-icon">📋</span>
-                    </button>
-                </div>
-                <div class="output-box">
-                    <label for="titleCase">Title Case</label>
-                    <textarea id="titleCase" class="output" readonly></textarea>
-                    <span class="copied-message" id="copiedMessage6">Copied ✓</span>
-                    <button class="copy-button" onclick="copyText('titleCase', 'copiedMessage6')">
-                        <span class="copy-icon">📋</span>
-                    </button>
-                </div>
-                <div class="output-box">
-                    <label for="inverseCase">InVeRsE CaSe</label>
-                    <textarea id="inverseCase" class="output" readonly></textarea>
-                    <span class="copied-message" id="copiedMessage7">Copied ✓</span>
-                    <button class="copy-button" onclick="copyText('inverseCase', 'copiedMessage7')">
-                        <span class="copy-icon">📋</span>
-                    </button>
-                </div>
+        </div>
+        <div class="text-output">
+            <div class="output-box">
+                <label for="sentenceCase">Sentence case</label>
+                <textarea id="sentenceCase" class="output" readonly></textarea>
+                <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+                <button class="copy-button" onclick="copyText('sentenceCase', 'copiedMessage1')">
+                    <span class="copy-icon">📋</span>
+                </button>
+            </div>
+            <div class="output-box">
+                <label for="lowerCase">lower case</label>
+                <textarea id="lowerCase" class="output" readonly></textarea>
+                <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+                <button class="copy-button" onclick="copyText('lowerCase', 'copiedMessage2')">
+                    <span class="copy-icon">📋</span>
+                </button>
+            </div>
+            <div class="output-box">
+                <label for="upperCase">UPPER CASE</label>
+                <textarea id="upperCase" class="output" readonly></textarea>
+                <span class="copied-message" id="copiedMessage3">Copied ✓</span>
+                <button class="copy-button" onclick="copyText('upperCase', 'copiedMessage3')">
+                    <span class="copy-icon">📋</span>
+                </button>
+            </div>
+            <div class="output-box">
+                <label for="capitalizedCase">Capitalized Case</label>
+                <textarea id="capitalizedCase" class="output" readonly></textarea>
+                <span class="copied-message" id="copiedMessage4">Copied ✓</span>
+                <button class="copy-button" onclick="copyText('capitalizedCase', 'copiedMessage4')">
+                    <span class="copy-icon">📋</span>
+                </button>
+            </div>
+            <div class="output-box">
+                <label for="alternatingCase">aLtErNaTiNg cAsE</label>
+                <textarea id="alternatingCase" class="output" readonly></textarea>
+                <span class="copied-message" id="copiedMessage5">Copied ✓</span>
+                <button class="copy-button" onclick="copyText('alternatingCase', 'copiedMessage5')">
+                    <span class="copy-icon">📋</span>
+                </button>
+            </div>
+            <div class="output-box">
+                <label for="titleCase">Title Case</label>
+                <textarea id="titleCase" class="output" readonly></textarea>
+                <span class="copied-message" id="copiedMessage6">Copied ✓</span>
+                <button class="copy-button" onclick="copyText('titleCase', 'copiedMessage6')">
+                    <span class="copy-icon">📋</span>
+                </button>
+            </div>
+            <div class="output-box">
+                <label for="inverseCase">InVeRsE CaSe</label>
+                <textarea id="inverseCase" class="output" readonly></textarea>
+                <span class="copied-message" id="copiedMessage7">Copied ✓</span>
+                <button class="copy-button" onclick="copyText('inverseCase', 'copiedMessage7')">
+                    <span class="copy-icon">📋</span>
+                </button>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        function transformText() {
-            const inputText = document.getElementById('userInput').value;
+<script>
+    function countWords() {
+        const inputText = document.getElementById('userInput').value;
 
-            // Character count
-            document.getElementById('charCount').textContent = inputText.length;
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
 
-            // Word count
-            const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
-            document.getElementById('wordCount').textContent = wordCount;
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
 
-            // Sentence count
-            const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
-            document.getElementById('sentenceCount').textContent = sentenceCount;
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
 
-            // Line count
-            const lineCount = inputText.split(/\n/).length;
-            document.getElementById('lineCount').textContent = lineCount;
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
 
-            // Sentence case
-            const sentenceCase = inputText
-                                .toLowerCase()
-                                .replace(/(^\s*\w|[.!?]\s*\w)/g, (match) => match.toUpperCase());
-            document.getElementById('sentenceCase').value = sentenceCase;
+    function transformText() {
+        const inputText = document.getElementById('userInput').value;
 
-            // lower case
-            const lowerCase = inputText.toLowerCase();
-            document.getElementById('lowerCase').value = lowerCase;
+        countWords()
 
-            // UPPER CASE
-            const upperCase = inputText.toUpperCase();
-            document.getElementById('upperCase').value = upperCase;
+        // Sentence case
+        const sentenceCase = inputText
+            .toLowerCase()
+            .replace(/(^\s*\w|[.!?]\s*\w)/g, (match) => match.toUpperCase());
+        document.getElementById('sentenceCase').value = sentenceCase;
 
-            // Capitalized Case: First letter of every word capitalized
-            const capitalizedCase = inputText
-                .toLowerCase()
-                .replace(/\b\w/g, (char) => char.toUpperCase());
-            document.getElementById('capitalizedCase').value = capitalizedCase;
+        // lower case
+        const lowerCase = inputText.toLowerCase();
+        document.getElementById('lowerCase').value = lowerCase;
 
-            // aLtErNaTiNg cAsE
-            const alternatingCase = inputText
-                .split('')
-                .map((char, index) => (index % 2 === 0 ? char.toLowerCase() : char.toUpperCase()))
-                .join('');
-            document.getElementById('alternatingCase').value = alternatingCase;
+        // UPPER CASE
+        const upperCase = inputText.toUpperCase();
+        document.getElementById('upperCase').value = upperCase;
 
-            // Title Case: First letter of every word capitalized
-            const titleCase = inputText
-                .toLowerCase()
-                .replace(/\b\w/g, (char) => char.toUpperCase());
-            document.getElementById('titleCase').value = titleCase;
+        // Capitalized Case: First letter of every word capitalized
+        const capitalizedCase = inputText
+            .toLowerCase()
+            .replace(/\b\w/g, (char) => char.toUpperCase());
+        document.getElementById('capitalizedCase').value = capitalizedCase;
 
-            // InVeRsE CaSe
-            const inverseCase = inputText
-                .split('')
-                .map((char) =>
-                    char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase()
-                )
-                .join('');
-            document.getElementById('inverseCase').value = inverseCase;
-        }
+        // aLtErNaTiNg cAsE
+        const alternatingCase = inputText
+            .split('')
+            .map((char, index) => (index % 2 === 0 ? char.toLowerCase() : char.toUpperCase()))
+            .join('');
+        document.getElementById('alternatingCase').value = alternatingCase;
 
-        function copyText(textAreaId, messageId) {
-            const textArea = document.getElementById(textAreaId);
-            const message = document.getElementById(messageId);
+        // Title Case: First letter of every word capitalized
+        const titleCase = inputText
+            .toLowerCase()
+            .replace(/\b\w/g, (char) => char.toUpperCase());
+        document.getElementById('titleCase').value = titleCase;
 
-            textArea.select();
-            document.execCommand('copy');
-            
-            message.style.opacity = 1;
-            setTimeout(() => {
-                message.style.opacity = 0;
-            }, 1000);
-        }
-    </script>
+        // InVeRsE CaSe
+        const inverseCase = inputText
+            .split('')
+            .map((char) =>
+                char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase()
+            )
+            .join('');
+        document.getElementById('inverseCase').value = inverseCase;
+    }
+
+    function copyText(textAreaId, messageId) {
+        const textArea = document.getElementById(textAreaId);
+        const message = document.getElementById(messageId);
+
+        textArea.select();
+        document.execCommand('copy');
+
+        message.style.opacity = 1;
+        setTimeout(() => {
+            message.style.opacity = 0;
+        }, 1000);
+    }
+</script>
 </body>
 </html>
