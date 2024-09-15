@@ -12,6 +12,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         label {
             display: block;
             margin-bottom: 5px;
@@ -38,25 +39,34 @@
 
         .textarea-container {
             display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         textarea {
+            width: calc(100% - 30px);
             height: 300px;
             padding: 10px;
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            min-width: 250px;
             box-sizing: border-box;
             word-wrap: break-word;
             white-space: pre-wrap; /* Giữ lại dấu xuống dòng */
         }
 
         .output-box {
-            width: 48%;
-            display: flex;
+            flex: 1;
             flex-direction: column;
+            display: flex;
+            min-width: 400px;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            word-wrap: break-word;
+            box-sizing: border-box;
         }
 
         .options label {
@@ -65,8 +75,6 @@
         }
 
         .copy-button {
-            width: 10px;
-            right: 5px;
             bottom: 5px;
             background-color: transparent;
             border: none;
@@ -85,13 +93,12 @@
         }
 
         .copied-message {
-            right: 5px;
-            bottom: 35px;
             font-size: 12px;
             color: green;
             opacity: 0;
             transition: opacity 0.5s ease;
         }
+
         .counts {
             margin-top: 10px;
             font-size: 14px;
@@ -123,45 +130,61 @@
         <div class="output-box">
             <label for="outputText">Beautified Paragraph</label>
             <textarea id="outputText" placeholder="Your beautified text will appear here..." readonly></textarea>
-            <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-            <button class="copy-button" onclick="copyText('outputText', 'copiedMessage1')">
-                <span class="copy-icon">📋</span>
-            </button>
+            <div>
+                <button class="copy-button" onclick="copyText('outputText', 'copiedMessage1')">
+                    <span class="copy-icon">📋</span>
+                </button>
+                <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+            </div>
         </div>
     </div>
 
-<!--    <div class="options">-->
-<!--        <label>-->
-<!--            <input type="radio" name="option" value="beautify" on="change:resetOutput()" checked> Beautify-->
-<!--        </label>-->
-<!--        <label>-->
-<!--            <input type="radio" name="option" value="remove-spaces" on="change:resetOutput()"> Space remove only-->
-<!--        </label>-->
-<!--    </div>-->
+    <!--    <div class="options">-->
+    <!--        <label>-->
+    <!--            <input type="radio" name="option" value="beautify" on="change:resetOutput()" checked> Beautify-->
+    <!--        </label>-->
+    <!--        <label>-->
+    <!--            <input type="radio" name="option" value="remove-spaces" on="change:resetOutput()"> Space remove only-->
+    <!--        </label>-->
+    <!--    </div>-->
 
-    <section id="how-it-works"  style="text-align: left;">
+    <section id="how-it-works" style="text-align: left;">
         <h2>How It Works</h2>
-        <p>Our <strong>text correction tool</strong> is designed to help you refine and enhance your writing by addressing common text formatting issues. Here’s how it works:</p>
+        <p>Our <strong>Text Correction Tool</strong> is designed to help you refine and enhance your writing by
+            addressing common text formatting issues. Here’s how it works:</p>
 
         <h3>Automatic Correction of Common Errors</h3>
-        <p>Our tool automatically identifies and corrects <strong>common mistakes</strong> such as extra spaces, missing capitalization after punctuation marks, and multiple line breaks. This ensures that your text is formatted consistently and professionally.</p>
+        <p>Our tool automatically identifies and corrects <strong>common mistakes</strong> such as extra spaces, missing
+            capitalization after punctuation marks, and multiple line breaks. This ensures that your text is formatted
+            consistently and professionally.</p>
 
         <h3>Sentence Case Adjustment</h3>
-        <p>The tool ensures that each sentence begins with a <strong>capital letter</strong>, providing a polished and proper sentence case. This adjustment improves readability and gives your text a more professional appearance.</p>
+        <p>The tool ensures that each sentence begins with a <strong>capital letter</strong>, providing a polished and
+            proper sentence case. This adjustment improves readability and gives your text a more professional
+            appearance.</p>
 
         <h3>Whitespace Management</h3>
-        <p>We eliminate unnecessary spaces, including spaces before punctuation marks and multiple consecutive spaces. The tool also manages <strong>line breaks</strong> effectively, ensuring that your document doesn’t have redundant empty lines, which can make your text look disorganized.</p>
+        <p>We eliminate unnecessary spaces, including spaces before punctuation marks and multiple consecutive spaces.
+            The tool also manages <strong>line breaks</strong> effectively, ensuring that your document doesn’t have
+            redundant empty lines, which can make your text look disorganized.</p>
 
         <h3>Easy to Use</h3>
-        <p>Simply paste your text into the input box, select your preferred correction option, and view the refined output instantly. Our <strong>user-friendly interface</strong> makes it easy for anyone to improve their text without needing advanced editing skills.</p>
+        <p>Simply paste your text into the input box, select your preferred correction option, and view the refined
+            output instantly. Our <strong>user-friendly interface</strong> makes it easy for anyone to improve their
+            text without needing advanced editing skills.</p>
 
         <h3>Preserves Structure</h3>
-        <p>The tool maintains the original structure of your text, including paragraphs and line breaks, while applying the necessary corrections. This ensures that your text’s formatting remains intact and professional.</p>
+        <p>The tool maintains the original structure of your text, including paragraphs and line breaks, while applying
+            the necessary corrections. This ensures that your text’s formatting remains intact and professional.</p>
 
         <h3>Enhanced Readability</h3>
-        <p>By correcting common formatting issues and applying proper text case adjustments, our tool helps you create <strong>well-structured, readable text</strong> that effectively communicates your message.</p>
+        <p>By correcting common formatting issues and applying proper text case adjustments, our tool helps you create
+            <strong>well-structured, readable text</strong> that effectively communicates your message.</p>
 
-        <p>With our <strong>text correction tool</strong>, you can effortlessly improve the quality of your writing and ensure that your documents are presented in the best possible light. Whether you're preparing professional reports, crafting content for your website, or simply polishing personal notes, our tool provides a quick and efficient solution for <strong>text refinement</strong>.</p>
+        <p>With our <strong>text correction tool</strong>, you can effortlessly improve the quality of your writing and
+            ensure that your documents are presented in the best possible light. Whether you're preparing professional
+            reports, crafting content for your website, or simply polishing personal notes, our tool provides a quick
+            and efficient solution for <strong>text refinement</strong>.</p>
     </section>
 
 </div>
@@ -236,9 +259,6 @@
 
         return result;
     }
-
-
-
 
 
     function charUppercase(c) {
