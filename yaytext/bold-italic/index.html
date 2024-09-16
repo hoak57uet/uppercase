@@ -1,0 +1,278 @@
+<!doctype html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="canonical" href="self.html">
+    <title>Unicode Text Styles Converter</title>
+    <meta name="description"
+          content="Convert text to various Unicode styles such as bold, italic, bold italic, and more. Perfect for enhancing your social media posts and other digital content.">
+    <meta name="keywords"
+          content="Unicode text, bold text, italic text, text converter, social media formatting, text styles">
+    <style amp-custom>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 5px;
+            height: 200px;
+            text-align: left;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: "Times New Roman";
+            font-size: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .text-input, .text-output {
+            flex: 1;
+            min-width: 250px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            word-wrap: break-word;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        .counts {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            text-align: left;
+        }
+
+        .result {
+            display: flex;
+            background: #f0f0f0;
+            width: 100%;
+            height: 40px;
+        }
+
+        .result-even {
+            display: flex;
+            background: aliceblue;
+            width: 100%;
+            height: 40px;
+        }
+
+        .input-result {
+            margin: 5px;
+            align-self: center;
+            flex: 1;
+            text-align: left;
+        }
+
+        .button-result {
+            margin: 5px;
+            height: 25px;
+            align-self: center;
+        }
+
+        .copied-message {
+            font-size: 12px;
+            color: green;
+            opacity: 0;
+            align-self: center;
+            transition: opacity 0.5s ease;
+        }
+
+        #page-content {
+            text-align: left;
+        }
+    </style>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>AMP HTML Example</title>
+</head>
+<body>
+<div class="container">
+    <h1 id="page-title">Tiêu đề của bạn</h1>
+    <p id="page-description">Đây là mô tả nằm bên dưới tiêu đề.</p>
+    <div class="text-input">
+        <label for="inputText">Enter your text</label>
+        <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+        <div class="counts">
+            Character Count: <span id="charCount">0</span> |
+            Word Count: <span id="wordCount">0</span> |
+            Sentence Count: <span id="sentenceCount">0</span> |
+            Line Count: <span id="lineCount">0</span>
+        </div>
+    </div>
+    <div class="text-input" id="result">
+        <label>Preview</label>
+        <div class="result">
+            <span readonly class="input-result" id="result-01">Result01</span>
+            <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy
+            </button>
+        </div>
+        <div class="result-even">
+
+        </div>
+        <div class="result">
+
+        </div>
+        <div class="result-even">
+
+        </div>
+        <div class="result">
+
+        </div>
+        <div class="result-even">
+
+        </div>
+    </div>
+    <section id="page-content">
+    </section>
+</div>
+
+<script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđ'.split('');
+        const standardParts = standard.split('');
+        return inputText.split('').map(char => {
+            if (char === ' ') return char;
+            return standardParts[original.indexOf(char.toString())];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const boldSerifSt = '𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳𝐚̀𝐚́𝐚̣𝐚̉𝐚̃𝐚̂𝐚̂̀𝐚̂́𝐚̂̉𝐚̣̂𝐚̆𝐚̆̀𝐚̆́𝐚̆̉𝐚̣̆𝐞̀𝐞́𝐞̣𝐞̉𝐞̃𝐞̂𝐞̂̀𝐞̂́𝐞̂̉𝐞̣̂𝐢̀𝐢́𝐢̣𝐢̉𝐢̃𝐨̀𝐨́𝐨̣𝐨̉𝐨̃𝐨̂𝐨̂̀𝐨̂́𝐨̂̉𝐨̣̂𝐨̛𝐨̛̀𝐨̛́𝐨̛̉𝐨̛̣𝐮̀𝐮́𝐮̣𝐮̉𝐮̃𝐮̛𝐮̛̀𝐮̛́𝐮̛̉𝐮̛̣𝐲̀𝐲́𝐲̣𝐲̉𝐲̃𝐝';
+        const italicSerifSt = '𝑎𝑎̆𝑎̂𝑏𝑐𝑑đ𝑒𝑒̂𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑜̂𝑜̛𝑝𝑞𝑟𝑠𝑡𝑢𝑢̛𝑣𝑤𝑥𝑦𝑧';
+        const boldItalicSerifSt = '𝒂𝒂̆𝒂̂𝒃𝒄𝒅đ𝒆𝒆̂𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒐̂𝒐̛𝒑𝒒𝒓𝒔𝒕𝒖𝒖̛𝒗𝒘𝒙𝒚𝒛';
+        const boldSansSt = '𝗮𝗮̆𝗮̂𝗯𝗰𝗱đ𝗲𝗲̂𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗼̂𝗼̛𝗽𝗾𝗿𝘀𝘁𝘂𝘂̛𝘃𝘄𝘅𝘆𝘇';
+        const italicSansSt = '𝘢𝘢̆𝘢̂𝘣𝘤𝘥đ𝘦𝘦̂𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘰̂𝘰̛𝘱𝘲𝘳𝘴𝘵𝘶𝘶̛𝘷𝘸𝘹𝘺𝘻';
+        const boldItalicSansSt = '𝙖𝙖̆𝙖̂𝙗𝙘𝙙đ𝙚𝙚̂𝙛𝙜𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙤̂𝙤̛𝙥𝙦𝙧𝙨𝙩𝙪𝙪̛𝙫𝙬𝙭𝙮𝙯';
+        const alternatingBoldSt = '𝐚ă𝐚̂b𝐜dđe𝐞̂f𝐠h𝐢j𝐤l𝐦n𝐨ô𝐨̛p𝐪r𝐬t𝐮ư𝐯w𝐱y𝐳';
+        const alternatingItalicSt = '𝑎ă𝑎̂b𝑐dđe𝑒̂f𝑔h𝑖j𝑘l𝑚n𝑜ô𝑜̛p𝑞r𝑠t𝑢ư𝑣w𝑥y𝑧';
+        const inputText = document.getElementById('inputText').value;
+        const boldSerif = convertText(inputText, boldSerifSt);
+        // const italicSerif = convertText(inputText, italicSerifSt);
+        // const boldItalicSerif = convertText(inputText, boldItalicSerifSt);
+        // const boldSans = convertText(inputText, boldSansSt);
+        // const italicSans = convertText(inputText, italicSansSt);
+        // const boldItalicSans = convertText(inputText, boldItalicSansSt);
+        // const alternatingBold = convertText(inputText, alternatingBoldSt);
+        // const alternatingItalic = convertText(inputText, alternatingItalicSt);
+        document.getElementById("result").textContent = boldSerif;
+    }
+
+    function transformText() {
+        countWords()
+        convertTexts()
+    }
+
+    function countWords() {
+        const inputText = document.getElementById('inputText').value;
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+
+    function copyText(elementId, messageId) {
+        const element = document.getElementById(elementId);
+        const message = document.getElementById(messageId);
+
+        // Get the text content from the div
+        const textToCopy = element.textContent || element.innerText;
+
+        // Copy text to clipboard using the modern API
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            // Show success message
+            message.style.opacity = 1;
+            setTimeout(() => {
+                message.style.opacity = 0;
+            }, 1000);
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+    }
+
+    //initial data
+    const webContent = {
+        "title": "Transform Your Social Media Posts: Convert Text to Bold & Italic Using Unicode Magic",
+        "description": "Revamp your social media presence with our Unicode text transformation tool! Easily convert your regular text to bold and italicized characters to make your posts on Facebook, Twitter, and other popular platforms truly stand out.",
+        "content": "<div class=\"section\">\n" +
+            "    <h2>How It Works</h2>\n" +
+            "    <p>Our Unicode text converter allows you to easily transform your regular text into bold and italicized formats using Unicode characters. Simply enter your text into our tool, select the desired style, and instantly generate text that is perfect for use on social media platforms like Facebook, Twitter, and Instagram.</p>\n" +
+            "    <p><strong>Step-by-Step Process:</strong></p>\n" +
+            "    <ol>\n" +
+            "        <li><strong>Input Text:</strong> Type or paste your text into the input box provided.</li>\n" +
+            "        <li><strong>Select Style:</strong> Choose between bold or italic styles to format your text.</li>\n" +
+            "        <li><strong>Generate Text:</strong> Click the button to generate the transformed text.</li>\n" +
+            "        <li><strong>Copy and Use:</strong> Copy the formatted text and paste it directly into your social media posts.</li>\n" +
+            "    </ol>\n" +
+            "    <p>Our tool ensures that your text stands out with visually appealing formatting, helping you to engage your audience more effectively and enhance your social media presence.</p>\n" +
+            "</div>\n" +
+            "\n" +
+            "<div class=\"section\">\n" +
+            "    <h2>Frequently Asked Questions (FAQ)</h2>\n" +
+            "    <div class=\"faq-item\">\n" +
+            "        <h3>What is Unicode text formatting?</h3>\n" +
+            "        <p>Unicode text formatting involves using special Unicode characters to apply styles such as bold and italic to text. This allows for enhanced visual presentation in your digital content.</p>\n" +
+            "    </div>\n" +
+            "    <div class=\"faq-item\">\n" +
+            "        <h3>How can I use the formatted text on social media?</h3>\n" +
+            "        <p>Once you generate the formatted text, you can copy it and paste it into your social media posts on platforms like Facebook, Twitter, and Instagram. The formatting will be preserved, making your posts more engaging and visually striking.</p>\n" +
+            "    </div>\n" +
+            "    <div class=\"faq-item\">\n" +
+            "        <h3>Is the tool free to use?</h3>\n" +
+            "        <p>Yes, our Unicode text converter tool is completely free to use. You can convert text to bold or italic without any cost.</p>\n" +
+            "    </div>\n" +
+            "    <div class=\"faq-item\">\n" +
+            "        <h3>Can I use this tool for other applications besides social media?</h3>\n" +
+            "        <p>Absolutely! While our tool is great for social media, you can use the generated text for any application where enhanced text formatting is desired, such as in emails, blogs, or other online content.</p>\n" +
+            "    </div>\n" +
+            "</div>"
+    }
+    document.getElementById('page-title').textContent = webContent.title;
+    document.getElementById('page-description').textContent = webContent.description;
+    document.getElementById('page-content').innerHTML = webContent.content;
+</script>
+</body>
+</html>
