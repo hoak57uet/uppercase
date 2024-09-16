@@ -1,0 +1,401 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>Image to ASCII Art Converter | Create Stunning ASCII Art Online</title>
+    <link rel="canonical" href="self.html"/>
+    <style amp-custom>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .textarea-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        textarea {
+            width: calc(100% - 30px);
+            min-height: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            min-width: 250px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* Giữ lại dấu xuống dòng */
+        }
+
+        .output-box {
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+            min-width: 400px;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            word-wrap: break-word;
+            box-sizing: border-box;
+        }
+
+        .options label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .copy-button {
+            bottom: 5px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            font-size: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+        }
+
+        .copy-icon {
+            color: #333;
+        }
+
+        .copied-message {
+            font-size: 12px;
+            color: green;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .counts {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .upload-box {
+            height: 100px;
+            border: 2px dashed #aaa;
+            border-radius: 12px;
+            text-align: center;
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #444;
+            cursor: pointer;
+            background: #f9f9f9;
+            transition: border-color 0.4s ease, background-color 0.4s ease;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-box:hover {
+            border-color: #007bff;
+            background-color: #f0f8ff;
+        }
+
+        .upload-box p {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .upload-box span {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        .icon {
+            font-size: 40px;
+            color: #007bff;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        #asciiOutput {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #f9f9f9;
+            color: #333;
+            font-family: 'Source Code Pro', monospace; /* Chọn font monospace khít */
+            font-size: 10px; /* Kích thước font nhỏ hơn */
+            line-height: 0.7; /* Giảm khoảng cách giữa các dòng */
+            width: 100%;
+            height: 200px;
+            white-space: pre-wrap; /* Giữ định dạng khoảng trắng và dòng */
+            overflow: auto; /* Thêm cuộn nếu cần */
+        }
+
+        .width-control {
+            display: flex;
+            margin: 20px auto;
+        }
+
+        .width-control label {
+            text-align: center;
+            align-self: center;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .width-control input {
+            font-size: 16px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 80px;
+            text-align: center;
+        }
+
+        .copy-button {
+            padding: 0px;
+            bottom: 5px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            font-size: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+        }
+
+        .copy-icon {
+            color: #333;
+        }
+
+        .copied-message {
+            font-size: 12px;
+            color: green;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+
+    </style>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Transform Your Images into Stunning ASCII Art with Our Easy-to-Use Converter</h1>
+    <p>Convert your images into high-quality ASCII art effortlessly with our online tool. Customize width and detail to
+        generate unique text-based artwork instantly.</p>
+
+    <div class="upload-box" id="uploadBox">
+        <input type="file" id="fileInput" accept="image/*"/>
+        <p>Drag & drop an image here or <span>browse</span></p>
+    </div>
+
+    <div class="width-control">
+        <label for="widthInput">Width:</label>
+        <input type="number" id="widthInput" value="100" min="10" max="300"/>
+    </div>
+
+    <textarea id="asciiOutput" readonly></textarea>
+    <div>
+        <button class="copy-button" onclick="copyText('asciiOutput', 'copiedMessage1')">
+            <span class="copy-icon">📋</span>
+        </button>
+        <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+    </div>
+    <section id="introduction">
+        <!-- Introduction -->
+        <section id="introduction" style="text-align: left;">
+            <h1>Transform Images to High-Quality ASCII Art Online for Free</h1>
+            <p>Welcome to our <strong>free online ASCII art converter</strong>, where you can effortlessly transform your images into high-quality ASCII art. Whether you're a graphic designer, coder, or simply an art enthusiast, our tool offers a seamless and free solution to convert your images into unique text-based art.</p>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how-it-works" style="text-align: left;">
+            <h2>How It Works</h2>
+            <div>
+                <h3>1. Upload Your Image:</h3>
+                <p>Simply drag and drop your image or select it from your device using our easy-to-use upload box. We support a variety of image formats, ensuring compatibility with most of your files.</p>
+            </div>
+            <div>
+                <h3>2. Adjust the Width:</h3>
+                <p>Customize the width of your ASCII art output to fit your needs. Use our width input slider to fine-tune the dimensions and get the perfect result. Our tool automatically updates the ASCII art as you adjust the width, providing you with real-time feedback.</p>
+            </div>
+            <div>
+                <h3>3. Generate and View ASCII Art:</h3>
+                <p>Once you've uploaded your image and set your desired width, our converter processes the image and generates the ASCII art. View the result instantly in our sleek, light-themed output display, optimized for readability and detail.</p>
+            </div>
+        </section>
+
+        <!-- Why Choose Our Tool -->
+        <section id="why-choose" style="text-align: left;">
+            <h2>Why Choose Our Tool?</h2>
+            <ul>
+                <li><strong>High-Quality Output:</strong> Our converter ensures that the ASCII art you get is of the highest quality, preserving the details and nuances of your original image.</li>
+                <li><strong>Completely Free:</strong> Enjoy unlimited use of our ASCII art converter without any cost. No hidden fees, no sign-ups required.</li>
+                <li><strong>User-Friendly Interface:</strong> With a clean and modern design, our tool is easy to navigate and use, making the conversion process smooth and enjoyable.</li>
+                <li><strong>Customizable Options:</strong> Tailor the output to your exact specifications with adjustable width and instant preview features.</li>
+            </ul>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" style="text-align: left;">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-item">
+                <h3>Is there a limit to the file size I can upload?</h3>
+                <p>Our tool supports image files up to 10MB in size. For larger files, consider resizing your image before uploading.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I use the ASCII art generated for commercial purposes?</h3>
+                <p>Yes, the ASCII art created using our tool can be used for personal and commercial purposes. However, we recommend checking the usage rights of the original image.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Do I need to create an account to use the converter?</h3>
+                <p>No, you don’t need to create an account. Our converter is completely free and accessible to everyone without any registration.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How does the width adjustment affect the ASCII art?</h3>
+                <p>Adjusting the width changes the size of the ASCII art, which can affect the level of detail and clarity. A larger width provides more detail, while a smaller width results in a more compact representation.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I save or share my ASCII art?</h3>
+                <p>You can easily copy the ASCII art from the output box and paste it wherever you like. For saving, you can use standard text-saving methods or take a screenshot of the output.</p>
+            </div>
+        </section>
+
+    </section>
+</div>
+
+<script>
+    const uploadBox = document.getElementById('uploadBox');
+    const fileInput = document.getElementById('fileInput');
+    const asciiOutput = document.getElementById('asciiOutput');
+    const widthInput = document.getElementById('widthInput');
+
+    uploadBox.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    uploadBox.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadBox.style.borderColor = '#007bff';
+        uploadBox.style.backgroundColor = '#f0f8ff';
+    });
+
+    uploadBox.addEventListener('dragleave', () => {
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    uploadBox.addEventListener('drop', (e) => {
+        e.preventDefault();
+        handleFileUpload(e.dataTransfer.files[0]);
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    fileInput.addEventListener('change', () => {
+        handleFileUpload(fileInput.files[0]);
+    });
+    widthInput.addEventListener('input', () => {
+        if (fileInput.files.length > 0) {
+            handleFileUpload(fileInput.files[0]);
+        }
+    });
+
+    function handleFileUpload(file) {
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+            const image = new Image();
+            image.src = event.target.result;
+
+            image.onload = function () {
+                const width = parseInt(widthInput.value, 10);
+                const ascii = imageToAscii(image, width);  // You can adjust the width as needed
+                asciiOutput.textContent = ascii;
+            };
+        };
+        reader.readAsDataURL(file);
+
+    }
+
+    function imageToAscii(image, width = 100) {
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+
+        const aspectRatio = image.height / image.width;
+        canvas.width = width;
+        canvas.height = width * aspectRatio;
+
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+        const imageData = context.getImageData(0, 0, canvas.width, canvas.height).data;
+        const characters = '@%#*+=-:. ';
+        let ascii = '';
+
+        for (let i = 0; i < imageData.length; i += 4) {
+            const r = imageData[i];
+            const g = imageData[i + 1];
+            const b = imageData[i + 2];
+            const brightness = (r + g + b) / 3;
+            const charIndex = Math.floor((brightness / 255) * (characters.length - 1));
+            ascii += characters[charIndex];
+
+            // Add a newline after every row
+            if ((i / 4 + 1) % canvas.width === 0) {
+                ascii += '\n';
+            }
+        }
+
+        return ascii;
+    }
+
+    function copyText(textAreaId, messageId) {
+        const textArea = document.getElementById(textAreaId);
+        const message = document.getElementById(messageId);
+
+        textArea.select();
+        document.execCommand('copy');
+
+        message.style.opacity = 1;
+        setTimeout(() => {
+            message.style.opacity = 0;
+        }, 1000);
+    }
+
+</script>
+</body>
+</html>
