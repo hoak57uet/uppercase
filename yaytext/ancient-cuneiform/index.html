@@ -1,9 +1,30 @@
 <!doctype html>
 <html ⚡>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <link rel="canonical" href="self.html">
+    <!-- Meta Tags for SEO -->
+    <meta charset="UTF-8">
+    <meta name="title" content="Old Persian Script Converter - Turn Your Text into Ancient Cuneiform for Social Media">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert regular text to ancient Old Persian script with our free online tool. Perfect for creating unique and historically inspired posts for Facebook, Twitter, Instagram, and more.">
+    <meta name="keywords" content="Old Persian Script Converter, Old Persian, Cuneiform Script, Ancient Script, Social Media, Facebook, Twitter, Instagram, Unique Fonts, Educational Content, SEO Friendly, Mobile-Friendly">
+    <meta name="author" content="Your Website Name">
+
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="Old Persian Script Converter - Turn Your Text into Ancient Cuneiform for Social Media">
+    <meta property="og:description" content="Transform your text into Old Persian script for unique and eye-catching social media posts on Facebook, Twitter, Instagram, and more.">
+    <meta property="og:image" content="URL_to_your_image.jpg"> <!-- Replace with the URL of your image -->
+    <meta property="og:url" content="https://yourwebsite.com/old-persian-script-converter">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Old Persian Script Converter - Turn Your Text into Ancient Cuneiform">
+    <meta name="twitter:description" content="Create visually stunning social media posts by converting your text into Old Persian script with our free online tool.">
+    <meta name="twitter:image" content="URL_to_your_image.jpg"> <!-- Replace with the URL of your image -->
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+
     <style amp-custom>
         body {
             font-family: Arial, sans-serif;
@@ -40,6 +61,8 @@
             text-align: left;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-family: "Times New Roman";
+            font-size: 15px;
         }
 
         label {
@@ -68,17 +91,19 @@
         }
 
         .result {
+            padding: 10px;
             display: flex;
             background: #f0f0f0;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .result-even {
+            padding: 10px;
             display: flex;
             background: aliceblue;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .input-result {
@@ -86,10 +111,11 @@
             align-self: center;
             flex: 1;
             text-align: left;
+            white-space: pre-wrap;
         }
 
         .button-result {
-            margin:5px;
+            margin: 5px;
             height: 25px;
             align-self: center;
         }
@@ -101,6 +127,10 @@
             align-self: center;
             transition: opacity 0.5s ease;
         }
+
+        #page-content {
+            text-align: left;
+        }
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <title>AMP HTML Example</title>
@@ -110,8 +140,8 @@
     <h1 id="page-title">Tiêu đề của bạn</h1>
     <p id="page-description">Đây là mô tả nằm bên dưới tiêu đề.</p>
     <div class="text-input">
-        <label for="userInput">Enter your text</label>
-        <textarea id="userInput" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+        <label for="inputText">Enter your text</label>
+        <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
         <div class="counts">
             Character Count: <span id="charCount">0</span> |
             Word Count: <span id="wordCount">0</span> |
@@ -119,27 +149,13 @@
             Line Count: <span id="lineCount">0</span>
         </div>
     </div>
-    <div class="text-input">
+    <div class="text-input" id="result">
         <label>Preview</label>
         <div class="result">
-            <span readonly class="input-result" id = "result-01">Result01</span>
+            <span readonly class="input-result" id="result-01"></span>
             <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy</button>
-        </div>
-        <div class="result-even">
-
-        </div>
-        <div class="result">
-
-        </div>
-        <div class="result-even">
-
-        </div>
-        <div class="result">
-
-        </div>
-        <div class="result-even">
-
+            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy
+            </button>
         </div>
     </div>
     <section id="page-content">
@@ -147,12 +163,31 @@
 </div>
 
 <script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const boldSerifSt = '𒋻|𒁀|𐏓|𒁓|𒀼|𐎣|𒋝|𒀂|𒐕|𒑟|𒐞|𒁇|𐎠|𒐖|𒆸|𒇬|𒌒|𒇲|𒔼|𒈦|𒑚|𐎏|𒉼|𒉽|𒌨|𒑣|𒋻|𒁀|𐏓|𒁓|𒀼|𐎣|𒋝|𒀂|𒐕|𒑟|𒐞|𒁇|𐎠|𒐖|𒆸|𒇬|𒌒|𒇲|𒔼|𒈦|𒑚|𐎏|𒉼|𒉽|𒌨|𒑣|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, boldSerifSt);
+    }
+
     function transformText() {
         countWords()
+        convertTexts()
     }
 
     function countWords() {
-        const inputText = document.getElementById('userInput').value;
+        const inputText = document.getElementById('inputText').value;
 
         // Character count
         document.getElementById('charCount').textContent = inputText.length;
@@ -188,11 +223,55 @@
             console.error('Failed to copy text: ', err);
         });
     }
+
     //initial data
-    const webContent ={
-        "title":"Dynamic Title",
-        "description":"Dynamic Description",
-        "content":"<div>Hello content</div>"
+    const webContent = {
+        "title": "Old Persian Script Converter - Turn Your Text into Ancient Cuneiform for Social Media",
+        "description": "Convert your regular text into ancient Old Persian script with our online tool. Ideal for creating unique and historically inspired posts on social media platforms like Facebook, Twitter, and Instagram.",
+        "content": "<section>\n" +
+            "    <h1>Convert Your Text into Ancient Old Persian Script for Social Media</h1>\n" +
+            "    <p>Want to make your social media posts stand out with an ancient and unique flair? Our online <strong>Old Persian Script Converter</strong> allows you to transform your regular text into the historic and distinctive <strong>Old Persian script</strong>, perfect for adding a scholarly and creative touch to your posts on platforms like <strong>Facebook</strong>, <strong>Twitter</strong>, and <strong>Instagram</strong>.</p>\n" +
+            "\n" +
+            "    <p>The Old Persian script carries a rich historical legacy, offering a visual appeal that transcends modern-day fonts. Whether you're sharing a <strong>historical quote</strong>, writing a <strong>mysterious message</strong>, or adding an ancient twist to your social media captions, converting your plain text into <strong>Old Persian</strong> can give your content a unique identity. Our tool helps you stand out by adding a scholarly, historical aesthetic to your posts.</p>\n" +
+            "\n" +
+            "    <h2>Why Use Our Old Persian Script Converter?</h2>\n" +
+            "    <ul>\n" +
+            "        <li><strong>Unique and Eye-Catching:</strong> Using an ancient script like <strong>Old Persian</strong> in your social media posts instantly catches the eye and sparks curiosity among viewers.</li>\n" +
+            "        <li><strong>Perfect for All Social Media Platforms:</strong> You can use Old Persian script in your posts on <strong>Facebook</strong>, <strong>Twitter</strong>, <strong>Instagram</strong>, and even in messaging apps like <strong>WhatsApp</strong>. Simply copy the converted text and paste it directly into your posts or messages.</li>\n" +
+            "        <li><strong>Historically Inspired:</strong> Add a sense of mystery and history to your posts, making them both visually appealing and thought-provoking. Great for educational content, history-related discussions, and creative storytelling.</li>\n" +
+            "        <li><strong>Mobile-Friendly:</strong> Our website is optimized for mobile use, allowing you to convert and share Old Persian text directly from your phone while on the go.</li>\n" +
+            "    </ul>\n" +
+            "\n" +
+            "    <h2>How to Use</h2>\n" +
+            "    <ol>\n" +
+            "        <li><strong>Step 1:</strong> Enter your text in the input field.</li>\n" +
+            "        <li><strong>Step 2:</strong> Click to convert your text into Old Persian script.</li>\n" +
+            "        <li><strong>Step 3:</strong> Copy the output and paste it into your social media post or message.</li>\n" +
+            "    </ol>\n" +
+            "\n" +
+            "    <p>Adding <strong>Old Persian script</strong> to your social media posts is an easy way to bring a historical touch and make your content stand out. Try our converter today and elevate your social media presence with a unique and ancient twist!</p>\n" +
+            "\n" +
+            "    <!-- FAQ Section -->\n" +
+            "    <h2>Frequently Asked Questions (FAQ)</h2>\n" +
+            "\n" +
+            "    <h3>1. What is the Old Persian script converter?</h3>\n" +
+            "    <p>The Old Persian script converter is an online tool that transforms regular text into the <strong>Old Persian cuneiform script</strong>. This historic writing system gives your social media posts a distinctive and scholarly appearance.</p>\n" +
+            "\n" +
+            "    <h3>2. How can I use Old Persian script on social media?</h3>\n" +
+            "    <p>After converting your text using our <strong>Old Persian Script Converter</strong>, simply copy the output and paste it into your social media platforms like <strong>Facebook</strong>, <strong>Twitter</strong>, or <strong>Instagram</strong>.</p>\n" +
+            "\n" +
+            "    <h3>3. Is the Old Persian script converter mobile-friendly?</h3>\n" +
+            "    <p>Yes! Our tool is fully optimized for mobile devices, allowing you to easily convert text into <strong>Old Persian script</strong> from your smartphone or tablet and share it on social media.</p>\n" +
+            "\n" +
+            "    <h3>4. Can using Old Persian script help with SEO?</h3>\n" +
+            "    <p>While using ancient scripts like <strong>Old Persian</strong> doesn't directly impact SEO rankings, it helps your posts stand out and generate higher engagement on platforms like <strong>Facebook</strong> and <strong>Twitter</strong>. More engagement leads to better visibility, indirectly boosting your online presence.</p>\n" +
+            "\n" +
+            "    <h3>5. Do I need to download any software to use the Old Persian script converter?</h3>\n" +
+            "    <p>No, our <strong>Old Persian Script Converter</strong> works entirely online. You can convert your text directly on our website without installing any additional software.</p>\n" +
+            "\n" +
+            "    <h3>6. Can I use Old Persian script for educational purposes?</h3>\n" +
+            "    <p>Yes, the <strong>Old Persian script</strong> is perfect for educational content. Whether you're discussing history, ancient cultures, or adding an academic touch to your posts, this tool is a great resource.</p>\n" +
+            "</section>"
     }
     document.getElementById('page-title').textContent = webContent.title;
     document.getElementById('page-description').textContent = webContent.description;

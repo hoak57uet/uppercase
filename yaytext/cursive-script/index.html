@@ -2,8 +2,36 @@
 <html ⚡>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <link rel="canonical" href="self.html">
+    <!-- Meta Title -->
+    <title>Convert Regular Text to Handwritten Cursive Online | Perfect for Social Media Posts</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="Effortlessly convert regular text to beautiful handwritten cursive online. Ideal for boosting engagement on social media platforms like Facebook, Twitter, and Instagram. Try it now!">
+
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="cursive text, handwritten cursive, text converter, social media posts, Facebook, Twitter, Instagram, SEO friendly, online cursive converter, convert text to cursive">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Convert Regular Text to Handwritten Cursive Online | Perfect for Social Media Posts">
+    <meta property="og:description" content="Transform your plain text into stylish handwritten cursive with our online tool. Perfect for creating unique posts on social media like Facebook and Twitter. Try it today!">
+    <meta property="og:url" content="https://www.yourwebsite.com/convert-to-cursive">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.yourwebsite.com/images/cursive-converter-banner.jpg">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Convert Regular Text to Handwritten Cursive Online | Perfect for Social Media Posts">
+    <meta name="twitter:description" content="Easily convert regular text to elegant cursive handwriting for social media. Ideal for Facebook, Twitter, and Instagram. Get started now!">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/images/cursive-converter-banner.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.yourwebsite.com/convert-to-cursive">
+
+    <!-- Robots Tag -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Viewport for Mobile Devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style amp-custom>
         body {
             font-family: Arial, sans-serif;
@@ -40,6 +68,8 @@
             text-align: left;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-family: "Times New Roman";
+            font-size: 15px;
         }
 
         label {
@@ -68,17 +98,19 @@
         }
 
         .result {
+            padding: 10px;
             display: flex;
             background: #f0f0f0;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .result-even {
+            padding: 10px;
             display: flex;
             background: aliceblue;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .input-result {
@@ -86,10 +118,11 @@
             align-self: center;
             flex: 1;
             text-align: left;
+            white-space: pre-wrap;
         }
 
         .button-result {
-            margin:5px;
+            margin: 5px;
             height: 25px;
             align-self: center;
         }
@@ -101,6 +134,10 @@
             align-self: center;
             transition: opacity 0.5s ease;
         }
+
+        #page-content {
+            text-align: left;
+        }
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <title>AMP HTML Example</title>
@@ -110,8 +147,8 @@
     <h1 id="page-title">Tiêu đề của bạn</h1>
     <p id="page-description">Đây là mô tả nằm bên dưới tiêu đề.</p>
     <div class="text-input">
-        <label for="userInput">Enter your text</label>
-        <textarea id="userInput" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+        <label for="inputText">Enter your text</label>
+        <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
         <div class="counts">
             Character Count: <span id="charCount">0</span> |
             Word Count: <span id="wordCount">0</span> |
@@ -119,27 +156,25 @@
             Line Count: <span id="lineCount">0</span>
         </div>
     </div>
-    <div class="text-input">
+    <div class="text-input" id="result">
         <label>Preview</label>
         <div class="result">
-            <span readonly class="input-result" id = "result-01">Result01</span>
+            <span readonly class="input-result" id="result-01"></span>
             <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy</button>
+            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy
+            </button>
         </div>
         <div class="result-even">
-
+            <span readonly class="input-result" id="result-02"></span>
+            <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+            <button class="button-result" id="copy-result-02" onclick="copyText('result-02', 'copiedMessage2')">Copy
+            </button>
         </div>
         <div class="result">
-
-        </div>
-        <div class="result-even">
-
-        </div>
-        <div class="result">
-
-        </div>
-        <div class="result-even">
-
+            <span readonly class="input-result" id="result-03"></span>
+            <span class="copied-message" id="copiedMessage3">Copied ✓</span>
+            <button class="button-result" id="copy-result-03" onclick="copyText('result-03', 'copiedMessage3')">Copy
+            </button>
         </div>
     </div>
     <section id="page-content">
@@ -147,12 +182,36 @@
 </div>
 
 <script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const boldSerifSt = '𝒶|𝒷|𝒸|𝒹|ℯ|𝒻|ℊ|𝒽|𝒾|𝒿|𝓀|𝓁|𝓂|𝓃|ℴ|𝓅|𝓆|𝓇|𝓈|𝓉|𝓊|𝓋|𝓌|𝓍|𝓎|𝓏|𝒜|ℬ|𝒞|𝒟|ℰ|ℱ|𝒢|ℋ|ℐ|𝒥|𝒦|ℒ|ℳ|𝒩|𝒪|𝒫|𝒬|ℛ|𝒮|𝒯|𝒰|𝒱|𝒲|𝒳|𝒴|𝒵|𝒶̀|𝒶́|𝒶̣|𝒶̉|𝒶̃|𝒶̂|𝒶̂̀|𝒶̂́|𝒶̂̉|𝒶̣̂|𝒶̆|𝒶̆̀|𝒶̆́|𝒶̆̉|𝒶̣̆|ℯ̀|ℯ́|ℯ̣|ℯ̉|ℯ̃|ℯ̂|ℯ̂̀|ℯ̂́|ℯ̂̉|ℯ̣̂|𝒾̀|𝒾́|𝒾̣|𝒾̉|𝒾̃|ℴ̀|ℴ́|ℴ̣|ℴ̉|ℴ̃|ℴ̂|ℴ̂̀|ℴ̂́|ℴ̂̉|ℴ̣̂|ℴ̛|ℴ̛̀|ℴ̛́|ℴ̛̉|ℴ̛̣|𝓊̀|𝓊́|𝓊̣|𝓊̉|𝓊̃|𝓊̛|𝓊̛̀|𝓊̛́|𝓊̛̉|𝓊̛̣|𝓎̀|𝓎́|𝓎̣|𝓎̉|𝓎̃|đ|𝒜̀|𝒜́|𝒜̣|𝒜̉|𝒜̃|𝒜̂|𝒜̂̀|𝒜̂́|𝒜̂̉|𝒜̣̂|𝒜̆|𝒜̆̀|𝒜̆́|𝒜̆̉|𝒜̣̆|ℰ̀|ℰ́|ℰ̣|ℰ̉|ℰ̃|ℰ̂|ℰ̂̀|ℰ̂́|ℰ̂̉|ℰ̣̂|ℐ̀|ℐ́|ℐ̣|ℐ̉|ℐ̃|𝒪̀|𝒪́|𝒪̣|𝒪̉|𝒪̃|𝒪̂|𝒪̂̀|𝒪̂́|𝒪̂̉|𝒪̣̂|𝒪̛|𝒪̛̀|𝒪̛́|𝒪̛̉|𝒪̛̣|𝒰̀|𝒰́|𝒰̣|𝒰̉|𝒰̃|𝒰̛|𝒰̛̀|𝒰̛́|𝒰̛̉|𝒰̛̣|𝒴̀|𝒴́|𝒴̣|𝒴̉|𝒴̃|Đ';
+        const boldSans = '𝓪|𝒷|𝓬|𝒹|𝓮|𝒻|𝓰|𝒽|𝓲|𝒿|𝓴|𝓁|𝓶|𝓃|𝓸|𝓅|𝓺|𝓇|𝓼|𝓉|𝓾|𝓋|𝔀|𝓍|𝔂|𝓏|𝓐|ℬ|𝓒|𝒟|𝓔|ℱ|𝓖|ℋ|𝓘|𝒥|𝓚|ℒ|𝓜|𝒩|𝓞|𝒫|𝓠|ℛ|𝓢|𝒯|𝓤|𝒱|𝓦|𝒳|𝓨|𝒵|𝓪̀|𝒶́|𝓪̣|𝒶̉|𝓪̃|𝒶̂|𝓪̂̀|𝒶̂́|𝓪̂̉|𝒶̣̂|𝓪̆|𝒶̆̀|𝓪̆́|𝒶̆̉|𝓪̣̆|ℯ̀|𝓮́|ℯ̣|𝓮̉|ℯ̃|𝓮̂|ℯ̂̀|𝓮̂́|ℯ̂̉|𝓮̣̂|𝒾̀|𝓲́|𝒾̣|𝓲̉|𝒾̃|𝓸̀|ℴ́|𝓸̣|ℴ̉|𝓸̃|ℴ̂|𝓸̂̀|ℴ̂́|𝓸̂̉|ℴ̣̂|𝓸̛|ℴ̛̀|𝓸̛́|ℴ̛̉|𝓸̛̣|𝓊̀|𝓾́|𝓊̣|𝓾̉|𝓊̃|𝓾̛|𝓊̛̀|𝓾̛́|𝓊̛̉|𝓾̛̣|𝓎̀|𝔂́|𝓎̣|𝔂̉|𝓎̃|đ|𝒜̀|𝓐́|𝒜̣|𝓐̉|𝒜̃|𝓐̂|𝒜̂̀|𝓐̂́|𝒜̂̉|𝓐̣̂|𝒜̆|𝓐̆̀|𝒜̆́|𝓐̆̉|𝒜̣̆|𝓔̀|ℰ́|𝓔̣|ℰ̉|𝓔̃|ℰ̂|𝓔̂̀|ℰ̂́|𝓔̂̉|ℰ̣̂|𝓘̀|ℐ́|𝓘̣|ℐ̉|𝓘̃|𝒪̀|𝓞́|𝒪̣|𝓞̉|𝒪̃|𝓞̂|𝒪̂̀|𝓞̂́|𝒪̂̉|𝓞̣̂|𝒪̛|𝓞̛̀|𝒪̛́|𝓞̛̉|𝒪̛̣|𝓤̀|𝒰́|𝓤̣|𝒰̉|𝓤̃|𝒰̛|𝓤̛̀|𝒰̛́|𝓤̛̉|𝒰̛̣|𝓨̀|𝒴́|𝓨̣|𝒴̉|𝓨̃|Đ';
+        const italicChars = '𝓪|𝓫|𝓬|𝓭|𝓮|𝓯|𝓰|𝓱|𝓲|𝓳|𝓴|𝓵|𝓶|𝓷|𝓸|𝓹|𝓺|𝓻|𝓼|𝓽|𝓾|𝓿|𝔀|𝔁|𝔂|𝔃|𝓐|𝓑|𝓒|𝓓|𝓔|𝓕|𝓖|𝓗|𝓘|𝓙|𝓚|𝓛|𝓜|𝓝|𝓞|𝓟|𝓠|𝓡|𝓢|𝓣|𝓤|𝓥|𝓦|𝓧|𝓨|𝓩|𝓪̀|𝓪́|𝓪̣|𝓪̉|𝓪̃|𝓪̂|𝓪̂̀|𝓪̂́|𝓪̂̉|𝓪̣̂|𝓪̆|𝓪̆̀|𝓪̆́|𝓪̆̉|𝓪̣̆|𝓮̀|𝓮́|𝓮̣|𝓮̉|𝓮̃|𝓮̂|𝓮̂̀|𝓮̂́|𝓮̂̉|𝓮̣̂|𝓲̀|𝓲́|𝓲̣|𝓲̉|𝓲̃|𝓸̀|𝓸́|𝓸̣|𝓸̉|𝓸̃|𝓸̂|𝓸̂̀|𝓸̂́|𝓸̂̉|𝓸̣̂|𝓸̛|𝓸̛̀|𝓸̛́|𝓸̛̉|𝓸̛̣|𝓾̀|𝓾́|𝓾̣|𝓾̉|𝓾̃|𝓾̛|𝓾̛̀|𝓾̛́|𝓾̛̉|𝓾̛̣|𝔂̀|𝔂́|𝔂̣|𝔂̉|𝔂̃|đ|𝓐̀|𝓐́|𝓐̣|𝓐̉|𝓐̃|𝓐̂|𝓐̂̀|𝓐̂́|𝓐̂̉|𝓐̣̂|𝓐̆|𝓐̆̀|𝓐̆́|𝓐̆̉|𝓐̣̆|𝓔̀|𝓔́|𝓔̣|𝓔̉|𝓔̃|𝓔̂|𝓔̂̀|𝓔̂́|𝓔̂̉|𝓔̣̂|𝓘̀|𝓘́|𝓘̣|𝓘̉|𝓘̃|𝓞̀|𝓞́|𝓞̣|𝓞̉|𝓞̃|𝓞̂|𝓞̂̀|𝓞̂́|𝓞̂̉|𝓞̣̂|𝓞̛|𝓞̛̀|𝓞̛́|𝓞̛̉|𝓞̛̣|𝓤̀|𝓤́|𝓤̣|𝓤̉|𝓤̃|𝓤̛|𝓤̛̀|𝓤̛́|𝓤̛̉|𝓤̛̣|𝓨̀|𝓨́|𝓨̣|𝓨̉|𝓨̃|Đ';
+        const inputText = document.getElementById('inputText').value;
+        console.log(convertText(inputText, boldSerifSt))
+        document.getElementById('result-01').textContent = convertText(inputText, boldSerifSt);
+        document.getElementById('result-02').textContent = convertText(inputText, boldSans);
+        document.getElementById('result-03').textContent = convertText(inputText, italicChars);
+    }
+
     function transformText() {
         countWords()
+        convertTexts()
     }
 
     function countWords() {
-        const inputText = document.getElementById('userInput').value;
+        const inputText = document.getElementById('inputText').value;
 
         // Character count
         document.getElementById('charCount').textContent = inputText.length;
@@ -188,11 +247,56 @@
             console.error('Failed to copy text: ', err);
         });
     }
+
     //initial data
-    const webContent ={
-        "title":"Dynamic Title",
-        "description":"Dynamic Description",
-        "content":"<div>Hello content</div>"
+    const webContent = {
+        "title": "Convert Regular Text to Handwritten Cursive Online | Perfect for Social Media Posts",
+        "description": "Convert your regular text into elegant handwritten cursive with our online tool. Perfect for creating unique and eye-catching posts on social media platforms like Facebook, Twitter, and Instagram.",
+        "content": "<section>\n" +
+            "    <h2>Transform Your Text into Beautiful Handwritten Cursive for Social Media</h2>\n" +
+            "    <p>Looking to make your social media posts stand out with a touch of elegance? Our online <strong>Cursive Text Converter</strong> allows you to effortlessly transform your regular text into stylish <strong>handwritten cursive</strong>, perfect for adding a personal and creative flair to your posts on platforms like <strong>Facebook</strong>, <strong>Twitter</strong>, and <strong>Instagram</strong>.</p>\n" +
+            "    \n" +
+            "    <p>Handwritten text has a way of capturing attention and conveying emotion in a way that regular fonts just can't match. Whether you're sharing a <strong>heartfelt message</strong>, writing an <strong>inspirational quote</strong>, or creating a <strong>creative caption</strong>, turning your plain text into beautiful <strong>cursive handwriting</strong> can make all the difference. Our tool is designed to give your content a unique, artistic touch, helping it to stand out in a sea of standard fonts.</p>\n" +
+            "\n" +
+            "    <h2>Why Use Our Cursive Text Converter?</h2>\n" +
+            "    <ul>\n" +
+            "        <li><strong>Boost Engagement:</strong> Posts with unique fonts and styles tend to grab attention faster and hold the viewer’s interest for longer. By using cursive text, your posts are more likely to <strong>increase engagement</strong> on social media platforms.</li>\n" +
+            "        <li><strong>Perfect for All Social Media:</strong> Whether you're active on <strong>Facebook</strong>, <strong>Twitter</strong>, <strong>Instagram</strong>, or even sharing messages on <strong>WhatsApp</strong>, handwritten cursive text can make your posts look creative and professional. It's easy to copy the text from our tool and paste it directly into your posts or comments.</li>\n" +
+            "        <li><strong>Easy and Fast:</strong> Simply input your regular text, click a button, and in seconds, you’ll have beautifully styled cursive text ready to use. There’s no need for special software or apps; everything is done directly on our website.</li>\n" +
+            "        <li><strong>SEO Friendly:</strong> While you're creating stunning cursive text, you can also <strong>optimize your posts for SEO</strong>. Unique fonts help improve the visibility of your posts, especially when combined with popular hashtags and trending topics.</li>\n" +
+            "        <li><strong>Mobile-Friendly:</strong> Our website is fully optimized for mobile devices, allowing you to quickly convert text while on the go and share it directly from your phone to your favorite social media platforms.</li>\n" +
+            "    </ul>\n" +
+            "\n" +
+            "    <h2>How to Use</h2>\n" +
+            "    <ol>\n" +
+            "        <li><strong>Step 1:</strong> Enter your text in the input field.</li>\n" +
+            "        <li><strong>Step 2:</strong> Choose the cursive style you prefer.</li>\n" +
+            "        <li><strong>Step 3:</strong> Copy the converted text and paste it into your social media post.</li>\n" +
+            "    </ol>\n" +
+            "\n" +
+            "    <p>With the rise of visual content on social media, adding unique <strong>handwritten cursive text</strong> to your posts is an easy way to boost your online presence. Try it today and see how your social media content can shine with a touch of elegance and creativity.</p>\n" +
+            "\n" +
+            "    <!-- FAQ Section -->\n" +
+            "    <h2>Frequently Asked Questions (FAQ)</h2>\n" +
+            "\n" +
+            "    <h3>1. What is a cursive text converter?</h3>\n" +
+            "    <p>A cursive text converter is an online tool that transforms regular text into stylish <strong>handwritten cursive</strong>. It’s perfect for making your social media posts look unique and visually appealing.</p>\n" +
+            "\n" +
+            "    <h3>2. How can I use cursive text on social media?</h3>\n" +
+            "    <p>After converting your text using our <strong>Cursive Text Converter</strong>, simply copy the output and paste it into your posts on platforms like <strong>Facebook</strong>, <strong>Twitter</strong>, or <strong>Instagram</strong>. It’s quick, easy, and helps your content stand out.</p>\n" +
+            "\n" +
+            "    <h3>3. Is the cursive text converter mobile-friendly?</h3>\n" +
+            "    <p>Yes! Our tool is fully optimized for mobile devices. Whether you're using a smartphone or tablet, you can easily convert and share <strong>cursive text</strong> directly from your device.</p>\n" +
+            "\n" +
+            "    <h3>4. Can cursive text help with SEO?</h3>\n" +
+            "    <p>While cursive text itself doesn’t directly improve SEO rankings, using unique fonts can help your posts stand out visually, increasing engagement. Higher engagement rates can lead to better visibility on platforms like <strong>Facebook</strong> and <strong>Twitter</strong>, indirectly boosting your online presence.</p>\n" +
+            "\n" +
+            "    <h3>5. Do I need to install any software to use the cursive text converter?</h3>\n" +
+            "    <p>No, our <strong>Cursive Text Converter</strong> works entirely online. You don’t need to download or install any software – just visit our website, enter your text, and get your cursive text instantly.</p>\n" +
+            "\n" +
+            "    <h3>6. Can I use cursive text in email signatures?</h3>\n" +
+            "    <p>Yes, you can use <strong>handwritten cursive text</strong> in email signatures to give your emails a personal and creative touch. Simply convert your text and paste it into your email client’s signature settings.</p>\n" +
+            "</section>\n"
     }
     document.getElementById('page-title').textContent = webContent.title;
     document.getElementById('page-description').textContent = webContent.description;
