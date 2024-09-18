@@ -1,9 +1,53 @@
 <!doctype html>
-<html ⚡>
+<html ⚡ lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <link rel="canonical" href="self.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaporText: Transform Your Text into Trendy Fullwidth Vaporwave Style</title>
+
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description"
+          content="Convert ordinary text into stylish Fullwidth Vaporwave typography with VaporText. Add retro 80s aesthetics to your social media posts, music promotions, and digital art.">
+    <meta name="keywords"
+          content="Vaporwave, Fullwidth text, 80s aesthetic, text transformation, retro typography, social media fonts">
+    <meta name="author" content="VaporText">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="VaporText: Trendy Fullwidth Vaporwave Text Generator">
+    <meta property="og:description"
+          content="Transform your text into stylish Fullwidth Vaporwave typography. Perfect for social media, music promotion, and retro-inspired digital art.">
+    <meta property="og:image" content="https://www.vaportext.com/og-image.jpg">
+    <meta property="og:url" content="https://www.vaportext.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VaporText">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@VaporText">
+    <meta name="twitter:title" content="VaporText: Trendy Fullwidth Vaporwave Text Generator">
+    <meta name="twitter:description"
+          content="Transform your text into stylish Fullwidth Vaporwave typography. Perfect for social media, music promotion, and retro-inspired digital art.">
+    <meta name="twitter:image" content="https://www.vaportext.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.vaportext.com">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Language Declaration -->
+    <meta name="language" content="English">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Additional Meta Tags -->
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+
     <style amp-custom>
         body {
             font-family: Arial, sans-serif;
@@ -40,6 +84,8 @@
             text-align: left;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-family: "Times New Roman";
+            font-size: 15px;
         }
 
         label {
@@ -71,14 +117,14 @@
             display: flex;
             background: #f0f0f0;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .result-even {
             display: flex;
             background: aliceblue;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .input-result {
@@ -86,10 +132,11 @@
             align-self: center;
             flex: 1;
             text-align: left;
+            white-space: pre-wrap;
         }
 
         .button-result {
-            margin:5px;
+            margin: 5px;
             height: 25px;
             align-self: center;
         }
@@ -101,17 +148,23 @@
             align-self: center;
             transition: opacity 0.5s ease;
         }
+
+        #page-content {
+            text-align: left;
+        }
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <title>AMP HTML Example</title>
 </head>
 <body>
 <div class="container">
-    <h1 id="page-title">Tiêu đề của bạn</h1>
-    <p id="page-description">Đây là mô tả nằm bên dưới tiêu đề.</p>
+    <h1 id="page-title">VaporText: Transform Your Text into Trendy Fullwidth Vaporwave Style</h1>
+    <p id="page-description">Convert ordinary text into stylish Fullwidth Vaporwave typography with our easy-to-use
+        online tool. Add a retro 80s aesthetic to your social media posts and digital content. Perfect for music, art,
+        and design projects.</p>
     <div class="text-input">
-        <label for="userInput">Enter your text</label>
-        <textarea id="userInput" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+        <label for="inputText">Enter your text</label>
+        <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
         <div class="counts">
             Character Count: <span id="charCount">0</span> |
             Word Count: <span id="wordCount">0</span> |
@@ -119,40 +172,133 @@
             Line Count: <span id="lineCount">0</span>
         </div>
     </div>
-    <div class="text-input">
+    <div class="text-input" id="result">
         <label>Preview</label>
         <div class="result">
-            <span readonly class="input-result" id = "result-01">Result01</span>
+            <span readonly class="input-result" id="result-01"></span>
             <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy</button>
+            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy
+            </button>
         </div>
         <div class="result-even">
-
+            <span readonly class="input-result" id="result-02"></span>
+            <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+            <button class="button-result" id="copy-result-02" onclick="copyText('result-02', 'copiedMessage2')">Copy
+            </button>
         </div>
         <div class="result">
-
+            <span readonly class="input-result" id="result-03"></span>
+            <span class="copied-message" id="copiedMessage3">Copied ✓</span>
+            <button class="button-result" id="copy-result-03" onclick="copyText('result-03', 'copiedMessage3')">Copy
+            </button>
         </div>
         <div class="result-even">
-
+            <span readonly class="input-result" id="result-04"></span>
+            <span class="copied-message" id="copiedMessage4">Copied ✓</span>
+            <button class="button-result" id="copy-result-04" onclick="copyText('result-04', 'copiedMessage4')">Copy
+            </button>
         </div>
         <div class="result">
-
-        </div>
-        <div class="result-even">
-
+            <span readonly class="input-result" id="result-05"></span>
+            <span class="copied-message" id="copiedMessage5">Copied ✓</span>
+            <button class="button-result" id="copy-result-05" onclick="copyText('result-05', 'copiedMessage5')">Copy
+            </button>
         </div>
     </div>
     <section id="page-content">
+        <h1>Discover the Aesthetic of Fullwidth Vaporwave Text</h1>
+
+        <p>Elevate your digital presence with VaporText, the ultimate online tool for transforming standard text into
+            eye-catching Fullwidth Vaporwave typography. Our user-friendly platform allows you to infuse your social
+            media posts, music promotions, and creative projects with the nostalgic charm of 80s aesthetics.</p>
+
+        <h2>Why Choose VaporText?</h2>
+        <ul>
+            <li>Instant conversion of plain text to Fullwidth Vaporwave style</li>
+            <li>Perfect for social media, music promotion, and artistic endeavors</li>
+            <li>Evoke a sense of nostalgia and retro coolness in your content</li>
+            <li>Stand out in the digital landscape with unique, attention-grabbing typography</li>
+        </ul>
+
+        <h2>How It Works:</h2>
+        <ol>
+            <li>Enter your desired text in the input field</li>
+            <li>Choose your preferred Vaporwave style: Fullwidth, Aesthetic, or Glitch</li>
+            <li>Click 'Transform' to generate your stylized text</li>
+            <li>Copy the result and paste it anywhere – social media, SoundCloud, Bandcamp, or your own designs</li>
+        </ol>
+
+        <h2>Unleash Your Creativity with Vaporwave Typography</h2>
+        <p>Whether you're a musician, digital artist, or simply looking to add a touch of retro flair to your online
+            presence, VaporText has got you covered. Our tool is perfect for:</p>
+        <ul>
+            <li>Creating unique social media posts and bios</li>
+            <li>Designing eye-catching album covers or playlist artwork</li>
+            <li>Crafting vaporwave-inspired logos and branding elements</li>
+            <li>Adding a nostalgic touch to your digital art and memes</li>
+        </ul>
+
+        <h2>FAQ:</h2>
+        <dl>
+            <dt>Q: Is VaporText compatible with all social media platforms?</dt>
+            <dd>A: Yes, our generated text can be used on most social media platforms, including Facebook, Twitter,
+                Instagram, SoundCloud, and Bandcamp.
+            </dd>
+
+            <dt>Q: Can I use the transformed text for commercial purposes?</dt>
+            <dd>A: Absolutely! The text generated by VaporText is free to use for both personal and commercial
+                projects.
+            </dd>
+
+            <dt>Q: Will the Fullwidth text affect my SEO or readability?</dt>
+            <dd>A: While Fullwidth text adds a unique aesthetic, it's best used for headlines, short phrases, or
+                artistic elements. For main content, we recommend using standard text to maintain SEO and readability.
+            </dd>
+        </dl>
+
+        <h2>Embrace the Vaporwave Aesthetic</h2>
+        <p>Join thousands of satisfied users who have discovered the power of Fullwidth Vaporwave typography. From
+            musicians and digital artists to meme creators and aesthetic enthusiasts, VaporText has become the go-to
+            tool for adding a touch of retro coolness to digital content.</p>
+
+        <p>Transform your text today and experience the allure of Vaporwave aesthetics. Let your words evoke the
+            nostalgia of the 80s and early internet culture – try VaporText now and bring a piece of retro coolness to
+            your digital world!</p>
     </section>
 </div>
 
 <script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = 'ａ|ｂ|ｃ|ｄ|ｅ|ｆ|ｇ|ｈ|ｉ|ｊ|ｋ|ｌ|ｍ|ｎ|ｏ|ｐ|ｑ|ｒ|ｓ|ｔ|ｕ|ｖ|ｗ|ｘ|ｙ|ｚ|Ａ|Ｂ|Ｃ|Ｄ|Ｅ|Ｆ|Ｇ|Ｈ|Ｉ|Ｊ|Ｋ|Ｌ|Ｍ|Ｎ|Ｏ|Ｐ|Ｑ|Ｒ|Ｓ|Ｔ|Ｕ|Ｖ|Ｗ|Ｘ|Ｙ|Ｚ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard2 = 'ａ|ｂ|ｃ|ｄ|ｅ|ｆ|ｇ|ｈ|ｉ|ｊ|ｋ|ｌ|ｍ|ｎ|ｏ|ｐ|ｑ|ｒ|ｓ|ｔ|ｕ|ｖ|ｗ|ｘ|ｙ|ｚ|Λ|Ｂ|Ｃ|Ｄ|Ξ|Ｆ|Ｇ|Ｈ|Ｉ|Ｊ|Ｋ|Ｌ|Ｍ|Ｎ|Ｏ|Ｐ|Ｑ|Ｒ|Ｓ|Ｔ|Ｕ|Ｖ|Ｗ|Ｘ|Ｙ|Ｚ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard3 = 'ａ|ｂ|ｃ|ｄ|ｅ|ｆ|ｇ|ｈ|ｉ|ｊ|ｋ|ｌ|ｍ|ｎ|ｏ|ｐ|ｑ|ｒ|ｓ|ｔ|ｕ|ｖ|ｗ|ｘ|ｙ|ｚ|▲|Ｂ|Ｃ|Ｄ|Ｅ|Ｆ|Ｇ|Ｈ|Ｉ|Ｊ|Ｋ|Ｌ|Ｍ|Ｎ|Ｏ|Ｐ|Ｑ|Ｒ|Ｓ|Ｔ|Ｕ|▼|Ｗ|Ｘ|Ｙ|Ｚ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard4 = 'ａ|ｂ|ｃ|ｄ|ｅ|ｆ|ｇ|ｈ|ｉ|ｊ|ｋ|ｌ|ｍ|ｎ|ｏ|ｐ|ｑ|ｒ|ｓ|ｔ|ｕ|ｖ|ｗ|ｘ|ｙ|ｚ|Ａ|Ｂ|Ｃ|Ｄ|Σ|Ｆ|Ｇ|Ｈ|Ｉ|Ｊ|Ｋ|Ｌ|Ｍ|Ｎ|♢|Ｐ|Ｑ|Ｒ|Ｓ|Ｔ|Ｕ|Ｖ|Ｗ|Ｘ|Ｙ|Ｚ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, standard);
+        document.getElementById('result-02').textContent = convertText(inputText, standard2);
+        document.getElementById('result-03').textContent = convertText(inputText, standard3);
+        document.getElementById('result-04').textContent = convertText(inputText, standard4);
+    }
+
     function transformText() {
         countWords()
+        convertTexts()
     }
 
     function countWords() {
-        const inputText = document.getElementById('userInput').value;
+        const inputText = document.getElementById('inputText').value;
 
         // Character count
         document.getElementById('charCount').textContent = inputText.length;
@@ -188,15 +334,7 @@
             console.error('Failed to copy text: ', err);
         });
     }
-    //initial data
-    const webContent ={
-        "title":"Dynamic Title",
-        "description":"Dynamic Description",
-        "content":"<div>Hello content</div>"
-    }
-    document.getElementById('page-title').textContent = webContent.title;
-    document.getElementById('page-description').textContent = webContent.description;
-    document.getElementById('page-content').innerHTML = webContent.content;
+
 </script>
 </body>
 </html>

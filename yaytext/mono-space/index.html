@@ -1,9 +1,54 @@
 <!doctype html>
-<html ⚡>
+<html ⚡ lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <link rel="canonical" href="self.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monospace Text Generator - Create Fixed-Width Text for Social Media & ASCII Art</title>
+
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description"
+          content="Transform your text into monospace format for easy copying to social media, coding, and ASCII art. Perfect for maintaining consistent spacing in tabular data.">
+    <meta name="keywords"
+          content="Monospace Text Generator, fixed-width text, ASCII art, social media text, code display, tabular data, vintage typewriter font, Unicode characters">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Monospace Text Generator - Create Fixed-Width Text for Social Media">
+    <meta property="og:description"
+          content="Generate monospace text for social media, coding, and ASCII art. Ensure your text maintains consistent spacing with our free tool.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Monospace Text Generator">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="Monospace Text Generator - Create Fixed-Width Text for Social Media">
+    <meta name="twitter:description"
+          content="Transform your text into monospace format for easy copying and maintaining spacing in coding and ASCII art.">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.yourwebsite.com">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Language Declaration -->
+    <meta name="language" content="English">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Additional Meta Tags -->
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+
+
     <style amp-custom>
         body {
             font-family: Arial, sans-serif;
@@ -40,6 +85,8 @@
             text-align: left;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-family: "Times New Roman";
+            font-size: 15px;
         }
 
         label {
@@ -71,14 +118,14 @@
             display: flex;
             background: #f0f0f0;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .result-even {
             display: flex;
             background: aliceblue;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .input-result {
@@ -86,10 +133,11 @@
             align-self: center;
             flex: 1;
             text-align: left;
+            white-space: pre-wrap;
         }
 
         .button-result {
-            margin:5px;
+            margin: 5px;
             height: 25px;
             align-self: center;
         }
@@ -101,17 +149,22 @@
             align-self: center;
             transition: opacity 0.5s ease;
         }
+
+        #page-content {
+            text-align: left;
+        }
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <title>AMP HTML Example</title>
 </head>
 <body>
 <div class="container">
-    <h1 id="page-title">Tiêu đề của bạn</h1>
-    <p id="page-description">Đây là mô tả nằm bên dưới tiêu đề.</p>
+    <h1 id="page-title">Monospace Text Generator - Create Fixed-Width Text for Social Media & ASCII Art</h1>
+    <p id="page-description">Transform your text into monospace format for easy copying to social media, code displays, and ASCII art. Perfect for maintaining consistent spacing in tabular data!
+    </p>
     <div class="text-input">
-        <label for="userInput">Enter your text</label>
-        <textarea id="userInput" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+        <label for="inputText">Enter your text</label>
+        <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
         <div class="counts">
             Character Count: <span id="charCount">0</span> |
             Word Count: <span id="wordCount">0</span> |
@@ -119,40 +172,94 @@
             Line Count: <span id="lineCount">0</span>
         </div>
     </div>
-    <div class="text-input">
+    <div class="text-input" id="result">
         <label>Preview</label>
         <div class="result">
-            <span readonly class="input-result" id = "result-01">Result01</span>
+            <span readonly class="input-result" id="result-01"></span>
             <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy</button>
-        </div>
-        <div class="result-even">
-
-        </div>
-        <div class="result">
-
-        </div>
-        <div class="result-even">
-
-        </div>
-        <div class="result">
-
-        </div>
-        <div class="result-even">
-
+            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy
+            </button>
         </div>
     </div>
     <section id="page-content">
+        <main>
+            <h1>Transform Your Text with Our Monospace Text Generator</h1>
+
+            <p>Elevate your digital communication using our Monospace Text Generator, the ultimate online tool that converts ordinary text into fixed-width, monospace characters. Whether you're sharing code snippets, tabular data, or creating ASCII art, our user-friendly platform allows you to maintain consistent spacing and alignment, ensuring your text stands out in any setting.</p>
+
+            <h2>Why Choose Our Monospace Text Generator?</h2>
+            <ul>
+                <li>Instantly convert regular text into visually appealing monospace format</li>
+                <li>Ideal for social media posts, coding platforms, and creative projects</li>
+                <li>Maintain alignment in tabular data, making it perfect for spreadsheets</li>
+                <li>Add a nostalgic typewriter or vintage computer terminal vibe to your content</li>
+            </ul>
+
+            <h2>How It Works:</h2>
+            <ol>
+                <li>Type or paste your desired text into the input field</li>
+                <li>Watch as our tool transforms your text into a beautiful monospace format</li>
+                <li>Copy the generated text effortlessly</li>
+                <li>Paste it anywhere you like – social media, messages, or your own designs</li>
+            </ol>
+
+            <h2>Unleash Your Creativity with Monospace Text</h2>
+            <p>Whether you're a developer, designer, or simply someone who enjoys crafting unique digital content, our tool is designed for you. Use it for:</p>
+            <ul>
+                <li>Creating eye-catching social media posts and captions</li>
+                <li>Presenting code snippets with clarity and consistency</li>
+                <li>Designing striking ASCII art that maintains its structure</li>
+                <li>Making your messages stand out in chat applications</li>
+            </ul>
+
+            <h2>FAQ:</h2>
+            <dl>
+                <dt>Q: Is the monospace text compatible with all platforms?</dt>
+                <dd>A: Yes, our generated text can be used across most social media platforms, messaging apps, and digital content creation tools that support Unicode characters.</dd>
+
+                <dt>Q: Will monospace characters affect text readability?</dt>
+                <dd>A: Monospace characters enhance alignment and structure, especially for code and data presentations. However, they are best suited for short phrases or structured content rather than lengthy passages.</dd>
+
+                <dt>Q: Can I use this tool for creative projects like ASCII art?</dt>
+                <dd>A: Absolutely! Our monospace text generator is perfect for creating ASCII art that requires precise alignment.</dd>
+            </dl>
+
+            <h2>The Power of Monospace</h2>
+            <p>Our Monospace Text Generator leverages the versatility of Unicode characters, ensuring that your text maintains its formatting across various platforms. This means you can share your content confidently, knowing it will appear exactly as you intended.</p>
+
+            <h2>Join the Community of Creators</h2>
+            <p>Discover the power of our Monospace Text Generator and transform your digital communication today. From coders and designers to casual users, this tool has become an essential resource for anyone looking to enhance their online presence. Experience the magic of monospace text and let your creativity shine!</p>
+        </main>
+
     </section>
 </div>
 
 <script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = '𝚊|𝚋|𝚌|𝚍|𝚎|𝚏|𝚐|𝚑|𝚒|𝚓|𝚔|𝚕|𝚖|𝚗|𝚘|𝚙|𝚚|𝚛|𝚜|𝚝|𝚞|𝚟|𝚠|𝚡|𝚢|𝚣|𝙰|𝙱|𝙲|𝙳|𝙴|𝙵|𝙶|𝙷|𝙸|𝙹|𝙺|𝙻|𝙼|𝙽|𝙾|𝙿|𝚀|𝚁|𝚂|𝚃|𝚄|𝚅|𝚆|𝚇|𝚈|𝚉|𝚊̀|𝚊́|𝚊̣|𝚊̉|𝚊̃|𝚊̂|𝚊̂̀|𝚊̂́|𝚊̂̉|𝚊̣̂|𝚊̆|𝚊̆̀|𝚊̆́|𝚊̆̉|𝚊̣̆|𝚎̀|𝚎́|𝚎̣|𝚎̉|𝚎̃|𝚎̂|𝚎̂̀|𝚎̂́|𝚎̂̉|𝚎̣̂|𝚒̀|𝚒́|𝚒̣|𝚒̉|𝚒̃|𝚘̀|𝚘́|𝚘̣|𝚘̉|𝚘̃|𝚘̂|𝚘̂̀|𝚘̂́|𝚘̂̉|𝚘̣̂|𝚘̛|𝚘̛̀|𝚘̛́|𝚘̛̉|𝚘̛̣|𝚞̀|𝚞́|𝚞̣|𝚞̉|𝚞̃|𝚞̛|𝚞̛̀|𝚞̛́|𝚞̛̉|𝚞̛̣|𝚢̀|𝚢́|𝚢̣|𝚢̉|𝚢̃|đ|𝙰̀|𝙰́|𝙰̣|𝙰̉|𝙰̃|𝙰̂|𝙰̂̀|𝙰̂́|𝙰̂̉|𝙰̣̂|𝙰̆|𝙰̆̀|𝙰̆́|𝙰̆̉|𝙰̣̆|𝙴̀|𝙴́|𝙴̣|𝙴̉|𝙴̃|𝙴̂|𝙴̂̀|𝙴̂́|𝙴̂̉|𝙴̣̂|𝙸̀|𝙸́|𝙸̣|𝙸̉|𝙸̃|𝙾̀|𝙾́|𝙾̣|𝙾̉|𝙾̃|𝙾̂|𝙾̂̀|𝙾̂́|𝙾̂̉|𝙾̣̂|𝙾̛|𝙾̛̀|𝙾̛́|𝙾̛̉|𝙾̛̣|𝚄̀|𝚄́|𝚄̣|𝚄̉|𝚄̃|𝚄̛|𝚄̛̀|𝚄̛́|𝚄̛̉|𝚄̛̣|𝚈̀|𝚈́|𝚈̣|𝚈̉|𝚈̃|Đ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, standard);
+    }
+
     function transformText() {
         countWords()
+        convertTexts()
     }
 
     function countWords() {
-        const inputText = document.getElementById('userInput').value;
+        const inputText = document.getElementById('inputText').value;
 
         // Character count
         document.getElementById('charCount').textContent = inputText.length;
@@ -188,15 +295,7 @@
             console.error('Failed to copy text: ', err);
         });
     }
-    //initial data
-    const webContent ={
-        "title":"Dynamic Title",
-        "description":"Dynamic Description",
-        "content":"<div>Hello content</div>"
-    }
-    document.getElementById('page-title').textContent = webContent.title;
-    document.getElementById('page-description').textContent = webContent.description;
-    document.getElementById('page-content').innerHTML = webContent.content;
+
 </script>
 </body>
 </html>

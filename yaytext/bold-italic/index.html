@@ -1,5 +1,5 @@
 <!doctype html>
-<html ⚡>
+<html ⚡ lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -115,12 +115,13 @@
         }
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <title>AMP HTML Example</title>
 </head>
 <body>
 <div class="container">
-    <h1 id="page-title">Tiêu đề của bạn</h1>
-    <p id="page-description">Đây là mô tả nằm bên dưới tiêu đề.</p>
+    <h1 id="page-title">Transform Your Social Media Posts: Convert Text to Bold & Italic Using Unicode Magic</h1>
+    <p id="page-description">Revamp your social media presence with our Unicode text transformation tool! Easily convert
+        your regular text to bold and italicized characters to make your posts on Facebook, Twitter, and other popular
+        platforms truly stand out.</p>
     <div class="text-input">
         <label for="inputText">Enter your text</label>
         <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
@@ -159,6 +160,50 @@
         </div>
     </div>
     <section id="page-content">
+        <h2>How It Works</h2>
+        <p>Our Unicode text converter allows you to easily transform your regular text into bold and italicized formats
+            using Unicode characters. Simply enter your text into our tool, select the desired style, and instantly
+            generate text that is perfect for use on social media platforms like Facebook, Twitter, and Instagram.</p>
+        <p><strong>Step-by-Step Process:</strong></p>
+        <ol>
+            <li><strong>Input Text:</strong> Type or paste your text into the input box provided.</li>
+            <li><strong>Select Style:</strong> Choose between bold or italic styles to format your text.</li>
+            <li><strong>Generate Text:</strong> Click the button to generate the transformed text.</li>
+            <li><strong>Copy and Use:</strong> Copy the formatted text and paste it directly into your social media
+                posts.
+            </li>
+        </ol>
+        <p>Our tool ensures that your text stands out with visually appealing formatting, helping you to engage your
+            audience more effectively and enhance your social media presence.</p>
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class='faq-item'>
+                <h3>What is Unicode text formatting?</h3>
+                <p>Unicode text formatting involves using special Unicode characters to apply styles such as bold and
+                    italic to
+                    text. This allows for enhanced visual presentation in your digital content.</p>
+            </div>
+            <div class='faq-item'>
+                <h3>How can I use the formatted text on social media?</h3>
+                <p>Once you generate the formatted text, you can copy it and paste it into your social media posts on
+                    platforms
+                    like Facebook, Twitter, and Instagram. The formatting will be preserved, making your posts more
+                    engaging and
+                    visually striking.</p>
+            </div>
+            <div class='faq-item'>
+                <h3>Is the tool free to use?</h3>
+                <p>Yes, our Unicode text converter tool is completely free to use. You can convert text to bold or
+                    italic
+                    without any cost.</p>
+            </div>
+            <div class='faq-item'>
+                <h3>Can I use this tool for other applications besides social media?</h3>
+                <p>Absolutely! While our tool is great for social media, you can use the generated text for any
+                    application
+                    where enhanced text formatting is desired, such as in emails, blogs, or other online content.</p>
+            </div>
+        </section>
     </section>
 </div>
 
@@ -230,47 +275,6 @@
             console.error('Failed to copy text: ', err);
         });
     }
-
-    //initial data
-    const webContent = {
-        "title": "Transform Your Social Media Posts: Convert Text to Bold & Italic Using Unicode Magic",
-        "description": "Revamp your social media presence with our Unicode text transformation tool! Easily convert your regular text to bold and italicized characters to make your posts on Facebook, Twitter, and other popular platforms truly stand out.",
-        "content": "<div class=\"section\">\n" +
-            "    <h2>How It Works</h2>\n" +
-            "    <p>Our Unicode text converter allows you to easily transform your regular text into bold and italicized formats using Unicode characters. Simply enter your text into our tool, select the desired style, and instantly generate text that is perfect for use on social media platforms like Facebook, Twitter, and Instagram.</p>\n" +
-            "    <p><strong>Step-by-Step Process:</strong></p>\n" +
-            "    <ol>\n" +
-            "        <li><strong>Input Text:</strong> Type or paste your text into the input box provided.</li>\n" +
-            "        <li><strong>Select Style:</strong> Choose between bold or italic styles to format your text.</li>\n" +
-            "        <li><strong>Generate Text:</strong> Click the button to generate the transformed text.</li>\n" +
-            "        <li><strong>Copy and Use:</strong> Copy the formatted text and paste it directly into your social media posts.</li>\n" +
-            "    </ol>\n" +
-            "    <p>Our tool ensures that your text stands out with visually appealing formatting, helping you to engage your audience more effectively and enhance your social media presence.</p>\n" +
-            "</div>\n" +
-            "\n" +
-            "<div class=\"section\">\n" +
-            "    <h2>Frequently Asked Questions (FAQ)</h2>\n" +
-            "    <div class=\"faq-item\">\n" +
-            "        <h3>What is Unicode text formatting?</h3>\n" +
-            "        <p>Unicode text formatting involves using special Unicode characters to apply styles such as bold and italic to text. This allows for enhanced visual presentation in your digital content.</p>\n" +
-            "    </div>\n" +
-            "    <div class=\"faq-item\">\n" +
-            "        <h3>How can I use the formatted text on social media?</h3>\n" +
-            "        <p>Once you generate the formatted text, you can copy it and paste it into your social media posts on platforms like Facebook, Twitter, and Instagram. The formatting will be preserved, making your posts more engaging and visually striking.</p>\n" +
-            "    </div>\n" +
-            "    <div class=\"faq-item\">\n" +
-            "        <h3>Is the tool free to use?</h3>\n" +
-            "        <p>Yes, our Unicode text converter tool is completely free to use. You can convert text to bold or italic without any cost.</p>\n" +
-            "    </div>\n" +
-            "    <div class=\"faq-item\">\n" +
-            "        <h3>Can I use this tool for other applications besides social media?</h3>\n" +
-            "        <p>Absolutely! While our tool is great for social media, you can use the generated text for any application where enhanced text formatting is desired, such as in emails, blogs, or other online content.</p>\n" +
-            "    </div>\n" +
-            "</div>"
-    }
-    document.getElementById('page-title').textContent = webContent.title;
-    document.getElementById('page-description').textContent = webContent.description;
-    document.getElementById('page-content').innerHTML = webContent.content;
 </script>
 </body>
 </html>

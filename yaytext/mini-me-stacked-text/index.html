@@ -1,9 +1,49 @@
 <!doctype html>
-<html ⚡>
+<html ⚡ lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <link rel="canonical" href="self.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackText: Create Unique Layered Text with Mini Letters</title>
+
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description" content="Transform ordinary text into eye-catching layered typography with StackText. Create 'mini-me' and 'stacked' text styles for standout social media posts and digital content.">
+    <meta name="keywords" content="StackText, layered typography, mini letters, text transformation, social media fonts, unique text styles">
+    <meta name="author" content="StackText">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="StackText: Layered Typography for Unique Digital Content">
+    <meta property="og:description" content="Create eye-catching 'mini-me' and 'stacked' text styles. Perfect for social media, messaging, and digital content creation.">
+    <meta property="og:image" content="https://www.stacktext.com/og-image.jpg">
+    <meta property="og:url" content="https://www.stacktext.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="StackText">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@StackText">
+    <meta name="twitter:title" content="StackText: Layered Typography for Unique Digital Content">
+    <meta name="twitter:description" content="Create eye-catching 'mini-me' and 'stacked' text styles. Perfect for social media, messaging, and digital content creation.">
+    <meta name="twitter:image" content="https://www.stacktext.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.stacktext.com">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Language Declaration -->
+    <meta name="language" content="English">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Additional Meta Tags -->
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+
     <style amp-custom>
         body {
             font-family: Arial, sans-serif;
@@ -40,6 +80,8 @@
             text-align: left;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-family: "Times New Roman";
+            font-size: 15px;
         }
 
         label {
@@ -71,14 +113,14 @@
             display: flex;
             background: #f0f0f0;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .result-even {
             display: flex;
             background: aliceblue;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .input-result {
@@ -86,10 +128,11 @@
             align-self: center;
             flex: 1;
             text-align: left;
+            white-space: pre-wrap;
         }
 
         .button-result {
-            margin:5px;
+            margin: 5px;
             height: 25px;
             align-self: center;
         }
@@ -101,17 +144,21 @@
             align-self: center;
             transition: opacity 0.5s ease;
         }
+
+        #page-content {
+            text-align: left;
+        }
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <title>AMP HTML Example</title>
 </head>
 <body>
 <div class="container">
-    <h1 id="page-title">Tiêu đề của bạn</h1>
-    <p id="page-description">Đây là mô tả nằm bên dưới tiêu đề.</p>
+    <h1 id="page-title">StackText: Create Unique Layered Text with Mini Letters</h1>
+    <p id="page-description">Transform ordinary text into eye-catching layered typography with StackText. Create 'mini-me' and 'stacked' text styles to make your social media posts, messages, and digital content stand out. Perfect for unique signatures, emphasizing words, or adding creative flair to your online presence.</p>
     <div class="text-input">
-        <label for="userInput">Enter your text</label>
-        <textarea id="userInput" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+        <label for="inputText">Enter your text</label>
+        <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
         <div class="counts">
             Character Count: <span id="charCount">0</span> |
             Word Count: <span id="wordCount">0</span> |
@@ -119,40 +166,120 @@
             Line Count: <span id="lineCount">0</span>
         </div>
     </div>
-    <div class="text-input">
+    <div class="text-input" id="result">
         <label>Preview</label>
         <div class="result">
-            <span readonly class="input-result" id = "result-01">Result01</span>
+            <span readonly class="input-result" id="result-01"></span>
             <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy</button>
+            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy
+            </button>
         </div>
         <div class="result-even">
-
+            <span readonly class="input-result" id="result-02"></span>
+            <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+            <button class="button-result" id="copy-result-02" onclick="copyText('result-02', 'copiedMessage2')">Copy
+            </button>
         </div>
         <div class="result">
-
-        </div>
-        <div class="result-even">
-
-        </div>
-        <div class="result">
-
-        </div>
-        <div class="result-even">
-
+            <span readonly class="input-result" id="result-03"></span>
+            <span class="copied-message" id="copiedMessage3">Copied ✓</span>
+            <button class="button-result" id="copy-result-03" onclick="copyText('result-03', 'copiedMessage3')">Copy
+            </button>
         </div>
     </div>
     <section id="page-content">
+        <main>
+            <h1>Discover the Art of Layered Typography with StackText</h1>
+
+            <p>Elevate your digital communication with StackText, the innovative online tool that transforms ordinary text into visually striking layered typography. Our user-friendly platform allows you to create unique "mini-me" and "stacked" text styles, adding a creative flair to your social media posts, messages, and digital content.</p>
+
+            <h2>Why Choose StackText?</h2>
+            <ul>
+                <li>Instant transformation of plain text into layered typography</li>
+                <li>Two distinctive styles: "mini-me" and "stacked" for versatile use</li>
+                <li>Perfect for social media, messaging apps, and digital content creation</li>
+                <li>Create unique signatures, emphasize words, or add visual interest to your text</li>
+                <li>Compatible with major platforms like Facebook, Twitter, YouTube, and Instagram</li>
+            </ul>
+
+            <h2>How It Works:</h2>
+            <ol>
+                <li>Enter your desired text in the input field</li>
+                <li>Choose between "mini-me" or "stacked" style</li>
+                <li>Watch as our tool generates your layered text</li>
+                <li>Copy the result and paste it anywhere – social media, messages, or your own designs</li>
+            </ol>
+
+            <h2>Unleash Your Creativity with Layered Text Styles</h2>
+            <p>StackText offers two unique styles to enhance your text:</p>
+            <ul>
+                <li><strong>"Mini-me" Style:</strong> Places a small version of each letter on top of its larger counterpart (e.g., hͪiͥ)</li>
+                <li><strong>"Stacked" Style:</strong> Puts different small letters above each normal letter to form mini phrases (e.g., gͪuͥys)</li>
+            </ul>
+
+            <h2>Perfect for Various Applications</h2>
+            <p>StackText is ideal for:</p>
+            <ul>
+                <li>Creating eye-catching social media posts and captions</li>
+                <li>Designing unique usernames and profile bios</li>
+                <li>Adding emphasis to specific words or phrases in your messages</li>
+                <li>Crafting distinctive signatures for emails or forum posts</li>
+                <li>Adding a creative touch to your digital art and graphic designs</li>
+            </ul>
+
+            <h2>FAQ:</h2>
+            <dl>
+                <dt>Q: Is StackText compatible with all platforms?</dt>
+                <dd>A: Yes, our generated text can be used on most social media platforms, messaging apps, and digital content creation tools that support Unicode characters.</dd>
+
+                <dt>Q: Are all letters available in small size?</dt>
+                <dd>A: Not every letter is available in small size. The letters that work best are "a", "c", "d", "e", "h", "i", "m", "o", "r", "t", "u", "v", and "x". Our tool automatically optimizes for the best-looking combinations.</dd>
+
+                <dt>Q: Will layered text affect readability?</dt>
+                <dd>A: While layered text adds a unique visual element, it may slightly impact readability. We recommend using this style for short phrases, usernames, or artistic elements rather than long-form content.</dd>
+            </dl>
+
+            <h2>The Unicode Magic Behind StackText</h2>
+            <p>StackText utilizes special Unicode characters to create the layered effect. This clever use of character combining allows for creative text styling without the need for special fonts or images.</p>
+
+            <h2>Stand Out in the Digital Crowd</h2>
+            <p>Join the growing community of users who have discovered the power of StackText. From social media enthusiasts to digital artists and casual users, our tool has become the go-to solution for adding a unique touch to digital content.</p>
+
+            <p>Transform your text today and experience the eye-catching effect of layered typography. Let your words rise above the ordinary and capture attention in the vast digital landscape – try StackText now and bring a new dimension to your online communication!</p>
+        </main>
     </section>
 </div>
 
 <script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = 'aͣ|b|cͨ|dͩ|eͤ|f|g|hͪ|iͥ|j|k|l|mͫ|n|oͦ|p|q|rͬ|s|tͭ|uͧ|vͮ|w|xͯ|y|z|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard2 = ' ͣ|b| ͨ| ͩ| ͤ|f|g| ͪ| ͥ|j|k|l| ͫ|n| ͦ|p|q| ͬ|s| ͭ| ͧ| ͮ|w| ͯ|y|z|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard3 = 'ᵃ|ᵇ|ᶜ|ᵈ|ᵉ|ᶠ|ᵍ|ʰ|ᶦ|ʲ|ᵏ|ˡ|ᵐ|ⁿ|ᵒ|ᵖ|ᑫ|ʳ|ˢ|ᵗ|ᵘ|ᵛ|ʷ|ˣ|ʸ|ᶻ|ᴬ|ᴮ|ᶜ|ᴰ|ᴱ|ᶠ|ᴳ|ᴴ|ᴵ|ᴶ|ᴷ|ᴸ|ᴹ|ᴺ|ᴼ|ᴾ|Q|ᴿ|ˢ|ᵀ|ᵁ|ⱽ|ᵂ|ˣ|ʸ|ᶻ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, standard);
+        document.getElementById('result-02').textContent = convertText(inputText, standard2);
+        document.getElementById('result-03').textContent = convertText(inputText, standard3);
+    }
+
     function transformText() {
         countWords()
+        convertTexts()
     }
 
     function countWords() {
-        const inputText = document.getElementById('userInput').value;
+        const inputText = document.getElementById('inputText').value;
 
         // Character count
         document.getElementById('charCount').textContent = inputText.length;
@@ -188,15 +315,6 @@
             console.error('Failed to copy text: ', err);
         });
     }
-    //initial data
-    const webContent ={
-        "title":"Dynamic Title",
-        "description":"Dynamic Description",
-        "content":"<div>Hello content</div>"
-    }
-    document.getElementById('page-title').textContent = webContent.title;
-    document.getElementById('page-description').textContent = webContent.description;
-    document.getElementById('page-content').innerHTML = webContent.content;
 </script>
 </body>
 </html>

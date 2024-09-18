@@ -1,0 +1,392 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ransom Note Text Generator - Create Unique and Eye-Catching Unicode Text</title>
+
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description" content="Transform your text into unique ransom note styles with our Unicode text generator. Perfect for social media and creative projects!">
+    <meta name="keywords" content="Ransom Note Text Generator, Unicode text, creative typography, social media text, unique styles, eye-catching text">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Ransom Note Text Generator - Create Unique Unicode Text">
+    <meta property="og:description" content="Elevate your online presence with our Unicode text generator that creates visually striking ransom note styles.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ransom Note Text Generator">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="Ransom Note Text Generator - Create Unique Unicode Text">
+    <meta name="twitter:description" content="Transform your text into unique ransom note styles with our generator. Perfect for social media!">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.yourwebsite.com">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Language Declaration -->
+    <meta name="language" content="English">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Additional Meta Tags -->
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+
+
+    <style amp-custom>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 5px;
+            height: 200px;
+            text-align: left;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: "Times New Roman";
+            font-size: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .text-input, .text-output {
+            flex: 1;
+            min-width: 250px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            word-wrap: break-word;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        .counts {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            text-align: left;
+        }
+
+        .result {
+            display: flex;
+            background: #f0f0f0;
+            width: 100%;
+            min-height: 40px;
+        }
+
+        .result-even {
+            display: flex;
+            background: aliceblue;
+            width: 100%;
+            min-height: 40px;
+        }
+
+        .input-result {
+            margin: 5px;
+            align-self: center;
+            flex: 1;
+            text-align: left;
+            white-space: pre-wrap;
+        }
+
+        .button-result {
+            margin: 5px;
+            height: 25px;
+            align-self: center;
+        }
+
+        .copied-message {
+            font-size: 12px;
+            color: green;
+            opacity: 0;
+            align-self: center;
+            transition: opacity 0.5s ease;
+        }
+
+        #page-content {
+            text-align: left;
+        }
+    </style>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>AMP HTML Example</title>
+</head>
+<body>
+<div class="container">
+    <h1 id="page-title">Ransom Note Text Generator - Create Unique and Eye-Catching Unicode Text</h1>
+    <p id="page-description">Transform your text into unique ransom note styles with our Unicode text generator. Perfect for social media and creative projects!</p>
+    <div class="text-input">
+        <label for="inputText">Enter your text</label>
+        <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+        <div class="counts">
+            Character Count: <span id="charCount">0</span> |
+            Word Count: <span id="wordCount">0</span> |
+            Sentence Count: <span id="sentenceCount">0</span> |
+            Line Count: <span id="lineCount">0</span>
+        </div>
+    </div>
+    <div class="text-input" id="result">
+        <label>Preview</label>
+        <div class="result">
+            <span readonly class="input-result" id="result-01"></span>
+            <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy
+            </button>
+        </div>
+        <div class="result-even">
+            <span readonly class="input-result" id="result-02"></span>
+            <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+            <button class="button-result" id="copy-result-02" onclick="copyText('result-02', 'copiedMessage2')">Copy
+            </button>
+        </div>
+        <div class="result">
+            <span readonly class="input-result" id="result-03"></span>
+            <span class="copied-message" id="copiedMessage3">Copied ✓</span>
+            <button class="button-result" id="copy-result-03" onclick="copyText('result-03', 'copiedMessage3')">Copy
+            </button>
+        </div>
+        <div class="result-even">
+            <span readonly class="input-result" id="result-04"></span>
+            <span class="copied-message" id="copiedMessage4">Copied ✓</span>
+            <button class="button-result" id="copy-result-04" onclick="copyText('result-04', 'copiedMessage4')">Copy
+            </button>
+        </div>
+        <div class="result">
+            <span readonly class="input-result" id="result-05"></span>
+            <span class="copied-message" id="copiedMessage5">Copied ✓</span>
+            <button class="button-result" id="copy-result-05" onclick="copyText('result-05', 'copiedMessage5')">Copy
+            </button>
+        </div>
+        <div class="result-even">
+            <span readonly class="input-result" id="result-06"></span>
+            <span class="copied-message" id="copiedMessage6">Copied ✓</span>
+            <button class="button-result" id="copy-result-06" onclick="copyText('result-06', 'copiedMessage6')">Copy
+            </button>
+        </div>
+        <div class="result">
+            <span readonly class="input-result" id="result-07"></span>
+            <span class="copied-message" id="copiedMessage7">Copied ✓</span>
+            <button class="button-result" id="copy-result-07" onclick="copyText('result-07', 'copiedMessage7')">Copy
+            </button>
+        </div>
+        <div class="result-even">
+            <span readonly class="input-result" id="result-08"></span>
+            <span class="copied-message" id="copiedMessage8">Copied ✓</span>
+            <button class="button-result" id="copy-result-08" onclick="copyText('result-08', 'copiedMessage8')">Copy
+            </button>
+        </div>
+    </div>
+    <section id="page-content">
+        <main>
+            <h1>Unleash Your Creativity with Our Ransom Note Text Generator</h1>
+
+            <p>Elevate your online presence with our innovative ransom note text generator, which utilizes a random mix of Unicode characters to create eye-catching text that looks like 𝓵𝔦𝒌𝑒 𝒕𝒉𝗶𝘀. This unique tool blends characters from various styles, resulting in visually striking and memorable text that truly stands out (unless everyone else is using our fonts too 😉).</p>
+
+            <h2>Why Choose Our Ransom Note Text Generator?</h2>
+            <ul>
+                <li>Instantly transform your plain text into a vibrant mix of styles and aesthetics</li>
+                <li>Create text that's perfect for social media posts, messages, and more</li>
+                <li>Copy-and-paste friendly for platforms like Twitter, Facebook, TikTok, and Discord</li>
+                <li>Add a playful touch to your digital communication and artistic projects</li>
+            </ul>
+
+            <h2>How It Works:</h2>
+            <ol>
+                <li>Enter your desired text into the input field</li>
+                <li>Watch as our generator mixes and matches Unicode characters from multiple styles</li>
+                <li>Copy the eye-catching text generated by our tool</li>
+                <li>Paste it anywhere to make an impact – from social media to personal projects</li>
+            </ol>
+
+            <h2>Explore Endless Possibilities</h2>
+            <p>This tool allows you to combine characters from different Unicode blocks, opening up a world of creative expression. Whether you’re using cursive, fraktur, strikethrough, or other styles, the resulting text can convey artistic flair and originality.</p>
+            <ul>
+                <li>Fuse distinct aesthetics and meanings from various Unicode styles</li>
+                <li>Create unique text that captures attention and evokes emotion</li>
+                <li>Add a playful element to your written content, making it unforgettable</li>
+                <li>Experiment with typography and explore the boundaries of design</li>
+            </ul>
+
+            <h2>Join the Community of Creative Users</h2>
+            <p>Discover the joy of crafting unique text that stands out in any context. Our ransom note text generator is perfect for social media enthusiasts, digital artists, or anyone looking to add a fun twist to their written communication. Have fun & 𝔢𝖓𝒿𝚘🆈! Let your creativity flow and bring a new dimension to your text today!</p>
+        </main>
+
+    </section>
+</div>
+
+<script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = '𝓪|𝐛|𝐜|𝖉|𝙚|𝔣|ℊ|𝙝|𝙞|𝚓|𝒌|𝑙|𝓶|𝐧|𝚘|𝖕|𝗾|𝗿|𝙨|𝘵|𝕦|𝐯|𝒘|𝕩|𝘺|𝔃|𝔸|𝐵|𝘾|𝘿|𝐸|𝑭|𝓖|𝐻|𝕀|𝐉|𝕶|ℒ|𝘔|𝔑|𝕺|𝑃|𝔔|𝓡|𝗦|𝑻|𝐔|𝑉|𝓦|𝚇|𝑌|𝗭|𝓪̀|𝘢́|𝐚̣|𝘢̉|𝘢̃|𝙖̂|𝗮̂̀|𝖆̂́|𝕒̂̉|𝓪̣̂|𝑎̆|𝐚̆̀|𝚊̆́|𝕒̆̉|𝓪̣̆|𝔢̀|𝐞́|𝔢̣|𝙚̉|𝕖̃|𝓮̂|𝕖̂̀|𝗲̂́|𝔢̂̉|ℯ̣̂|𝚒̀|𝗶́|𝕚̣|𝔦̉|𝙞̃|𝖔̀|𝐨́|ℴ̣|𝔬̉|ℴ̃|𝙤̂|𝐨̂̀|ℴ̂́|𝚘̂̉|𝕠̣̂|𝒐̛|𝘰̛̀|𝓸̛́|𝐨̛̉|𝗼̛̣|𝑢̀|𝖚́|𝘂̣|𝕦̉|𝒖̃|𝖚̛|𝚞̛̀|𝒖̛́|𝑢̛̉|𝖚̛̣|𝘺̀|𝔂́|𝘆̣|𝚢̉|𝑦̃|đ|𝓐̀|𝔄́|𝘈̣|𝐀̉|𝔄̃|𝘼̂|𝒜̂̀|𝓐̂́|𝔄̂̉|𝙰̣̂|𝐀̆|𝑨̆̀|𝓐̆́|𝑨̆̉|𝔸̣̆|𝗘̀|𝔈́|𝔼̣|𝐄̉|𝙀̃|𝑬̂|𝗘̂̀|𝕰̂́|𝘌̂̉|𝙴̣̂|𝘐̀|𝐼́|𝓘̣|𝐈̉|ℐ̃|𝙊̀|𝑂́|𝒪̣|𝕺̉|𝙊̃|𝗢̂|𝐎̂̀|𝗢̂́|𝐎̂̉|𝓞̣̂|𝙾̛|𝑂̛̀|𝒪̛́|𝐎̛̉|𝕺̛̣|𝖀̀|𝕌́|𝑈̣|𝓤̉|𝑼̃|𝒰̛|𝑼̛̀|𝖀̛́|𝚄̛̉|𝙐̛̣|𝘠̀|𝒀́|𝒀̣|𝒀̉|𝒴̃|Đ';
+        const standard2 = '𝒶|𝗯|𝑐|𝓭|𝘦|𝖋|𝙜|𝚑|𝚒|𝒋|𝚔|𝓁|𝐦|𝔫|𝘰|𝓅|𝑞|𝓇|𝘀|𝚝|𝔲|𝔳|𝐰|𝔵|𝖞|𝔷|𝗔|𝔹|𝘊|𝔇|𝙀|𝗙|𝒢|𝐻|𝙄|𝕁|𝙺|ℒ|𝕄|𝔑|𝒪|𝔓|𝑸|ℛ|𝑺|𝘛|𝙐|𝖁|𝖂|𝘟|𝙔|𝚉|𝐚̀|𝑎́|𝑎̣|𝑎̉|𝐚̃|𝔞̂|𝑎̂̀|𝑎̂́|𝚊̂̉|𝒂̣̂|𝖆̆|𝔞̆̀|𝘢̆́|𝒶̆̉|𝙖̣̆|𝙚̀|𝙚́|𝒆̣|𝙚̉|𝙚̃|𝚎̂|𝙚̂̀|𝘦̂́|𝒆̂̉|ℯ̣̂|𝓲̀|𝔦́|𝑖̣|𝖎̉|𝘪̃|𝔬̀|ℴ́|ℴ̣|𝖔̉|𝒐̃|𝓸̂|𝘰̂̀|𝙤̂́|𝗼̂̉|𝚘̣̂|𝕠̛|𝗼̛̀|𝗼̛́|𝒐̛̉|𝔬̛̣|𝘂̀|𝒖́|𝑢̣|𝔲̉|𝖚̃|𝘂̛|𝒖̛̀|𝖚̛́|𝙪̛̉|𝒖̛̣|𝔶̀|𝕪́|𝚢̣|𝔶̉|𝒚̃|đ|𝓐̀|𝙰́|𝕬̣|𝑨̉|𝓐̃|𝓐̂|𝕬̂̀|𝙰̂́|𝔄̂̉|𝘼̣̂|𝘼̆|𝙰̆̀|𝓐̆́|𝔸̆̉|𝘈̣̆|𝐸̀|𝕰́|𝕰̣|𝘌̉|𝐄̃|𝙀̂|𝓔̂̀|𝗘̂́|𝔼̂̉|𝓔̣̂|ℐ̀|𝕀́|𝙸̣|𝕴̉|𝓘̃|𝕆̀|𝗢́|𝓞̣|𝔒̉|𝙊̃|𝒪̂|𝑂̂̀|𝗢̂́|𝓞̂̉|𝕺̣̂|𝗢̛|𝔒̛̀|𝕆̛́|𝑶̛̉|𝗢̛̣|𝑼̀|𝘜́|𝗨̣|𝘜̉|𝗨̃|𝔘̛|𝙐̛̀|𝗨̛́|𝗨̛̉|𝙐̛̣|𝗬̀|𝐘́|𝕐̣|𝐘̉|𝒴̃|Đ';
+        const standard3 = '𝒂|𝐛|𝐜|𝗱|𝙚|𝗳|𝑔|𝙝|𝙞|𝙟|𝑘|𝐥|𝒎|𝐧|𝙤|𝗽|𝘲|𝘳|𝙨|𝘵|𝒖|𝐯|𝑤|𝒙|𝘺|𝒛|𝑨|𝐁|𝘾|𝘿|𝐄|𝐹|𝑮|𝐇|𝑰|𝐉|𝗞|𝐿|𝘔|𝗡|𝗢|𝐏|𝗤|𝑹|𝘚|𝑇|𝐔|𝐕|𝑾|𝙓|𝐘|𝘡|𝒂̀|𝘢́|𝐚̣|𝘢̉|𝘢̃|𝙖̂|𝘢̂̀|𝗮̂́|𝒂̂̉|𝒂̣̂|𝐚̆|𝐚̆̀|𝙖̆́|𝒂̆̉|𝒂̣̆|𝗲̀|𝐞́|𝗲̣|𝙚̉|𝒆̃|𝒆̂|𝒆̂̀|𝘦̂́|𝗲̂̉|𝑒̣̂|𝙞̀|𝘪́|𝒊̣|𝗶̉|𝙞̃|𝗼̀|𝐨́|𝑜̣|𝗼̉|𝑜̃|𝙤̂|𝐨̂̀|𝑜̂́|𝙤̂̉|𝒐̣̂|𝑜̛|𝘰̛̀|𝒐̛́|𝐨̛̉|𝘰̛̣|𝐮̀|𝘂́|𝘶̣|𝒖̉|𝑢̃|𝘂̛|𝙪̛̀|𝑢̛́|𝐮̛̉|𝘂̛̣|𝘺̀|𝒚́|𝘺̣|𝙮̉|𝐲̃|đ|𝑨̀|𝗔́|𝘈̣|𝐀̉|𝗔̃|𝘼̂|𝐴̂̀|𝑨̂́|𝗔̂̉|𝘼̣̂|𝐀̆|𝐴̆̀|𝑨̆́|𝐴̆̉|𝑨̣̆|𝘌̀|𝗘́|𝑬̣|𝐄̉|𝙀̃|𝐸̂|𝘌̂̀|𝗘̂́|𝘌̂̉|𝙀̣̂|𝘐̀|𝐈́|𝑰̣|𝐈̉|𝐼̃|𝙊̀|𝐎́|𝑂̣|𝗢̉|𝙊̃|𝘖̂|𝐎̂̀|𝘖̂́|𝐎̂̉|𝑶̣̂|𝙊̛|𝐎̛̀|𝑂̛́|𝐎̛̉|𝗢̛̣|𝗨̀|𝑼́|𝐔̣|𝑼̉|𝑈̃|𝑈̛|𝑈̛̀|𝗨̛́|𝙐̛̉|𝙐̛̣|𝘠̀|𝑌́|𝑌̣|𝑌̉|𝑌̃|Đ';
+        const standard4 = '🄰|🄱|🄲|🄳|🄴|🄵|🄶|🄷|🄸|🄹|🄺|🄻|🄼|🄽|🄾|🄿|🅀|🅁|🅂|🅃|🅄|🅅|🅆|🅇|🅈|🅉|🄰|🄱|🄲|🄳|🄴|🄵|🄶|🄷|🄸|🄹|🄺|🄻|🄼|🄽|🄾|🄿|🅀|🅁|🅂|🅃|🅄|🅅|🅆|🅇|🅈|🅉|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard5 = '🅰|🅱|🅲|🅳|🅴|🅵|🅶|🅷|🅸|🅹|🅺|🅻|🅼|🅽|🅾|🅿|🆀|🆁|🆂|🆃|🆄|🆅|🆆|🆇|🆈|🆉|🅰|🅱|🅲|🅳|🅴|🅵|🅶|🅷|🅸|🅹|🅺|🅻|🅼|🅽|🅾|🅿|🆀|🆁|🆂|🆃|🆄|🆅|🆆|🆇|🆈|🆉|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard6 = '🅐|ⓑ|ⓒ|🄳|🅴|🄵|🅖|🅷|🅸|🅹|ⓚ|ⓛ|🅜|ⓝ|🅾|🄿|🅀|🅁|🆂|🆃|🅤|ⓥ|ⓦ|🅧|🆈|🅩|🅐|Ⓑ|🅲|🅳|Ⓔ|Ⓕ|🅖|Ⓗ|🅘|Ⓙ|🄺|🅛|🅼|🄽|🄾|Ⓟ|🅀|🅡|🅂|Ⓣ|Ⓤ|Ⓥ|🅦|🆇|Ⓨ|🅉|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard7 = '𝕒|𝐛|𝑐|𝙙|🅔|𝘧|𝓰|🄷|🅘|🄹|𝓀|𝑙|𝕞|𝑛|🅾|𝘱|𝚚|𝚛|🅢|🅣|𝖚|𝑣|𝓌|𝖝|🅨|𝔷|𝔄|𝐵|🅒|🄳|𝐸|ℱ|𝔊|𝐻|𝕴|𝐽|𝙆|𝓛|🅜|𝗡|𝘖|𝑃|𝗤|ℜ|𝚂|𝒯|𝐔|𝑉|𝔚|🆇|𝑌|𝙕|𝕒̀|á|𝐚̣|ả|ã|â|𝚊̂̀|𝙖̂́|𝖆̂̉|𝔞̣̂|𝒂̆|𝐚̆̀|ắ|𝔞̆̉|𝔞̣̆|𝗲̀|𝐞́|𝗲̣|ẻ|𝖊̃|𝕖̂|𝖊̂̀|𝚎̂́|𝗲̂̉|𝓮̣̂|ì|𝚒́|𝖎̣|𝗶̉|ĩ|𝙤̀|𝐨́|𝓸̣|𝗼̉|𝓸̃|ô|𝐨̂̀|𝓸̂́|ổ|𝖔̣̂|ℴ̛|ờ|𝕠̛́|𝑜̛̉|𝚘̛̣|𝒖̀|𝙪́|𝚞̣|𝔲̉|𝓊̃|𝙪̛|ừ|𝓊̛́|𝒖̛̉|𝙪̛̣|ỳ|𝔶́|𝙮̣|ỷ|𝒚̃|đ|𝔸̀|𝗔́|Ạ|𝐀̉|𝗔̃|Â|𝓐̂̀|𝔸̂́|𝘈̂̉|Ậ|𝐀̆|𝒜̆̀|𝔄̆́|𝑨̆̉|𝕬̣̆|𝙀̀|𝗘́|𝕰̣|𝐸̉|Ẽ|ℰ̂|𝙴̂̀|𝘌̂́|Ể|Ệ|Ì|𝐼́|𝕀̣|𝐈̉|𝓘̃|Ò|𝑶́|𝓞̣|𝙊̉|Õ|𝙾̂|𝐎̂̀|𝙊̂́|𝑂̂̉|𝕆̣̂|Ơ|𝑶̛̀|𝓞̛́|𝐎̛̉|𝙊̛̣|𝙐̀|𝔘́|𝑼̣|𝕌̉|𝒰̃|𝓤̛|𝒰̛̀|𝘜̛́|Ử|Ự|Ỳ|𝒀́|𝒴̣|𝒀̉|𝓨̃|Đ';
+        const standard8 = '𝓪|𝚋|𝒄|𝕕|ⓔ|𝙛|🅖|🅷|🅸|𝒋|🅺|𝓵|𝐦|𝗻|ⓞ|𝕡|𝑞|𝕣|𝚜|🆃|𝘂|𝘃|𝐰|𝘅|𝙮|𝘇|𝘼|𝔅|Ⓒ|𝗗|🅔|𝙵|𝓖|𝐻|🅘|𝕵|🅺|𝓛|𝔐|𝗡|𝕆|𝗣|𝒬|𝓡|𝒮|Ⓣ|🅄|𝘝|𝙒|Ⓧ|🅨|🆉|𝐚̀|𝒂́|𝑎̣|𝒂̉|𝐚̃|𝗮̂|𝑎̂̀|𝒂̂́|ẩ|𝒶̣̂|𝙖̆|𝘢̆̀|ắ|𝓪̆̉|ặ|è|é|𝒆̣|ẻ|ẽ|ê|ề|ế|ℯ̂̉|𝓮̣̂|𝕚̀|𝗶́|𝑖̣|𝘪̉|ĩ|𝗼̀|𝓸́|𝓸̣|𝙤̉|ℴ̃|𝕠̂|ồ|ố|𝚘̂̉|ộ|𝖔̛|𝚘̛̀|𝙤̛́|𝒐̛̉|𝘰̛̣|𝚞̀|𝒖́|𝑢̣|𝘂̉|𝙪̃|𝚞̛|𝓊̛̀|𝘶̛́|ử|𝓊̛̣|𝘆̀|𝖞́|ỵ|𝘆̉|𝒚̃|đ|𝔸̀|Á|𝘈̣|𝑨̉|𝔄̃|𝔄̂|𝘈̂̀|Ấ|𝗔̂̉|Ậ|Ă|Ằ|𝔄̆́|𝕬̆̉|Ặ|𝐸̀|𝘌́|𝘌̣|Ẻ|𝐄̃|Ê|𝔼̂̀|𝙀̂́|𝕰̂̉|𝔈̣̂|𝓘̀|𝕴́|Ị|𝘐̉|𝕀̃|𝕺̀|𝙾́|𝕆̣|𝗢̉|Õ|𝓞̂|𝑶̂̀|𝙊̂́|𝔒̂̉|𝘖̣̂|𝙊̛|𝘖̛̀|𝕺̛́|𝑶̛̉|𝙊̛̣|𝒰̀|Ú|𝙐̣|Ủ|𝙐̃|𝗨̛|Ừ|𝚄̛́|𝚄̛̉|Ự|𝙔̀|𝐘́|𝖄̣|𝐘̉|𝓨̃|Đ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, standard);
+        document.getElementById('result-02').textContent = convertText(inputText, standard2);
+        document.getElementById('result-03').textContent = convertText(inputText, standard3);
+        document.getElementById('result-04').textContent = convertText(inputText, standard4);
+        document.getElementById('result-05').textContent = convertText(inputText, standard5);
+        document.getElementById('result-06').textContent = convertText(inputText, standard6);
+        document.getElementById('result-07').textContent = convertText(inputText, standard7);
+        document.getElementById('result-08').textContent = convertText(inputText, standard8);
+    }
+
+    function transformText() {
+        countWords()
+        convertTexts()
+    }
+
+    function countWords() {
+        const inputText = document.getElementById('inputText').value;
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+
+    function copyText(elementId, messageId) {
+        const element = document.getElementById(elementId);
+        const message = document.getElementById(messageId);
+
+        // Get the text content from the div
+        const textToCopy = element.textContent || element.innerText;
+
+        // Copy text to clipboard using the modern API
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            // Show success message
+            message.style.opacity = 1;
+            setTimeout(() => {
+                message.style.opacity = 0;
+            }, 1000);
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+    }
+
+    //initial data
+    const webContent = {
+        "title": "FrakturFonts: Transform Your Text into Elegant Gothic Script",
+        "description": "Convert ordinary text into stunning Fraktur, Gothic, or Old English script with our easy-to-use online tool. Add a touch of medieval charm to your digital content and stand out on social media.",
+        "content": "<main>\n" +
+            "        <h1>Discover the Art of Fraktur Text Transformation</h1>\n" +
+            "\n" +
+            "        <p>Elevate your digital presence with FrakturFonts, the premier online tool for converting standard text into captivating Fraktur, Gothic, or Old English script. Our user-friendly platform allows you to infuse your social media posts, profile bios, and creative projects with the timeless elegance of medieval calligraphy.</p>\n" +
+            "\n" +
+            "        <h2>Why Choose FrakturFonts?</h2>\n" +
+            "        <ul>\n" +
+            "            <li>Instant transformation of plain text to Fraktur script</li>\n" +
+            "            <li>Perfect for social media, graphic design, and artistic endeavors</li>\n" +
+            "            <li>Evoke a sense of tradition and historical charm in your content</li>\n" +
+            "            <li>Stand out from the crowd with unique, eye-catching typography</li>\n" +
+            "        </ul>\n" +
+            "\n" +
+            "        <h2>How It Works:</h2>\n" +
+            "        <ol>\n" +
+            "            <li>Enter your desired text in the input field</li>\n" +
+            "            <li>Choose your preferred style: Fraktur, Gothic, or Old English</li>\n" +
+            "            <li>Click 'Transform' to generate your stylized text</li>\n" +
+            "            <li>Copy the result and paste it wherever you need – social media, documents, or design projects</li>\n" +
+            "        </ol>\n" +
+            "\n" +
+            "        <h2>Unleash Your Creativity with Fraktur</h2>\n" +
+            "        <p>Whether you're a history enthusiast, a graphic designer, or simply looking to add a touch of medieval flair to your online presence, FrakturFonts has you covered. Our tool is perfect for:</p>\n" +
+            "        <ul>\n" +
+            "            <li>Creating unique social media posts</li>\n" +
+            "            <li>Designing eye-catching book covers or posters</li>\n" +
+            "            <li>Crafting vintage-inspired logos and branding elements</li>\n" +
+            "            <li>Adding a Gothic touch to wedding invitations or event announcements</li>\n" +
+            "        </ul>\n" +
+            "\n" +
+            "        <h2>FAQ:</h2>\n" +
+            "        <dl>\n" +
+            "            <dt>Q: Is FrakturFonts compatible with all social media platforms?</dt>\n" +
+            "            <dd>A: Yes, our generated text can be used on most social media platforms, including Facebook, Twitter, Instagram, and TikTok.</dd>\n" +
+            "\n" +
+            "            <dt>Q: Can I use the transformed text for commercial purposes?</dt>\n" +
+            "            <dd>A: Absolutely! The text generated by FrakturFonts is free to use for both personal and commercial projects.</dd>\n" +
+            "\n" +
+            "            <dt>Q: Are there any limitations on the amount of text I can transform?</dt>\n" +
+            "            <dd>A: Our tool can handle large amounts of text, but for optimal performance, we recommend transforming sections of 500 characters or less at a time.</dd>\n" +
+            "        </dl>\n" +
+            "\n" +
+            "        <h2>Embrace the Timeless Beauty of Fraktur</h2>\n" +
+            "        <p>Join thousands of satisfied users who have discovered the power of Fraktur script. From social media influencers to graphic designers and history buffs, FrakturFonts has become the go-to tool for adding a touch of medieval elegance to digital content.</p>\n" +
+            "\n" +
+            "        <p>Transform your text today and experience the allure of Fraktur, Gothic, and Old English typography. Let your words stand out in a sea of ordinary fonts – try FrakturFonts now and bring a piece of history to your digital world!</p>\n" +
+            "    </main>"
+    }
+    document.getElementById('page-title').textContent = webContent.title;
+    document.getElementById('page-description').textContent = webContent.description;
+    document.getElementById('page-content').innerHTML = webContent.content;
+</script>
+</body>
+</html>

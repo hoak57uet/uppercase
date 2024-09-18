@@ -1,9 +1,51 @@
 <!doctype html>
-<html ⚡>
+<html ⚡ lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <link rel="canonical" href="self.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squiggles and Hooks Text Generator - Playful Unicode Typography</title>
+
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description" content="Transform your text with playful squiggles and hooks using our unique Unicode text generator! Add artistic flair to your social media posts and messages.">
+    <meta name="keywords" content="Squiggles and Hooks Text Generator, Unicode text, decorative typography, playful text, diacritical marks, creative text generator">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Squiggles and Hooks Text Generator - Playful Unicode Typography">
+    <meta property="og:description" content="Create visually striking text with our Squiggles and Hooks generator! Perfect for social media and creative projects.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Squiggles and Hooks Text Generator">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="Squiggles and Hooks Text Generator - Playful Unicode Typography">
+    <meta name="twitter:description" content="Transform your text with playful squiggles and hooks using our unique Unicode text generator!">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.yourwebsite.com">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Language Declaration -->
+    <meta name="language" content="English">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Additional Meta Tags -->
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+
+
+
     <style amp-custom>
         body {
             font-family: Arial, sans-serif;
@@ -40,6 +82,8 @@
             text-align: left;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-family: "Times New Roman";
+            font-size: 15px;
         }
 
         label {
@@ -71,14 +115,14 @@
             display: flex;
             background: #f0f0f0;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .result-even {
             display: flex;
             background: aliceblue;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .input-result {
@@ -86,10 +130,11 @@
             align-self: center;
             flex: 1;
             text-align: left;
+            white-space: pre-wrap;
         }
 
         .button-result {
-            margin:5px;
+            margin: 5px;
             height: 25px;
             align-self: center;
         }
@@ -101,17 +146,20 @@
             align-self: center;
             transition: opacity 0.5s ease;
         }
+
+        #page-content {
+            text-align: left;
+        }
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <title>AMP HTML Example</title>
 </head>
 <body>
 <div class="container">
-    <h1 id="page-title">Tiêu đề của bạn</h1>
-    <p id="page-description">Đây là mô tả nằm bên dưới tiêu đề.</p>
+    <h1 id="page-title">Squiggles and Hooks Text Generator - Playful Unicode Typography</h1>
+    <p id="page-description">Transform your text with playful squiggles and hooks using our unique Unicode text generator! Add artistic flair to your social media posts and messages.</p>
     <div class="text-input">
-        <label for="userInput">Enter your text</label>
-        <textarea id="userInput" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+        <label for="inputText">Enter your text</label>
+        <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
         <div class="counts">
             Character Count: <span id="charCount">0</span> |
             Word Count: <span id="wordCount">0</span> |
@@ -119,40 +167,107 @@
             Line Count: <span id="lineCount">0</span>
         </div>
     </div>
-    <div class="text-input">
+    <div class="text-input" id="result">
         <label>Preview</label>
         <div class="result">
-            <span readonly class="input-result" id = "result-01">Result01</span>
+            <span readonly class="input-result" id="result-01"></span>
             <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy</button>
+            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy
+            </button>
         </div>
         <div class="result-even">
-
+            <span readonly class="input-result" id="result-02"></span>
+            <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+            <button class="button-result" id="copy-result-02" onclick="copyText('result-02', 'copiedMessage2')">Copy
+            </button>
         </div>
         <div class="result">
-
-        </div>
-        <div class="result-even">
-
-        </div>
-        <div class="result">
-
-        </div>
-        <div class="result-even">
-
+            <span readonly class="input-result" id="result-03"></span>
+            <span class="copied-message" id="copiedMessage3">Copied ✓</span>
+            <button class="button-result" id="copy-result-03" onclick="copyText('result-03', 'copiedMessage3')">Copy
+            </button>
         </div>
     </div>
     <section id="page-content">
+        <main>
+            <h1>Squiggles and Hooks Text Generator - Playful Unicode Typography</h1>
+
+            <p>Experience the magic of Unicode with our "Squiggles and Hooks" text generator! This tool allows you to create playful, decorative text that adds diacritical embellishments to your written words, making them look like artistic calligraphy. ✒</p>
+
+            <h2>Why Choose Our Squiggles and Hooks Text Generator?</h2>
+            <ul>
+                <li>Add unique visual accents and flourishes to each letter</li>
+                <li>Enhance your social media posts, messages, and creative projects</li>
+                <li>Explore various styles with squiggles, hooks, curls, and horns</li>
+                <li>Utilize symbols often found in phonetics and linguistics</li>
+            </ul>
+
+            <h2>How It Works:</h2>
+            <ol>
+                <li>Type or paste your desired text into the input field</li>
+                <li>Watch as our tool transforms it with playful diacritical marks</li>
+                <li>Copy the generated text with squiggles and hooks</li>
+                <li>Paste it anywhere on the web to showcase your creativity</li>
+            </ol>
+
+            <h2>The Power of Diacritics in Language</h2>
+            <p>Diacritics play a crucial role in enhancing written communication. They modify vowel sounds, alter pronunciation, and ensure accurate representation of words. With our text generator, you can explore:</p>
+            <ul>
+                <li>How diacritical marks differentiate similar words</li>
+                <li>The significance of phonetics in language clarity</li>
+                <li>The creative potential of typographic exploration</li>
+            </ul>
+
+            <h2>FAQ:</h2>
+            <dl>
+                <dt>Q: Is the generated text usable across all platforms?</dt>
+                <dd>A: Yes! You can use the generated text on various social media platforms, messaging apps, and other digital communications that support Unicode.</dd>
+
+                <dt>Q: Can I customize the diacritical effects?</dt>
+                <dd>A: Currently, the generator provides a selection of predefined styles. We are working on features to allow more customization in future updates.</dd>
+
+                <dt>Q: What makes this style unique?</dt>
+                <dd>A: The combination of squiggles, hooks, and other diacritical marks adds an artistic and playful touch to your text, making it visually striking and memorable.</dd>
+            </dl>
+
+            <h2>Unleash Your Creativity</h2>
+            <p>With our "Squiggles and Hooks" text generator, you can turn ordinary text into a playful canvas for artistic expression. Embrace the importance of diacritics in language while showcasing your creativity. Try it now and add a touch of whimsy to your written words!</p>
+        </main>
+
+
     </section>
 </div>
 
 <script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = 'ả|ɓ|ƈ|ɗ|ẻ|ḟ|ɠ|ɦ|ỉ|ĵ|ƙ|ꞎ|ḿ|ή|ơ|ƥ|ʠ|ɼ|ś|ť|ư|ⱱ|ⱳ|x̂|ƴ|ź|Ả|Ɓ|Ć|Ď|Ế|Ḟ|Ɠ|Ɦ|Ỉ|Ĵ|Ƙ|Ĺ|Ḿ|Ń|Ơ|Ꝕ|℺|Ȑ|Ś|Ƭ|Ư|Ѵ|Ⱳ|X̂|Ƴ|Ž|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard2 = 'ᶏ|ᶀ|ꞔ|ᶁ|ᶒ|ᶂ|ᶃ|ⱨ|ᶖ|ʝ|ᶄ|ᶅ|ᶆ|ᶇ|ǫ|ᶈ|ɋ|ᶉ|ᶊ|ƫ|ᶙ|ᶌ|Щ|ᶍ|ƴ|ᶎ|Ą|Ɓ|Ç|Ɗ|Ę|Ƒ|Ģ|Ɦ̡|I̢|Ʝ|Ķ|L̡|Ɱ|Ɲ|Ǫ|Ƥ|Ꝗ|Ɽ|Ȿ|Ʈ|Ų|Ṿ|Ⱳ|Ҳ|Ƴ|Ȥ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard3 = 'ả|ɓ|ƈ|ɗ|ẻ|ḟ|ɠ|ɦ|ỉ|ĵ|ƙ|ꞎ|ḿ|ή|ơ|ƥ|ʠ|ɼ|ś|ť|ư|ⱱ|ⱳ|x̂|ƴ|ź|Ả|Ɓ|Ć|Ď|Ế|Ḟ|Ɠ|Ɦ|Ỉ|Ĵ|Ƙ|Ĺ|Ḿ|Ń|Ơ|Ꝕ|℺|Ȑ|Ś|Ƭ|Ư|Ѵ|Ⱳ|X̂|Ƴ|Ž|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, standard);
+        document.getElementById('result-02').textContent = convertText(inputText, standard2);
+        document.getElementById('result-03').textContent = convertText(inputText, standard3);
+    }
+
     function transformText() {
         countWords()
+        convertTexts()
     }
 
     function countWords() {
-        const inputText = document.getElementById('userInput').value;
+        const inputText = document.getElementById('inputText').value;
 
         // Character count
         document.getElementById('charCount').textContent = inputText.length;
@@ -188,15 +303,6 @@
             console.error('Failed to copy text: ', err);
         });
     }
-    //initial data
-    const webContent ={
-        "title":"Dynamic Title",
-        "description":"Dynamic Description",
-        "content":"<div>Hello content</div>"
-    }
-    document.getElementById('page-title').textContent = webContent.title;
-    document.getElementById('page-description').textContent = webContent.description;
-    document.getElementById('page-content').innerHTML = webContent.content;
 </script>
 </body>
 </html>

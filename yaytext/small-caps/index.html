@@ -1,9 +1,50 @@
 <!doctype html>
-<html ⚡>
+<html ⚡ lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <link rel="canonical" href="self.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Caps Text Generator - Stylish Unicode Text for Social Media</title>
+
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description" content="Create stylish small caps text for your social media posts, usernames, and more with our easy-to-use Unicode generator!">
+    <meta name="keywords" content="Small Caps Text Generator, Unicode text, stylish typography, social media text, creative text generator, text formatting">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Small Caps Text Generator - Create Stylish Unicode Text">
+    <meta property="og:description" content="Transform your text into stylish small caps for social media and more with our easy generator!">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Small Caps Text Generator">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="Small Caps Text Generator - Create Stylish Unicode Text">
+    <meta name="twitter:description" content="Create stylish small caps text for your online presence with our easy Unicode generator!">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.yourwebsite.com">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Language Declaration -->
+    <meta name="language" content="English">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Additional Meta Tags -->
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+
+
     <style amp-custom>
         body {
             font-family: Arial, sans-serif;
@@ -40,6 +81,8 @@
             text-align: left;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-family: "Times New Roman";
+            font-size: 15px;
         }
 
         label {
@@ -71,14 +114,14 @@
             display: flex;
             background: #f0f0f0;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .result-even {
             display: flex;
             background: aliceblue;
             width: 100%;
-            height: 40px;
+            min-height: 40px;
         }
 
         .input-result {
@@ -86,10 +129,11 @@
             align-self: center;
             flex: 1;
             text-align: left;
+            white-space: pre-wrap;
         }
 
         .button-result {
-            margin:5px;
+            margin: 5px;
             height: 25px;
             align-self: center;
         }
@@ -101,17 +145,20 @@
             align-self: center;
             transition: opacity 0.5s ease;
         }
+
+        #page-content {
+            text-align: left;
+        }
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <title>AMP HTML Example</title>
 </head>
 <body>
 <div class="container">
-    <h1 id="page-title">Tiêu đề của bạn</h1>
-    <p id="page-description">Đây là mô tả nằm bên dưới tiêu đề.</p>
+    <h1 id="page-title">Small Caps Text Generator - Stylish Unicode Text for Social Media</h1>
+    <p id="page-description">Create stylish small caps text for your social media posts, usernames, and more with our easy-to-use Unicode generator!</p>
     <div class="text-input">
-        <label for="userInput">Enter your text</label>
-        <textarea id="userInput" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+        <label for="inputText">Enter your text</label>
+        <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
         <div class="counts">
             Character Count: <span id="charCount">0</span> |
             Word Count: <span id="wordCount">0</span> |
@@ -119,40 +166,99 @@
             Line Count: <span id="lineCount">0</span>
         </div>
     </div>
-    <div class="text-input">
+    <div class="text-input" id="result">
         <label>Preview</label>
         <div class="result">
-            <span readonly class="input-result" id = "result-01">Result01</span>
+            <span readonly class="input-result" id="result-01"></span>
             <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy</button>
+            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy
+            </button>
         </div>
         <div class="result-even">
-
-        </div>
-        <div class="result">
-
-        </div>
-        <div class="result-even">
-
-        </div>
-        <div class="result">
-
-        </div>
-        <div class="result-even">
-
+            <span readonly class="input-result" id="result-02"></span>
+            <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+            <button class="button-result" id="copy-result-02" onclick="copyText('result-02', 'copiedMessage2')">Copy
+            </button>
         </div>
     </div>
     <section id="page-content">
+        <main>
+            <h1>Small Caps Text Generator - Add Style to Your Posts</h1>
+
+            <p>Transform your online communication with our Small Caps Text Generator. This tool uses Unicode to create text that looks like ʟɪᴋᴇ ᴛʜɪs, making your Facebook posts, tweets, and comments stand out with a stylish flair. Whether you're allergic to lowercase letters or simply want to give your username a more Uɴɪǫᴜᴇ Lᴏᴏᴋ, this generator is perfect for you!</p>
+
+            <h2>Why Choose Our Small Caps Text Generator?</h2>
+            <ul>
+                <li>Create visually appealing text that enhances your social media presence</li>
+                <li>Add stylish headers and emphasis to your posts</li>
+                <li>Utilize characters from the Latin Extended and Phonetic Extensions blocks for a polished look</li>
+                <li>Copy and paste small caps text anywhere on the web with ease</li>
+            </ul>
+
+            <h2>How It Works:</h2>
+            <ol>
+                <li>Input your desired text into the generator</li>
+                <li>Watch as the tool converts it into small caps format</li>
+                <li>Copy the generated text</li>
+                <li>Paste it wherever you want to add a touch of style – on social media, in messages, or emails</li>
+            </ol>
+
+            <h2>Creative Uses for Small Caps Text</h2>
+            <p>The small caps style is not just for aesthetics; it has practical applications too:</p>
+            <ul>
+                <li>Add elegance and sophistication to headings and titles</li>
+                <li>Emphasize specific words or phrases for better readability</li>
+                <li>Use in academic settings for citations and references, giving author names a consistent look</li>
+                <li>Enhance usernames and captions on social media for a unique touch</li>
+            </ul>
+
+            <h2>FAQ:</h2>
+            <dl>
+                <dt>Q: Is the small caps text compatible with all platforms?</dt>
+                <dd>A: Yes, our generated text can be used across various social media platforms, messaging apps, and other digital communication tools that support Unicode.</dd>
+
+                <dt>Q: How does this style differ from traditional capital letters?</dt>
+                <dd>A: Small caps maintain the proportions of capital letters but are reduced in size to match lowercase letters, providing a distinct visual contrast.</dd>
+
+                <dt>Q: Can I use this for professional purposes?</dt>
+                <dd>A: Absolutely! The small caps style is perfect for professional settings, enhancing the visual appeal of documents, presentations, and academic work.</dd>
+            </dl>
+
+            <h2>Enhance Your Digital Communication</h2>
+            <p>With our Small Caps Text Generator, you can easily add style and sophistication to your online presence. Stand out with eye-catching text that captures attention and elevates your content. Try it now and give your text the unique flair it deserves!</p>
+        </main>
+
     </section>
 </div>
 
 <script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = 'ᴀ|ʙ|ᴄ|ᴅ|ᴇ|ꜰ|ɢ|ʜ|ɪ|ᴊ|ᴋ|ʟ|ᴍ|ɴ|ᴏ|ᴘ|ǫ|ʀ|s|ᴛ|ᴜ|ᴠ|ᴡ|x|ʏ|ᴢ|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|ᴀ̀|ᴀ́|ᴀ̣|ᴀ̉|ᴀ̃|ᴀ̂|ᴀ̂̀|ᴀ̂́|ᴀ̂̉|ᴀ̣̂|ᴀ̆|ᴀ̆̀|ᴀ̆́|ᴀ̆̉|ᴀ̣̆|ᴇ̀|ᴇ́|ᴇ̣|ᴇ̉|ᴇ̃|ᴇ̂|ᴇ̂̀|ᴇ̂́|ᴇ̂̉|ᴇ̣̂|ɪ̀|ɪ́|ɪ̣|ɪ̉|ɪ̃|ᴏ̀|ᴏ́|ᴏ̣|ᴏ̉|ᴏ̃|ᴏ̂|ᴏ̂̀|ᴏ̂́|ᴏ̂̉|ᴏ̣̂|ᴏ̛|ᴏ̛̀|ᴏ̛́|ᴏ̛̉|ᴏ̛̣|ᴜ̀|ᴜ́|ᴜ̣|ᴜ̉|ᴜ̃|ᴜ̛|ᴜ̛̀|ᴜ̛́|ᴜ̛̉|ᴜ̛̣|ʏ̀|ʏ́|ʏ̣|ʏ̉|ʏ̃|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard2 = 'ᴀ|ʙ|ᴄ|ᴅ|ᴇ|ғ|ɢ|ʜ|ɪ|ᴊ|ᴋ|ʟ|ᴍ|ɴ|ᴏ|ᴘ|ǫ|ʀ|s|ᴛ|ᴜ|ᴠ|ᴡ|x|ʏ|ᴢ|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|ᴀ̀|ᴀ́|ᴀ̣|ᴀ̉|ᴀ̃|ᴀ̂|ᴀ̂̀|ᴀ̂́|ᴀ̂̉|ᴀ̣̂|ᴀ̆|ᴀ̆̀|ᴀ̆́|ᴀ̆̉|ᴀ̣̆|ᴇ̀|ᴇ́|ᴇ̣|ᴇ̉|ᴇ̃|ᴇ̂|ᴇ̂̀|ᴇ̂́|ᴇ̂̉|ᴇ̣̂|ɪ̀|ɪ́|ɪ̣|ɪ̉|ɪ̃|ᴏ̀|ᴏ́|ᴏ̣|ᴏ̉|ᴏ̃|ᴏ̂|ᴏ̂̀|ᴏ̂́|ᴏ̂̉|ᴏ̣̂|ᴏ̛|ᴏ̛̀|ᴏ̛́|ᴏ̛̉|ᴏ̛̣|ᴜ̀|ᴜ́|ᴜ̣|ᴜ̉|ᴜ̃|ᴜ̛|ᴜ̛̀|ᴜ̛́|ᴜ̛̉|ᴜ̛̣|ʏ̀|ʏ́|ʏ̣|ʏ̉|ʏ̃|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, standard);
+        document.getElementById('result-02').textContent = convertText(inputText, standard2);
+    }
+
     function transformText() {
         countWords()
+        convertTexts()
     }
 
     function countWords() {
-        const inputText = document.getElementById('userInput').value;
+        const inputText = document.getElementById('inputText').value;
 
         // Character count
         document.getElementById('charCount').textContent = inputText.length;
@@ -188,15 +294,6 @@
             console.error('Failed to copy text: ', err);
         });
     }
-    //initial data
-    const webContent ={
-        "title":"Dynamic Title",
-        "description":"Dynamic Description",
-        "content":"<div>Hello content</div>"
-    }
-    document.getElementById('page-title').textContent = webContent.title;
-    document.getElementById('page-description').textContent = webContent.description;
-    document.getElementById('page-content').innerHTML = webContent.content;
 </script>
 </body>
 </html>
