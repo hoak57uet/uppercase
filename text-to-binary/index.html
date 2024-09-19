@@ -1,0 +1,276 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description" content="Convert text to binary and binary to text easily with our online converter. Ideal for data encoding, debugging, and digital communication. Try it now!">
+    <meta name="keywords" content="Text to Binary, Binary to Text, online converter, text encoding, binary encoding, data conversion tool, digital communication">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Text to Binary and Binary to Text Converter - Effortless Data Encoding">
+    <meta property="og:description" content="Quickly convert text to binary or binary to text with our tool. Simple, fast, and ideal for data encoding and decoding.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Text and Binary Converter Tool">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="Text to Binary and Binary to Text Converter - Simple and Fast Tool">
+    <meta name="twitter:description" content="Effortlessly convert text to binary and binary to text with our online tool. Perfect for data encoding and decoding.">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.yourwebsite.com">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+    <style amp-custom>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .textarea-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        textarea {
+            width: calc(100% - 30px);
+            height: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            min-width: 250px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* Giữ lại dấu xuống dòng */
+        }
+
+        .output-box {
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+            min-width: 400px;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            word-wrap: break-word;
+            box-sizing: border-box;
+        }
+
+        .options label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .copy-button {
+            margin: 5px;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            font-size: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+        }
+
+        .copy-icon {
+            color: #333;
+        }
+
+        .copied-message {
+            font-size: 12px;
+            color: green;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .counts {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Text to Binary and Binary to Text Converter - Effortless Data Encoding</h1>
+    <p>Convert text to binary and binary to text easily with our online converter. Ideal for data encoding, debugging, and digital communication. Try it now!</p>
+
+    <div class="textarea-container">
+        <!-- Input text area -->
+        <div class="output-box">
+            <label for="outputText">Your text</label>
+            <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <!-- Output text area -->
+        <div class="output-box">
+            <label for="outputText">Binary</label>
+            <textarea id="outputText" placeholder="Your beautified text will appear here..."></textarea>
+            <div>
+                <button class="copy-button" onclick="copyText('outputText', 'copiedMessage1')">
+                    Copy
+                </button>
+                <span class="copied-message" id="copiedMessage1">Copied</span>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <section>
+            <h2>About Our Text to Binary and Binary to Text Converter Tool</h2>
+            <p>Our Text to Binary and Binary to Text converter tool is designed to simplify the conversion between textual data and its binary representation. This tool is particularly useful for developers, data analysts, and anyone dealing with digital encoding and decoding. Whether you need to convert text into a binary format for data processing or decode binary data back into readable text, our tool makes it quick and easy.</p>
+
+            <p>Binary encoding represents text data in a format that computers can easily process and store. Each character is converted into a series of binary digits (0s and 1s), making it suitable for various digital applications. Conversely, converting binary data back into text is essential for interpreting and displaying the information in a human-readable format.</p>
+
+            <h2>How It Works</h2>
+            <p>Using our Text to Binary and Binary to Text converter is straightforward:</p>
+
+            <ul>
+                <li><strong>Convert Text to Binary:</strong> Enter the text you want to convert into the input field and click the "Convert to Binary" button. The tool will process the text and provide you with its binary representation.</li>
+                <li><strong>Convert Binary to Text:</strong> Input your binary string into the input field and click the "Convert to Text" button. The tool will decode the binary string and return the original text.</li>
+                <li><strong>Copy or Download:</strong> After conversion, you can copy the result directly or download it if needed for further use.</li>
+            </ul>
+
+            <p>Our tool supports various text and binary formats, ensuring accurate and efficient conversions. It handles large inputs gracefully and maintains data integrity throughout the process.</p>
+        </section>
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. What is binary encoding?</h3>
+            <p>Binary encoding is the representation of text or data in a binary format, using only two symbols: 0 and 1. Each character or piece of data is converted into a sequence of these binary digits, making it suitable for digital processing and storage.</p>
+
+            <h3>2. Why should I convert text to binary?</h3>
+            <p>Converting text to binary is often necessary for tasks related to data encoding, digital communications, or debugging. Binary data is fundamental to computing and can be used in various technical processes, including data transmission and storage.</p>
+
+            <h3>3. How do I convert text to binary?</h3>
+            <p>Enter your text into the input field and click "Convert to Binary". The tool will convert each character of the text into its binary representation and display the result.</p>
+
+            <h3>4. How do I convert binary to text?</h3>
+            <p>Input your binary string into the input field and click "Convert to Text". The tool will decode the binary data back into readable text and show the output.</p>
+
+            <h3>5. Can I use this tool for large text or binary strings?</h3>
+            <p>Yes, our tool is designed to handle various sizes of text and binary strings efficiently. However, for very large datasets, processing times might vary.</p>
+
+            <h3>6. Is my data secure when using this tool?</h3>
+            <p>Yes, your data is secure. The conversion process takes place directly in your browser, ensuring that your text and binary data are not uploaded to external servers.</p>
+
+            <h3>7. What should I do if the conversion result is not as expected?</h3>
+            <p>Ensure that your input text or binary string is correctly formatted and does not contain any extra characters or spaces. Verify that your binary string is properly padded if necessary, and try converting again. If issues persist, double-check your input data.</p>
+        </section>
+
+    </section>
+
+
+</div>
+
+<script>
+    // Copy text function
+    function copyText(textAreaId, messageId) {
+        const textArea = document.getElementById(textAreaId);
+        const message = document.getElementById(messageId);
+
+        textArea.select();
+        document.execCommand('copy');
+
+        message.style.opacity = 1;
+        setTimeout(() => {
+            message.style.opacity = 0;
+        }, 1000);
+    }
+
+    function countWords(inputText) {
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+
+    function textToBinary(text) {
+        let binary = '';
+        for (let i = 0; i < text.length; i++) {
+            const binaryChar = text.charCodeAt(i).toString(2).padStart(8, '0');
+            binary += binaryChar + ' ';
+        }
+        return binary.trim();
+    }
+
+    function binaryToText(binary) {
+        const binaryArray = binary.split(' ');
+        let text = '';
+        for (let i = 0; i < binaryArray.length; i++) {
+            text += String.fromCharCode(parseInt(binaryArray[i], 2));
+        }
+        return text;
+    }
+
+
+    // Event listener to handle input changes and mode
+    document.getElementById('inputText').addEventListener('input', function () {
+        const inputText = this.value;
+        document.getElementById('outputText').value = textToBinary(inputText);
+    });
+
+    document.getElementById('outputText').addEventListener('input', function () {
+        const inputText = this.value;
+        document.getElementById('inputText').value = binaryToText(inputText);
+    });
+
+</script>
+</body>
+</html>

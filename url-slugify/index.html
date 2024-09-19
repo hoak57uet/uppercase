@@ -1,0 +1,269 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description" content="Convert text to clean and SEO-friendly URLs with our online slugify tool. Ideal for creating readable, user-friendly links for websites.">
+    <meta name="keywords" content="Text to URL Slug, Slugify Tool, SEO-friendly URLs, URL cleaner, online converter, URL optimization, URL generator, website development">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Text to URL Slug Converter - Clean and SEO-Friendly URL Generator">
+    <meta property="og:description" content="Convert text to SEO-friendly and clean URLs with our slugify tool. Improve your website's user experience and SEO ranking.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Text to URL Slug Converter">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="Text to URL Slug Converter - SEO-Friendly URL Generator">
+    <meta name="twitter:description" content="Quickly convert text to clean and SEO-optimized URLs with our slugify tool. Enhance your website’s SEO with clean, readable slugs.">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.yourwebsite.com">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+
+
+    <style amp-custom>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .textarea-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        textarea {
+            width: calc(100% - 30px);
+            height: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            min-width: 250px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* Giữ lại dấu xuống dòng */
+        }
+
+        .output-box {
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+            min-width: 400px;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            word-wrap: break-word;
+            box-sizing: border-box;
+        }
+
+        .options label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .copy-button {
+            margin: 5px;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            font-size: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+        }
+
+        .copy-icon {
+            color: #333;
+        }
+
+        .copied-message {
+            font-size: 12px;
+            color: green;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .counts {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Text to URL Slug Converter - Clean and SEO-Friendly URL Generator</h1>
+    <p>Convert text to clean and SEO-friendly URLs with our online slugify tool. Ideal for creating readable, user-friendly links for websites.</p>
+
+    <div class="textarea-container">
+        <!-- Input text area -->
+        <div class="output-box">
+            <label for="outputText">Your text</label>
+            <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <!-- Output text area -->
+        <div class="output-box">
+            <label for="outputText">Slug</label>
+            <textarea id="outputText" placeholder="ROT13 will appear here..."></textarea>
+            <div>
+                <button class="copy-button" onclick="copyText('outputText', 'copiedMessage1')">
+                    Copy
+                </button>
+                <span class="copied-message" id="copiedMessage1">Copied</span>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <section>
+            <h2>About Our Text to URL Slug Converter Tool</h2>
+            <p>Our Text to URL Slug Converter tool helps you easily convert text into a URL-safe, clean, and SEO-friendly format. Slugifying is essential for making URLs readable, optimizing them for search engines, and improving user experience. A well-crafted slug can enhance the click-through rate of your web pages and make your content more discoverable.</p>
+
+            <p>This tool transforms any text into a slug by replacing spaces with hyphens, converting characters to lowercase, and removing special characters. Slugifying ensures your URLs are free from unnecessary symbols, making them both user-friendly and optimized for SEO.</p>
+
+            <h2>How It Works</h2>
+            <p>Using our Text to URL Slug Converter is simple:</p>
+
+            <ul>
+                <li><strong>Input Text:</strong> Type or paste your desired text into the input field.</li>
+                <li><strong>Slugify Text:</strong> Click the "Generate Slug" button, and our tool will convert your text into a clean, lowercase slug with spaces replaced by hyphens.</li>
+                <li><strong>Copy or Download:</strong> Once the slug is generated, you can copy it directly or download the result for use in your URLs.</li>
+            </ul>
+
+            <p>This tool ensures that your slugs are free from special characters, properly formatted for SEO, and ready to be used in your website's URLs. It's perfect for developers, content creators, and SEO experts looking for efficient ways to create optimized links.</p>
+        </section
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. What is a URL slug?</h3>
+            <p>A URL slug is the part of a URL that comes after the domain name and typically describes the content of the page. For example, in the URL "example.com/my-blog-post", "my-blog-post" is the slug. It should be clean, simple, and SEO-friendly.</p>
+
+            <h3>2. Why should I use a URL slug?</h3>
+            <p>Using a URL slug makes your URLs easier to read, more descriptive, and better optimized for search engines. This helps improve the visibility of your content and enhances user experience.</p>
+
+            <h3>3. How do I create a URL slug?</h3>
+            <p>Simply input your desired text into our tool, and it will automatically generate a slug by converting the text to lowercase, replacing spaces with hyphens, and removing special characters.</p>
+
+            <h3>4. How does slugify affect SEO?</h3>
+            <p>Slugifying your URLs helps improve SEO by making your URLs more readable and keyword-friendly. Search engines prefer clean URLs that accurately describe the content of a page, which can increase your ranking and visibility in search results.</p>
+
+            <h3>5. Can I use this tool for any type of text?</h3>
+            <p>Yes, our tool works with any text input. Whether it's a blog title, product name, or any other text, it will convert it into a well-formatted, URL-friendly slug.</p>
+
+            <h3>6. What should I do if the generated slug isn't exactly what I want?</h3>
+            <p>Our tool allows you to manually edit the generated slug if necessary. Simply make adjustments to the text after conversion to match your specific needs.</p>
+
+            <h3>7. Is the conversion case-sensitive?</h3>
+            <p>No, the tool automatically converts all text to lowercase to ensure consistency in your URLs, which is a best practice for SEO.</p>
+        </section>
+
+
+
+    </section>
+
+
+</div>
+
+<script>
+    // Copy text function
+    function copyText(textAreaId, messageId) {
+        const textArea = document.getElementById(textAreaId);
+        const message = document.getElementById(messageId);
+
+        textArea.select();
+        document.execCommand('copy');
+
+        message.style.opacity = 1;
+        setTimeout(() => {
+            message.style.opacity = 0;
+        }, 1000);
+    }
+
+    function countWords(inputText) {
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+
+    function slugify(text) {
+        return text
+            .toString()                              // Chuyển đổi chuỗi thành kiểu string
+            .normalize('NFD')                        // Chuẩn hóa ký tự Unicode
+            .replace(/[\u0300-\u036f]/g, '')         // Loại bỏ dấu âm (như các dấu trong tiếng Việt)
+            .toLowerCase()                           // Chuyển sang chữ thường
+            .trim()                                  // Loại bỏ khoảng trắng ở đầu và cuối
+            .replace(/[^a-z0-9 -]/g, '')             // Loại bỏ các ký tự đặc biệt
+            .replace(/\s+/g, '-')                    // Thay thế khoảng trắng bằng dấu gạch ngang
+            .replace(/-+/g, '-');                    // Thay thế nhiều dấu gạch ngang bằng một
+    }
+
+    // Event listener to handle input changes and mode
+    document.getElementById('inputText').addEventListener('input', function () {
+        const inputText = this.value;
+        countWords(inputText)
+        document.getElementById('outputText').value = slugify(inputText);
+    });
+
+</script>
+</body>
+</html>

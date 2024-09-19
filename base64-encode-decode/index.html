@@ -1,0 +1,293 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description"
+          content="Easily encode and decode text with our Base64 Encoder and Decoder tool. Convert text to Base64 for secure transmission or decode Base64 back to text.">
+    <meta name="keywords"
+          content="Base64 Encoder, Base64 Decoder, text to Base64, decode Base64, encode text, data encoding tool">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Base64 Encoder and Decoder - Convert Text to Base64 and Back">
+    <meta property="og:description"
+          content="Use our easy-to-use Base64 Encoder and Decoder tool to convert text to Base64 or decode Base64 back to text with just a few clicks.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Base64 Encoder and Decoder Tool">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="Base64 Encoder and Decoder Tool - Fast and Easy Conversion">
+    <meta name="twitter:description"
+          content="Easily convert text to Base64 or decode Base64 back to text with our fast and simple Base64 encoding tool.">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.yourwebsite.com">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <style amp-custom>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .textarea-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        textarea {
+            width: calc(100% - 30px);
+            height: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            min-width: 250px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* Giữ lại dấu xuống dòng */
+        }
+
+        .output-box {
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+            min-width: 400px;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            word-wrap: break-word;
+            box-sizing: border-box;
+        }
+
+        .options label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .copy-button {
+            bottom: 5px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            font-size: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+        }
+
+        .copy-icon {
+            color: #333;
+        }
+
+        .copied-message {
+            font-size: 12px;
+            color: green;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .counts {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Base64 Encoder and Decoder Tool - Convert Text to Base64 Effortless</h1>
+    <p>Easily encode and decode text with our Base64 Encoder and Decoder tool. Convert text to Base64 for secure
+        transmission or decode Base64 back to text.</p>
+
+    <div class="textarea-container">
+        <!-- Input text area -->
+        <div class="output-box">
+            <label for="outputText">Enter your text</label>
+            <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <!-- Output text area -->
+        <div class="output-box">
+            <label for="outputText">Base64</label>
+            <textarea id="outputText" placeholder="Base64 will appear here..."></textarea>
+        </div>
+    </div>
+
+    <section>
+        <h2>About Our Base64 Encoder and Decoder Tool</h2>
+        <p>Our Base64 Encoder and Decoder tool is designed to help you quickly and effortlessly convert text to Base64
+            format and decode Base64 strings back to readable text. Base64 encoding is a widely-used method for encoding
+            binary data into text, especially in applications where binary data needs to be safely transmitted over
+            text-based communication channels. Developers, content creators, and anyone dealing with secure data
+            transmission can benefit from this tool's ease of use and speed.</p>
+
+        <p>Base64 encoding converts binary data into an ASCII string, allowing it to be safely included in URLs, HTML,
+            CSS, or other text-based formats without breaking the structure. Whether you're encoding text for secure
+            transmission or decoding Base64-encoded strings back into their original form, our tool simplifies the
+            entire process.</p>
+
+        <p>Our tool supports a wide range of use cases, including embedding images or files in web pages, encoding email
+            attachments, or converting complex data into a format suitable for text-based protocols. The encoded output
+            is optimized to retain data integrity while ensuring compatibility with systems that only accept textual
+            data.</p>
+
+        <h2>How It Works</h2>
+        <p>Using our Base64 Encoder and Decoder is simple and straightforward:</p>
+
+        <ul>
+            <li><strong>Encode to Base64:</strong> Enter the text you want to convert into the input field and click the
+                "Encode" button. The tool will instantly convert your text into Base64-encoded format.
+            </li>
+            <li><strong>Decode from Base64:</strong> Paste the Base64 string you want to decode into the input field and
+                click the "Decode" button. The tool will immediately return the decoded, original text.
+            </li>
+        </ul>
+
+        <p>Base64 encoding works by transforming each group of three bytes (24 bits) of the input data into four 6-bit
+            Base64 characters. This process ensures that the output is compatible with text-based systems, such as email
+            protocols, HTML, or JSON. The decoding process is simply the reverse: the Base64 characters are mapped back
+            to their original binary form.</p>
+
+        <p>Our tool is optimized for speed, simplicity, and accuracy. You can be confident that the Base64 data you
+            generate is both efficient and reliable, whether you're using it for social media, secure data transmission,
+            or web development purposes.</p>
+        <h2>Frequently Asked Questions (FAQ)</h2>
+
+        <h3>1. What is Base64 encoding?</h3>
+        <p>Base64 encoding is a method of converting binary data into an ASCII text format, making it easier to transmit
+            data through text-based protocols. It is commonly used in email encoding, data transmission, and file
+            embedding.</p>
+
+        <h3>2. Why should I use Base64 encoding?</h3>
+        <p>Base64 encoding is useful for transmitting binary data over media designed to deal with text, such as
+            embedding images in HTML or CSS, or sending email attachments. It ensures that the data remains intact
+            during transmission.</p>
+
+        <h3>3. How do I encode text to Base64?</h3>
+        <p>With our Base64 Encoder, you can simply input the text you want to encode and click the 'Encode' button. The
+            tool will instantly convert your text to Base64 format.</p>
+
+        <h3>4. How do I decode Base64 back to text?</h3>
+        <p>To decode a Base64 string, just paste it into our tool and click 'Decode'. The original text will be
+            displayed immediately.</p>
+
+        <h3>5. Is Base64 encoding secure?</h3>
+        <p>Base64 encoding is not a security mechanism. It is simply a text encoding format. If you need to secure your
+            data, consider using encryption methods in combination with Base64 encoding.</p>
+
+        <h3>6. Can I use Base64 encoding for URLs?</h3>
+        <p>Yes, Base64 encoding can be used in URLs to ensure safe transmission of text that might otherwise be
+            misinterpreted by web browsers. However, certain characters may still require URL encoding in addition to
+            Base64.</p>
+
+        <h3>7. What are common uses of Base64 encoding?</h3>
+        <p>Common uses of Base64 encoding include embedding image files in HTML or CSS, email attachment encoding, and
+            storing complex data within URLs.</p>
+
+    </section>
+
+
+</div>
+
+<script>
+    // Copy text function
+    function copyText(textAreaId, messageId) {
+        const textArea = document.getElementById(textAreaId);
+        const message = document.getElementById(messageId);
+
+        textArea.select();
+        document.execCommand('copy');
+
+        message.style.opacity = 1;
+        setTimeout(() => {
+            message.style.opacity = 0;
+        }, 1000);
+    }
+
+    function countWords(inputText) {
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+
+    function encodeToBase64(text) {
+        return btoa(unescape(encodeURIComponent(text)));
+    }
+
+    function decodeFromBase64(base64) {
+        return decodeURIComponent(escape(atob(base64)));
+    }
+
+    // Event listener to handle input changes and mode
+    document.getElementById('inputText').addEventListener('input', function () {
+        const inputText = this.value;
+        countWords(inputText)
+        document.getElementById('outputText').value = encodeToBase64(inputText);
+    });
+
+    document.getElementById('outputText').addEventListener('input', function () {
+        const inputText = this.value;
+        document.getElementById('inputText').value = decodeFromBase64(inputText);
+        countWords(document.getElementById('inputText').value)
+    });
+
+</script>
+</body>
+</html>

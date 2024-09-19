@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description"
+          content="Easily convert CSV to JSON or JSON to CSV with our online converter. Upload CSV files or input JSON data, and get your conversion done in seconds. Perfect for developers and data professionals.">
+    <meta name="keywords"
+          content="CSV to JSON, JSON to CSV, online converter, CSV file converter, JSON file converter, file upload, data conversion tool">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="CSV to JSON and JSON to CSV Converter - Fast and Easy File Upload Tool">
+    <meta property="og:description"
+          content="Convert CSV files to JSON and JSON to CSV in seconds! Upload your files and get instant conversions. Perfect for data professionals and web developers.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CSV and JSON Converter Tool">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="CSV to JSON and JSON to CSV Converter - Fast and Easy Online Tool">
+    <meta name="twitter:description"
+          content="Convert CSV and JSON files quickly with our tool. Upload files, convert, and download results in seconds.">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.yourwebsite.com">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.0/dist/tesseract.min.js"></script>
+    <style amp-custom>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .textarea-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        textarea {
+            width: calc(100% - 30px);
+            height: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            min-width: 250px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* Giữ lại dấu xuống dòng */
+        }
+
+        .output-box {
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+            min-width: 400px;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            word-wrap: break-word;
+            box-sizing: border-box;
+        }
+
+        .options label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .copy-button {
+            margin: 5px;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            font-size: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+        }
+
+        .copy-icon {
+            color: #333;
+        }
+
+        .copied-message {
+            font-size: 12px;
+            color: green;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .counts {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .upload-box {
+            height: 100px;
+            border: 2px dashed #aaa;
+            border-radius: 12px;
+            text-align: center;
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #444;
+            cursor: pointer;
+            background: #f9f9f9;
+            transition: border-color 0.4s ease, background-color 0.4s ease;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-box:hover {
+            border-color: #007bff;
+            background-color: #f0f8ff;
+        }
+
+        .upload-box p {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .upload-box span {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        #fileInput {
+            display: none;
+        }
+    </style>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>CSV to JSON and JSON to CSV Converter - Fast File Upload Tool</h1>
+    <p>Easily convert CSV to JSON or JSON to CSV with our online converter. Upload CSV files or input JSON data, and get
+        your conversion done in seconds. Perfect for developers and data professionals.</p>
+    <div class="upload-box" id="uploadBox">
+        <input type="file" id="fileInput" accept="image/*"/>
+        <p>Drag & drop an image here or <span>browse</span></p>
+    </div>
+    <div class="textarea-container">
+        <!-- Input text area -->
+        <div class="output-box">
+            <label for="inputText">Your text</label>
+            <textarea id="inputText" placeholder="Your text here..."></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+                <button class="copy-button" onclick="copyText('inputText', 'copiedMessage1')">
+                    Copy
+                </button>
+                <span class="copied-message" id="copiedMessage1">Copied</span>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <section>
+            <h2>About Our CSV to JSON and JSON to CSV Converter Tool</h2>
+            <p>Our CSV to JSON and JSON to CSV converter tool allows you to quickly convert between these two popular
+                data formats. Whether you're a developer, data scientist, or just someone dealing with CSV or JSON
+                files, this tool will simplify your workflow. You can upload CSV files or paste JSON data directly into
+                the tool for instant conversion. No more hassle of writing code just to handle format conversions!</p>
+
+            <p>CSV (Comma-Separated Values) and JSON (JavaScript Object Notation) are both widely used formats for
+                storing and exchanging data. CSV files are commonly used for spreadsheets and tabular data, while JSON
+                is popular in web development and API communication. Our tool bridges the gap between these two formats,
+                making data transformation simple and quick.</p>
+
+            <h2>How It Works</h2>
+            <p>Using our CSV to JSON and JSON to CSV converter is simple and straightforward:</p>
+
+            <ul>
+                <li><strong>Convert CSV to JSON:</strong> Upload your CSV file or paste CSV content into the input box,
+                    then click the "Convert to JSON" button. The tool will automatically convert the CSV data into JSON
+                    format.
+                </li>
+                <li><strong>Convert JSON to CSV:</strong> Input your JSON data directly or upload a .json file, then
+                    click the "Convert to CSV" button. The tool will instantly transform your JSON data into CSV format.
+                </li>
+                <li><strong>Download the converted file:</strong> After the conversion, you can download the result in
+                    the desired format to your device for further use.
+                </li>
+            </ul>
+
+            <p>Our tool handles large datasets efficiently, maintaining the integrity of your data throughout the
+                conversion process. It supports various CSV and JSON formats, making it ideal for a range of use cases,
+                including data analysis, web development, and database management.</p>
+        </section>
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. What is CSV?</h3>
+            <p>CSV stands for Comma-Separated Values. It's a lightweight, tabular data format where each row represents
+                a data record, and columns are separated by commas. It is widely used for exporting and importing data,
+                especially in spreadsheets and databases.</p>
+
+            <h3>2. What is JSON?</h3>
+            <p>JSON (JavaScript Object Notation) is a lightweight data-interchange format used mainly for transmitting
+                data between a server and a web application. JSON is easy to read and write for humans and is
+                machine-readable, making it popular for APIs.</p>
+
+            <h3>3. How do I convert CSV to JSON?</h3>
+            <p>Simply upload your CSV file or paste your CSV text into our tool. Click "Convert to JSON" and the tool
+                will output the JSON equivalent of your CSV data. You can then download the JSON file or copy it
+                directly.</p>
+
+            <h3>4. How do I convert JSON to CSV?</h3>
+            <p>To convert JSON to CSV, input your JSON data or upload a .json file. Click "Convert to CSV" and your data
+                will be transformed into CSV format, ready for download or further processing.</p>
+
+            <h3>5. Can I upload files for conversion?</h3>
+            <p>Yes! You can easily upload CSV or JSON files directly from your device. Our tool will handle the
+                conversion and give you a download link for the converted file.</p>
+
+            <h3>6. What types of CSV and JSON formats are supported?</h3>
+            <p>Our tool supports standard CSV files and JSON objects. It can handle a wide variety of data structures,
+                including nested JSON objects and arrays. The converted files will maintain their data integrity and
+                formatting.</p>
+
+            <h3>7. Is there a limit to the file size I can upload?</h3>
+            <p>Our tool is optimized for large files, but for best performance, we recommend using files under 50MB.
+                Larger files may take a longer time to process, but the tool will still handle them efficiently.</p>
+
+            <h3>8. Is my data secure when using this tool?</h3>
+            <p>Yes, your data is secure. All file conversions happen directly in your browser, ensuring that your data
+                is never uploaded to external servers. You can safely convert your sensitive files without worry.</p>
+
+        </section>
+
+    </section>
+
+
+</div>
+
+<script>
+    // Copy text function
+    function copyText(textAreaId, messageId) {
+        const textArea = document.getElementById(textAreaId);
+        const message = document.getElementById(messageId);
+
+        textArea.select();
+        document.execCommand('copy');
+
+        message.style.opacity = 1;
+        setTimeout(() => {
+            message.style.opacity = 0;
+        }, 1000);
+    }
+
+    function countWords(inputText) {
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+
+    function csvToJson(csv) {
+        const lines = csv.split("\n");
+        const result = [];
+        const headers = lines[0].split(",");
+
+        for (let i = 1; i < lines.length; i++) {
+            const obj = {};
+            const currentLine = lines[i].split(",");
+
+            for (let j = 0; j < headers.length; j++) {
+                obj[headers[j].trim()] = currentLine[j] ? currentLine[j].trim() : "";
+            }
+
+            if (Object.keys(obj).length > 0 && Object.values(obj).some(val => val !== "")) {
+                result.push(obj);
+            }
+        }
+
+        return JSON.stringify(result, null, 2);
+    }
+
+    function jsonToCsv(json) {
+        const array = typeof json !== 'object' ? JSON.parse(json) : json;
+        const headers = Object.keys(array[0]);
+        const csv = [
+            headers.join(","), // Dòng đầu là các tiêu đề
+            ...array.map(row => headers.map(header => row[header] || "").join(","))
+        ].join("\n");
+
+        return csv;
+    }
+
+    uploadBox.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    uploadBox.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadBox.style.borderColor = '#007bff';
+        uploadBox.style.backgroundColor = '#f0f8ff';
+    });
+
+    uploadBox.addEventListener('dragleave', () => {
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    uploadBox.addEventListener('drop', (e) => {
+        e.preventDefault();
+        handleFileUpload(e.dataTransfer.files[0]);
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    fileInput.addEventListener('change', () => {
+        handleFileUpload(fileInput.files[0]);
+    });
+
+    function handleFileUpload(file) {
+        document.getElementById('inputText').textContent = "Recognizing... Please be aware that the process is ongoing. Do not close your browser!";
+        Tesseract.recognize(
+            file,
+            'eng', // Language code
+            {
+                logger: info => console.log(info) // Log progress
+            }
+        ).then(({data: {text}}) => {
+            document.getElementById('inputText').textContent = text;
+            countWords(text)
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+
+    // // Event listener to handle input changes and mode
+    // document.getElementById('inputText').addEventListener('input', function () {
+    //     const inputText = this.value;
+    //     document.getElementById('outputText').value = csvToJson(inputText);
+    // });
+    //
+    // document.getElementById('outputText').addEventListener('input', function () {
+    //     const inputText = this.value;
+    //     document.getElementById('inputText').value = jsonToCsv(inputText);
+    // });
+
+</script>
+</body>
+</html>
