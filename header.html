@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Ngang Tinh Tế</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Đặt kiểu chung cho trang */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        /* Kiểu cho nav và menu */
+        nav {
+            background-color: #ffffff;
+            padding: 20px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .menu > li {
+            position: relative;
+        }
+
+        .menu > li > a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 8px 16px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .menu > li > a:hover {
+            color: #007bff;
+            background-color: rgba(0, 123, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Định dạng cho submenu */
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            list-style-type: none;
+            padding: 10px 0;
+            margin: 0;
+            border-radius: 8px;
+        }
+
+        .submenu li {
+            margin: 0;
+        }
+
+        .submenu li a {
+            padding: 10px 20px;
+            display: block;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .submenu li a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /* Hiển thị submenu khi hover */
+        .menu li:hover .submenu {
+            display: block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .menu li:hover .submenu {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li>
+            <a href="#">Text Transformation</a>
+            <ul class="submenu">
+                <li><a href="#">Text to Hex</a></li>
+                <li><a href="#">Hex to Text</a></li>
+                <li><a href="#">URL Encoding</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Code & Data</a>
+            <ul class="submenu">
+                <li><a href="#">JSON Formatter</a></li>
+                <li><a href="#">Base64 Encode</a></li>
+                <li><a href="#">CSV to JSON</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Image</a>
+            <ul class="submenu">
+                <li><a href="#">Image Compressor</a></li>
+                <li><a href="#">Image Resizer</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Random Generator</a>
+            <ul class="submenu">
+                <li><a href="#">Random Number</a></li>
+                <li><a href="#">Random String</a></li>
+                <li><a href="#">Password Generator</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+</body>
+</html>
