@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description" content="Easily convert multiple PNG images to JPG format online. Upload, convert, and download your images in bulk with our fast PNG to JPG converter tool.">
+    <meta name="keywords" content="PNG to JPG converter, bulk image converter, convert PNG to JPG, online PNG to JPG, image format conversion, transparent to non-transparent, image size reduction, download JPG images">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Convert PNG to JPG - Bulk Image Converter for Multiple Files">
+    <meta property="og:description" content="Use our online PNG to JPG converter to bulk convert multiple images quickly. Save time and download all files in a single ZIP.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PNG to JPG Converter">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="Convert PNG to JPG - Bulk Image Converter">
+    <meta name="twitter:description" content="Quickly convert multiple PNG images to JPG format online. Download individual images or as a ZIP file.">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.yourwebsite.com">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <style amp-custom>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .textarea-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        textarea {
+            width: calc(100% - 30px);
+            height: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            min-width: 250px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* Giữ lại dấu xuống dòng */
+        }
+
+        .output-box {
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+            min-width: 400px;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            word-wrap: break-word;
+            box-sizing: border-box;
+        }
+
+        .options label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .copy-button {
+            margin: 5px;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            font-size: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+        }
+
+        .copy-icon {
+            color: #333;
+        }
+
+        .copied-message {
+            font-size: 12px;
+            color: green;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .counts {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .upload-box {
+            height: 100px;
+            border: 2px dashed #aaa;
+            border-radius: 12px;
+            text-align: center;
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #444;
+            cursor: pointer;
+            background: #f9f9f9;
+            transition: border-color 0.4s ease, background-color 0.4s ease;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-box:hover {
+            border-color: #007bff;
+            background-color: #f0f8ff;
+        }
+
+        .upload-box p {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .upload-box span {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        #fileInput {
+            display: none;
+        }
+        .file-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .file-status {
+            margin-top: 5px;
+        }
+        .file-item {
+            position: relative;
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .download-btn {
+            position: absolute;
+            bottom: 50%; /* Đặt nút ở giữa theo chiều dọc */
+            left: 50%; /* Đặt nút ở giữa theo chiều ngang */
+            transform: translate(-50%, 50%); /* Đưa nút vào giữa hoàn hảo */
+            background-color: #007BFF; /* Nền màu xanh dương */
+            color: white;
+            padding: 8px 12px; /* Tạo khoảng cách giữa chữ và viền nút */
+            font-size: 14px;
+            border-radius: 25px; /* Bo tròn nút */
+            text-decoration: none; /* Loại bỏ gạch chân */
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tạo đổ bóng nhẹ */
+            opacity: 0; /* Ẩn nút */
+            transition: opacity 0.3s ease; /* Hiệu ứng chuyển opacity */
+        }
+
+        .file-item:hover .download-btn {
+            opacity: 1; /* Hiện nút khi hover */
+        }
+
+        .download-btn:hover {
+            background-color: #0056b3; /* Đổi màu khi hover */
+        }
+
+        #downloadAllBtn {
+            background-color: #28a745; /* MÃ u ná»n xanh lÃ¡ cÃ¢y */
+            color: white;
+            padding: 8px; /* Táº¡o khoáº£ng cÃ¡ch giá»¯a chá»¯ vÃ  viá»n nÃºt */
+            font-size: 13px;
+            border-radius: 5px; /* Bo trÃ²n nÃºt */
+            border: none; /* XÃ³a viá»n */
+            cursor: pointer; /* Hiá»ƒn thá»‹ con trá» tay khi hover */
+            /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */ /* Táº¡o Ä‘á»• bÃ³ng nháº¹ */
+            transition: background-color 0.3s ease; /* Hiá»‡u á»©ng chuyá»ƒn mÃ u khi hover */
+            display: none; /* áº¨n nÃºt khi khÃ´ng cÃ³ file */
+            /* margin-top: 20px; */ /* Khoáº£ng cÃ¡ch vá»›i pháº§n trÃªn */
+        }
+
+        #downloadAllBtn:hover {
+            background-color: #218838; /* Đổi màu khi hover */
+        }
+        #gallery{
+            min-height: 200px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Convert PNG to JPG - Bulk Image Converter for Multiple Files</h1>
+    <p>Easily convert multiple PNG images to JPG format online. Upload, convert, and download your images in bulk with our fast PNG to JPG converter tool.</p>
+    <div class="upload-box" id="uploadBox">
+        <input type="file" id="fileInput" multiple  accept="image/png"/>
+        <p>Drag & drop an PNG image here or <span>browse</span></p>
+    </div>
+    <div id="gallery"></div>
+    <button id="downloadAllBtn" style="display:none;">Download All</button>
+    <section>
+        <section>
+            <h2>About Our PNG to JPG Converter Tool</h2>
+            <p>Our PNG to JPG Converter tool allows you to convert multiple PNG images to JPG format quickly and easily. The JPG format is commonly used for its smaller file size while maintaining good image quality, making it ideal for web usage and faster load times.</p>
+
+            <p>This tool enables you to upload several PNG files at once, convert them to JPG, and download them either individually or as a ZIP file. It is perfect for those who need to compress images or remove transparency while preserving high image quality.</p>
+
+            <h2>How It Works</h2>
+            <p>Follow these simple steps to convert your PNG images to JPG:</p>
+
+            <ul>
+                <li><strong>Upload PNG Files:</strong> Use the drag-and-drop interface or click the "Browse" button to select multiple PNG images from your device.</li>
+                <li><strong>Convert to JPG:</strong> Once the files are uploaded, click the "Convert" button to start the conversion process.</li>
+                <li><strong>Download JPG Files:</strong> After the conversion is complete, you can download each image individually or use the "Download All" button to get all converted images as a ZIP file.</li>
+            </ul>
+
+            <p>This tool is suitable for designers, developers, and users who need to bulk convert PNG files to JPG for smaller file sizes or other requirements.</p>
+        </section>
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. Why should I convert PNG to JPG?</h3>
+            <p>The JPG format is generally smaller in size compared to PNG, making it ideal for web usage where fast loading times are important. Additionally, JPG is great for images that don't need transparency.</p>
+
+            <h3>2. Can I upload multiple PNG files at once?</h3>
+            <p>Yes, you can upload multiple PNG files at once. Simply drag and drop your images, or select them using the "Browse" button.</p>
+
+            <h3>3. Is there a limit to the number of files I can upload?</h3>
+            <p>There is no strict limit, but for optimal performance, we recommend uploading files within reasonable size limits. The tool supports bulk conversion, so you can upload several files in a single session.</p>
+
+            <h3>4. Will converting PNG to JPG reduce the image quality?</h3>
+            <p>Converting from PNG to JPG may reduce quality slightly, but the conversion is optimized to preserve as much image detail as possible while reducing file size. JPG is a compressed format, but it is great for images where high quality isn't the primary concern.</p>
+
+            <h3>5. Can I download all the converted files at once?</h3>
+            <p>Yes, you can use the "Download All" feature to download all converted JPG images in a ZIP file after the conversion process is completed.</p>
+
+            <h3>6. Does the tool work on mobile devices?</h3>
+            <p>Yes, our PNG to JPG converter is fully responsive and works smoothly on both desktop and mobile devices.</p>
+
+            <h3>7. Is my data secure?</h3>
+            <p>Yes, your images are processed directly in your browser, meaning they are not uploaded to any server. This ensures your data stays private and secure.</p>
+        </section>
+
+
+    </section>
+
+
+</div>
+
+<script>
+    const gallery = document.getElementById('gallery');
+    const convertedFiles = []; // Mảng lưu trữ blob của các file đã convert
+    function handleFiles(files) {
+        for (let file of files) {
+            if (file.type === 'image/png') {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.src = e.target.result;
+                    img.onload = function() {
+                        convertToJPG(img, file.name);
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    }
+
+    function convertToJPG(pngImage, fileName) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = pngImage.width;
+        canvas.height = pngImage.height;
+        ctx.drawImage(pngImage, 0, 0);
+        canvas.toBlob(function(blob) {
+            const jpgFileName = fileName.replace('.png', '.jpg');
+            displayImage(blob, jpgFileName);
+            convertedFiles.push({ name: jpgFileName, blob });
+            updateDownloadAllButton();
+        }, 'image/jpeg', 0.92);
+    }
+
+    function displayImage(blob, fileName) {
+        const fileItem = document.createElement('div');
+        fileItem.classList.add('file-item');
+
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(blob);
+
+        // const fileStatus = document.createElement('div');
+        // fileStatus.classList.add('file-status');
+        // fileStatus.innerText = 'DONE';
+
+        const downloadBtn = document.createElement('a');
+        downloadBtn.classList.add('download-btn');
+        downloadBtn.href = URL.createObjectURL(blob);
+        downloadBtn.download = fileName.replace('.png', '.jpg');
+        downloadBtn.innerText = 'Download';
+
+        fileItem.appendChild(img);
+        // fileItem.appendChild(fileStatus);
+        fileItem.appendChild(downloadBtn);
+        gallery.appendChild(fileItem);
+    }
+
+    function updateDownloadAllButton() {
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        if (convertedFiles.length > 0) {
+            downloadAllBtn.style.display = 'block'; // Hiện nút Download All nếu có file
+            downloadAllBtn.onclick = downloadAll; // Gán sự kiện click cho nút
+        } else {
+            downloadAllBtn.style.display = 'none'; // Ẩn nút nếu không có file
+        }
+    }
+
+    async function downloadAll() {
+        const zip = new JSZip();
+        for (const file of convertedFiles) {
+            zip.file(file.name, file.blob);
+        }
+        const content = await zip.generateAsync({ type: 'blob' });
+        const url = URL.createObjectURL(content);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'converted_images.zip';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
+    uploadBox.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    uploadBox.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadBox.style.borderColor = '#007bff';
+        uploadBox.style.backgroundColor = '#f0f8ff';
+    });
+
+    uploadBox.addEventListener('dragleave', () => {
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    uploadBox.addEventListener('drop', (e) => {
+        e.preventDefault();
+        handleFiles(e.dataTransfer.files);
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    fileInput.addEventListener('change', () => {
+        handleFiles(fileInput.files);
+    });
+
+</script>
+</body>
+</html>

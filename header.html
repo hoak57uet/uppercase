@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Ngang Tinh Tế</title>
+    <title>Flat Design Menu</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* Đặt kiểu chung cho trang */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -14,11 +13,10 @@
             background-color: #f8f9fa;
         }
 
-        /* Kiểu cho nav và menu */
         nav {
             background-color: #ffffff;
             padding: 20px 0;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .menu {
@@ -39,41 +37,48 @@
             color: #333;
             font-weight: 500;
             font-size: 16px;
-            padding: 8px 16px;
-            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .menu > li > a:hover {
-            color: #007bff;
-            background-color: rgba(0, 123, 255, 0.1);
-            border-radius: 8px;
+            color: #ffffff;
+            background-color: #007bff;
         }
 
         /* Định dạng cho submenu */
         .submenu {
-            display: none;
+            visibility: hidden; /* Ẩn submenu */
+            opacity: 0; /* Đặt độ trong suốt ban đầu */
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: #fff;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            background-color: #f0f0f0;
             list-style-type: none;
-            padding: 10px 0;
+            padding: 10px;
             margin: 0;
             border-radius: 8px;
+            min-width: 200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Tự động chia cột */
+            grid-gap: 20px; /* Khoảng cách giữa các cột */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
+        /* Kiểm soát item trong submenu */
         .submenu li {
             margin: 0;
         }
 
         .submenu li a {
-            padding: 10px 20px;
+            padding: 10px 10px;
             display: block;
             text-decoration: none;
             color: #333;
             font-size: 14px;
             transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
         }
 
         .submenu li a:hover {
@@ -83,16 +88,19 @@
 
         /* Hiển thị submenu khi hover */
         .menu li:hover .submenu {
-            display: block;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
+            visibility: visible; /* Hiển thị submenu */
+            opacity: 1; /* Đặt độ trong suốt khi hover */
+            transform: translateY(0); /* Trả lại vị trí ban đầu */
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
         }
 
-        .menu li:hover .submenu {
-            opacity: 1;
-            transform: translateY(0);
+        /* Hiệu ứng hover trên menu chính */
+        .menu li:hover > a {
+            background-color: #007bff;
+            color: #fff;
         }
+
+
 
     </style>
 </head>
@@ -100,28 +108,61 @@
 
 <nav>
     <ul class="menu">
-        <li><a href="#">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li>
             <a href="#">Text Transformation</a>
             <ul class="submenu">
-                <li><a href="#">Text to Hex</a></li>
-                <li><a href="#">Hex to Text</a></li>
-                <li><a href="#">URL Encoding</a></li>
+                <li><a href="yaytext-social/ancient-cuneiform">Ancient Cuneiform</a></li>
+                <li><a href="yaytext-social/bamum">Bamum</a></li>
+                <li><a href="yaytext-social/bold-italic">Bold Italic</a></li>
+                <li><a href="yaytext-social/bubble-text">Bubble Text</a></li>
+                <li><a href="yaytext-social/canadian-aboriainal">Canadian Aboriainal</a></li>
+                <li><a href="yaytext-social/cursive-script">Cursive Script</a></li>
+                <li><a href="yaytext-social/double-struck">Double Struck</a></li>
+                <li><a href="yaytext-social/east-asian-letter-like">East Asian Letter Like</a></li>
+                <li><a href="yaytext-social/faces">Faces</a></li>
+                <li><a href="yaytext-social/fraktur-gothic-old-english">Fraktur Gothic Old English</a></li>
+                <li><a href="yaytext-social/full-width-vaporwave">Full Width Vaporwave</a></li>
+                <li><a href="yaytext-social/lightning">Lightning</a></li>
+                <li><a href="yaytext-social/mini-me-stacked-text">Mini Me Stacked Text</a></li>
+                <li><a href="yaytext-social/mono-space">Mono Space</a></li>
+                <li><a href="yaytext-social/ransom-note-text">Ransom Note Text</a></li>
+                <li><a href="yaytext-social/slash-through">Slash Through</a></li>
+                <li><a href="yaytext-social/small-caps">Small Caps</a></li>
+                <li><a href="yaytext-social/square-text">Square Text</a></li>
+                <li><a href="yaytext-social/squiggles-and-hooks">Squiggles And Hooks</a></li>
+                <li><a href="yaytext-social/strike-through">Strike Through</a></li>
+                <li><a href="yaytext-social/tiny-text">Tiny Text</a></li>
+                <li><a href="yaytext-social/underline">Underline</a></li>
+                <li><a href="yaytext-social/upside-down">Upside Down</a></li>
+                <li><a href="yaytext-social/vai-letter-like">Vai Letter Like</a></li>
             </ul>
         </li>
         <li>
             <a href="#">Code & Data</a>
             <ul class="submenu">
-                <li><a href="#">JSON Formatter</a></li>
-                <li><a href="#">Base64 Encode</a></li>
-                <li><a href="#">CSV to JSON</a></li>
+                <li><a href="data/base64-encode-decode">Base64 Encode / Decode</a></li>
+                <li><a href="data/csv-to-json">CSV To JSON</a></li>
+                <li><a href="data/hex-to-text">HEX To Text</a></li>
+                <li><a href="data/text-to-binary">BINARY To Text</a></li>
+                <li><a href="data/text-to-morse-code">MORSE Encode / Decode</a></li>
+                <li><a href="data/text-to-rot13">ROT13 Encode / Decode</a></li>
+                <li><a href="data/url-encode-decode">URL Encode / Decode</a></li>
+                <li><a href="data/url-slugify">URL Slugify</a></li>
             </ul>
         </li>
         <li>
             <a href="#">Image</a>
             <ul class="submenu">
-                <li><a href="#">Image Compressor</a></li>
-                <li><a href="#">Image Resizer</a></li>
+                <li><a href="image/img-to-ascii">Image To ASCII</a></li>
+                <li><a href="image/img-to-text">Image To Text</a></li>
+                <li><a href="image/jpg-to-png">JPG To PNG Converter</a></li>
+                <li><a href="image/png-to-jpg">PNG To JPG Converter</a></li>
+                <li><a href="image/jpg-to-webp">JPG To WEBP Converter</a></li>
+                <li><a href="image/webp-to-jpg">WEBP To JPG Converter</a></li>
+                <li><a href="image/png-to-webp">PNG To WEBP Converter</a></li>
+                <li><a href="image/webp-to-png">WEBP To PNG Converter</a></li>
+                <li><a href="image/svg-to-png">SVG To PNG Converter</a></li>
             </ul>
         </li>
         <li>
