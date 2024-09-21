@@ -1,0 +1,352 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description" content="Generate secure passwords with customizable options such as length, inclusion of numbers, letters, symbols, and more. Your passwords are generated locally, ensuring maximum security and privacy.">
+    <meta name="keywords" content="password generator, secure password, random password, generate password, strong password, password tool, bulk password generator, no similar characters, no sequential characters, local password generation">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Generate Secure Passwords with Customizable Options">
+    <meta property="og:description" content="Generate strong passwords tailored to your needs with our secure password generator. Your data is safe as passwords are generated locally.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Password Generator">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="Generate Secure Passwords with Customizable Options">
+    <meta name="twitter:description" content="Create secure, random passwords that meet your specific requirements. No data is sent online, keeping everything private.">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.yourwebsite.com">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <style amp-custom>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="checkbox"], input[type="number"], select {
+            margin-bottom: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        #passwords {
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+        .password-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+            background-color: #e9ecef;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        span.result{
+            font-size: 14px;
+            flex: 1;
+            align-content: center;
+        }
+        .result-container{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+        .copy-btn {
+            width: 80px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+        #copyAllBtn {
+            margin-top: 10px;
+            background-color: #17a2b8;
+        }
+        #copyAllBtn:hover {
+            background-color: #138496;
+        }
+        .container-content{
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        select, input[type=number] {
+            width: 200px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            background-color: #fff;
+            font-size: 16px;
+            color: #495057;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            appearance: none; /* Để tùy chỉnh mũi tên xổ xuống */
+            cursor: pointer;
+            outline: none;
+        }
+
+        select:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.25);
+        }
+
+        select option {
+            padding: 10px;
+            background-color: #fff;
+            color: #495057;
+        }
+
+    </style>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Generate Secure Passwords with Customizable Options</h1>
+    <p>Generate secure passwords with customizable options such as length, inclusion of numbers, letters, symbols, and more. Your passwords are generated locally, ensuring maximum security and privacy.</p>
+    <div class="container-content">
+        <label for="length">Password Length:</label>
+        <select id="length">
+            <option value="8">8</option>
+            <option value="12">12</option>
+            <option value="16">16</option>
+            <option value="22">22</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+            <option value="60">60</option>
+        </select>
+        <label><input type="checkbox" id="includeNumbers" checked> Include Numbers: (e.g. 123456)</label>
+        <label><input type="checkbox" id="includeLowercase" checked> Include Lowercase Characters: (e.g. abcdefgh)</label>
+        <label><input type="checkbox" id="includeUppercase" checked> Include Uppercase Characters: (e.g. ABCDEFGH)</label>
+        <label><input type="checkbox" id="beginWithLetter"> Begin With A Letter: (Don't begin with a number or symbol)</label>
+        <label><input type="checkbox" id="includeSymbols"> Include Symbols: (e.g. !"#$%&'()*+,-./:;<=>?@[]^_`{|}~)</label>
+        <label><input type="checkbox" id="noSimilar"> No Similar Characters: (Don't use characters like i, l, 1, L, o, 0, O)</label>
+        <label><input type="checkbox" id="noDuplicate"> No Duplicate Characters: (Don't use the same character more than once)</label>
+        <label><input type="checkbox" id="noSequential"> No Sequential Characters: (Don't use sequential characters, e.g. abc, 789)</label>
+        <div class="number-password">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" value="1" min="1" max="100"/>
+        </div>
+        <button id="generateButton">Generate</button>
+        <div id="passwords"></div>
+        <button id="copyAllBtn">Copy All</button>
+    </div>
+    <br/><br/><br/>
+    <section id="introduction">
+        <section>
+            <h2>About Our Secure Password Generator Tool</h2>
+            <p>Our Password Generator tool offers a fast and secure way to create strong passwords tailored to your specific needs. Customize your password length and select from various options, including numbers, uppercase and lowercase letters, symbols, and more. All passwords are generated directly on your device, ensuring that no data is sent to a server, making it 100% safe and private.</p>
+
+            <h2>How It Works</h2>
+            <p>Follow these simple steps to generate secure passwords:</p>
+
+            <ul>
+                <li><strong>Select Password Criteria:</strong> Choose options like including numbers, lowercase and uppercase letters, symbols, and set additional rules like "No Similar Characters," "No Sequential Characters," and "No Duplicates."</li>
+                <li><strong>Set Password Length:</strong> Define the length of the password(s) you need.</li>
+                <li><strong>Set Quantity:</strong> Enter the number of passwords you want to generate at once (default is 1).</li>
+                <li><strong>Generate Passwords:</strong> Click the "Generate" button to create your passwords. Each password will appear with a "Copy" button next to it, and you can copy all at once using the "Copy All" button.</li>
+            </ul>
+
+            <p>With this tool, you can ensure your passwords are strong, random, and unique, protecting your accounts from potential security breaches.</p>
+        </section>
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. Are the passwords generated securely?</h3>
+            <p>Yes, all passwords are generated locally on your device. None of your data or the generated passwords are sent over the internet, ensuring maximum security and privacy.</p>
+
+            <h3>2. What options can I customize for password generation?</h3>
+            <p>You can customize the following options:
+            <ul>
+                <li><strong>Include Numbers:</strong> Add numbers like 123456.</li>
+                <li><strong>Include Lowercase Characters:</strong> Include lowercase letters like abcdefgh.</li>
+                <li><strong>Include Uppercase Characters:</strong> Include uppercase letters like ABCDEFGH.</li>
+                <li><strong>Begin with a Letter:</strong> Ensure the password starts with a letter, not a number or symbol.</li>
+                <li><strong>Include Symbols:</strong> Add special characters like !, @, #, $.</li>
+                <li><strong>No Similar Characters:</strong> Exclude confusing characters like i, l, 1, L, o, 0, O.</li>
+                <li><strong>No Duplicate Characters:</strong> Prevent repeated characters within the password.</li>
+                <li><strong>No Sequential Characters:</strong> Avoid sequences like abc or 123.</li>
+            </ul></p>
+
+            <h3>3. Can I generate multiple passwords at once?</h3>
+            <p>Yes, you can generate as many passwords as you need at one time by entering the quantity before clicking "Generate."</p>
+
+            <h3>4. How secure is this tool?</h3>
+            <p>The tool is extremely secure because all password generation happens locally on your device. No passwords or user data are transmitted over the internet, keeping everything private and protected.</p>
+
+            <h3>5. How can I copy the generated passwords?</h3>
+            <p>After generating the passwords, you can copy each one individually using the "Copy" button next to each password. You can also copy all generated passwords at once using the "Copy All" button.</p>
+
+            <h3>6. Can I use this tool on mobile devices?</h3>
+            <p>Yes, our password generator is fully optimized for mobile devices, ensuring a smooth and user-friendly experience on any platform.</p>
+        </section>
+
+    </section>
+</div>
+
+<script>
+    function hasSequentialCharacters(password) {
+        for (let i = 0; i < password.length - 1; i++) {
+            if (Math.abs(password.charCodeAt(i) - password.charCodeAt(i + 1)) === 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function generatePassword(length, includeNumbers, includeLowercase, includeUppercase, includeSymbols, beginWithLetter, noSimilar, noDuplicate, noSequential) {
+        let charset = '';
+        if (includeNumbers) charset += '0123456789';
+        if (includeLowercase) charset += 'abcdefghijklmnopqrstuvwxyz';
+        if (includeUppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        if (includeSymbols) charset += '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~';
+
+        if (noSimilar) {
+            charset = charset.replace(/[il1Lo0O]/g, '');
+        }
+
+        let password = '';
+        const usedChars = new Set();
+
+        if (beginWithLetter) {
+            const firstCharSet = includeLowercase ? 'abcdefghijklmnopqrstuvwxyz' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            password += firstCharSet[Math.floor(Math.random() * firstCharSet.length)];
+            usedChars.add(password.charAt(0));
+            length--;
+        }
+
+        while (password.length < length) {
+            let char = charset[Math.floor(Math.random() * charset.length)];
+            if (noDuplicate && usedChars.has(char)) continue;
+            if (noSequential && password.length > 0 && hasSequentialCharacters(password + char)) continue;
+            if (char==='n' && password.endsWith("\\")) continue;
+            password += char;
+            usedChars.add(char);
+        }
+
+        return password;
+    }
+
+    function copyToClipboard(text, button) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+
+        // Đổi chữ "Copy" thành "Copied" trong 3 giây
+        const originalText = button.textContent;
+        button.textContent = "Copied";
+        setTimeout(() => {
+            button.textContent = originalText;
+        }, 500);
+    }
+
+    document.getElementById('generateButton').addEventListener('click', function() {
+        const length = parseInt(document.getElementById('length').value);
+        const quantity = parseInt(document.getElementById('quantity').value);
+        const includeNumbers = document.getElementById('includeNumbers').checked;
+        const includeLowercase = document.getElementById('includeLowercase').checked;
+        const includeUppercase = document.getElementById('includeUppercase').checked;
+        const beginWithLetter = document.getElementById('beginWithLetter').checked;
+        const includeSymbols = document.getElementById('includeSymbols').checked;
+        const noSimilar = document.getElementById('noSimilar').checked;
+        const noDuplicate = document.getElementById('noDuplicate').checked;
+        const noSequential = document.getElementById('noSequential').checked;
+
+        const passwordsContainer = document.getElementById('passwords');
+        passwordsContainer.innerHTML = ''; // Clear previous passwords
+
+        for (let i = 0; i < quantity; i++) {
+            const password = generatePassword(length, includeNumbers, includeLowercase, includeUppercase, includeSymbols, beginWithLetter, noSimilar, noDuplicate, noSequential);
+
+            const passwordItem = document.createElement('div');
+            passwordItem.className = 'password-item';
+            passwordItem.innerHTML = `
+                    <div class="result-container" ><span class="result">${escapeHTML(password)}</span>
+                    <button class="copy-btn">Copy</button></div>
+                `;
+            passwordsContainer.appendChild(passwordItem);
+
+            passwordItem.querySelector('.copy-btn').addEventListener('click', function() {
+                copyToClipboard(password, this);
+            });
+        }
+    });
+
+    function escapeHTML(str) {
+        return str
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    document.getElementById('copyAllBtn').addEventListener('click', function() {
+        const passwords = Array.from(document.querySelectorAll('.password-item span')).map(span => span.textContent).join('\n');
+        copyToClipboard(passwords, this);
+    });
+</script>
+</body>
+</html>

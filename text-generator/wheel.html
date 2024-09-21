@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Random Choice Wheel</title>
+    <style>
+        /* Global styles for a modern, clean look */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            gap: 50px;
+        }
+
+        /* Left input section styling */
+        #inputValues {
+            width: 250px;
+            height: 200px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            outline: none;
+            font-size: 14px;
+            color: #333;
+            background-color: #f4f4f4;
+            margin-bottom: 15px;
+        }
+
+        button {
+            display: inline-block;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-start-spin{
+            margin: 15px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Right wheel section styling */
+        #wheelCanvas {
+            border-radius: 50%;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            background-color: #ffffff;
+        }
+
+        #arrow {
+            align-self: center;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 10px solid #E63946; /* Modern red arrow */
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Make the layout responsive */
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 30px;
+                padding: 30px;
+            }
+
+            #arrow {
+                left: 240px; /* Adjust arrow position for smaller screens */
+            }
+        }
+
+        .wheel-container {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Left side input -->
+    <div>
+        <h3>Enter Values (one per line):</h3>
+        <textarea id="inputValues" placeholder="Enter values...">1</textarea>
+        <br>
+        <button onclick="setupWheel()">Create Wheel</button>
+    </div>
+
+    <!-- Right side wheel -->
+    <div class="wheel-container">
+        <!-- Arrow pointer -->
+        <div id="arrow"></div>
+        <canvas id="wheelCanvas" width="400" height="400"></canvas>
+        <button class="btn-start-spin" onclick="startSpin()">Spin the Wheel</button>
+        <div id="result"></div>
+    </div>
+</div>
+
+<!-- Include the local Winwheel.js file -->
+<script src="../res/js/Winwheel.min.js"></script>
+<!-- Include TweenMax.js for animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+<script>
+    let wheel;
+    let remainingSegments = [];  // Array to store the remaining segments
+    const resultDiv = document.getElementById("result");
+
+    // Function to set up the wheel
+    function setupWheel() {
+        const inputValues = document.getElementById("inputValues").value.split('\n').filter(value => value.trim() !== '');
+        if (inputValues.length === 0) {
+            alert("Please enter some values to spin.");
+            return;
+        }
+
+        // Create segments based on input
+        remainingSegments = inputValues.map(value => ({
+            text: value.trim(),
+            fillStyle: getRandomColor()
+        }));
+
+        createWheel(remainingSegments);
+    }
+
+    // Function to create and update the wheel
+    function createWheel(segments) {
+        // Initialize the wheel with the remaining segments
+        wheel = new Winwheel({
+            'canvasId': 'wheelCanvas',
+            'numSegments': segments.length,
+            'outerRadius': 190,
+            'lineWidth': 0.5,  // Thinner lines for a modern look
+            'segments': segments,
+            'animation': {
+                'type': 'spinToStop',
+                'duration': 5,
+                'spins': 8,
+                'callbackFinished': showResult
+            },
+            'textFontSize': 18,
+            'textOrientation': 'horizontal'
+        });
+    }
+
+    // Function to spin the wheel
+    function startSpin() {
+        if (!wheel) {
+            alert("Please create the wheel first!");
+            return;
+        }
+        if (remainingSegments.length === 1) {
+            alert("Only one choice remains: " + remainingSegments[0].text);
+            return;
+        }
+        wheel.startAnimation();
+    }
+
+    // Callback to show the result and update the wheel
+    function showResult(indicatedSegment) {
+        resultDiv.innerHTML = "Selected: " + indicatedSegment.text;
+
+        // Remove the selected segment from remainingSegments
+        remainingSegments = remainingSegments.filter(segment => segment.text !== indicatedSegment.text);
+
+        if (remainingSegments.length > 1) {
+            createWheel(remainingSegments);  // Update the wheel with the remaining segments
+        } else {
+            resultDiv.innerHTML += "<br>Only one option left!";
+        }
+    }
+
+    // Utility function to get a random solid color
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description"
+          content="Generate secure passwords with customizable options such as length, inclusion of numbers, letters, symbols, and more. Your passwords are generated locally, ensuring maximum security and privacy.">
+    <meta name="keywords"
+          content="password generator, secure password, random password, generate password, strong password, password tool, bulk password generator, no similar characters, no sequential characters, local password generation">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Generate Secure Passwords with Customizable Options">
+    <meta property="og:description"
+          content="Generate strong passwords tailored to your needs with our secure password generator. Your data is safe as passwords are generated locally.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Password Generator">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="Generate Secure Passwords with Customizable Options">
+    <meta name="twitter:description"
+          content="Create secure, random passwords that meet your specific requirements. No data is sent online, keeping everything private.">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.yourwebsite.com">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <style amp-custom>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="checkbox"], input[type="number"], select {
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        #passwords {
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        .password-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+            background-color: #e9ecef;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        span.result {
+            font-size: 14px;
+            flex: 1;
+            align-content: center;
+        }
+
+        .result-container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .copy-btn {
+            width: 80px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+
+        #copyAllBtn {
+            margin-top: 10px;
+            background-color: #17a2b8;
+        }
+
+        #copyAllBtn:hover {
+            background-color: #138496;
+        }
+
+        /* Make the layout responsive */
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 30px;
+                padding: 30px;
+            }
+
+            #arrow {
+                left: 240px; /* Adjust arrow position for smaller screens */
+            }
+        }
+
+        .wheel-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Right wheel section styling */
+        #wheelCanvas {
+            border-radius: 50%;
+            background-color: #ffffff;
+        }
+
+        #arrow {
+            align-self: center;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 10px solid #E63946; /* Modern red arrow */
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .values-wheel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .sub-container {
+            margin: auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* Left input section styling */
+        #inputValues {
+            width: 250px;
+            height: 300px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            outline: none;
+            font-size: 14px;
+            color: #333;
+            background-color: #f4f4f4;
+            margin-bottom: 15px;
+        }
+
+    </style>
+    <!-- Include the local Winwheel.js file -->
+    <script src="../../res/js/Winwheel.min.js"></script>
+    <!-- Include TweenMax.js for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Generate Secure Passwords with Customizable Options</h1>
+    <p>Generate secure passwords with customizable options such as length, inclusion of numbers, letters, symbols, and
+        more. Your passwords are generated locally, ensuring maximum security and privacy.</p>
+    <div class="sub-container">
+        <div class="values-wheel">
+            <!-- Left side input -->
+            <div class="wheel-container">
+                <h4>Enter Values (one per line):</h4>
+                <textarea id="inputValues" placeholder="Enter values...">1</textarea>
+                <button onclick="setupWheel()">Create Wheel</button>
+            </div>
+
+            <!-- Right side wheel -->
+            <div class="wheel-container">
+                <!-- Arrow pointer -->
+                <div id="arrow"></div>
+                <canvas id="wheelCanvas" width="400" height="400"></canvas>
+                <button class="btn-start-spin" onclick="startSpin()">Spin the Wheel</button>
+            </div>
+        </div>
+        <div id="result">
+
+        </div>
+    </div>
+    <br/><br/><br/>
+    <section id="introduction">
+        <section>
+            <h2>About Our Secure Password Generator Tool</h2>
+            <p>Our Password Generator tool offers a fast and secure way to create strong passwords tailored to your
+                specific needs. Customize your password length and select from various options, including numbers,
+                uppercase and lowercase letters, symbols, and more. All passwords are generated directly on your device,
+                ensuring that no data is sent to a server, making it 100% safe and private.</p>
+
+            <h2>How It Works</h2>
+            <p>Follow these simple steps to generate secure passwords:</p>
+
+            <ul>
+                <li><strong>Select Password Criteria:</strong> Choose options like including numbers, lowercase and
+                    uppercase letters, symbols, and set additional rules like "No Similar Characters," "No Sequential
+                    Characters," and "No Duplicates."
+                </li>
+                <li><strong>Set Password Length:</strong> Define the length of the password(s) you need.</li>
+                <li><strong>Set Quantity:</strong> Enter the number of passwords you want to generate at once (default
+                    is 1).
+                </li>
+                <li><strong>Generate Passwords:</strong> Click the "Generate" button to create your passwords. Each
+                    password will appear with a "Copy" button next to it, and you can copy all at once using the "Copy
+                    All" button.
+                </li>
+            </ul>
+
+            <p>With this tool, you can ensure your passwords are strong, random, and unique, protecting your accounts
+                from potential security breaches.</p>
+        </section>
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. Are the passwords generated securely?</h3>
+            <p>Yes, all passwords are generated locally on your device. None of your data or the generated passwords are
+                sent over the internet, ensuring maximum security and privacy.</p>
+
+            <h3>2. What options can I customize for password generation?</h3>
+            <p>You can customize the following options:
+            <ul>
+                <li><strong>Include Numbers:</strong> Add numbers like 123456.</li>
+                <li><strong>Include Lowercase Characters:</strong> Include lowercase letters like abcdefgh.</li>
+                <li><strong>Include Uppercase Characters:</strong> Include uppercase letters like ABCDEFGH.</li>
+                <li><strong>Begin with a Letter:</strong> Ensure the password starts with a letter, not a number or
+                    symbol.
+                </li>
+                <li><strong>Include Symbols:</strong> Add special characters like !, @, #, $.</li>
+                <li><strong>No Similar Characters:</strong> Exclude confusing characters like i, l, 1, L, o, 0, O.</li>
+                <li><strong>No Duplicate Characters:</strong> Prevent repeated characters within the password.</li>
+                <li><strong>No Sequential Characters:</strong> Avoid sequences like abc or 123.</li>
+            </ul>
+            </p>
+
+            <h3>3. Can I generate multiple passwords at once?</h3>
+            <p>Yes, you can generate as many passwords as you need at one time by entering the quantity before clicking
+                "Generate."</p>
+
+            <h3>4. How secure is this tool?</h3>
+            <p>The tool is extremely secure because all password generation happens locally on your device. No passwords
+                or user data are transmitted over the internet, keeping everything private and protected.</p>
+
+            <h3>5. How can I copy the generated passwords?</h3>
+            <p>After generating the passwords, you can copy each one individually using the "Copy" button next to each
+                password. You can also copy all generated passwords at once using the "Copy All" button.</p>
+
+            <h3>6. Can I use this tool on mobile devices?</h3>
+            <p>Yes, our password generator is fully optimized for mobile devices, ensuring a smooth and user-friendly
+                experience on any platform.</p>
+        </section>
+
+    </section>
+</div>
+
+<script>
+    let wheel;
+    let remainingSegments = [];  // Array to store the remaining segments
+    const resultDiv = document.getElementById("result");
+    setupWheel()
+
+    // Function to set up the wheel
+    function setupWheel() {
+        const inputValues = document.getElementById("inputValues").value.split('\n').filter(value => value.trim() !== '');
+        if (inputValues.length === 0) {
+            alert("Please enter some values to spin.");
+            return;
+        }
+
+        // Create segments based on input
+        remainingSegments = inputValues.map(value => ({
+            text: value.trim(),
+            fillStyle: getRandomColor()
+        }));
+
+        createWheel(remainingSegments);
+    }
+
+    // Function to create and update the wheel
+    function createWheel(segments) {
+        // Initialize the wheel with the remaining segments
+        wheel = new Winwheel({
+            'canvasId': 'wheelCanvas',
+            'numSegments': segments.length,
+            'outerRadius': 190,
+            'lineWidth': 0.5,  // Thinner lines for a modern look
+            'segments': segments,
+            'animation': {
+                'type': 'spinToStop',
+                'duration': 5,
+                'spins': 8,
+                'callbackFinished': showResult
+            },
+            'textFontSize': 18,
+            'textOrientation': 'horizontal'
+        });
+    }
+
+    // Function to spin the wheel
+    function startSpin() {
+        if (!wheel) {
+            alert("Please create the wheel first!");
+            return;
+        }
+        if (remainingSegments.length === 1) {
+            alert("Only one choice remains: " + remainingSegments[0].text);
+            return;
+        }
+        wheel.startAnimation();
+    }
+
+    // Callback to show the result and update the wheel
+    function showResult(indicatedSegment) {
+        resultDiv.innerHTML = indicatedSegment.text;
+
+        // Remove the selected segment from remainingSegments
+        remainingSegments = remainingSegments.filter(segment => segment.text !== indicatedSegment.text);
+
+        if (remainingSegments.length > 1) {
+            createWheel(remainingSegments);  // Update the wheel with the remaining segments
+        } else {
+            resultDiv.innerHTML += "<br>Only one option left!";
+        }
+    }
+
+    // Utility function to get a random solid color
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script>
+</body>
+</html>
