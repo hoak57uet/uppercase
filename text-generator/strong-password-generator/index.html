@@ -293,8 +293,6 @@
         textarea.select();
         document.execCommand("copy");
         document.body.removeChild(textarea);
-
-        // Đổi chữ "Copy" thành "Copied" trong 3 giây
         const originalText = button.textContent;
         button.textContent = "Copied";
         setTimeout(() => {
