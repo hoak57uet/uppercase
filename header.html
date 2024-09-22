@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flat Design Menu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f8f9fa;
@@ -34,8 +33,8 @@
 
         .menu > li > a {
             text-decoration: none;
-            color: #333;
-            font-weight: 500;
+            color: #444444;
+            font-weight: 600;
             font-size: 16px;
             padding: 10px 16px;
             border-radius: 8px;
@@ -47,10 +46,9 @@
             background-color: #007bff;
         }
 
-        /* Định dạng cho submenu */
         .submenu {
-            visibility: hidden; /* Ẩn submenu */
-            opacity: 0; /* Đặt độ trong suốt ban đầu */
+            visibility: hidden;
+            opacity: 0;
             position: absolute;
             top: 100%;
             left: 0;
@@ -61,12 +59,11 @@
             border-radius: 8px;
             min-width: 200px;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Tự động chia cột */
-            grid-gap: 20px; /* Khoảng cách giữa các cột */
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-gap: 20px;
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
-        /* Kiểm soát item trong submenu */
         .submenu li {
             margin: 0;
         }
@@ -86,22 +83,16 @@
             color: #fff;
         }
 
-        /* Hiển thị submenu khi hover */
         .menu li:hover .submenu {
-            visibility: visible; /* Hiển thị submenu */
-            opacity: 1; /* Đặt độ trong suốt khi hover */
-            transform: translateY(0); /* Trả lại vị trí ban đầu */
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
             transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
         }
-
-        /* Hiệu ứng hover trên menu chính */
         .menu li:hover > a {
             background-color: #007bff;
             color: #fff;
         }
-
-
-
     </style>
 </head>
 <body>
