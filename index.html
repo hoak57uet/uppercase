@@ -123,6 +123,7 @@
             transform: translateY(0);
             transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
         }
+
         .menu li:hover > a {
             background-color: #007bff;
             color: #fff;
@@ -164,10 +165,6 @@
             margin-bottom: 10px;
         }
 
-        ul {
-            margin-left: 20px;
-        }
-
         ul li {
             margin-bottom: 8px;
         }
@@ -178,10 +175,6 @@
 
         /* Responsive adjustments */
         @media (max-width: 600px) {
-            section {
-                padding: 15px;
-                margin: 20px;
-            }
 
             h2, h3 {
                 font-size: 24px;
@@ -197,29 +190,47 @@
             display: flex;
             justify-content: center;
             flex-direction: column;
-            max-width: 80%;
             width: 100%;
             background-color: white;
-            padding: 20px;
+            padding: 2px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
+        @media (min-width: 768px) {
+            .wrapper {
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                max-width: 80%;
+                width: 100%;
+                background-color: white;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            ul {
+                margin-left: 20px;
+            }
+        }
+
 
         h1 {
             text-align: center;
             font-size: 24px;
         }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+        /*.container {*/
+        /*    display: flex;*/
+        /*    flex-direction: column;*/
+        /*    flex-wrap: wrap;*/
+        /*    gap: 20px;*/
+        /*}*/
 
-        .text-input, .text-output {
+        .container {
             flex: 1;
-            min-width: 250px;
             background-color: #fff;
             padding: 15px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -229,7 +240,7 @@
         }
 
         textarea {
-            width: calc(100% - 30px); /* Adjusted for button */
+            width: 100%;
             padding: 2px;
             font-size: 14px;
             border: 1px solid #ccc;
@@ -240,6 +251,7 @@
             white-space: pre-wrap;
             box-sizing: border-box;
         }
+
         label {
             display: block;
             margin-bottom: 5px;
@@ -261,6 +273,7 @@
             margin-top: 5px;
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
         }
 
         .action-btn {
@@ -375,38 +388,41 @@
     <p>Use the Text Transformer to quickly convert text into various case formats like sentence case, upper case, lower
         case, title case, alternating case, and more.</p>
     <div class="container">
-        <div class="text-input">
-            <label for="userInput">Enter your text</label>
-            <textarea id="userInput" placeholder="Type your text here..." oninput="countWords()"
-                      rows="10"></textarea>
-            <div class="counts">
-                Character Count: <span id="charCount">0</span> |
-                Word Count: <span id="wordCount">0</span> |
-                Sentence Count: <span id="sentenceCount">0</span> |
-                Line Count: <span id="lineCount">0</span>
-            </div>
-            <div class="actions">
-                <button class="action-btn" onclick="sentenceCase()">Sentence case</button>
-                <button class="action-btn" onclick="lowercase()">lowercase</button>
-                <button class="action-btn" onclick="uppercase()">UPPERCASE</button>
-                <button class="action-btn" onclick="capitalizeCase()">Capitalized case</button>
-                <button class="action-btn" onclick="alternatingCase()">aLtErNaTiNg cAsE</button>
-                <button class="action-btn" onclick="titleCase()">Title Case</button>
-                <button class="action-btn" onclick="inverseCase()">InVeRsE CaSe</button>
-                <button class="action-btn-2" id="action-btn-copy" onclick="copy()">Copy</button>
-                <button class="action-btn-2" onclick="paste()">Paste</button>
-                <button class="action-btn-2" onclick="clearInput()">Clear</button>
-            </div>
+        <label for="userInput">Enter your text</label>
+        <textarea id="userInput" placeholder="Type your text here..." oninput="countWords()"
+                  rows="10"></textarea>
+        <div class="counts">
+            Character Count: <span id="charCount">0</span> |
+            Word Count: <span id="wordCount">0</span> |
+            Sentence Count: <span id="sentenceCount">0</span> |
+            Line Count: <span id="lineCount">0</span>
+        </div>
+        <div class="actions">
+            <button class="action-btn" onclick="sentenceCase()">Sentence case</button>
+            <button class="action-btn" onclick="lowercase()">lowercase</button>
+            <button class="action-btn" onclick="uppercase()">UPPERCASE</button>
+            <button class="action-btn" onclick="capitalizeCase()">Capitalized case</button>
+            <button class="action-btn" onclick="alternatingCase()">aLtErNaTiNg cAsE</button>
+            <button class="action-btn" onclick="titleCase()">Title Case</button>
+            <button class="action-btn" onclick="inverseCase()">InVeRsE CaSe</button>
+            <button class="action-btn-2" id="action-btn-copy" onclick="copy()">Copy</button>
+            <button class="action-btn-2" onclick="paste()">Paste</button>
+            <button class="action-btn-2" onclick="clearInput()">Clear</button>
         </div>
     </div>
     <div>
         <section>
             <h2>Online Text Transformer Tool</h2>
-            <p>The Text Transformer is a versatile tool that allows you to convert your text into various case formats with just a click. Whether you're looking to format text for documents, emails, or social media posts, this tool makes it simple and efficient. Transform text into sentence case, lowercase, uppercase, capitalized case, alternating case, title case, and inverse case effortlessly.</p>
+            <p>The Text Transformer is a versatile tool that allows you to convert your text into various case formats
+                with just a click. Whether you're looking to format text for documents, emails, or social media posts,
+                this tool makes it simple and efficient. Transform text into sentence case, lowercase, uppercase,
+                capitalized case, alternating case, title case, and inverse case effortlessly.</p>
 
             <h2>How It Works</h2>
             <ol>
-                <li><strong>Enter or Paste Text:</strong> Start by entering or pasting your text into the provided text box.</li>
+                <li><strong>Enter or Paste Text:</strong> Start by entering or pasting your text into the provided text
+                    box.
+                </li>
                 <li><strong>Select a Case Transformation:</strong> Choose from the available case transformations:
                     <ul>
                         <li><strong>Sentence case:</strong> The first letter of the sentence is capitalized.</li>
@@ -414,20 +430,27 @@
                         <li><strong>UPPER CASE:</strong> Converts all letters to uppercase.</li>
                         <li><strong>Capitalized Case:</strong> Capitalizes the first letter of each word.</li>
                         <li><strong>aLtErNaTiNg cAsE:</strong> Alternates between uppercase and lowercase letters.</li>
-                        <li><strong>Title Case:</strong> Capitalizes the first letter of each major word (ignoring small words like 'and' or 'of').</li>
+                        <li><strong>Title Case:</strong> Capitalizes the first letter of each major word (ignoring small
+                            words like 'and' or 'of').
+                        </li>
                         <li><strong>InVeRsE CaSe:</strong> Inverts the case of each letter in the text.</li>
                     </ul>
                 </li>
-                <li><strong>Copy the Result:</strong> Once the transformation is applied, simply copy the result to use in your desired location.</li>
+                <li><strong>Copy the Result:</strong> Once the transformation is applied, simply copy the result to use
+                    in your desired location.
+                </li>
             </ol>
-            <p>This tool is perfect for writers, editors, content creators, and anyone who needs to format text in different styles. With just a few clicks, your text can be transformed and ready for use.</p>
+            <p>This tool is perfect for writers, editors, content creators, and anyone who needs to format text in
+                different styles. With just a few clicks, your text can be transformed and ready for use.</p>
         </section>
 
         <section>
             <h2>Frequently Asked Questions (FAQ)</h2>
 
             <h3>1. What is the Text Transformer used for?</h3>
-            <p>The Text Transformer is ideal for formatting text in various case styles. Whether you need to convert text to lowercase for coding, uppercase for titles, or even alternate case for creative purposes, this tool helps you do it quickly and easily.</p>
+            <p>The Text Transformer is ideal for formatting text in various case styles. Whether you need to convert
+                text to lowercase for coding, uppercase for titles, or even alternate case for creative purposes, this
+                tool helps you do it quickly and easily.</p>
 
             <h3>2. What case transformations are available?</h3>
             <p>The following transformations are available:</p>
@@ -442,13 +465,15 @@
             </ul>
 
             <h3>3. Can I transform large amounts of text?</h3>
-            <p>Yes, the tool supports transforming large amounts of text efficiently. Simply paste your text into the text box and choose your desired transformation.</p>
+            <p>Yes, the tool supports transforming large amounts of text efficiently. Simply paste your text into the
+                text box and choose your desired transformation.</p>
 
             <h3>4. Is the Text Transformer tool free?</h3>
             <p>Yes, the tool is completely free to use for converting text case formats.</p>
 
             <h3>5. Can I undo or switch between different case formats?</h3>
-            <p>Yes, you can easily switch between formats by selecting a different case transformation and applying it again to your text.</p>
+            <p>Yes, you can easily switch between formats by selecting a different case transformation and applying it
+                again to your text.</p>
         </section>
 
     </div>
