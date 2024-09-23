@@ -79,7 +79,6 @@
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            min-width: 250px;
             box-sizing: border-box;
             word-wrap: break-word;
             white-space: pre-wrap; /* Giữ lại dấu xuống dòng */
@@ -89,7 +88,6 @@
             flex: 1;
             flex-direction: column;
             display: flex;
-            min-width: 400px;
             background-color: #fff;
             padding: 15px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -103,29 +101,31 @@
             font-size: 14px;
         }
 
-        .copy-button {
-            bottom: 5px;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            opacity: 0.7;
-            font-size: 20px;
-            transition: opacity 0.3s;
+        section {
+            margin: 10px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
         }
 
-        .copy-button:hover {
-            opacity: 1;
+        section > h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
 
-        .copy-icon {
-            color: #333;
+        section > h3 {
+            font-size: 22px;
+            color: #2980b9;
+            margin-top: 30px;
         }
 
-        .copied-message {
-            font-size: 12px;
-            color: green;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+        section > p {
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 20px;
         }
 
         .counts {
@@ -133,15 +133,25 @@
             font-size: 14px;
             color: #555;
         }
-        @media screen and (max-width: 1080px){
-            .container{
+
+        @media screen and (max-width: 1080px) {
+            .container {
                 width: 100%;
-                padding: 5px;
+                padding: 10px;
+                box-sizing: border-box;
             }
 
-            .textarea-container{
+            .textarea-container {
                 flex-direction: column;
             }
+
+            .output-box {
+                box-sizing: border-box;
+            }
+        }
+
+        textarea {
+            height: 150px;
         }
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
