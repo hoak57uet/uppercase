@@ -1,14 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>Convert PNG to JPG - Bulk Image Converter for Multiple Files</title>
     <!-- Basic SEO Meta Tags -->
-    <meta name="description" content="Easily convert multiple PNG images to JPG format online. Upload, convert, and download your images in bulk with our fast PNG to JPG converter tool.">
-    <meta name="keywords" content="PNG to JPG converter, bulk image converter, convert PNG to JPG, online PNG to JPG, image format conversion, transparent to non-transparent, image size reduction, download JPG images">
+    <meta name="description"
+          content="Easily convert multiple PNG images to JPG format online. Upload, convert, and download your images in bulk with our fast PNG to JPG converter tool.">
+    <meta name="keywords"
+          content="PNG to JPG converter, bulk image converter, convert PNG to JPG, online PNG to JPG, image format conversion, transparent to non-transparent, image size reduction, download JPG images">
     <meta name="author" content="Your Name">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Convert PNG to JPG - Bulk Image Converter for Multiple Files">
-    <meta property="og:description" content="Use our online PNG to JPG converter to bulk convert multiple images quickly. Save time and download all files in a single ZIP.">
+    <meta property="og:description"
+          content="Use our online PNG to JPG converter to bulk convert multiple images quickly. Save time and download all files in a single ZIP.">
     <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
     <meta property="og:url" content="https://www.yourwebsite.com">
     <meta property="og:type" content="website">
@@ -18,7 +24,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@YourTwitterHandle">
     <meta name="twitter:title" content="Convert PNG to JPG - Bulk Image Converter">
-    <meta name="twitter:description" content="Quickly convert multiple PNG images to JPG format online. Download individual images or as a ZIP file.">
+    <meta name="twitter:description"
+          content="Quickly convert multiple PNG images to JPG format online. Download individual images or as a ZIP file.">
     <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
 
     <!-- Canonical URL -->
@@ -163,15 +170,18 @@
         #fileInput {
             display: none;
         }
+
         .file-item img {
             width: 150px;
             height: 150px;
             object-fit: cover;
             border-radius: 5px;
         }
+
         .file-status {
             margin-top: 5px;
         }
+
         .file-item {
             position: relative;
             display: inline-block;
@@ -221,67 +231,423 @@
         #downloadAllBtn:hover {
             background-color: #218838; /* Đổi màu khi hover */
         }
-        #gallery{
+
+        #gallery {
             min-height: 200px;
         }
 
+        @media screen and (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+
+            .textarea-container {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            textarea {
+                width: 100%;
+                height: 150px;
+            }
+        }
+
+        /*Start content*/
+        section {
+            margin: 10px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        section > h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        section > h3 {
+            font-size: 22px;
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        section > p {
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /*End Content*/
+        /*menu style*/
+        nav {
+            background-color: #ffffff;
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1001;
+            color: #007bff;
+        }
+
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .menu > li {
+            position: relative;
+        }
+
+        .menu > li > a {
+            text-decoration: none;
+            color: #444444;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .menu > li > a:hover,
+        .menu > li > a:focus {
+            color: #ffffff;
+            background-color: #007bff;
+        }
+
+        .submenu {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f0f0f0;
+            list-style-type: none;
+            padding: 10px;
+            margin: 0;
+            border-radius: 8px;
+            min-width: 200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-gap: 20px;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 100;
+        }
+
+        .submenu li {
+            margin: 0;
+        }
+
+        .submenu li a {
+            padding: 10px 10px;
+            display: block;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .submenu li a:hover,
+        .submenu li a:focus {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .menu li:hover .submenu,
+        .menu li:focus-within .submenu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                margin-top: 50px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                padding: 5px;
+            }
+
+            .menu {
+                justify-content: left;
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100%;
+                background-color: #ffffff;
+                padding: 60px 0 20px;
+                overflow-y: auto;
+                transition: left 0.3s ease;
+                z-index: 1000;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                gap: 0px;
+            }
+
+            .menu.active {
+                left: 0;
+            }
+
+            .menu > li {
+                margin-bottom: 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .menu > li:last-child {
+                border-bottom: none;
+            }
+
+            .submenu {
+                position: static;
+                visibility: visible;
+                opacity: 1;
+                background-color: #f8f9fa;
+                display: none;
+                padding: 0;
+                box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+                border-radius: 0;
+            }
+
+            .menu > li > a {
+                display: block;
+                /*padding: 15px 20px;*/
+                font-size: 18px;
+                color: #333;
+                border-radius: 0;
+                padding: 15px;
+            }
+
+            .submenu li {
+                margin-bottom: 0;
+            }
+
+            .submenu li a {
+                padding: 12px 20px 12px 40px;
+                font-size: 16px;
+            }
+
+            .menu > li > a::after {
+                content: '\25BC';
+                font-size: 12px;
+                float: right;
+                transition: transform 0.3s ease;
+            }
+
+            .menu > li > a.active::after {
+                transform: rotate(-180deg);
+            }
+
+            .menu > li > a:hover,
+            .menu > li > a:focus,
+            .submenu li a:hover,
+            .submenu li a:focus {
+                background-color: #e9ecef;
+                color: #007bff;
+            }
+
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .overlay.active {
+                display: block;
+                opacity: 1;
+            }
+
+            nav {
+                padding: 0;
+            }
+        }
+
+        /*End menu style*/
     </style>
 </head>
 <body>
+<nav>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li>
+            <a href="#" aria-haspopup="true">Text Transformation</a>
+            <ul class="submenu">
+                <li><a href="/yaytext-social/ancient-cuneiform">Ancient Cuneiform</a></li>
+                <li><a href="/yaytext-social/bamum">Bamum</a></li>
+                <li><a href="/yaytext-social/bold-italic">Bold Italic</a></li>
+                <li><a href="/yaytext-social/bubble-text">Bubble Text</a></li>
+                <li><a href="/yaytext-social/canadian-aboriainal">Canadian Aboriainal</a></li>
+                <li><a href="/yaytext-social/cursive-script">Cursive Script</a></li>
+                <li><a href="/yaytext-social/double-struck">Double Struck</a></li>
+                <li><a href="/yaytext-social/east-asian-letter-like">East Asian Letter Like</a></li>
+                <li><a href="/yaytext-social/faces">Faces</a></li>
+                <li><a href="/yaytext-social/fraktur-gothic-old-english">Fraktur Gothic Old English</a></li>
+                <li><a href="/yaytext-social/full-width-vaporwave">Full Width Vaporwave</a></li>
+                <li><a href="/yaytext-social/lightning">Lightning</a></li>
+                <li><a href="/yaytext-social/mini-me-stacked-text">Mini Me Stacked Text</a></li>
+                <li><a href="/yaytext-social/mono-space">Mono Space</a></li>
+                <li><a href="/yaytext-social/ransom-note-text">Ransom Note Text</a></li>
+                <li><a href="/yaytext-social/slash-through">Slash Through</a></li>
+                <li><a href="/yaytext-social/small-caps">Small Caps</a></li>
+                <li><a href="/yaytext-social/square-text">Square Text</a></li>
+                <li><a href="/yaytext-social/squiggles-and-hooks">Squiggles And Hooks</a></li>
+                <li><a href="/yaytext-social/strike-through">Strike Through</a></li>
+                <li><a href="/yaytext-social/tiny-text">Tiny Text</a></li>
+                <li><a href="/yaytext-social/underline">Underline</a></li>
+                <li><a href="/yaytext-social/upside-down">Upside Down</a></li>
+                <li><a href="/yaytext-social/vai-letter-like">Vai Letter Like</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Code & Data</a>
+            <ul class="submenu">
+                <li><a href="/data/base64-encode-decode">Base64 Encode / Decode</a></li>
+                <li><a href="/data/csv-to-json">CSV To JSON</a></li>
+                <li><a href="/data/hex-to-text">HEX To Text</a></li>
+                <li><a href="/data/text-to-binary">BINARY To Text</a></li>
+                <li><a href="/data/text-to-morse-code">MORSE Encode / Decode</a></li>
+                <li><a href="/data/text-to-rot13">ROT13 Encode / Decode</a></li>
+                <li><a href="/data/url-encode-decode">URL Encode / Decode</a></li>
+                <li><a href="/data/url-slugify">URL Slugify</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Image</a>
+            <ul class="submenu">
+                <li><a href="/image/img-to-ascii">Image To ASCII</a></li>
+                <li><a href="/image/img-to-text">Image To Text</a></li>
+                <li><a href="/image/jpg-to-png">JPG To PNG Converter</a></li>
+                <li><a href="/image/png-to-jpg">PNG To JPG Converter</a></li>
+                <li><a href="/image/jpg-to-webp">JPG To WEBP Converter</a></li>
+                <li><a href="/image/webp-to-jpg">WEBP To JPG Converter</a></li>
+                <li><a href="/image/png-to-webp">PNG To WEBP Converter</a></li>
+                <li><a href="/image/webp-to-png">WEBP To PNG Converter</a></li>
+                <li><a href="/image/svg-to-png">SVG To PNG Converter</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Text Generator</a>
+            <ul class="submenu">
+                <li><a href="text-generator/strong-password-generator">Secure Password Generator</a></li>
+                <li><a href="text-generator/random-choice-wheel">Random Spinning Wheel</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Crypto Currency Generator</a>
+            <ul class="submenu">
+                <li><a href="text-generator/strong-password-generator">Secure Password Generator</a></li>
+                <li><a href="text-generator/random-choice-wheel">Random Spinning Wheel</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<div class="overlay"></div>
 <div class="container">
     <h1>Convert PNG to JPG - Bulk Image Converter for Multiple Files</h1>
-    <p>Easily convert multiple PNG images to JPG format online. Upload, convert, and download your images in bulk with our fast PNG to JPG converter tool.</p>
+    <p>Easily convert multiple PNG images to JPG format online. Upload, convert, and download your images in bulk with
+        our fast PNG to JPG converter tool.</p>
     <div class="upload-box" id="uploadBox">
-        <input type="file" id="fileInput" multiple  accept="image/png"/>
+        <input type="file" id="fileInput" multiple accept="image/png"/>
         <p>Drag & drop an PNG image here or <span>browse</span></p>
     </div>
     <div id="gallery"></div>
     <button id="downloadAllBtn" style="display:none;">Download All</button>
-    <section>
+    <div>
         <section>
             <h2>About Our PNG to JPG Converter Tool</h2>
-            <p>Our PNG to JPG Converter tool allows you to convert multiple PNG images to JPG format quickly and easily. The JPG format is commonly used for its smaller file size while maintaining good image quality, making it ideal for web usage and faster load times.</p>
+            <p>Our PNG to JPG Converter tool allows you to convert multiple PNG images to JPG format quickly and easily.
+                The JPG format is commonly used for its smaller file size while maintaining good image quality, making
+                it ideal for web usage and faster load times.</p>
 
-            <p>This tool enables you to upload several PNG files at once, convert them to JPG, and download them either individually or as a ZIP file. It is perfect for those who need to compress images or remove transparency while preserving high image quality.</p>
+            <p>This tool enables you to upload several PNG files at once, convert them to JPG, and download them either
+                individually or as a ZIP file. It is perfect for those who need to compress images or remove
+                transparency while preserving high image quality.</p>
 
             <h2>How It Works</h2>
             <p>Follow these simple steps to convert your PNG images to JPG:</p>
 
             <ul>
-                <li><strong>Upload PNG Files:</strong> Use the drag-and-drop interface or click the "Browse" button to select multiple PNG images from your device.</li>
-                <li><strong>Convert to JPG:</strong> Once the files are uploaded, click the "Convert" button to start the conversion process.</li>
-                <li><strong>Download JPG Files:</strong> After the conversion is complete, you can download each image individually or use the "Download All" button to get all converted images as a ZIP file.</li>
+                <li><strong>Upload PNG Files:</strong> Use the drag-and-drop interface or click the "Browse" button to
+                    select multiple PNG images from your device.
+                </li>
+                <li><strong>Convert to JPG:</strong> Once the files are uploaded, click the "Convert" button to start
+                    the conversion process.
+                </li>
+                <li><strong>Download JPG Files:</strong> After the conversion is complete, you can download each image
+                    individually or use the "Download All" button to get all converted images as a ZIP file.
+                </li>
             </ul>
 
-            <p>This tool is suitable for designers, developers, and users who need to bulk convert PNG files to JPG for smaller file sizes or other requirements.</p>
+            <p>This tool is suitable for designers, developers, and users who need to bulk convert PNG files to JPG for
+                smaller file sizes or other requirements.</p>
         </section>
         <section>
             <h2>Frequently Asked Questions (FAQ)</h2>
 
             <h3>1. Why should I convert PNG to JPG?</h3>
-            <p>The JPG format is generally smaller in size compared to PNG, making it ideal for web usage where fast loading times are important. Additionally, JPG is great for images that don't need transparency.</p>
+            <p>The JPG format is generally smaller in size compared to PNG, making it ideal for web usage where fast
+                loading times are important. Additionally, JPG is great for images that don't need transparency.</p>
 
             <h3>2. Can I upload multiple PNG files at once?</h3>
-            <p>Yes, you can upload multiple PNG files at once. Simply drag and drop your images, or select them using the "Browse" button.</p>
+            <p>Yes, you can upload multiple PNG files at once. Simply drag and drop your images, or select them using
+                the "Browse" button.</p>
 
             <h3>3. Is there a limit to the number of files I can upload?</h3>
-            <p>There is no strict limit, but for optimal performance, we recommend uploading files within reasonable size limits. The tool supports bulk conversion, so you can upload several files in a single session.</p>
+            <p>There is no strict limit, but for optimal performance, we recommend uploading files within reasonable
+                size limits. The tool supports bulk conversion, so you can upload several files in a single session.</p>
 
             <h3>4. Will converting PNG to JPG reduce the image quality?</h3>
-            <p>Converting from PNG to JPG may reduce quality slightly, but the conversion is optimized to preserve as much image detail as possible while reducing file size. JPG is a compressed format, but it is great for images where high quality isn't the primary concern.</p>
+            <p>Converting from PNG to JPG may reduce quality slightly, but the conversion is optimized to preserve as
+                much image detail as possible while reducing file size. JPG is a compressed format, but it is great for
+                images where high quality isn't the primary concern.</p>
 
             <h3>5. Can I download all the converted files at once?</h3>
-            <p>Yes, you can use the "Download All" feature to download all converted JPG images in a ZIP file after the conversion process is completed.</p>
+            <p>Yes, you can use the "Download All" feature to download all converted JPG images in a ZIP file after the
+                conversion process is completed.</p>
 
             <h3>6. Does the tool work on mobile devices?</h3>
-            <p>Yes, our PNG to JPG converter is fully responsive and works smoothly on both desktop and mobile devices.</p>
+            <p>Yes, our PNG to JPG converter is fully responsive and works smoothly on both desktop and mobile
+                devices.</p>
 
             <h3>7. Is my data secure?</h3>
-            <p>Yes, your images are processed directly in your browser, meaning they are not uploaded to any server. This ensures your data stays private and secure.</p>
+            <p>Yes, your images are processed directly in your browser, meaning they are not uploaded to any server.
+                This ensures your data stays private and secure.</p>
         </section>
 
 
-    </section>
+    </div>
 
 
 </div>
@@ -293,10 +659,10 @@
         for (let file of files) {
             if (file.type === 'image/png') {
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     const img = new Image();
                     img.src = e.target.result;
-                    img.onload = function() {
+                    img.onload = function () {
                         convertToJPG(img, file.name);
                     };
                 };
@@ -311,10 +677,10 @@
         canvas.width = pngImage.width;
         canvas.height = pngImage.height;
         ctx.drawImage(pngImage, 0, 0);
-        canvas.toBlob(function(blob) {
+        canvas.toBlob(function (blob) {
             const jpgFileName = fileName.replace('.png', '.jpg');
             displayImage(blob, jpgFileName);
-            convertedFiles.push({ name: jpgFileName, blob });
+            convertedFiles.push({name: jpgFileName, blob});
             updateDownloadAllButton();
         }, 'image/jpeg', 0.92);
     }
@@ -357,7 +723,7 @@
         for (const file of convertedFiles) {
             zip.file(file.name, file.blob);
         }
-        const content = await zip.generateAsync({ type: 'blob' });
+        const content = await zip.generateAsync({type: 'blob'});
         const url = URL.createObjectURL(content);
         const a = document.createElement('a');
         a.href = url;
@@ -392,7 +758,59 @@
     fileInput.addEventListener('change', () => {
         handleFiles(fileInput.files);
     });
+    //     Start menu
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        const menuItems = menu.querySelectorAll('li > a');
+        const overlay = document.querySelector('.overlay');
 
+        menuToggle.addEventListener('click', function () {
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', menu.classList.contains('active'));
+            menuToggle.innerHTML = menu.classList.contains('active') ? '✕' : '☰';
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (window.innerWidth <= 768) {
+                    const submenu = this.nextElementSibling;
+                    if (submenu) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                        const isExpanded = this.classList.contains('active');
+                        this.setAttribute('aria-expanded', isExpanded);
+                        submenu.style.display = isExpanded ? 'block' : 'none';
+
+                        // Scroll into view if necessary
+                        if (isExpanded) {
+                            setTimeout(() => {
+                                const rect = submenu.getBoundingClientRect();
+                                const menuRect = menu.getBoundingClientRect();
+                                if (rect.bottom > menuRect.bottom) {
+                                    submenu.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+                                }
+                            }, 300); // Adjust this delay if needed
+                        }
+                    }
+                }
+            });
+        });
+
+        // Close menu when clicking outside or on overlay
+        overlay.addEventListener('click', closeMenu);
+
+        function closeMenu() {
+            menu.classList.remove('active');
+            overlay.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.innerHTML = '☰';
+            document.body.style.overflow = '';
+        }
+    });
+    //end menu
 </script>
 </body>
 </html>
