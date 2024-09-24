@@ -1,14 +1,20 @@
 <!doctype html>
 <html ⚡ lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Name Picker with Spinning Wheel - Make Every Decision Fun!</title>
     <!-- Basic SEO Meta Tags -->
-    <meta name="description" content="Use the Random Name Picker to spin a wheel and select a lucky winner. Ideal for classrooms, giveaways, work meetings, and everyday decisions. Create your spinning wheel and have fun!">
-    <meta name="keywords" content="random name picker, name wheel, spinning wheel, giveaway picker, classroom tool, random decision, spin the wheel">
+    <meta name="description"
+          content="Use the Random Name Picker to spin a wheel and select a lucky winner. Ideal for classrooms, giveaways, work meetings, and everyday decisions. Create your spinning wheel and have fun!">
+    <meta name="keywords"
+          content="random name picker, name wheel, spinning wheel, giveaway picker, classroom tool, random decision, spin the wheel">
     <meta name="author" content="Your Name">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Random Name Picker – Spin the Wheel for Fun Decisions">
-    <meta property="og:description" content="Easily create a spinning wheel with names or tasks and randomly pick a winner. Perfect for classrooms, giveaways, and more!">
+    <meta property="og:description"
+          content="Easily create a spinning wheel with names or tasks and randomly pick a winner. Perfect for classrooms, giveaways, and more!">
     <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
     <meta property="og:url" content="https://www.yourwebsite.com">
     <meta property="og:type" content="website">
@@ -18,7 +24,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@YourTwitterHandle">
     <meta name="twitter:title" content="Random Name Picker – Spin the Wheel and Pick a Winner">
-    <meta name="twitter:description" content="Randomly select a name using the spinning wheel. Great for classrooms, meetings, and fun decision-making.">
+    <meta name="twitter:description"
+          content="Randomly select a name using the spinning wheel. Great for classrooms, meetings, and fun decision-making.">
     <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
 
     <!-- Canonical URL -->
@@ -31,15 +38,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style amp-custom>
         body {
-            display: flex;
-            flex-direction: column;
             font-family: Arial, sans-serif;
             background-color: #f0f8ff;
+            margin: 0;
         }
 
-        label {
+        .label {
             display: block;
             margin-bottom: 5px;
+            font-weight: bold;
         }
 
         .container {
@@ -51,9 +58,13 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        h1, h2 {
+        h1 {
             text-align: center;
             font-size: 24px;
+        }
+
+        h2 {
+            font-size: 20pxO;
         }
 
         p {
@@ -71,7 +82,7 @@
             margin-bottom: 10px;
         }
 
-        button {
+        button.large {
             width: 100%;
             padding: 10px;
             background: #28a745;
@@ -81,7 +92,7 @@
             cursor: pointer;
         }
 
-        button:hover {
+        button.large:hover {
             background: #218838;
         }
 
@@ -135,28 +146,14 @@
             background-color: #138496;
         }
 
-        /* Make the layout responsive */
-        @media screen and (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                gap: 30px;
-                padding: 30px;
-            }
-
-            #arrow {
-                left: 240px; /* Adjust arrow position for smaller screens */
-            }
-        }
 
         .wheel-container {
             display: flex;
             flex-direction: column;
-            height: 100%;
             flex-grow: 1;
         }
 
         .values-wheel {
-            height: 500px;
         }
 
         /* Right wheel section styling */
@@ -187,9 +184,7 @@
 
         .values-wheel {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 50px;
+            gap: 20px;
         }
 
         .sub-container {
@@ -198,13 +193,10 @@
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
-            width: 100%;
         }
 
         /* Left input section styling */
         #inputValues {
-            width: 100%;
             flex-grow: 1;
             padding: 15px;
             border: 2px solid #e0e0e0;
@@ -249,6 +241,8 @@
         .wheel-wrapper {
             flex-grow: 1;
             display: flex;
+            padding: 10px;
+            box-sizing: border-box;
         }
 
         #create-wheel-btn {
@@ -307,8 +301,327 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 9999;
+            z-index: 999;
             pointer-events: none;
+        }
+
+        #short-values {
+            display: none;
+        }
+
+        /*Start content*/
+        section {
+            margin: 10px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        section > h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        section > h3 {
+            font-size: 22px;
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        section > p {
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /*End Content*/
+        /*menu style*/
+        nav {
+            background-color: #ffffff;
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 7000;
+            color: #007bff;
+        }
+
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .menu > li {
+            position: relative;
+        }
+
+        .menu > li > a {
+            text-decoration: none;
+            color: #444444;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .menu > li > a:hover,
+        .menu > li > a:focus {
+            color: #ffffff;
+            background-color: #007bff;
+        }
+
+        .submenu {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f0f0f0;
+            list-style-type: none;
+            padding: 10px;
+            margin: 0;
+            border-radius: 8px;
+            min-width: 200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-gap: 20px;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 5000;
+        }
+
+        .submenu li {
+            margin: 0;
+        }
+
+        .submenu li a {
+            padding: 10px 10px;
+            display: block;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .submenu li a:hover,
+        .submenu li a:focus {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .menu li:hover .submenu,
+        .menu li:focus-within .submenu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                margin-top: 50px;
+            }
+
+            .menu-toggle {
+                display: block;
+                width: fit-content;
+            }
+
+            nav {
+                padding: 5px;
+            }
+
+            .menu {
+                justify-content: left;
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100%;
+                background-color: #ffffff;
+                padding: 60px 0 20px;
+                overflow-y: auto;
+                transition: left 0.3s ease;
+                z-index: 6000;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                gap: 0px;
+            }
+
+            .menu.active {
+                left: 0;
+            }
+
+            .menu > li {
+                margin-bottom: 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .menu > li:last-child {
+                border-bottom: none;
+            }
+
+            .submenu {
+                position: static;
+                visibility: visible;
+                opacity: 1;
+                background-color: #f8f9fa;
+                display: none;
+                padding: 0;
+                box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+                border-radius: 0;
+            }
+
+            .menu > li > a {
+                display: block;
+                /*padding: 15px 20px;*/
+                font-size: 18px;
+                color: #333;
+                border-radius: 0;
+                padding: 15px;
+            }
+
+            .submenu li {
+                margin-bottom: 0;
+            }
+
+            .submenu li a {
+                padding: 12px 20px 12px 40px;
+                font-size: 16px;
+            }
+
+            .menu > li > a::after {
+                content: '\25BC';
+                font-size: 12px;
+                float: right;
+                transition: transform 0.3s ease;
+            }
+
+            .menu > li > a.active::after {
+                transform: rotate(-180deg);
+            }
+
+            .menu > li > a:hover,
+            .menu > li > a:focus,
+            .submenu li a:hover,
+            .submenu li a:focus {
+                background-color: #e9ecef;
+                color: #007bff;
+            }
+
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1000;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .overlay.active {
+                display: block;
+                opacity: 1;
+            }
+
+            nav {
+                padding: 0;
+            }
+        }
+
+        /*End menu style*/
+        /* Make the layout responsive */
+        @media screen and (max-width: 1080px) {
+            .container {
+                flex-direction: column;
+                max-width: 100%;
+                box-sizing: border-box;
+                padding: 10px;
+            }
+
+            .sub-container {
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .values-wheel {
+                display: flex;
+                flex-direction: column;
+                height: fit-content;
+            }
+
+            #arrow {
+                left: 240px; /* Adjust arrow position for smaller screens */
+            }
+
+            #result {
+                margin-top: 0px;
+            }
+
+            textarea {
+                height: 150px;
+            }
+
+            #wheelCanvas {
+                width: 100%;
+            }
+
+            .btn-start-spin {
+                margin-top: 10px;
+            }
+
+            #label-values::after {
+                content: '\25BC';
+                font-size: 12px;
+                float: right;
+                transition: transform 0.3s ease;
+            }
+
+            #label-values.active::after {
+                transform: rotate(-180deg);
+            }
+
+            #values-content {
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+
+            #short-values {
+                display: flex;
+                flex-direction: column;
+            }
+
+            #short-values-names {
+                font-style: italic;
+                font-size: 12px;
+                color: blue;
+            }
+
+            #short-remove-after-chosen {
+                font-style: italic;
+                font-size: 11px;
+                color: red;
+            }
         }
 
     </style>
@@ -319,6 +632,83 @@
     <script src="https://cdn.jsdelivr.net/npm/fireworks-js/dist/fireworks.min.js"></script>
 </head>
 <body>
+<nav>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li>
+            <a href="#" aria-haspopup="true">Text Transformation</a>
+            <ul class="submenu">
+                <li><a href="/yaytext-social/ancient-cuneiform">Ancient Cuneiform</a></li>
+                <li><a href="/yaytext-social/bamum">Bamum</a></li>
+                <li><a href="/yaytext-social/bold-italic">Bold Italic</a></li>
+                <li><a href="/yaytext-social/bubble-text">Bubble Text</a></li>
+                <li><a href="/yaytext-social/canadian-aboriainal">Canadian Aboriainal</a></li>
+                <li><a href="/yaytext-social/cursive-script">Cursive Script</a></li>
+                <li><a href="/yaytext-social/double-struck">Double Struck</a></li>
+                <li><a href="/yaytext-social/east-asian-letter-like">East Asian Letter Like</a></li>
+                <li><a href="/yaytext-social/faces">Faces</a></li>
+                <li><a href="/yaytext-social/fraktur-gothic-old-english">Fraktur Gothic Old English</a></li>
+                <li><a href="/yaytext-social/full-width-vaporwave">Full Width Vaporwave</a></li>
+                <li><a href="/yaytext-social/lightning">Lightning</a></li>
+                <li><a href="/yaytext-social/mini-me-stacked-text">Mini Me Stacked Text</a></li>
+                <li><a href="/yaytext-social/mono-space">Mono Space</a></li>
+                <li><a href="/yaytext-social/ransom-note-text">Ransom Note Text</a></li>
+                <li><a href="/yaytext-social/slash-through">Slash Through</a></li>
+                <li><a href="/yaytext-social/small-caps">Small Caps</a></li>
+                <li><a href="/yaytext-social/square-text">Square Text</a></li>
+                <li><a href="/yaytext-social/squiggles-and-hooks">Squiggles And Hooks</a></li>
+                <li><a href="/yaytext-social/strike-through">Strike Through</a></li>
+                <li><a href="/yaytext-social/tiny-text">Tiny Text</a></li>
+                <li><a href="/yaytext-social/underline">Underline</a></li>
+                <li><a href="/yaytext-social/upside-down">Upside Down</a></li>
+                <li><a href="/yaytext-social/vai-letter-like">Vai Letter Like</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Code & Data</a>
+            <ul class="submenu">
+                <li><a href="/data/base64-encode-decode">Base64 Encode / Decode</a></li>
+                <li><a href="/data/csv-to-json">CSV To JSON</a></li>
+                <li><a href="/data/hex-to-text">HEX To Text</a></li>
+                <li><a href="/data/text-to-binary">BINARY To Text</a></li>
+                <li><a href="/data/text-to-morse-code">MORSE Encode / Decode</a></li>
+                <li><a href="/data/text-to-rot13">ROT13 Encode / Decode</a></li>
+                <li><a href="/data/url-encode-decode">URL Encode / Decode</a></li>
+                <li><a href="/data/url-slugify">URL Slugify</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Image</a>
+            <ul class="submenu">
+                <li><a href="/image/img-to-ascii">Image To ASCII</a></li>
+                <li><a href="/image/img-to-text">Image To Text</a></li>
+                <li><a href="/image/jpg-to-png">JPG To PNG Converter</a></li>
+                <li><a href="/image/png-to-jpg">PNG To JPG Converter</a></li>
+                <li><a href="/image/jpg-to-webp">JPG To WEBP Converter</a></li>
+                <li><a href="/image/webp-to-jpg">WEBP To JPG Converter</a></li>
+                <li><a href="/image/png-to-webp">PNG To WEBP Converter</a></li>
+                <li><a href="/image/webp-to-png">WEBP To PNG Converter</a></li>
+                <li><a href="/image/svg-to-png">SVG To PNG Converter</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Text Generator</a>
+            <ul class="submenu">
+                <li><a href="text-generator/strong-password-generator">Secure Password Generator</a></li>
+                <li><a href="text-generator/random-choice-wheel">Random Spinning Wheel</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Crypto Currency Generator</a>
+            <ul class="submenu">
+                <li><a href="text-generator/strong-password-generator">Secure Password Generator</a></li>
+                <li><a href="text-generator/random-choice-wheel">Random Spinning Wheel</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<div class="overlay"></div>
 <div id="fireworksContainer" class="fireworks-container"></div>
 <div class="container">
     <div id="popup" class="popup">
@@ -326,21 +716,26 @@
         <span id="popup-content"></span>
         <button id="closeBtn">Close</button>
     </div>
-    <h1>Random Name Picker with Spinning Wheel - Make Every Decision Fun!</h1>
-    <br/>
+    <h1>Random Name Picker with Spinning Wheel</h1>
     <div class="sub-container">
         <div class="values-wheel">
             <!-- Left side input -->
             <div class="wheel-container">
-                <h4>Enter Values (one per line):</h4>
-                <textarea id="inputValues" placeholder="Enter values..."></textarea>
-                <div class="option-values">
-                    <button class="shuffle-btn" onclick="shuffle()">
-                        <i class="fas fa-random"></i> Shuffle
-                    </button>
-                    <label><input type="checkbox" id="removeAfterChosen" checked> Remove after Chosen</label>
+                <a id="label-values" class="label active">Enter Values (one per line):</a>
+                <div id="values-content" class="wheel-container">
+                    <textarea id="inputValues" placeholder="Enter values..."></textarea>
+                    <div class="option-values">
+                        <button class="shuffle-btn" onclick="shuffle()">
+                            <i class="fas fa-random"></i> Shuffle
+                        </button>
+                        <label><input type="checkbox" id="removeAfterChosen" checked> Remove after Chosen</label>
+                    </div>
+                    <button class="large" id="create-wheel-btn" onclick="setupWheel()">Create Wheel</button>
                 </div>
-                <button id="create-wheel-btn" onclick="setupWheel()">Create Wheel</button>
+                <div id="short-values">
+                    <span id="short-values-names"></span>
+                    <span id="short-remove-after-chosen"></span>
+                </div>
             </div>
 
             <!-- Right side wheel -->
@@ -350,7 +745,7 @@
                 <div class="wheel-wrapper">
                     <canvas id="wheelCanvas" width="400" height="400"></canvas>
                 </div>
-                <button class="btn-start-spin" id="btn-start-spin" onclick="startSpin()">START</button>
+                <button class="btn-start-spin large" id="btn-start-spin" onclick="startSpin()">START</button>
             </div>
         </div>
         <h4>Result</h4>
@@ -361,8 +756,8 @@
             </button>
         </div>
     </div>
-    <br/><br/><br/>
-    <section id="introduction">
+    <br/><br/>
+    <div id="introduction">
         <section>
             <h2>About the Random Name Picker Tool</h2>
             <p>Our Random Name Picker tool is an easy and fun way to make random selections. Whether you're in a
@@ -426,7 +821,7 @@
         </section>
 
 
-    </section>
+    </div>
 </div>
 
 <script>
@@ -459,11 +854,16 @@
     function setupWheel() {
         resultTextArea.textContent = '';
         const inputValues = document.getElementById("inputValues").value.split('\n').filter(value => value.trim() !== '');
+        const removeAfterChosen = document.getElementById("removeAfterChosen");
         if (inputValues.length === 0) {
             alert("Please enter some values to spin.");
             return;
         }
-
+        //update short value
+        document.getElementById('short-values-names').innerText = inputValues.join(', ')
+        document.getElementById('short-remove-after-chosen').innerText = removeAfterChosen ? "Remove After Chosen" : "";
+        //clear old result
+        chosenSegments = [];
         // Create segments based on input
         remainingSegments = inputValues.map(value => ({
             text: value.trim(),
@@ -725,6 +1125,80 @@
         document.getElementById('popup').style.visibility = 'hidden';
         fireworks.stop();
     });
+    document.getElementById('label-values').addEventListener('click', function (e) {
+        this.classList.toggle('active');
+        const isExpanded = this.classList.contains('active');
+        this.setAttribute('aria-expanded', isExpanded);
+        document.getElementById('values-content').style.display = isExpanded ? 'flex' : 'none';
+        document.getElementById('short-values').style.display = !isExpanded ? 'flex' : 'none';
+    });
+
+    function toggleValues() {
+        if (window.innerWidth <= 768) {
+            const label = document.getElementById('label-values');
+            label.classList.toggle('active');
+            const isExpanded = label.classList.contains('active');
+            label.setAttribute('aria-expanded', isExpanded);
+            document.getElementById('values-content').style.display = isExpanded ? 'flex' : 'none';
+            document.getElementById('short-values').style.display = !isExpanded ? 'flex' : 'none';
+        }
+    }
+
+    toggleValues()
+    //     Start menu
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        const menuItems = menu.querySelectorAll('li > a');
+        const overlay = document.querySelector('.overlay');
+
+        menuToggle.addEventListener('click', function () {
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', menu.classList.contains('active'));
+            menuToggle.innerHTML = menu.classList.contains('active') ? '✕' : '☰';
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (window.innerWidth <= 768) {
+                    const submenu = this.nextElementSibling;
+                    if (submenu) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                        const isExpanded = this.classList.contains('active');
+                        this.setAttribute('aria-expanded', isExpanded);
+                        submenu.style.display = isExpanded ? 'block' : 'none';
+
+                        // Scroll into view if necessary
+                        /**
+                         if (isExpanded) {
+                         setTimeout(() => {
+                         const rect = submenu.getBoundingClientRect();
+                         const menuRect = menu.getBoundingClientRect();
+                         if (rect.bottom > menuRect.bottom) {
+                         submenu.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+                         }
+                         }, 300); // Adjust this delay if needed
+                         }*/
+                    }
+                }
+            });
+        });
+
+        // Close menu when clicking outside or on overlay
+        overlay.addEventListener('click', closeMenu);
+
+        function closeMenu() {
+            menu.classList.remove('active');
+            overlay.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.innerHTML = '☰';
+            document.body.style.overflow = '';
+        }
+    });
+    //end menu
 </script>
 </body>
 </html>
