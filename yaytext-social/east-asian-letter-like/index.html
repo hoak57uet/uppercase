@@ -28,65 +28,107 @@
           content="Make your social media posts stand out with our East Asian Letterlike Text Generator. Convert your text into elegant characters inspired by Chinese, Japanese, and Korean scripts.">
     <meta name="twitter:image" content="URL_to_your_image.jpg"> <!-- Replace with the URL of your image -->
 
-
     <style amp-custom>
         body {
             font-family: Arial, sans-serif;
-            padding: 0;
             margin: 0;
-            background-color: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            width: 80%;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-
-        textarea {
-            width: 100%;
-            padding: 5px;
-            height: 200px;
-            text-align: left;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: "Times New Roman";
-            font-size: 15px;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-            text-align: left;
         }
 
-        .text-input, .text-output {
-            flex: 1;
-            min-width: 250px;
-            background-color: #fff;
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .textarea-container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
             padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* Giữ lại dấu xuống dòng */
+        }
+
+        .output-box {
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             word-wrap: break-word;
             box-sizing: border-box;
-            margin-top: 10px;
         }
 
+        .options label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        /*Start content*/
+        section {
+            margin: 10px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        section > h2 {
+            font-size: 20px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        section > h3 {
+            font-size: 18px;
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        section > p {
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /*End Content*/
         .counts {
             margin-top: 10px;
             font-size: 14px;
@@ -95,6 +137,8 @@
         }
 
         .result {
+            box-sizing: border-box;
+            padding: 10px;
             display: flex;
             background: #f0f0f0;
             width: 100%;
@@ -102,6 +146,8 @@
         }
 
         .result-even {
+            box-sizing: border-box;
+            padding: 10px;
             display: flex;
             background: aliceblue;
             width: 100%;
@@ -133,138 +179,475 @@
         #page-content {
             text-align: left;
         }
+
+        /*menu style*/
+        nav {
+            background-color: #ffffff;
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1001;
+            color: #007bff;
+        }
+
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .menu > li {
+            position: relative;
+        }
+
+        .menu > li > a {
+            text-decoration: none;
+            color: #444444;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .menu > li > a:hover,
+        .menu > li > a:focus {
+            color: #ffffff;
+            background-color: #007bff;
+        }
+
+        .submenu {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f0f0f0;
+            list-style-type: none;
+            padding: 10px;
+            margin: 0;
+            border-radius: 8px;
+            min-width: 200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-gap: 20px;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 100;
+        }
+
+        .submenu li {
+            margin: 0;
+        }
+
+        .submenu li a {
+            padding: 10px 10px;
+            display: block;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .submenu li a:hover,
+        .submenu li a:focus {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .menu li:hover .submenu,
+        .menu li:focus-within .submenu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                box-sizing: border-box;
+                width: 100%;
+                margin-top: 50px;
+                padding: 5px;
+            }
+
+            .textarea-container {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            textarea {
+                height: 150px;
+            }
+
+            .output-box {
+                box-sizing: border-box;
+                padding: 10px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                padding: 5px;
+            }
+
+            .menu {
+                justify-content: left;
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100%;
+                background-color: #ffffff;
+                padding: 60px 0 20px;
+                overflow-y: auto;
+                transition: left 0.3s ease;
+                z-index: 1000;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                gap: 0px;
+            }
+
+            .menu.active {
+                left: 0;
+            }
+
+            .menu > li {
+                margin-bottom: 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .menu > li:last-child {
+                border-bottom: none;
+            }
+
+            .submenu {
+                position: static;
+                visibility: visible;
+                opacity: 1;
+                background-color: #f8f9fa;
+                display: none;
+                padding: 0;
+                box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+                border-radius: 0;
+            }
+
+            .menu > li > a {
+                display: block;
+                /*padding: 15px 20px;*/
+                font-size: 18px;
+                color: #333;
+                border-radius: 0;
+                padding: 15px;
+            }
+
+            .submenu li {
+                margin-bottom: 0;
+            }
+
+            .submenu li a {
+                padding: 12px 20px 12px 40px;
+                font-size: 16px;
+            }
+
+            .menu > li > a::after {
+                content: '\25BC';
+                font-size: 12px;
+                float: right;
+                transition: transform 0.3s ease;
+            }
+
+            .menu > li > a.active::after {
+                transform: rotate(-180deg);
+            }
+
+            .menu > li > a:hover,
+            .menu > li > a:focus,
+            .submenu li a:hover,
+            .submenu li a:focus {
+                background-color: #e9ecef;
+                color: #007bff;
+            }
+
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .overlay.active {
+                display: block;
+                opacity: 1;
+            }
+
+            nav {
+                padding: 0;
+            }
+        }
+
+        /*End menu style*/
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 </head>
 <body>
+<nav>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li>
+            <a href="#" aria-haspopup="true">Text Transformation</a>
+            <ul class="submenu">
+                <li><a href="/yaytext-social/ancient-cuneiform">Ancient Cuneiform</a></li>
+                <li><a href="/yaytext-social/bamum">Bamum</a></li>
+                <li><a href="/yaytext-social/bold-italic">Bold Italic</a></li>
+                <li><a href="/yaytext-social/bubble-text">Bubble Text</a></li>
+                <li><a href="/yaytext-social/canadian-aboriainal">Canadian Aboriainal</a></li>
+                <li><a href="/yaytext-social/cursive-script">Cursive Script</a></li>
+                <li><a href="/yaytext-social/double-struck">Double Struck</a></li>
+                <li><a href="/yaytext-social/east-asian-letter-like">East Asian Letter Like</a></li>
+                <li><a href="/yaytext-social/faces">Faces</a></li>
+                <li><a href="/yaytext-social/fraktur-gothic-old-english">Fraktur Gothic Old English</a></li>
+                <li><a href="/yaytext-social/full-width-vaporwave">Full Width Vaporwave</a></li>
+                <li><a href="/yaytext-social/lightning">Lightning</a></li>
+                <li><a href="/yaytext-social/mini-me-stacked-text">Mini Me Stacked Text</a></li>
+                <li><a href="/yaytext-social/mono-space">Mono Space</a></li>
+                <li><a href="/yaytext-social/ransom-note-text">Ransom Note Text</a></li>
+                <li><a href="/yaytext-social/slash-through">Slash Through</a></li>
+                <li><a href="/yaytext-social/small-caps">Small Caps</a></li>
+                <li><a href="/yaytext-social/square-text">Square Text</a></li>
+                <li><a href="/yaytext-social/squiggles-and-hooks">Squiggles And Hooks</a></li>
+                <li><a href="/yaytext-social/strike-through">Strike Through</a></li>
+                <li><a href="/yaytext-social/tiny-text">Tiny Text</a></li>
+                <li><a href="/yaytext-social/underline">Underline</a></li>
+                <li><a href="/yaytext-social/upside-down">Upside Down</a></li>
+                <li><a href="/yaytext-social/vai-letter-like">Vai Letter Like</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Code & Data</a>
+            <ul class="submenu">
+                <li><a href="/data/base64-encode-decode">Base64 Encode / Decode</a></li>
+                <li><a href="/data/csv-to-json">CSV To JSON</a></li>
+                <li><a href="/data/hex-to-text">HEX To Text</a></li>
+                <li><a href="/data/text-to-binary">BINARY To Text</a></li>
+                <li><a href="/data/text-to-morse-code">MORSE Encode / Decode</a></li>
+                <li><a href="/data/text-to-rot13">ROT13 Encode / Decode</a></li>
+                <li><a href="/data/url-encode-decode">URL Encode / Decode</a></li>
+                <li><a href="/data/url-slugify">URL Slugify</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Image</a>
+            <ul class="submenu">
+                <li><a href="/image/img-to-ascii">Image To ASCII</a></li>
+                <li><a href="/image/img-to-text">Image To Text</a></li>
+                <li><a href="/image/jpg-to-png">JPG To PNG Converter</a></li>
+                <li><a href="/image/png-to-jpg">PNG To JPG Converter</a></li>
+                <li><a href="/image/jpg-to-webp">JPG To WEBP Converter</a></li>
+                <li><a href="/image/webp-to-jpg">WEBP To JPG Converter</a></li>
+                <li><a href="/image/png-to-webp">PNG To WEBP Converter</a></li>
+                <li><a href="/image/webp-to-png">WEBP To PNG Converter</a></li>
+                <li><a href="/image/svg-to-png">SVG To PNG Converter</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Text Generator</a>
+            <ul class="submenu">
+                <li><a href="/text-generator/strong-password-generator">Secure Password Generator</a></li>
+                <li><a href="/text-generator/random-choice-wheel">Random Spinning Wheel</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Crypto Currency Generator</a>
+            <ul class="submenu">
+                <li><a href="/text-generator/strong-password-generator">Secure Password Generator</a></li>
+                <li><a href="/text-generator/random-choice-wheel">Random Spinning Wheel</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<div class="overlay"></div>
 <div class="container">
     <h1 id="page-title">East Asian Letterlike Text Generator - Transform Your Text into Elegant Characters</h1>
     <p id="page-description">Discover our East Asian Letterlike Text Generator, which transforms your English text into
         visually captivating characters inspired by Chinese, Japanese, and Korean scripts. This unique tool combines the
         aesthetic appeal of East Asian characters with English readability, perfect for creating eye-catching and
         distinctive social media posts.</p>
-    <div class="text-input">
-        <label for="inputText">Enter your text</label>
-        <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
-        <div class="counts">
-            Character Count: <span id="charCount">0</span> |
-            Word Count: <span id="wordCount">0</span> |
-            Sentence Count: <span id="sentenceCount">0</span> |
-            Line Count: <span id="lineCount">0</span>
+    <div class="textarea-container">
+        <div class="output-box">
+            <label for="inputText">Enter your text</label>
+            <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <div class="output-box" id="result">
+            <label>Preview</label>
+            <div class="result">
+                <span readonly class="input-result" id="result-01"></span>
+                <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+                <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-02"></span>
+                <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+                <button class="button-result" id="copy-result-02" onclick="copyText('result-02', 'copiedMessage2')">Copy
+                </button>
+            </div>
+            <div class="result">
+                <span readonly class="input-result" id="result-03"></span>
+                <span class="copied-message" id="copiedMessage3">Copied ✓</span>
+                <button class="button-result" id="copy-result-03" onclick="copyText('result-03', 'copiedMessage3')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-04"></span>
+                <span class="copied-message" id="copiedMessage4">Copied ✓</span>
+                <button class="button-result" id="copy-result-04" onclick="copyText('result-04', 'copiedMessage4')">Copy
+                </button>
+            </div>
+            <div class="result">
+                <span readonly class="input-result" id="result-05"></span>
+                <span class="copied-message" id="copiedMessage5">Copied ✓</span>
+                <button class="button-result" id="copy-result-05" onclick="copyText('result-05', 'copiedMessage5')">Copy
+                </button>
+            </div>
         </div>
     </div>
-    <div class="text-input" id="result">
-        <label>Preview</label>
-        <div class="result">
-            <span readonly class="input-result" id="result-01"></span>
-            <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy
-            </button>
-        </div>
-        <div class="result-even">
-            <span readonly class="input-result" id="result-02"></span>
-            <span class="copied-message" id="copiedMessage2">Copied ✓</span>
-            <button class="button-result" id="copy-result-02" onclick="copyText('result-02', 'copiedMessage2')">Copy
-            </button>
-        </div>
-        <div class="result">
-            <span readonly class="input-result" id="result-03"></span>
-            <span class="copied-message" id="copiedMessage3">Copied ✓</span>
-            <button class="button-result" id="copy-result-03" onclick="copyText('result-03', 'copiedMessage3')">Copy
-            </button>
-        </div>
-        <div class="result-even">
-            <span readonly class="input-result" id="result-04"></span>
-            <span class="copied-message" id="copiedMessage4">Copied ✓</span>
-            <button class="button-result" id="copy-result-04" onclick="copyText('result-04', 'copiedMessage4')">Copy
-            </button>
-        </div>
-        <div class="result">
-            <span readonly class="input-result" id="result-05"></span>
-            <span class="copied-message" id="copiedMessage5">Copied ✓</span>
-            <button class="button-result" id="copy-result-05" onclick="copyText('result-05', 'copiedMessage5')">Copy
-            </button>
-        </div>
+    <div id="page-content">
+        <section>
+            <h2>Transform Your Text into Elegant East Asian Letterlike Characters</h2>
+            <p>Elevate your social media content with our East Asian Letterlike Text Generator, a unique tool designed
+                to
+                blend the visual elegance of East Asian scripts with the readability of English. Many characters found
+                in
+                Unicode's CJK (Chinese, Japanese, Korean) blocks have visual similarities to Latin letters, such as 升,
+                乃,
+                and 匚. Our generator harnesses these resemblances to create text that captures the sophisticated
+                appearance
+                of East Asian writing systems while retaining the familiarity of the English alphabet.</p>
+
+            <p>With our tool, you can transform ordinary English text into stunning, letterlike characters that evoke
+                the
+                aesthetic charm of Chinese, Japanese, or Korean scripts. This transformation results in text that is not
+                only visually captivating but also easily readable, making it ideal for creating standout posts on
+                social
+                media platforms like <strong>Facebook</strong>, <strong>Twitter</strong>, and <strong>Instagram</strong>.
+            </p>
+
+            <p>Whether you're looking to make your captions more engaging, add a touch of exotic flair to your messages,
+                or
+                simply experiment with new text styles, our East Asian Letterlike Text Generator offers a seamless and
+                creative solution. It’s perfect for anyone seeking to combine the elegance of East Asian characters with
+                the
+                practicality of English, ensuring your content catches the eye and stands out from the crowd. Try it
+                today
+                and give your social media posts a distinctive and sophisticated edge!</p>
+        </section>
+
+
+        <section>
+            <h2>Why Use Our East Asian Letterlike Text Generator?</h2>
+            <ul>
+                <li><strong>Elegant Design:</strong> Combines the aesthetic charm of East Asian scripts with the
+                    familiarity
+                    of English characters.
+                </li>
+                <li><strong>Ideal for Social Media:</strong> Perfect for enhancing posts on <strong>Facebook</strong>,
+                    <strong>Twitter</strong>, <strong>Instagram</strong>, and other platforms with a unique and
+                    sophisticated touch.
+                </li>
+                <li><strong>Easy to Use:</strong> Enter your text, convert it into East Asian letterlike characters, and
+                    copy it directly into your social media posts.
+                </li>
+                <li><strong>Mobile-Friendly:</strong> Our generator is optimized for mobile devices, allowing you to
+                    create
+                    and share unique text effortlessly.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How to Use</h2>
+            <ol>
+                <li><strong>Step 1:</strong> Enter your regular text in the input field provided.</li>
+                <li><strong>Step 2:</strong> Click to convert your text into elegant East Asian letterlike characters.
+                </li>
+                <li><strong>Step 3:</strong> Copy the converted text and paste it into your social media posts.</li>
+            </ol>
+
+            <p>Transforming your text into <strong>East Asian letterlike characters</strong> adds a sophisticated and
+                exotic
+                element to your social media posts. Try our generator today to give your content a refined and
+                captivating
+                appearance!</p>
+        </section>
+
+        <section>
+            <!-- FAQ Section -->
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. What is the East Asian Letterlike Text Generator?</h3>
+            <p>The <strong>East Asian Letterlike Text Generator</strong> is an online tool that transforms regular
+                English
+                text into visually captivating characters inspired by Chinese, Japanese, and Korean scripts, blending
+                elegance with readability.</p>
+
+            <h3>2. How can I use East Asian letterlike characters on social media?</h3>
+            <p>After converting your text with our <strong>East Asian Letterlike Text Generator</strong>, copy the
+                output
+                and paste it into your posts on <strong>Facebook</strong>, <strong>Twitter</strong>,
+                <strong>Instagram</strong>, or any other social media platform to create visually sophisticated and
+                engaging
+                content.</p>
+
+            <h3>3. Is this tool mobile-friendly?</h3>
+            <p>Yes, the <strong>East Asian Letterlike Text Generator</strong> is fully optimized for mobile use,
+                allowing
+                you to easily create and share unique text from your mobile device.</p>
+
+            <h3>4. Does using East Asian letterlike characters help with SEO?</h3>
+            <p>While East Asian letterlike characters themselves don’t impact SEO directly, their unique and
+                sophisticated
+                appearance can increase engagement and make your posts stand out, potentially leading to higher
+                interaction
+                rates on social media.</p>
+
+            <h3>5. Do I need to download anything to use the generator?</h3>
+            <p>No, the <strong>East Asian Letterlike Text Generator</strong> is web-based and requires no downloads or
+                installations. Use it directly from your browser.</p>
+
+            <h3>6. Can East Asian letterlike characters be used for any type of content?</h3>
+            <p>Yes! East Asian letterlike characters are ideal for adding an elegant and exotic touch to any content,
+                whether it's creative captions, standout messages, or posts where you want to introduce a unique
+                style.</p>
+        </section>
     </div>
-    <section id="page-content">
-        <h1>Transform Your Text into Elegant East Asian Letterlike Characters</h1>
-        <p>Elevate your social media content with our East Asian Letterlike Text Generator, a unique tool designed to
-            blend the visual elegance of East Asian scripts with the readability of English. Many characters found in
-            Unicode's CJK (Chinese, Japanese, Korean) blocks have visual similarities to Latin letters, such as 升, 乃,
-            and 匚. Our generator harnesses these resemblances to create text that captures the sophisticated appearance
-            of East Asian writing systems while retaining the familiarity of the English alphabet.</p>
-
-        <p>With our tool, you can transform ordinary English text into stunning, letterlike characters that evoke the
-            aesthetic charm of Chinese, Japanese, or Korean scripts. This transformation results in text that is not
-            only visually captivating but also easily readable, making it ideal for creating standout posts on social
-            media platforms like <strong>Facebook</strong>, <strong>Twitter</strong>, and <strong>Instagram</strong>.
-        </p>
-
-        <p>Whether you're looking to make your captions more engaging, add a touch of exotic flair to your messages, or
-            simply experiment with new text styles, our East Asian Letterlike Text Generator offers a seamless and
-            creative solution. It’s perfect for anyone seeking to combine the elegance of East Asian characters with the
-            practicality of English, ensuring your content catches the eye and stands out from the crowd. Try it today
-            and give your social media posts a distinctive and sophisticated edge!</p>
-
-        <h2>Why Use Our East Asian Letterlike Text Generator?</h2>
-        <ul>
-            <li><strong>Elegant Design:</strong> Combines the aesthetic charm of East Asian scripts with the familiarity
-                of English characters.
-            </li>
-            <li><strong>Ideal for Social Media:</strong> Perfect for enhancing posts on <strong>Facebook</strong>,
-                <strong>Twitter</strong>, <strong>Instagram</strong>, and other platforms with a unique and
-                sophisticated touch.
-            </li>
-            <li><strong>Easy to Use:</strong> Enter your text, convert it into East Asian letterlike characters, and
-                copy it directly into your social media posts.
-            </li>
-            <li><strong>Mobile-Friendly:</strong> Our generator is optimized for mobile devices, allowing you to create
-                and share unique text effortlessly.
-            </li>
-        </ul>
-
-        <h2>How to Use</h2>
-        <ol>
-            <li><strong>Step 1:</strong> Enter your regular text in the input field provided.</li>
-            <li><strong>Step 2:</strong> Click to convert your text into elegant East Asian letterlike characters.</li>
-            <li><strong>Step 3:</strong> Copy the converted text and paste it into your social media posts.</li>
-        </ol>
-
-        <p>Transforming your text into <strong>East Asian letterlike characters</strong> adds a sophisticated and exotic
-            element to your social media posts. Try our generator today to give your content a refined and captivating
-            appearance!</p>
-
-        <!-- FAQ Section -->
-        <h2>Frequently Asked Questions (FAQ)</h2>
-
-        <h3>1. What is the East Asian Letterlike Text Generator?</h3>
-        <p>The <strong>East Asian Letterlike Text Generator</strong> is an online tool that transforms regular English
-            text into visually captivating characters inspired by Chinese, Japanese, and Korean scripts, blending
-            elegance with readability.</p>
-
-        <h3>2. How can I use East Asian letterlike characters on social media?</h3>
-        <p>After converting your text with our <strong>East Asian Letterlike Text Generator</strong>, copy the output
-            and paste it into your posts on <strong>Facebook</strong>, <strong>Twitter</strong>,
-            <strong>Instagram</strong>, or any other social media platform to create visually sophisticated and engaging
-            content.</p>
-
-        <h3>3. Is this tool mobile-friendly?</h3>
-        <p>Yes, the <strong>East Asian Letterlike Text Generator</strong> is fully optimized for mobile use, allowing
-            you to easily create and share unique text from your mobile device.</p>
-
-        <h3>4. Does using East Asian letterlike characters help with SEO?</h3>
-        <p>While East Asian letterlike characters themselves don’t impact SEO directly, their unique and sophisticated
-            appearance can increase engagement and make your posts stand out, potentially leading to higher interaction
-            rates on social media.</p>
-
-        <h3>5. Do I need to download anything to use the generator?</h3>
-        <p>No, the <strong>East Asian Letterlike Text Generator</strong> is web-based and requires no downloads or
-            installations. Use it directly from your browser.</p>
-
-        <h3>6. Can East Asian letterlike characters be used for any type of content?</h3>
-        <p>Yes! East Asian letterlike characters are ideal for adding an elegant and exotic touch to any content,
-            whether it's creative captions, standout messages, or posts where you want to introduce a unique style.</p>
-    </section>
 </div>
 
 <script>
@@ -336,6 +719,59 @@
             console.error('Failed to copy text: ', err);
         });
     }
+    //     Start menu
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        const menuItems = menu.querySelectorAll('li > a');
+        const overlay = document.querySelector('.overlay');
+
+        menuToggle.addEventListener('click', function () {
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', menu.classList.contains('active'));
+            menuToggle.innerHTML = menu.classList.contains('active') ? '✕' : '☰';
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (window.innerWidth <= 768) {
+                    const submenu = this.nextElementSibling;
+                    if (submenu) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                        const isExpanded = this.classList.contains('active');
+                        this.setAttribute('aria-expanded', isExpanded);
+                        submenu.style.display = isExpanded ? 'block' : 'none';
+
+                        // Scroll into view if necessary
+                        if (isExpanded) {
+                            setTimeout(() => {
+                                const rect = submenu.getBoundingClientRect();
+                                const menuRect = menu.getBoundingClientRect();
+                                if (rect.bottom > menuRect.bottom) {
+                                    submenu.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+                                }
+                            }, 300); // Adjust this delay if needed
+                        }
+                    }
+                }
+            });
+        });
+
+        // Close menu when clicking outside or on overlay
+        overlay.addEventListener('click', closeMenu);
+
+        function closeMenu() {
+            menu.classList.remove('active');
+            overlay.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.innerHTML = '☰';
+            document.body.style.overflow = '';
+        }
+    });
+    //end menu
 </script>
 </body>
 </html>

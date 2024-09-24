@@ -6,13 +6,16 @@
     <title>Ransom Note Text Generator - Create Unique and Eye-Catching Unicode Text</title>
 
     <!-- Basic SEO Meta Tags -->
-    <meta name="description" content="Transform your text into unique ransom note styles with our Unicode text generator. Perfect for social media and creative projects!">
-    <meta name="keywords" content="Ransom Note Text Generator, Unicode text, creative typography, social media text, unique styles, eye-catching text">
+    <meta name="description"
+          content="Transform your text into unique ransom note styles with our Unicode text generator. Perfect for social media and creative projects!">
+    <meta name="keywords"
+          content="Ransom Note Text Generator, Unicode text, creative typography, social media text, unique styles, eye-catching text">
     <meta name="author" content="Your Name">
 
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="Ransom Note Text Generator - Create Unique Unicode Text">
-    <meta property="og:description" content="Elevate your online presence with our Unicode text generator that creates visually striking ransom note styles.">
+    <meta property="og:description"
+          content="Elevate your online presence with our Unicode text generator that creates visually striking ransom note styles.">
     <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
     <meta property="og:url" content="https://www.yourwebsite.com">
     <meta property="og:type" content="website">
@@ -22,7 +25,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@YourTwitterHandle">
     <meta name="twitter:title" content="Ransom Note Text Generator - Create Unique Unicode Text">
-    <meta name="twitter:description" content="Transform your text into unique ransom note styles with our generator. Perfect for social media!">
+    <meta name="twitter:description"
+          content="Transform your text into unique ransom note styles with our generator. Perfect for social media!">
     <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
 
     <!-- Canonical URL -->
@@ -48,61 +52,104 @@
     <style amp-custom>
         body {
             font-family: Arial, sans-serif;
-            padding: 0;
             margin: 0;
-            background-color: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            width: 80%;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-
-        textarea {
-            width: 100%;
-            padding: 5px;
-            height: 200px;
-            text-align: left;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: "Times New Roman";
-            font-size: 15px;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-            text-align: left;
         }
 
-        .text-input, .text-output {
-            flex: 1;
-            min-width: 250px;
-            background-color: #fff;
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .textarea-container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
             padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* Giữ lại dấu xuống dòng */
+        }
+
+        .output-box {
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             word-wrap: break-word;
             box-sizing: border-box;
-            margin-top: 10px;
         }
 
+        .options label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        /*Start content*/
+        section {
+            margin: 10px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        section > h2 {
+            font-size: 20px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        section > h3 {
+            font-size: 18px;
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        section > p {
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /*End Content*/
         .counts {
             margin-top: 10px;
             font-size: 14px;
@@ -111,6 +158,8 @@
         }
 
         .result {
+            box-sizing: border-box;
+            padding: 10px;
             display: flex;
             background: #f0f0f0;
             width: 100%;
@@ -118,6 +167,8 @@
         }
 
         .result-even {
+            box-sizing: border-box;
+            padding: 10px;
             display: flex;
             background: aliceblue;
             width: 100%;
@@ -149,81 +200,393 @@
         #page-content {
             text-align: left;
         }
+
+        /*menu style*/
+        nav {
+            background-color: #ffffff;
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1001;
+            color: #007bff;
+        }
+
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .menu > li {
+            position: relative;
+        }
+
+        .menu > li > a {
+            text-decoration: none;
+            color: #444444;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .menu > li > a:hover,
+        .menu > li > a:focus {
+            color: #ffffff;
+            background-color: #007bff;
+        }
+
+        .submenu {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f0f0f0;
+            list-style-type: none;
+            padding: 10px;
+            margin: 0;
+            border-radius: 8px;
+            min-width: 200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-gap: 20px;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 100;
+        }
+
+        .submenu li {
+            margin: 0;
+        }
+
+        .submenu li a {
+            padding: 10px 10px;
+            display: block;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .submenu li a:hover,
+        .submenu li a:focus {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .menu li:hover .submenu,
+        .menu li:focus-within .submenu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                box-sizing: border-box;
+                width: 100%;
+                margin-top: 50px;
+                padding: 5px;
+            }
+
+            .textarea-container {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            textarea {
+                height: 150px;
+            }
+
+            .output-box {
+                box-sizing: border-box;
+                padding: 10px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                padding: 5px;
+            }
+
+            .menu {
+                justify-content: left;
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100%;
+                background-color: #ffffff;
+                padding: 60px 0 20px;
+                overflow-y: auto;
+                transition: left 0.3s ease;
+                z-index: 1000;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                gap: 0px;
+            }
+
+            .menu.active {
+                left: 0;
+            }
+
+            .menu > li {
+                margin-bottom: 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .menu > li:last-child {
+                border-bottom: none;
+            }
+
+            .submenu {
+                position: static;
+                visibility: visible;
+                opacity: 1;
+                background-color: #f8f9fa;
+                display: none;
+                padding: 0;
+                box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+                border-radius: 0;
+            }
+
+            .menu > li > a {
+                display: block;
+                /*padding: 15px 20px;*/
+                font-size: 18px;
+                color: #333;
+                border-radius: 0;
+                padding: 15px;
+            }
+
+            .submenu li {
+                margin-bottom: 0;
+            }
+
+            .submenu li a {
+                padding: 12px 20px 12px 40px;
+                font-size: 16px;
+            }
+
+            .menu > li > a::after {
+                content: '\25BC';
+                font-size: 12px;
+                float: right;
+                transition: transform 0.3s ease;
+            }
+
+            .menu > li > a.active::after {
+                transform: rotate(-180deg);
+            }
+
+            .menu > li > a:hover,
+            .menu > li > a:focus,
+            .submenu li a:hover,
+            .submenu li a:focus {
+                background-color: #e9ecef;
+                color: #007bff;
+            }
+
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .overlay.active {
+                display: block;
+                opacity: 1;
+            }
+
+            nav {
+                padding: 0;
+            }
+        }
+
+        /*End menu style*/
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <title>AMP HTML Example</title>
 </head>
 <body>
+<nav>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li>
+            <a href="#" aria-haspopup="true">Text Transformation</a>
+            <ul class="submenu">
+                <li><a href="/yaytext-social/ancient-cuneiform">Ancient Cuneiform</a></li>
+                <li><a href="/yaytext-social/bamum">Bamum</a></li>
+                <li><a href="/yaytext-social/bold-italic">Bold Italic</a></li>
+                <li><a href="/yaytext-social/bubble-text">Bubble Text</a></li>
+                <li><a href="/yaytext-social/canadian-aboriainal">Canadian Aboriainal</a></li>
+                <li><a href="/yaytext-social/cursive-script">Cursive Script</a></li>
+                <li><a href="/yaytext-social/double-struck">Double Struck</a></li>
+                <li><a href="/yaytext-social/east-asian-letter-like">East Asian Letter Like</a></li>
+                <li><a href="/yaytext-social/faces">Faces</a></li>
+                <li><a href="/yaytext-social/fraktur-gothic-old-english">Fraktur Gothic Old English</a></li>
+                <li><a href="/yaytext-social/full-width-vaporwave">Full Width Vaporwave</a></li>
+                <li><a href="/yaytext-social/lightning">Lightning</a></li>
+                <li><a href="/yaytext-social/mini-me-stacked-text">Mini Me Stacked Text</a></li>
+                <li><a href="/yaytext-social/mono-space">Mono Space</a></li>
+                <li><a href="/yaytext-social/ransom-note-text">Ransom Note Text</a></li>
+                <li><a href="/yaytext-social/slash-through">Slash Through</a></li>
+                <li><a href="/yaytext-social/small-caps">Small Caps</a></li>
+                <li><a href="/yaytext-social/square-text">Square Text</a></li>
+                <li><a href="/yaytext-social/squiggles-and-hooks">Squiggles And Hooks</a></li>
+                <li><a href="/yaytext-social/strike-through">Strike Through</a></li>
+                <li><a href="/yaytext-social/tiny-text">Tiny Text</a></li>
+                <li><a href="/yaytext-social/underline">Underline</a></li>
+                <li><a href="/yaytext-social/upside-down">Upside Down</a></li>
+                <li><a href="/yaytext-social/vai-letter-like">Vai Letter Like</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Code & Data</a>
+            <ul class="submenu">
+                <li><a href="/data/base64-encode-decode">Base64 Encode / Decode</a></li>
+                <li><a href="/data/csv-to-json">CSV To JSON</a></li>
+                <li><a href="/data/hex-to-text">HEX To Text</a></li>
+                <li><a href="/data/text-to-binary">BINARY To Text</a></li>
+                <li><a href="/data/text-to-morse-code">MORSE Encode / Decode</a></li>
+                <li><a href="/data/text-to-rot13">ROT13 Encode / Decode</a></li>
+                <li><a href="/data/url-encode-decode">URL Encode / Decode</a></li>
+                <li><a href="/data/url-slugify">URL Slugify</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Image</a>
+            <ul class="submenu">
+                <li><a href="/image/img-to-ascii">Image To ASCII</a></li>
+                <li><a href="/image/img-to-text">Image To Text</a></li>
+                <li><a href="/image/jpg-to-png">JPG To PNG Converter</a></li>
+                <li><a href="/image/png-to-jpg">PNG To JPG Converter</a></li>
+                <li><a href="/image/jpg-to-webp">JPG To WEBP Converter</a></li>
+                <li><a href="/image/webp-to-jpg">WEBP To JPG Converter</a></li>
+                <li><a href="/image/png-to-webp">PNG To WEBP Converter</a></li>
+                <li><a href="/image/webp-to-png">WEBP To PNG Converter</a></li>
+                <li><a href="/image/svg-to-png">SVG To PNG Converter</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Text Generator</a>
+            <ul class="submenu">
+                <li><a href="/text-generator/strong-password-generator">Secure Password Generator</a></li>
+                <li><a href="/text-generator/random-choice-wheel">Random Spinning Wheel</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Crypto Currency Generator</a>
+            <ul class="submenu">
+                <li><a href="/text-generator/strong-password-generator">Secure Password Generator</a></li>
+                <li><a href="/text-generator/random-choice-wheel">Random Spinning Wheel</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<div class="overlay"></div>
 <div class="container">
     <h1 id="page-title">Ransom Note Text Generator - Create Unique and Eye-Catching Unicode Text</h1>
-    <p id="page-description">Transform your text into unique ransom note styles with our Unicode text generator. Perfect for social media and creative projects!</p>
-    <div class="text-input">
-        <label for="inputText">Enter your text</label>
-        <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
-        <div class="counts">
-            Character Count: <span id="charCount">0</span> |
-            Word Count: <span id="wordCount">0</span> |
-            Sentence Count: <span id="sentenceCount">0</span> |
-            Line Count: <span id="lineCount">0</span>
+    <p id="page-description">Transform your text into unique ransom note styles with our Unicode text generator. Perfect
+        for social media and creative projects!</p>
+    <div class="textarea-container">
+        <div class="output-box">
+            <label for="inputText">Enter your text</label>
+            <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <div class="output-box" id="result">
+            <label>Preview</label>
+            <div class="result">
+                <span readonly class="input-result" id="result-01"></span>
+                <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+                <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-02"></span>
+                <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+                <button class="button-result" id="copy-result-02" onclick="copyText('result-02', 'copiedMessage2')">Copy
+                </button>
+            </div>
+            <div class="result">
+                <span readonly class="input-result" id="result-03"></span>
+                <span class="copied-message" id="copiedMessage3">Copied ✓</span>
+                <button class="button-result" id="copy-result-03" onclick="copyText('result-03', 'copiedMessage3')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-04"></span>
+                <span class="copied-message" id="copiedMessage4">Copied ✓</span>
+                <button class="button-result" id="copy-result-04" onclick="copyText('result-04', 'copiedMessage4')">Copy
+                </button>
+            </div>
+            <div class="result">
+                <span readonly class="input-result" id="result-05"></span>
+                <span class="copied-message" id="copiedMessage5">Copied ✓</span>
+                <button class="button-result" id="copy-result-05" onclick="copyText('result-05', 'copiedMessage5')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-06"></span>
+                <span class="copied-message" id="copiedMessage6">Copied ✓</span>
+                <button class="button-result" id="copy-result-06" onclick="copyText('result-06', 'copiedMessage6')">Copy
+                </button>
+            </div>
+            <div class="result">
+                <span readonly class="input-result" id="result-07"></span>
+                <span class="copied-message" id="copiedMessage7">Copied ✓</span>
+                <button class="button-result" id="copy-result-07" onclick="copyText('result-07', 'copiedMessage7')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-08"></span>
+                <span class="copied-message" id="copiedMessage8">Copied ✓</span>
+                <button class="button-result" id="copy-result-08" onclick="copyText('result-08', 'copiedMessage8')">Copy
+                </button>
+            </div>
         </div>
     </div>
-    <div class="text-input" id="result">
-        <label>Preview</label>
-        <div class="result">
-            <span readonly class="input-result" id="result-01"></span>
-            <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-            <button class="button-result" id="copy-result-01" onclick="copyText('result-01', 'copiedMessage1')">Copy
-            </button>
-        </div>
-        <div class="result-even">
-            <span readonly class="input-result" id="result-02"></span>
-            <span class="copied-message" id="copiedMessage2">Copied ✓</span>
-            <button class="button-result" id="copy-result-02" onclick="copyText('result-02', 'copiedMessage2')">Copy
-            </button>
-        </div>
-        <div class="result">
-            <span readonly class="input-result" id="result-03"></span>
-            <span class="copied-message" id="copiedMessage3">Copied ✓</span>
-            <button class="button-result" id="copy-result-03" onclick="copyText('result-03', 'copiedMessage3')">Copy
-            </button>
-        </div>
-        <div class="result-even">
-            <span readonly class="input-result" id="result-04"></span>
-            <span class="copied-message" id="copiedMessage4">Copied ✓</span>
-            <button class="button-result" id="copy-result-04" onclick="copyText('result-04', 'copiedMessage4')">Copy
-            </button>
-        </div>
-        <div class="result">
-            <span readonly class="input-result" id="result-05"></span>
-            <span class="copied-message" id="copiedMessage5">Copied ✓</span>
-            <button class="button-result" id="copy-result-05" onclick="copyText('result-05', 'copiedMessage5')">Copy
-            </button>
-        </div>
-        <div class="result-even">
-            <span readonly class="input-result" id="result-06"></span>
-            <span class="copied-message" id="copiedMessage6">Copied ✓</span>
-            <button class="button-result" id="copy-result-06" onclick="copyText('result-06', 'copiedMessage6')">Copy
-            </button>
-        </div>
-        <div class="result">
-            <span readonly class="input-result" id="result-07"></span>
-            <span class="copied-message" id="copiedMessage7">Copied ✓</span>
-            <button class="button-result" id="copy-result-07" onclick="copyText('result-07', 'copiedMessage7')">Copy
-            </button>
-        </div>
-        <div class="result-even">
-            <span readonly class="input-result" id="result-08"></span>
-            <span class="copied-message" id="copiedMessage8">Copied ✓</span>
-            <button class="button-result" id="copy-result-08" onclick="copyText('result-08', 'copiedMessage8')">Copy
-            </button>
-        </div>
-    </div>
-    <section id="page-content">
-        <main>
+    <div id="page-content">
+        <section>
             <h1>Unleash Your Creativity with Our Ransom Note Text Generator</h1>
 
-            <p>Elevate your online presence with our innovative ransom note text generator, which utilizes a random mix of Unicode characters to create eye-catching text that looks like 𝓵𝔦𝒌𝑒 𝒕𝒉𝗶𝘀. This unique tool blends characters from various styles, resulting in visually striking and memorable text that truly stands out (unless everyone else is using our fonts too 😉).</p>
+            <p>Elevate your online presence with our innovative ransom note text generator, which utilizes a random mix
+                of Unicode characters to create eye-catching text that looks like 𝓵𝔦𝒌𝑒 𝒕𝒉𝗶𝘀. This unique tool blends
+                characters from various styles, resulting in visually striking and memorable text that truly stands out
+                (unless everyone else is using our fonts too 😉).</p>
+        </section>
 
+        <section>
             <h2>Why Choose Our Ransom Note Text Generator?</h2>
             <ul>
                 <li>Instantly transform your plain text into a vibrant mix of styles and aesthetics</li>
@@ -231,7 +594,9 @@
                 <li>Copy-and-paste friendly for platforms like Twitter, Facebook, TikTok, and Discord</li>
                 <li>Add a playful touch to your digital communication and artistic projects</li>
             </ul>
+        </section>
 
+        <section>
             <h2>How It Works:</h2>
             <ol>
                 <li>Enter your desired text into the input field</li>
@@ -239,21 +604,30 @@
                 <li>Copy the eye-catching text generated by our tool</li>
                 <li>Paste it anywhere to make an impact – from social media to personal projects</li>
             </ol>
+        </section>
 
+        <section>
             <h2>Explore Endless Possibilities</h2>
-            <p>This tool allows you to combine characters from different Unicode blocks, opening up a world of creative expression. Whether you’re using cursive, fraktur, strikethrough, or other styles, the resulting text can convey artistic flair and originality.</p>
+            <p>This tool allows you to combine characters from different Unicode blocks, opening up a world of creative
+                expression. Whether you’re using cursive, fraktur, strikethrough, or other styles, the resulting text
+                can convey artistic flair and originality.</p>
             <ul>
                 <li>Fuse distinct aesthetics and meanings from various Unicode styles</li>
                 <li>Create unique text that captures attention and evokes emotion</li>
                 <li>Add a playful element to your written content, making it unforgettable</li>
                 <li>Experiment with typography and explore the boundaries of design</li>
             </ul>
+        </section>
 
+        <section>
             <h2>Join the Community of Creative Users</h2>
-            <p>Discover the joy of crafting unique text that stands out in any context. Our ransom note text generator is perfect for social media enthusiasts, digital artists, or anyone looking to add a fun twist to their written communication. Have fun & 𝔢𝖓𝒿𝚘🆈! Let your creativity flow and bring a new dimension to your text today!</p>
-        </main>
+            <p>Discover the joy of crafting unique text that stands out in any context. Our ransom note text generator
+                is perfect for social media enthusiasts, digital artists, or anyone looking to add a fun twist to their
+                written communication. Have fun & 𝔢𝖓𝒿𝚘🆈! Let your creativity flow and bring a new dimension to your text
+                today!</p>
+        </section>
 
-    </section>
+    </div>
 </div>
 
 <script>
@@ -332,61 +706,59 @@
         });
     }
 
-    //initial data
-    const webContent = {
-        "title": "FrakturFonts: Transform Your Text into Elegant Gothic Script",
-        "description": "Convert ordinary text into stunning Fraktur, Gothic, or Old English script with our easy-to-use online tool. Add a touch of medieval charm to your digital content and stand out on social media.",
-        "content": "<main>\n" +
-            "        <h1>Discover the Art of Fraktur Text Transformation</h1>\n" +
-            "\n" +
-            "        <p>Elevate your digital presence with FrakturFonts, the premier online tool for converting standard text into captivating Fraktur, Gothic, or Old English script. Our user-friendly platform allows you to infuse your social media posts, profile bios, and creative projects with the timeless elegance of medieval calligraphy.</p>\n" +
-            "\n" +
-            "        <h2>Why Choose FrakturFonts?</h2>\n" +
-            "        <ul>\n" +
-            "            <li>Instant transformation of plain text to Fraktur script</li>\n" +
-            "            <li>Perfect for social media, graphic design, and artistic endeavors</li>\n" +
-            "            <li>Evoke a sense of tradition and historical charm in your content</li>\n" +
-            "            <li>Stand out from the crowd with unique, eye-catching typography</li>\n" +
-            "        </ul>\n" +
-            "\n" +
-            "        <h2>How It Works:</h2>\n" +
-            "        <ol>\n" +
-            "            <li>Enter your desired text in the input field</li>\n" +
-            "            <li>Choose your preferred style: Fraktur, Gothic, or Old English</li>\n" +
-            "            <li>Click 'Transform' to generate your stylized text</li>\n" +
-            "            <li>Copy the result and paste it wherever you need – social media, documents, or design projects</li>\n" +
-            "        </ol>\n" +
-            "\n" +
-            "        <h2>Unleash Your Creativity with Fraktur</h2>\n" +
-            "        <p>Whether you're a history enthusiast, a graphic designer, or simply looking to add a touch of medieval flair to your online presence, FrakturFonts has you covered. Our tool is perfect for:</p>\n" +
-            "        <ul>\n" +
-            "            <li>Creating unique social media posts</li>\n" +
-            "            <li>Designing eye-catching book covers or posters</li>\n" +
-            "            <li>Crafting vintage-inspired logos and branding elements</li>\n" +
-            "            <li>Adding a Gothic touch to wedding invitations or event announcements</li>\n" +
-            "        </ul>\n" +
-            "\n" +
-            "        <h2>FAQ:</h2>\n" +
-            "        <dl>\n" +
-            "            <dt>Q: Is FrakturFonts compatible with all social media platforms?</dt>\n" +
-            "            <dd>A: Yes, our generated text can be used on most social media platforms, including Facebook, Twitter, Instagram, and TikTok.</dd>\n" +
-            "\n" +
-            "            <dt>Q: Can I use the transformed text for commercial purposes?</dt>\n" +
-            "            <dd>A: Absolutely! The text generated by FrakturFonts is free to use for both personal and commercial projects.</dd>\n" +
-            "\n" +
-            "            <dt>Q: Are there any limitations on the amount of text I can transform?</dt>\n" +
-            "            <dd>A: Our tool can handle large amounts of text, but for optimal performance, we recommend transforming sections of 500 characters or less at a time.</dd>\n" +
-            "        </dl>\n" +
-            "\n" +
-            "        <h2>Embrace the Timeless Beauty of Fraktur</h2>\n" +
-            "        <p>Join thousands of satisfied users who have discovered the power of Fraktur script. From social media influencers to graphic designers and history buffs, FrakturFonts has become the go-to tool for adding a touch of medieval elegance to digital content.</p>\n" +
-            "\n" +
-            "        <p>Transform your text today and experience the allure of Fraktur, Gothic, and Old English typography. Let your words stand out in a sea of ordinary fonts – try FrakturFonts now and bring a piece of history to your digital world!</p>\n" +
-            "    </main>"
-    }
-    document.getElementById('page-title').textContent = webContent.title;
-    document.getElementById('page-description').textContent = webContent.description;
-    document.getElementById('page-content').innerHTML = webContent.content;
+    //     Start menu
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        const menuItems = menu.querySelectorAll('li > a');
+        const overlay = document.querySelector('.overlay');
+
+        menuToggle.addEventListener('click', function () {
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', menu.classList.contains('active'));
+            menuToggle.innerHTML = menu.classList.contains('active') ? '✕' : '☰';
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (window.innerWidth <= 768) {
+                    const submenu = this.nextElementSibling;
+                    if (submenu) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                        const isExpanded = this.classList.contains('active');
+                        this.setAttribute('aria-expanded', isExpanded);
+                        submenu.style.display = isExpanded ? 'block' : 'none';
+
+                        // Scroll into view if necessary
+                        if (isExpanded) {
+                            setTimeout(() => {
+                                const rect = submenu.getBoundingClientRect();
+                                const menuRect = menu.getBoundingClientRect();
+                                if (rect.bottom > menuRect.bottom) {
+                                    submenu.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+                                }
+                            }, 300); // Adjust this delay if needed
+                        }
+                    }
+                }
+            });
+        });
+
+        // Close menu when clicking outside or on overlay
+        overlay.addEventListener('click', closeMenu);
+
+        function closeMenu() {
+            menu.classList.remove('active');
+            overlay.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.innerHTML = '☰';
+            document.body.style.overflow = '';
+        }
+    });
+    //end menu
 </script>
 </body>
 </html>
