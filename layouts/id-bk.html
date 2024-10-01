@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Transformer - Convert Text into Various Case Formats, sentence case, lower case, UPPER CASE, alternating
+        case, and more</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description"
+          content="Quickly transform your text into various formats such as sentence case, lower case, upper case, title case, alternating case, and more. Ideal for writers, editors, and content creators.">
+    <meta name="keywords"
+          content="text transformer, sentence case, lower case, upper case, capitalized case, alternating case, title case, inverse case">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Text Transformer – Convert Text into Various Case Formats">
+    <meta property="og:description"
+          content="Easily convert text into sentence case, lower case, UPPER CASE, alternating case, and more. Perfect for writers, editors, and content formatting.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://uppercaseconverter.net/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Text Transformer">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="Text Transformer – Easily Convert Text Case Formats">
+    <meta name="twitter:description"
+          content="Use the Text Transformer to change your text into different case formats quickly and efficiently.">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://uppercaseconverter.net/">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        section {
+            margin: 10px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 22px;
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        ol {
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        ol li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #2c3e50;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+
+            h2, h3 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+
+        .wrapper {
+            margin-top: 0px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            background-color: white;
+            padding: 2px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .wrapper {
+                margin-top: 50px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                max-width: 80%;
+                width: 100%;
+                background-color: white;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            ul {
+                margin-left: 20px;
+            }
+        }
+
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        /*.container {*/
+        /*    display: flex;*/
+        /*    flex-direction: column;*/
+        /*    flex-wrap: wrap;*/
+        /*    gap: 20px;*/
+        /*}*/
+
+        .container {
+            flex: 1;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            word-wrap: break-word;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 2px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            height: auto;
+            overflow-wrap: break-word;
+            white-space: pre-wrap;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .output {
+            min-height: 50px;
+            box-sizing: border-box;
+        }
+
+        .counts {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .actions {
+            margin-top: 5px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            height: 30px;
+            background: #1C2591;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 2px;
+            font-weight: bold;
+        }
+
+        .action-btn:hover {
+            background: #138496;
+        }
+
+        .action-btn-2 {
+            height: 30px;
+            background: #2831C3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 2px;
+            font-weight: bold;
+        }
+
+        .action-btn-2:hover {
+            background: #138496;
+        }
+    </style>
+</head>
+<body>
+{{partial "header.html" .}}
+<div class="wrapper">
+    <h1>Online Text Transformer - Easily Change Text Case Formats</h1>
+    <p>Use the Text Transformer to quickly convert text into various case formats like sentence case, upper case, lower
+        case, title case, alternating case, and more.</p>
+    <div class="container">
+        <label for="userInput">Enter your text</label>
+        <textarea id="userInput" placeholder="Type your text here..." oninput="countWords()"
+                  rows="10"></textarea>
+        <div class="counts">
+            Character Count: <span id="charCount">0</span> |
+            Word Count: <span id="wordCount">0</span> |
+            Sentence Count: <span id="sentenceCount">0</span> |
+            Line Count: <span id="lineCount">0</span>
+        </div>
+        <div class="actions">
+            <button class="action-btn" onclick="sentenceCase()">Sentence case</button>
+            <button class="action-btn" onclick="lowercase()">lowercase</button>
+            <button class="action-btn" onclick="uppercase()">UPPERCASE</button>
+            <button class="action-btn" onclick="capitalizeCase()">Capitalized case</button>
+            <button class="action-btn" onclick="alternatingCase()">aLtErNaTiNg cAsE</button>
+            <button class="action-btn" onclick="titleCase()">Title Case</button>
+            <button class="action-btn" onclick="inverseCase()">InVeRsE CaSe</button>
+            <button class="action-btn-2" id="action-btn-copy" onclick="copy()">Copy</button>
+            <button class="action-btn-2" onclick="paste()">Paste</button>
+            <button class="action-btn-2" onclick="clearInput()">Clear</button>
+        </div>
+    </div>
+    <div>
+        <section>
+            <h2>Online Text Transformer Tool</h2>
+            <p>The Text Transformer is a versatile tool that allows you to convert your text into various case formats
+                with just a click. Whether you're looking to format text for documents, emails, or social media posts,
+                this tool makes it simple and efficient. Transform text into sentence case, lowercase, uppercase,
+                capitalized case, alternating case, title case, and inverse case effortlessly.</p>
+
+            <h2>How It Works</h2>
+            <ol>
+                <li><strong>Enter or Paste Text:</strong> Start by entering or pasting your text into the provided text
+                    box.
+                </li>
+                <li><strong>Select a Case Transformation:</strong> Choose from the available case transformations:
+                    <ul>
+                        <li><strong>Sentence case:</strong> The first letter of the sentence is capitalized.</li>
+                        <li><strong>lower case:</strong> Converts all letters to lowercase.</li>
+                        <li><strong>UPPER CASE:</strong> Converts all letters to uppercase.</li>
+                        <li><strong>Capitalized Case:</strong> Capitalizes the first letter of each word.</li>
+                        <li><strong>aLtErNaTiNg cAsE:</strong> Alternates between uppercase and lowercase letters.</li>
+                        <li><strong>Title Case:</strong> Capitalizes the first letter of each major word (ignoring small
+                            words like 'and' or 'of').
+                        </li>
+                        <li><strong>InVeRsE CaSe:</strong> Inverts the case of each letter in the text.</li>
+                    </ul>
+                </li>
+                <li><strong>Copy the Result:</strong> Once the transformation is applied, simply copy the result to use
+                    in your desired location.
+                </li>
+            </ol>
+            <p>This tool is perfect for writers, editors, content creators, and anyone who needs to format text in
+                different styles. With just a few clicks, your text can be transformed and ready for use.</p>
+        </section>
+
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. What is the Text Transformer used for?</h3>
+            <p>The Text Transformer is ideal for formatting text in various case styles. Whether you need to convert
+                text to lowercase for coding, uppercase for titles, or even alternate case for creative purposes, this
+                tool helps you do it quickly and easily.</p>
+
+            <h3>2. What case transformations are available?</h3>
+            <p>The following transformations are available:</p>
+            <ul>
+                <li><strong>Sentence case:</strong> Capitalizes the first letter of each sentence.</li>
+                <li><strong>lower case:</strong> Converts all text to lowercase.</li>
+                <li><strong>UPPER CASE:</strong> Converts all text to uppercase.</li>
+                <li><strong>Capitalized Case:</strong> Capitalizes the first letter of each word.</li>
+                <li><strong>aLtErNaTiNg cAsE:</strong> Alternates between uppercase and lowercase letters.</li>
+                <li><strong>Title Case:</strong> Capitalizes the first letter of each significant word.</li>
+                <li><strong>InVeRsE CaSe:</strong> Swaps the case of each letter.</li>
+            </ul>
+
+            <h3>3. Can I transform large amounts of text?</h3>
+            <p>Yes, the tool supports transforming large amounts of text efficiently. Simply paste your text into the
+                text box and choose your desired transformation.</p>
+
+            <h3>4. Is the Text Transformer tool free?</h3>
+            <p>Yes, the tool is completely free to use for converting text case formats.</p>
+
+            <h3>5. Can I undo or switch between different case formats?</h3>
+            <p>Yes, you can easily switch between formats by selecting a different case transformation and applying it
+                again to your text.</p>
+        </section>
+
+    </div>
+</div>
+
+<script>
+    function countWords() {
+        const inputText = document.getElementById('userInput').value;
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+
+    function sentenceCase() {
+        const inputText = document.getElementById('userInput').value;
+        const sentenceCase = inputText
+            .toLowerCase()
+            .replace(/(^\s*\w|[.!?]\s*\w)/g, (match) => match.toUpperCase());
+        document.getElementById('userInput').value = sentenceCase;
+    }
+
+    function lowercase() {
+        // lower case
+        const inputText = document.getElementById('userInput').value;
+        const lowerCase = inputText.toLowerCase();
+        document.getElementById('userInput').value = lowerCase;
+    }
+
+    function uppercase() {
+// UPPER CASE
+        const inputText = document.getElementById('userInput').value;
+        const upperCase = inputText.toUpperCase();
+        document.getElementById('userInput').value = upperCase;
+    }
+
+    function capitalizeCase() {
+        // Capitalized Case: First letter of every word capitalized
+        const inputText = document.getElementById('userInput').value;
+        const capitalizedCase = inputText
+            .toLowerCase()
+            .replace(/\b\w/g, (char) => char.toUpperCase());
+        document.getElementById('userInput').value = capitalizedCase;
+    }
+
+    function alternatingCase() {
+// aLtErNaTiNg cAsE
+        const inputText = document.getElementById('userInput').value;
+        const alternatingCase = inputText
+            .split('')
+            .map((char, index) => (index % 2 === 0 ? char.toLowerCase() : char.toUpperCase()))
+            .join('');
+        document.getElementById('userInput').value = alternatingCase;
+    }
+
+    function titleCase() {
+        // Title Case: First letter of every word capitalized
+        const inputText = document.getElementById('userInput').value;
+        const titleCase = inputText
+            .toLowerCase()
+            .replace(/\b\w/g, (char) => char.toUpperCase());
+        document.getElementById('userInput').value = titleCase;
+    }
+
+    function inverseCase() {
+        // InVeRsE CaSe
+        const inputText = document.getElementById('userInput').value;
+        const inverseCase = inputText
+            .split('')
+            .map((char) =>
+                char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase()
+            )
+            .join('');
+        document.getElementById('userInput').value = inverseCase;
+    }
+
+    function copy() {
+        const textArea = document.getElementById("userInput");
+        const copyBtn = document.getElementById("action-btn-copy");
+        textArea.select();
+        document.execCommand('copy');
+
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => {
+            copyBtn.textContent = 'Copy'
+        }, 1500);
+    }
+
+    async function paste() {
+        try {
+            if (navigator.clipboard) {
+                const text = await navigator.clipboard.readText();
+                document.getElementById('userInput').value = text;
+            } else {
+                console.log("Not supported!")
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    function clearInput() {
+        const inputArea = document.getElementById('userInput');
+        inputArea.value = '';
+    }
+
+    function copyText(textAreaId, messageId) {
+        const textArea = document.getElementById(textAreaId);
+        const message = document.getElementById(messageId);
+
+        textArea.select();
+        document.execCommand('copy');
+
+        message.style.opacity = 1;
+        setTimeout(() => {
+            message.style.opacity = 0;
+        }, 1000);
+    }
+</script>
+</body>
+</html>

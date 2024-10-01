@@ -1,0 +1,215 @@
+{{ define "main" }}
+<style>
+    #gallery {
+        min-height: 200px;
+    }
+    .file-item img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .file-status {
+        margin-top: 5px;
+    }
+
+    .file-item {
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+        text-align: center;
+    }
+    .download-btn {
+        position: absolute;
+        bottom: 50%; /* Đặt nút ở giữa theo chiều dọc */
+        left: 50%; /* Đặt nút ở giữa theo chiều ngang */
+        transform: translate(-50%, 50%); /* Đưa nút vào giữa hoàn hảo */
+        background-color: #007BFF; /* Nền màu xanh dương */
+        color: white;
+        padding: 8px 12px; /* Tạo khoảng cách giữa chữ và viền nút */
+        font-size: 14px;
+        border-radius: 25px; /* Bo tròn nút */
+        text-decoration: none; /* Loại bỏ gạch chân */
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tạo đổ bóng nhẹ */
+        opacity: 0; /* Ẩn nút */
+        transition: opacity 0.3s ease; /* Hiệu ứng chuyển opacity */
+    }
+
+    .file-item:hover .download-btn {
+        opacity: 1; /* Hiện nút khi hover */
+    }
+
+    .download-btn:hover {
+        background-color: #0056b3; /* Đổi màu khi hover */
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<div class="container">
+    <h1>Convert JPG to WebP - Bulk Image Converter for Multiple Files</h1>
+    <p>Easily convert multiple JPG images to WebP format online. Upload, convert, and download your images in bulk with our fast and efficient JPG to WebP converter tool.</p>
+    <div class="upload-box" id="uploadBox">
+        <input type="file" id="fileInput" multiple  accept="image/jpeg"/>
+        <p>Drag & drop an JPG image here or <span>browse</span></p>
+    </div>
+    <div id="gallery"></div>
+    <button id="downloadAllBtn" style="display:none;">Download All</button>
+    <div>
+        <section>
+            <h2>About Our JPG to WebP Converter Tool</h2>
+            <p>Our JPG to WebP Converter tool allows you to quickly and easily convert multiple JPG images to WebP format. WebP offers superior compression and smaller file sizes compared to JPG, making it the ideal format for optimizing images for websites and faster page loading speeds.</p>
+
+            <p>Simply upload your JPG images, convert them to WebP, and download the converted files individually or all at once in a ZIP archive. This tool is designed to make bulk image conversion quick and simple, helping you improve web performance with optimized WebP images.</p>
+
+            <h2>How It Works</h2>
+            <p>Follow these steps to convert your JPG images to WebP:</p>
+
+            <ul>
+                <li><strong>Upload JPG Files:</strong> Drag and drop or click the "Upload" button to select multiple JPG images from your device.</li>
+                <li><strong>Convert to WebP:</strong> Once the files are uploaded, click "Convert" to start converting them to WebP format.</li>
+                <li><strong>Download WebP Files:</strong> After the conversion is complete, you can download each WebP file individually or click "Download All" to get all the files as a ZIP archive.</li>
+            </ul>
+
+            <p>This tool is perfect for anyone looking to reduce image sizes for faster website performance, all while maintaining great image quality using the WebP format.</p>
+        </section>
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. Why should I convert JPG to WebP?</h3>
+            <p>WebP offers better compression than JPG, which results in smaller file sizes and faster loading times without sacrificing image quality. It's ideal for web optimization and improving user experience on websites.</p>
+
+            <h3>2. Can I upload multiple JPG files at once?</h3>
+            <p>Yes, our tool allows you to upload and convert multiple JPG images at once for bulk conversion. Simply drag and drop your files or use the "Upload" button.</p>
+
+            <h3>3. Is there a limit to how many JPG images I can convert?</h3>
+            <p>There is no strict limit, but for optimal performance, it’s best to upload a reasonable number of files at once. Our tool is designed to handle bulk conversion efficiently.</p>
+
+            <h3>4. Will converting JPG to WebP affect the image quality?</h3>
+            <p>WebP offers better compression without a noticeable loss in quality. You’ll benefit from smaller file sizes while maintaining the visual quality of your images.</p>
+
+            <h3>5. Can I download all the WebP images at once?</h3>
+            <p>Yes, after conversion, you can download individual WebP images or download them all as a ZIP file with the "Download All" button for convenience.</p>
+
+            <h3>6. Is this tool mobile-friendly?</h3>
+            <p>Yes, our JPG to WebP converter is fully responsive and works smoothly on both desktop and mobile devices.</p>
+
+            <h3>7. Is my data secure?</h3>
+            <p>All conversions happen directly in your browser, meaning that your images are not uploaded or stored on any server, ensuring your files remain private and secure.</p>
+        </section>
+
+
+    </div>
+
+
+</div>
+
+<script>
+    const gallery = document.getElementById('gallery');
+    const convertedFiles = []; // Mảng lưu trữ blob của các file đã convert
+    function handleFiles(files) {
+        for (let file of files) {
+            if (file.type === 'image/jpeg') {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.src = e.target.result;
+                    img.onload = function() {
+                        convertToPNG(img, file.name);
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    }
+
+    function convertToPNG(image, fileName) {
+        // Tạo canvas để xử lý hình ảnh
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = image.width;
+        canvas.height = image.height;
+        ctx.drawImage(image, 0, 0);
+
+        canvas.toBlob(function(blob) {
+            displayImage(blob, fileName);
+            convertedFiles.push({ name: fileName.replace('.jpg', '.webp'), blob });
+            updateDownloadAllButton();
+        }, 'image/webp');
+    }
+
+    function displayImage(blob, fileName) {
+        const fileItem = document.createElement('div');
+        fileItem.classList.add('file-item');
+
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(blob);
+
+        // const fileStatus = document.createElement('div');
+        // fileStatus.classList.add('file-status');
+        // fileStatus.innerText = 'DONE';
+
+        const downloadBtn = document.createElement('a');
+        downloadBtn.classList.add('download-btn');
+        downloadBtn.href = URL.createObjectURL(blob);
+        downloadBtn.download = fileName.replace('.jpg', '.webp');
+        downloadBtn.innerText = 'Download';
+
+        fileItem.appendChild(img);
+        // fileItem.appendChild(fileStatus);
+        fileItem.appendChild(downloadBtn);
+        gallery.appendChild(fileItem);
+    }
+
+    function updateDownloadAllButton() {
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        if (convertedFiles.length > 0) {
+            downloadAllBtn.style.display = 'block'; // Hiện nút Download All nếu có file
+            downloadAllBtn.onclick = downloadAll; // Gán sự kiện click cho nút
+        } else {
+            downloadAllBtn.style.display = 'none'; // Ẩn nút nếu không có file
+        }
+    }
+
+    async function downloadAll() {
+        const zip = new JSZip();
+        for (const file of convertedFiles) {
+            zip.file(file.name, file.blob);
+        }
+        const content = await zip.generateAsync({ type: 'blob' });
+        const url = URL.createObjectURL(content);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'converted_images.zip';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
+    uploadBox.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    uploadBox.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadBox.style.borderColor = '#007bff';
+        uploadBox.style.backgroundColor = '#f0f8ff';
+    });
+
+    uploadBox.addEventListener('dragleave', () => {
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    uploadBox.addEventListener('drop', (e) => {
+        e.preventDefault();
+        handleFiles(e.dataTransfer.files);
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    fileInput.addEventListener('change', () => {
+        handleFiles(fileInput.files);
+    });
+</script>
+{{ end }}

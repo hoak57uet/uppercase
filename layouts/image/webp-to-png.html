@@ -1,0 +1,241 @@
+{{ define "main" }}
+<style>
+    #gallery {
+        min-height: 200px;
+    }
+    .file-item img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .file-status {
+        margin-top: 5px;
+    }
+
+    .file-item {
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+        text-align: center;
+    }
+    .download-btn {
+        position: absolute;
+        bottom: 50%; /* Đặt nút ở giữa theo chiều dọc */
+        left: 50%; /* Đặt nút ở giữa theo chiều ngang */
+        transform: translate(-50%, 50%); /* Đưa nút vào giữa hoàn hảo */
+        background-color: #007BFF; /* Nền màu xanh dương */
+        color: white;
+        padding: 8px 12px; /* Tạo khoảng cách giữa chữ và viền nút */
+        font-size: 14px;
+        border-radius: 25px; /* Bo tròn nút */
+        text-decoration: none; /* Loại bỏ gạch chân */
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tạo đổ bóng nhẹ */
+        opacity: 0; /* Ẩn nút */
+        transition: opacity 0.3s ease; /* Hiệu ứng chuyển opacity */
+    }
+
+    .file-item:hover .download-btn {
+        opacity: 1; /* Hiện nút khi hover */
+    }
+
+    .download-btn:hover {
+        background-color: #0056b3; /* Đổi màu khi hover */
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<div class="container">
+    <h1>Convert WebP to PNG - Bulk Image Converter for Multiple Files</h1>
+    <p>Easily convert multiple WebP images to PNG format online. Upload, convert, and download your images in bulk with
+        our fast and efficient WebP to PNG converter tool.</p>
+    <div class="upload-box" id="uploadBox">
+        <input type="file" id="fileInput" multiple accept="image/webp"/>
+        <p>Drag & drop an WEBP image here or <span>browse</span></p>
+    </div>
+    <div id="gallery"></div>
+    <button id="downloadAllBtn" style="display:none;">Download All</button>
+    <div>
+        <section>
+            <h2>About Our WebP to PNG Converter Tool</h2>
+            <p>Our WebP to PNG Converter tool is designed to help you convert multiple WebP images to PNG format in just
+                a few clicks. WebP is great for compressing images, but PNG is often preferred when transparency or
+                lossless image quality is needed. This tool simplifies the process, allowing you to convert several
+                images at once.</p>
+
+            <p>With our user-friendly interface, you can upload multiple WebP images, convert them to PNG format, and
+                download them either individually or as a ZIP file. The PNG format supports transparency, making it
+                ideal for graphics, web design, and projects requiring higher image fidelity.</p>
+
+            <h2>How It Works</h2>
+            <p>Follow these simple steps to convert your WebP images to PNG:</p>
+
+            <ul>
+                <li><strong>Upload WebP Files:</strong> Drag and drop or select the WebP files you want to convert using
+                    the "Upload" button.
+                </li>
+                <li><strong>Convert to PNG:</strong> Click the "Convert" button to begin converting your WebP images to
+                    PNG format.
+                </li>
+                <li><strong>Download PNG Files:</strong> After conversion, you can download each PNG image individually
+                    or use the "Download All" button to save all converted images in a ZIP file.
+                </li>
+            </ul>
+
+            <p>This tool is perfect for web developers, designers, and users who need to convert WebP images to PNG for
+                better compatibility or transparency features.</p>
+        </section>
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. Why should I convert WebP to PNG?</h3>
+            <p>The PNG format is often preferred when images need transparency or when high-quality, lossless
+                compression is required. WebP is great for compression, but PNG is more versatile for design work.</p>
+
+            <h3>2. Can I upload multiple WebP files at once?</h3>
+            <p>Yes, our tool supports uploading and converting multiple WebP images at once. Simply drag and drop your
+                files or use the upload button to select them from your device.</p>
+
+            <h3>3. Is there a file limit for conversion?</h3>
+            <p>There may be limitations based on the file size and browser capabilities, but you can convert multiple
+                WebP files in a single session. Keep file sizes reasonable for smooth operation.</p>
+
+            <h3>4. Will converting from WebP to PNG affect image quality?</h3>
+            <p>No, converting from WebP to PNG retains the original image quality. PNG is a lossless format, meaning
+                your images will maintain their quality, and you will also gain transparency support.</p>
+
+            <h3>5. Can I download all the converted files at once?</h3>
+            <p>Yes, after conversion, you can either download each PNG file individually or use the "Download All"
+                button to get all files in a ZIP package.</p>
+
+            <h3>6. Is this tool available on mobile devices?</h3>
+            <p>Yes, our WebP to PNG converter is fully optimized for both desktop and mobile browsers, providing
+                seamless conversion across all devices.</p>
+
+            <h3>7. Is my data secure?</h3>
+            <p>Yes, your images are processed directly in your browser, ensuring that they are not uploaded or stored on
+                any external servers. This ensures privacy and security for all your images.</p>
+        </section>
+
+
+    </div>
+
+
+</div>
+
+<script>
+    const gallery = document.getElementById('gallery');
+    const convertedFiles = []; // Mảng lưu trữ blob của các file đã convert
+    function handleFiles(files) {
+        for (let file of files) {
+            if (file.type === 'image/webp') {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = new Image();
+                    img.src = e.target.result;
+                    img.onload = function () {
+                        convertToPNG(img, file.name);
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    }
+
+    function convertToPNG(webpImage, fileName) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Cài đặt kích thước của canvas theo kích thước ảnh
+        canvas.width = webpImage.width;
+        canvas.height = webpImage.height;
+
+        // Vẽ ảnh WEBP lên canvas
+        ctx.drawImage(webpImage, 0, 0);
+
+        // Chuyển đổi canvas thành PNG
+        canvas.toBlob(function (blob) {
+            const pngFileName = fileName.replace('.webp', '.png');
+            displayImage(blob, pngFileName);
+            convertedFiles.push({name: pngFileName, blob});
+            updateDownloadAllButton();
+        }, 'image/png');
+    }
+
+
+    function displayImage(blob, fileName) {
+        const fileItem = document.createElement('div');
+        fileItem.classList.add('file-item');
+
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(blob);
+
+        // const fileStatus = document.createElement('div');
+        // fileStatus.classList.add('file-status');
+        // fileStatus.innerText = 'DONE';
+
+        const downloadBtn = document.createElement('a');
+        downloadBtn.classList.add('download-btn');
+        downloadBtn.href = URL.createObjectURL(blob);
+        downloadBtn.download = fileName.replace('.webp', '.png');
+        downloadBtn.innerText = 'Download';
+
+        fileItem.appendChild(img);
+        // fileItem.appendChild(fileStatus);
+        fileItem.appendChild(downloadBtn);
+        gallery.appendChild(fileItem);
+    }
+
+    function updateDownloadAllButton() {
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        if (convertedFiles.length > 0) {
+            downloadAllBtn.style.display = 'block'; // Hiện nút Download All nếu có file
+            downloadAllBtn.onclick = downloadAll; // Gán sự kiện click cho nút
+        } else {
+            downloadAllBtn.style.display = 'none'; // Ẩn nút nếu không có file
+        }
+    }
+
+    async function downloadAll() {
+        const zip = new JSZip();
+        for (const file of convertedFiles) {
+            zip.file(file.name, file.blob);
+        }
+        const content = await zip.generateAsync({type: 'blob'});
+        const url = URL.createObjectURL(content);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'converted_images.zip';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
+    uploadBox.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    uploadBox.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadBox.style.borderColor = '#007bff';
+        uploadBox.style.backgroundColor = '#f0f8ff';
+    });
+
+    uploadBox.addEventListener('dragleave', () => {
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    uploadBox.addEventListener('drop', (e) => {
+        e.preventDefault();
+        handleFiles(e.dataTransfer.files);
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    fileInput.addEventListener('change', () => {
+        handleFiles(fileInput.files);
+    });
+</script>
+{{ end }}

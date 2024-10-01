@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description"
+          content="{{.Params.description}}">
+    <meta name="keywords"
+          content="{{.Params.keywords}}">
+    <meta name="author" content="{{.Params.author}}">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{.Params.title}}">
+    <meta property="og:description"
+          content="{{.Params.description}}">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="{{.Permalink}}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{.Params.sitename}}">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="{{.Params.title}}">
+    <meta name="twitter:description"
+          content="{{.Params.description}}">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{.Permalink}}">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button.large {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button.large:hover {
+            background: #218838;
+        }
+
+        .copied-message {
+            font-size: 12px;
+            color: green;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .copy-button {
+            margin: 5px;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            font-size: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+        }
+
+        .action-btn {
+            height: 30px;
+            background: #1C2591;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 2px;
+            font-weight: bold;
+        }
+
+        .action-btn:hover {
+            background: #138496;
+        }
+
+        .action-btn-2 {
+            height: 30px;
+            background: #2831C3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 2px;
+            font-weight: bold;
+        }
+
+        .action-btn-2:hover {
+            background: #138496;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .textarea-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            white-space: pre-wrap; /* Giữ lại dấu xuống dòng */
+        }
+
+        .output-box {
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            word-wrap: break-word;
+            box-sizing: border-box;
+        }
+
+        .options label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        /*Start content*/
+        section {
+            margin: 10px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        section > h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        section > h3 {
+            font-size: 22px;
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        section > p {
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /*End Content*/
+        .counts {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .upload-box {
+            height: 100px;
+            border: 2px dashed #aaa;
+            border-radius: 12px;
+            text-align: center;
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #444;
+            cursor: pointer;
+            background: #f9f9f9;
+            transition: border-color 0.4s ease, background-color 0.4s ease;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-box:hover {
+            border-color: #007bff;
+            background-color: #f0f8ff;
+        }
+
+        .upload-box p {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .upload-box span {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .header {
+                height: 50px;
+                display: flex;
+                align-content: center;
+            }
+
+            .container {
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+
+            .textarea-container {
+                flex-direction: column;
+            }
+
+            .output-box {
+                box-sizing: border-box;
+            }
+
+            textarea {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+{{partial "header.html" .}}
+{{ block "main" . }}{{ end }}
+{{partial "footer.html" .}}
+<script>
+    function copyText(textAreaId, buttonId) {
+        const textArea = document.getElementById(textAreaId);
+        const button = document.getElementById(buttonId);
+        // Sử dụng API clipboard để sao chép nội dung
+        navigator.clipboard.writeText(textArea.value).then(function () {
+            const originalText = button.textContent;
+            button.textContent = "Copied";
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 1000);
+        }).catch(function (err) {
+        });
+    }
+    function copyToClipboard(text, button) {
+        navigator.clipboard.writeText(text).then(function () {
+            const originalText = button.textContent;
+            button.textContent = "Copied";
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 1000);
+        }).catch(function (err) {
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data on My New Hugo Site</title>
+    <link>http://localhost:1313/data/</link>
+    <description>Recent content in Data on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Oct 2024 16:16:58 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Base64 Text Encoder/Decoder – Easily Convert Text to Base64 and Vice Versa</title>
+      <link>http://localhost:1313/data/base64-encode-decode/</link>
+      <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
+      <guid>http://localhost:1313/data/base64-encode-decode/</guid>
+      <description>&lt;p&gt;���������&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Easily convert CSV to JSON or JSON to CSV with our online converter. Upload CSV files or input JSON data, and get your conversion done in seconds. Perfect for developers and data professionals.</title>
+      <link>http://localhost:1313/data/csv-to-json/</link>
+      <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
+      <guid>http://localhost:1313/data/csv-to-json/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Text to Binary and Binary to Text Converter</title>
+      <link>http://localhost:1313/data/text-to-binary/</link>
+      <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
+      <guid>http://localhost:1313/data/text-to-binary/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Text to Hex and Hex to Text Converter</title>
+      <link>http://localhost:1313/data/hex-to-text/</link>
+      <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
+      <guid>http://localhost:1313/data/hex-to-text/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Text to Morse code and Morse code to Text Converter</title>
+      <link>http://localhost:1313/data/text-to-morse-code/</link>
+      <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
+      <guid>http://localhost:1313/data/text-to-morse-code/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Text to ROT13 and ROT13 to Text Converter</title>
+      <link>http://localhost:1313/data/text-to-rot13/</link>
+      <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
+      <guid>http://localhost:1313/data/text-to-rot13/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Text to URL Slug Converter - Clean and SEO-Friendly URL Generator</title>
+      <link>http://localhost:1313/data/url-slugify/</link>
+      <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
+      <guid>http://localhost:1313/data/url-slugify/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>URL Encode/Decode Tool - Safely Encode or Decode Your URLs</title>
+      <link>http://localhost:1313/data/url-encode-decode/</link>
+      <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
+      <guid>http://localhost:1313/data/url-encode-decode/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,290 @@
+{{ define "main" }}
+<style>
+    #gallery {
+        min-height: 200px;
+    }
+    .file-item img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .file-status {
+        margin-top: 5px;
+    }
+
+    .file-item {
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+        text-align: center;
+    }
+    .download-btn {
+        position: absolute;
+        bottom: 50%; /* Đặt nút ở giữa theo chiều dọc */
+        left: 50%; /* Đặt nút ở giữa theo chiều ngang */
+        transform: translate(-50%, 50%); /* Đưa nút vào giữa hoàn hảo */
+        background-color: #007BFF; /* Nền màu xanh dương */
+        color: white;
+        padding: 8px 12px; /* Tạo khoảng cách giữa chữ và viền nút */
+        font-size: 14px;
+        border-radius: 25px; /* Bo tròn nút */
+        text-decoration: none; /* Loại bỏ gạch chân */
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tạo đổ bóng nhẹ */
+        opacity: 0; /* Ẩn nút */
+        transition: opacity 0.3s ease; /* Hiệu ứng chuyển opacity */
+    }
+
+    .file-item:hover .download-btn {
+        opacity: 1; /* Hiện nút khi hover */
+    }
+
+    .download-btn:hover {
+        background-color: #0056b3; /* Đổi màu khi hover */
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<div class="container">
+    <h1>Convert JPG to PNG - Bulk Image Converter for Multiple Files</h1>
+    <p>Easily convert multiple JPG images to PNG format online. Upload, convert, and download your images in bulk with
+        our simple and fast JPG to PNG converter.</p>
+    <div class="upload-box" id="uploadBox">
+        <input type="file" id="fileInput" multiple accept="image/jpeg"/>
+        <p>Drag & drop an JPG image here or <span>browse</span></p>
+    </div>
+    <div id="gallery"></div>
+    <button class="action-btn" id="downloadAllBtn" style="display:none;">Download All</button>
+    <div>
+        <section>
+            <h2>About Our JPG to PNG Converter Tool</h2>
+            <p>Our JPG to PNG Converter tool allows you to quickly and efficiently convert multiple JPG images to PNG
+                format in a single batch. Whether you need to change the image format for transparency purposes or to
+                improve quality, this tool is designed to make the process easy and fast.</p>
+
+            <p>With our drag-and-drop interface, you can upload several JPG images at once and convert them to PNG with
+                just a click. The converted images retain high quality and are ready to be used across various
+                platforms, from websites to social media. The PNG format supports transparency and lossless compression,
+                making it a popular choice for designers and developers.</p>
+
+            <h2>How It Works</h2>
+            <p>Follow these simple steps to convert your JPG images to PNG:</p>
+
+            <ul>
+                <li><strong>Upload JPG Files:</strong> Use the drag-and-drop functionality or click the "Upload" button
+                    to select multiple JPG images from your device.
+                </li>
+                <li><strong>Convert to PNG:</strong> Once the files are uploaded, click the "Convert" button to start
+                    the conversion process.
+                </li>
+                <li><strong>Download PNG Files:</strong> After the conversion is complete, you can download each image
+                    individually or use the "Download All" button to get all the converted images as a ZIP file.
+                </li>
+            </ul>
+
+            <p>This tool is perfect for graphic designers, web developers, and anyone who needs a quick and convenient
+                way to bulk convert JPG images to PNG format.</p>
+        </section>
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. Why should I convert JPG to PNG?</h3>
+            <p>The PNG format offers benefits like lossless compression and support for transparent backgrounds, making
+                it ideal for web design, graphic projects, and applications that require high-quality images without
+                losing details.</p>
+
+            <h3>2. Can I upload multiple files at once?</h3>
+            <p>Yes, our tool allows you to upload and convert multiple JPG images to PNG at the same time. Simply drag
+                and drop your files, or select them using the upload button.</p>
+
+            <h3>3. Is there any limit on the number of files I can upload?</h3>
+            <p>Currently, there may be limitations depending on file size and browser capabilities, but you can upload
+                multiple files in a single session. We recommend keeping file sizes reasonable for optimal
+                performance.</p>
+
+            <h3>4. Will converting to PNG affect image quality?</h3>
+            <p>No, converting from JPG to PNG retains the original quality of your images. In fact, the PNG format is
+                often used when high image quality is essential, such as for graphics and transparent images.</p>
+
+            <h3>5. Can I download all converted images at once?</h3>
+            <p>Yes, once the conversion is done, you can either download individual PNG files or use the "Download All"
+                button to download a ZIP file containing all your converted images.</p>
+
+            <h3>6. Does the tool work on mobile devices?</h3>
+            <p>Yes, our JPG to PNG converter is mobile-friendly and works seamlessly on both desktop and mobile
+                browsers.</p>
+
+            <h3>7. Is my data safe?</h3>
+            <p>Yes, all images are processed directly in your browser, ensuring that your data stays private and secure.
+                We do not store any uploaded images on our servers.</p>
+        </section>
+
+    </div>
+
+
+</div>
+
+<script>
+    const gallery = document.getElementById('gallery');
+    const convertedFiles = []; // Mảng lưu trữ blob của các file đã convert
+    function handleFiles(files) {
+        for (let file of files) {
+            if (file.type === 'image/jpeg') {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = new Image();
+                    img.src = e.target.result;
+                    img.onload = function () {
+                        convertToPNG(img, file.name);
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    }
+
+    function convertToPNG(image, fileName) {
+        // Tạo canvas để xử lý hình ảnh
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = image.width;
+        canvas.height = image.height;
+        ctx.drawImage(image, 0, 0);
+
+        canvas.toBlob(function (blob) {
+            displayImage(blob, fileName);
+            convertedFiles.push({name: fileName.replace('.jpg', '.png'), blob});
+            updateDownloadAllButton();
+        }, 'image/png');
+    }
+
+    function displayImage(blob, fileName) {
+        const fileItem = document.createElement('div');
+        fileItem.classList.add('file-item');
+
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(blob);
+
+        // const fileStatus = document.createElement('div');
+        // fileStatus.classList.add('file-status');
+        // fileStatus.innerText = 'DONE';
+
+        const downloadBtn = document.createElement('a');
+        downloadBtn.classList.add('download-btn');
+        downloadBtn.href = URL.createObjectURL(blob);
+        downloadBtn.download = fileName.replace('.jpg', '.png');
+        downloadBtn.innerText = 'Download';
+
+        fileItem.appendChild(img);
+        // fileItem.appendChild(fileStatus);
+        fileItem.appendChild(downloadBtn);
+        gallery.appendChild(fileItem);
+    }
+
+    function updateDownloadAllButton() {
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        if (convertedFiles.length > 0) {
+            downloadAllBtn.style.display = 'block'; // Hiện nút Download All nếu có file
+            downloadAllBtn.onclick = downloadAll; // Gán sự kiện click cho nút
+        } else {
+            downloadAllBtn.style.display = 'none'; // Ẩn nút nếu không có file
+        }
+    }
+
+    async function downloadAll() {
+        const zip = new JSZip();
+        for (const file of convertedFiles) {
+            zip.file(file.name, file.blob);
+        }
+        const content = await zip.generateAsync({type: 'blob'});
+        const url = URL.createObjectURL(content);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'converted_images.zip';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
+    uploadBox.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    uploadBox.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadBox.style.borderColor = '#007bff';
+        uploadBox.style.backgroundColor = '#f0f8ff';
+    });
+
+    uploadBox.addEventListener('dragleave', () => {
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    uploadBox.addEventListener('drop', (e) => {
+        e.preventDefault();
+        handleFiles(e.dataTransfer.files);
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    fileInput.addEventListener('change', () => {
+        handleFiles(fileInput.files);
+    });
+    //     Start menu
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        const menuItems = menu.querySelectorAll('li > a');
+        const overlay = document.querySelector('.overlay');
+
+        menuToggle.addEventListener('click', function () {
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', menu.classList.contains('active'));
+            menuToggle.innerHTML = menu.classList.contains('active') ? '✕' : '☰';
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (window.innerWidth <= 768) {
+                    const submenu = this.nextElementSibling;
+                    if (submenu) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                        const isExpanded = this.classList.contains('active');
+                        this.setAttribute('aria-expanded', isExpanded);
+                        submenu.style.display = isExpanded ? 'block' : 'none';
+
+                        // Scroll into view if necessary
+                        /**
+                         if (isExpanded) {
+                         setTimeout(() => {
+                         const rect = submenu.getBoundingClientRect();
+                         const menuRect = menu.getBoundingClientRect();
+                         if (rect.bottom > menuRect.bottom) {
+                         submenu.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+                         }
+                         }, 300); // Adjust this delay if needed
+                         }*/
+                    }
+                }
+            });
+        });
+
+        // Close menu when clicking outside or on overlay
+        overlay.addEventListener('click', closeMenu);
+
+        function closeMenu() {
+            menu.classList.remove('active');
+            overlay.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.innerHTML = '☰';
+            document.body.style.overflow = '';
+        }
+    });
+    //end menu
+</script>
+{{ end }}

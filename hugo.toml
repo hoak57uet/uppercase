@@ -1,0 +1,3 @@
+baseURL = 'https://uppercaseconverter.net/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'

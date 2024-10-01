@@ -1,0 +1,139 @@
+{{ define "main" }}
+<div class="container">
+    <h1>Text to Hex and Hex to Text Converter - Simple Encoding Tool</h1>
+    <p>Easily convert text to hex and hex to text with our online converter tool. Perfect for encoding and decoding text for various applications and encoding needs.</p>
+
+    <div class="textarea-container">
+        <!-- Input text area -->
+        <div class="output-box">
+            <label for="outputText">Your text</label>
+            <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <!-- Output text area -->
+        <div class="output-box">
+            <label for="outputText">Hex</label>
+            <textarea id="outputText" placeholder="Hex will appear here..."></textarea>
+            <div>
+                <button class="copy-button" id = 'copy-output' onclick="copyText('outputText', 'copy-output')">
+                    Copy
+                </button>
+                <span class="copied-message" id="copiedMessage1">Copied</span>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <section>
+            <h2>About Our Text to Hex and Hex to Text Converter Tool</h2>
+            <p>Our Text to Hex and Hex to Text converter tool provides a straightforward way to convert between text and hexadecimal formats. Whether you're working on encoding text for data transmission or decoding hex values into readable text, this tool simplifies the process. It’s perfect for developers, data analysts, and anyone needing to work with different text encodings.</p>
+
+            <p>Text encoding to hexadecimal (hex) is often used in computing for representing binary data in a more human-readable format. Conversely, hex to text conversion helps interpret hexadecimal values back into their original textual representation. Our tool handles these conversions efficiently, allowing you to switch between these formats quickly and easily.</p>
+
+            <h2>How It Works</h2>
+            <p>Using our Text to Hex and Hex to Text converter is easy:</p>
+
+            <ul>
+                <li><strong>Convert Text to Hex:</strong> Enter your text into the input field and click the "Convert to Hex" button. The tool will immediately convert your text into its hexadecimal representation.</li>
+                <li><strong>Convert Hex to Text:</strong> Input your hexadecimal string into the input field and click the "Convert to Text" button. The tool will transform the hex string back into readable text.</li>
+                <li><strong>Copy or Download:</strong> After conversion, you can copy the result directly or download it if needed.</li>
+            </ul>
+
+            <p>Our tool handles various text encodings and hexadecimal values efficiently. It ensures that all conversions maintain the integrity of the data and provide accurate results for your encoding and decoding needs.</p>
+        </section>
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. What is hexadecimal (hex) encoding?</h3>
+            <p>Hexadecimal encoding is a base-16 number system used to represent binary data in a more human-readable format. Each hex digit represents four binary digits (bits), making it easier to read and understand binary data.</p>
+
+            <h3>2. Why should I use hex encoding?</h3>
+            <p>Hex encoding is commonly used for encoding binary data into a format that can be easily transmitted or stored in text-based systems. It is frequently used in programming, data representation, and debugging.</p>
+
+            <h3>3. How do I convert text to hex?</h3>
+            <p>Simply enter the text you want to convert into the input field and click "Convert to Hex". The tool will process the text and provide you with its hexadecimal representation.</p>
+
+            <h3>4. How do I convert hex to text?</h3>
+            <p>Enter your hexadecimal string into the input field and click "Convert to Text". The tool will decode the hex string and return the original text.</p>
+
+            <h3>5. Can I use this tool for large text or hex strings?</h3>
+            <p>Yes, our tool is designed to handle various sizes of text and hex strings efficiently. However, for very large datasets, processing times might vary.</p>
+
+            <h3>6. Is my data secure when using this tool?</h3>
+            <p>Yes, your data is secure. The conversion happens directly in your browser, ensuring that your text and hex data remain private and are not uploaded to external servers.</p>
+
+            <h3>7. What should I do if the conversion result is not as expected?</h3>
+            <p>Ensure that the input text or hex string is correctly formatted and does not contain any extra characters or spaces. For any issues, double-check your input or try using a different input method.</p>
+        </section>
+    </div>
+
+
+</div>
+
+<script>
+    // Copy text function
+    function copyText(textAreaId, messageId) {
+        const textArea = document.getElementById(textAreaId);
+        const message = document.getElementById(messageId);
+
+        textArea.select();
+        document.execCommand('copy');
+
+        message.style.opacity = 1;
+        setTimeout(() => {
+            message.style.opacity = 0;
+        }, 1000);
+    }
+
+    function countWords(inputText) {
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+
+    function textToHex(text) {
+        let hex = '';
+        for (let i = 0; i < text.length; i++) {
+            hex += text.charCodeAt(i).toString(16).padStart(2, '0');
+        }
+        return hex.toUpperCase();
+    }
+
+    function hexToText(hex) {
+        let text = '';
+        for (let i = 0; i < hex.length; i += 2) {
+            text += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+        }
+        return text;
+    }
+
+
+    // Event listener to handle input changes and mode
+    document.getElementById('inputText').addEventListener('input', function () {
+        const inputText = this.value;
+        document.getElementById('outputText').value = textToHex(inputText);
+    });
+
+    document.getElementById('outputText').addEventListener('input', function () {
+        const inputText = this.value;
+        document.getElementById('inputText').value = hexToText(inputText);
+    });
+</script>
+{{ end }}
