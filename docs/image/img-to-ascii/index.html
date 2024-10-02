@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to ASCII Art Converter | Create Stunning ASCII Art Online</title>
+    
+    <meta name="description"
+          content="Convert your images to ASCII art easily. Upload your image and generate creative ASCII character art for retro and creative projects.">
+    <meta name="keywords"
+          content="[image to ASCII art, convert image to text, ASCII converter, image converter, ASCII art generator, text art, retro design]">
+    <meta name="author" content="Alan">
+
+    
+    <meta property="og:title" content="Image to ASCII Art Converter | Create Stunning ASCII Art Online">
+    <meta property="og:description"
+          content="Convert your images to ASCII art easily. Upload your image and generate creative ASCII character art for retro and creative projects.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://uppercaseconverter.net/image/img-to-ascii/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Image to ASCII Art Converter | Create Stunning ASCII Art Online">
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="Image to ASCII Art Converter | Create Stunning ASCII Art Online">
+    <meta name="twitter:description"
+          content="Convert your images to ASCII art easily. Upload your image and generate creative ASCII character art for retro and creative projects.">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    
+    <link rel="canonical" href="https://uppercaseconverter.net/image/img-to-ascii/">
+
+    
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button.large {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button.large:hover {
+            background: #218838;
+        }
+
+        .copied-message {
+            font-size: 12px;
+            color: green;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .copy-button {
+            margin: 5px;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            font-size: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+        }
+
+        .action-btn {
+            height: 30px;
+            background: #1C2591;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 2px;
+            font-weight: bold;
+        }
+
+        .action-btn:hover {
+            background: #138496;
+        }
+
+        .action-btn-2 {
+            height: 30px;
+            background: #2831C3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 2px;
+            font-weight: bold;
+        }
+
+        .action-btn-2:hover {
+            background: #138496;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .textarea-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .vertical-container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            white-space: pre-wrap;  
+        }
+
+        .output-box {
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            word-wrap: break-word;
+            box-sizing: border-box;
+        }
+
+        .options label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+         
+        section {
+            margin: 10px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        section > h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        section > h3 {
+            font-size: 22px;
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        section > p {
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+         
+        .counts {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .upload-box {
+            height: 100px;
+            border: 2px dashed #aaa;
+            border-radius: 12px;
+            text-align: center;
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #444;
+            cursor: pointer;
+            background: #f9f9f9;
+            transition: border-color 0.4s ease, background-color 0.4s ease;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-box:hover {
+            border-color: #007bff;
+            background-color: #f0f8ff;
+        }
+
+        .upload-box p {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .upload-box span {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .header {
+                height: 50px;
+                display: flex;
+                align-content: center;
+            }
+
+            .container {
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+
+            .textarea-container {
+                flex-direction: column;
+            }
+
+            .output-box {
+                box-sizing: border-box;
+            }
+
+            textarea {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+<style amp-custom>
+     
+    nav {
+        background-color: #ffffff;
+        padding: 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1001;
+        color: #007bff;
+    }
+
+    .menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .menu > li {
+        position: relative;
+    }
+
+    .menu > li > a {
+        text-decoration: none;
+        color: #444444;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 10px 16px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .menu > li > a:hover,
+    .menu > li > a:focus {
+        color: #ffffff;
+        background-color: #007bff;
+    }
+
+    .submenu {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #f7e4e4;
+        list-style-type: none;
+        padding: 10px;
+        margin: 0;
+        border-radius: 8px;
+        min-width: 200px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        grid-gap: 20px;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 100;
+    }
+
+    .submenu li {
+        margin: 0;
+    }
+
+    .submenu li a {
+        padding: 10px 10px;
+        display: block;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border-radius: 4px;
+    }
+
+    .submenu li a:hover,
+    .submenu li a:focus {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .menu li:hover .submenu,
+    .menu li:focus-within .submenu {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .header-mobile {
+        display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .container {
+             
+        }
+
+        .header-mobile {
+            display: flex;
+            height: 50px;
+        }
+
+        .logo-menu-drawer{
+            padding-bottom: 40px;
+        }
+
+        .menu-toggle {
+            display: block;
+        }
+
+        nav {
+            padding: 5px;
+        }
+
+        .menu {
+            justify-content: left;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: #ffffff;
+            padding: 30px 0 20px;
+            overflow-y: auto;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            gap: 0px;
+        }
+
+        .menu.active {
+            left: 0;
+        }
+
+        .menu > li {
+            margin-bottom: 0;
+            border-bottom: 1px solid #f0f0f0;
+            width: 100%;
+        }
+
+        .menu > li:last-child {
+            border-bottom: none;
+        }
+
+        .submenu {
+            position: static;
+            visibility: visible;
+            opacity: 1;
+            background-color: #f8f9fa;
+            display: none;
+            padding: 0;
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+        }
+
+        .menu > li > a {
+            display: block;
+             
+            font-size: 18px;
+            color: #333;
+            border-radius: 0;
+            padding: 15px;
+        }
+
+        .submenu li {
+            margin-bottom: 0;
+        }
+
+        .submenu li a {
+            padding: 12px 20px 12px 40px;
+            font-size: 16px;
+        }
+
+        .menu > li > a::after {
+            content: '\25BC';
+            font-size: 12px;
+            float: right;
+            transition: transform 0.3s ease;
+        }
+
+        .menu > li > a.active::after {
+            transform: rotate(-180deg);
+        }
+
+        .menu > li > a:hover,
+        .menu > li > a:focus,
+        .submenu li a:hover,
+        .submenu li a:focus {
+            background-color: #e9ecef;
+            color: #007bff;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        nav {
+            padding: 0;
+        }
+    }
+
+    .logo {
+        margin: auto;
+        align-self: center;
+        height: 25px;
+        width: auto;
+    }
+
+     
+</style>
+<nav>
+    <div class="header-mobile">
+        <img class="logo" src="/img/logo.png"/>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+    <ul class="menu">
+        <div class="logo-menu-drawer">
+            <a href="/" style="width: 100%; display: flex;">
+                <img class="logo"
+                     src="/img/logo.png"/></a>
+        </div>
+        <li>
+            <a href="#" aria-haspopup="true">Text Transformation</a>
+            <ul class="submenu">
+                <li><a href="/yaytext-social/ancient-cuneiform">Ancient Cuneiform</a></li>
+                <li><a href="/yaytext-social/bamum">Bamum</a></li>
+                <li><a href="/yaytext-social/bold-italic">Bold Italic</a></li>
+                <li><a href="/yaytext-social/bubble-text">Bubble Text</a></li>
+                <li><a href="/yaytext-social/canadian-aboriainal">Canadian Aboriainal</a></li>
+                <li><a href="/yaytext-social/cursive-script">Cursive Script</a></li>
+                <li><a href="/yaytext-social/double-struck">Double Struck</a></li>
+                <li><a href="/yaytext-social/east-asian-letter-like">East Asian Letter Like</a></li>
+                <li><a href="/yaytext-social/faces">Faces</a></li>
+                <li><a href="/yaytext-social/fraktur-gothic-old-english">Fraktur Gothic Old English</a></li>
+                <li><a href="/yaytext-social/full-width-vaporwave">Full Width Vaporwave</a></li>
+                <li><a href="/yaytext-social/lightning">Lightning</a></li>
+                <li><a href="/yaytext-social/mini-me-stacked-text">Mini Me Stacked Text</a></li>
+                <li><a href="/yaytext-social/mono-space">Mono Space</a></li>
+                <li><a href="/yaytext-social/ransom-note-text">Ransom Note Text</a></li>
+                <li><a href="/yaytext-social/slash-through">Slash Through</a></li>
+                <li><a href="/yaytext-social/small-caps">Small Caps</a></li>
+                <li><a href="/yaytext-social/square-text">Square Text</a></li>
+                <li><a href="/yaytext-social/squiggles-and-hooks">Squiggles And Hooks</a></li>
+                <li><a href="/yaytext-social/strike-through">Strike Through</a></li>
+                <li><a href="/yaytext-social/tiny-text">Tiny Text</a></li>
+                <li><a href="/yaytext-social/underline">Underline</a></li>
+                <li><a href="/yaytext-social/upside-down">Upside Down</a></li>
+                <li><a href="/yaytext-social/vai-letter-like">Vai Letter Like</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Code & Data</a>
+            <ul class="submenu">
+                <li><a href="/data/beautify">Normalize paragraph</a></li>
+                <li><a href="/data/base64-encode-decode">Base64 Encode / Decode</a></li>
+                <li><a href="/data/csv-to-json">CSV To JSON</a></li>
+                <li><a href="/data/hex-to-text">HEX To Text</a></li>
+                <li><a href="/data/text-to-binary">BINARY To Text</a></li>
+                <li><a href="/data/text-to-morse-code">MORSE Encode / Decode</a></li>
+                <li><a href="/data/text-to-rot13">ROT13 Encode / Decode</a></li>
+                <li><a href="/data/url-encode-decode">URL Encode / Decode</a></li>
+                <li><a href="/data/url-slugify">URL Slugify</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Image</a>
+            <ul class="submenu">
+                <li><a href="/image/img-to-ascii">Image To ASCII</a></li>
+                <li><a href="/image/img-to-text">Image To Text</a></li>
+                <li><a href="/image/jpg-to-png">JPG To PNG Converter</a></li>
+                <li><a href="/image/png-to-jpg">PNG To JPG Converter</a></li>
+                <li><a href="/image/jpg-to-webp">JPG To WEBP Converter</a></li>
+                <li><a href="/image/webp-to-jpg">WEBP To JPG Converter</a></li>
+                <li><a href="/image/png-to-webp">PNG To WEBP Converter</a></li>
+                <li><a href="/image/webp-to-png">WEBP To PNG Converter</a></li>
+                <li><a href="/image/svg-to-png">SVG To PNG Converter</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Text Generator</a>
+            <ul class="submenu">
+                <li><a href="/text-generator/strong-password-generator">Secure Password Generator</a></li>
+                <li><a href="/text-generator/random-choice-wheel">Random Spinning Wheel</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Crypto Currency Generator</a>
+            <ul class="submenu">
+                <li><a href="/text-generator/strong-password-generator">Secure Password Generator</a></li>
+                <li><a href="/text-generator/random-choice-wheel">Random Spinning Wheel</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<div class="overlay"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        const menuItems = menu.querySelectorAll('li > a');
+        const overlay = document.querySelector('.overlay');
+
+        menuToggle.addEventListener('click', function () {
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', menu.classList.contains('active'));
+            menuToggle.innerHTML = menu.classList.contains('active') ? '✕' : '☰';
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (window.innerWidth <= 768) {
+                    const submenu = this.nextElementSibling;
+                    if (submenu) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                        const isExpanded = this.classList.contains('active');
+                        this.setAttribute('aria-expanded', isExpanded);
+                        submenu.style.display = isExpanded ? 'block' : 'none';
+
+                        
+                        
+
+                    }
+                }
+            });
+        });
+
+        
+        overlay.addEventListener('click', closeMenu);
+
+        function closeMenu() {
+            menu.classList.remove('active');
+            overlay.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.innerHTML = '☰';
+            document.body.style.overflow = '';
+        }
+    });
+</script>
+
+<style>
+    .width-control input {
+        font-size: 16px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 80px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+</style>
+<div class="container">
+    <h1>Transform Your Images into Stunning ASCII Art with Our Easy-to-Use Converter</h1>
+    <p>Convert your images into high-quality ASCII art effortlessly with our online tool. Customize width and detail to
+        generate unique text-based artwork instantly.</p>
+
+    <div class="upload-box" id="uploadBox">
+        <input type="file" id="fileInput" accept="image/*"/>
+        <p>Drag & drop an image here or <span>browse</span></p>
+    </div>
+
+    <div class="width-control">
+        <label for="widthInput">Width:</label>
+        <input type="number" id="widthInput" value="100" min="10" max="300"/>
+    </div>
+
+    <textarea id="asciiOutput" readonly disabled></textarea>
+    <div>
+        <button class="copy-button" onclick="copyText('asciiOutput', 'copiedMessage1')">
+            <span class="copy-icon">📋</span>
+        </button>
+        <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+    </div>
+    <div id="introduction">
+        
+        <section style="text-align: left;">
+            <h1>Transform Images to High-Quality ASCII Art Online for Free</h1>
+            <p>Welcome to our <strong>free online ASCII art converter</strong>, where you can effortlessly transform your images into high-quality ASCII art. Whether you're a graphic designer, coder, or simply an art enthusiast, our tool offers a seamless and free solution to convert your images into unique text-based art.</p>
+        </section>
+
+        
+        <section id="how-it-works" style="text-align: left;">
+            <h2>How It Works</h2>
+            <div>
+                <h3>1. Upload Your Image:</h3>
+                <p>Simply drag and drop your image or select it from your device using our easy-to-use upload box. We support a variety of image formats, ensuring compatibility with most of your files.</p>
+            </div>
+            <div>
+                <h3>2. Adjust the Width:</h3>
+                <p>Customize the width of your ASCII art output to fit your needs. Use our width input slider to fine-tune the dimensions and get the perfect result. Our tool automatically updates the ASCII art as you adjust the width, providing you with real-time feedback.</p>
+            </div>
+            <div>
+                <h3>3. Generate and View ASCII Art:</h3>
+                <p>Once you've uploaded your image and set your desired width, our converter processes the image and generates the ASCII art. View the result instantly in our sleek, light-themed output display, optimized for readability and detail.</p>
+            </div>
+        </section>
+
+        
+        <section id="why-choose" style="text-align: left;">
+            <h2>Why Choose Our Tool?</h2>
+            <ul>
+                <li><strong>High-Quality Output:</strong> Our converter ensures that the ASCII art you get is of the highest quality, preserving the details and nuances of your original image.</li>
+                <li><strong>Completely Free:</strong> Enjoy unlimited use of our ASCII art converter without any cost. No hidden fees, no sign-ups required.</li>
+                <li><strong>User-Friendly Interface:</strong> With a clean and modern design, our tool is easy to navigate and use, making the conversion process smooth and enjoyable.</li>
+                <li><strong>Customizable Options:</strong> Tailor the output to your exact specifications with adjustable width and instant preview features.</li>
+            </ul>
+        </section>
+
+        
+        <section id="faq" style="text-align: left;">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-item">
+                <h3>Is there a limit to the file size I can upload?</h3>
+                <p>Our tool supports image files up to 10MB in size. For larger files, consider resizing your image before uploading.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I use the ASCII art generated for commercial purposes?</h3>
+                <p>Yes, the ASCII art created using our tool can be used for personal and commercial purposes. However, we recommend checking the usage rights of the original image.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Do I need to create an account to use the converter?</h3>
+                <p>No, you don’t need to create an account. Our converter is completely free and accessible to everyone without any registration.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How does the width adjustment affect the ASCII art?</h3>
+                <p>Adjusting the width changes the size of the ASCII art, which can affect the level of detail and clarity. A larger width provides more detail, while a smaller width results in a more compact representation.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I save or share my ASCII art?</h3>
+                <p>You can easily copy the ASCII art from the output box and paste it wherever you like. For saving, you can use standard text-saving methods or take a screenshot of the output.</p>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<script>
+    const uploadBox = document.getElementById('uploadBox');
+    const fileInput = document.getElementById('fileInput');
+    const asciiOutput = document.getElementById('asciiOutput');
+    const widthInput = document.getElementById('widthInput');
+
+    uploadBox.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    uploadBox.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadBox.style.borderColor = '#007bff';
+        uploadBox.style.backgroundColor = '#f0f8ff';
+    });
+
+    uploadBox.addEventListener('dragleave', () => {
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    uploadBox.addEventListener('drop', (e) => {
+        e.preventDefault();
+        handleFileUpload(e.dataTransfer.files[0]);
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    fileInput.addEventListener('change', () => {
+        handleFileUpload(fileInput.files[0]);
+    });
+    widthInput.addEventListener('input', () => {
+        if (fileInput.files.length > 0) {
+            handleFileUpload(fileInput.files[0]);
+        }
+    });
+
+    function handleFileUpload(file) {
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+            const image = new Image();
+            image.src = event.target.result;
+
+            image.onload = function () {
+                const width = parseInt(widthInput.value, 10);
+                const ascii = imageToAscii(image, width);  
+                asciiOutput.textContent = ascii;
+            };
+        };
+        reader.readAsDataURL(file);
+
+    }
+
+    function imageToAscii(image, width = 100) {
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+
+        const aspectRatio = image.height / image.width;
+        canvas.width = width;
+        canvas.height = width * aspectRatio;
+
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+        const imageData = context.getImageData(0, 0, canvas.width, canvas.height).data;
+        const characters = '@%#*+=-:. ';
+        let ascii = '';
+
+        for (let i = 0; i < imageData.length; i += 4) {
+            const r = imageData[i];
+            const g = imageData[i + 1];
+            const b = imageData[i + 2];
+            const brightness = (r + g + b) / 3;
+            const charIndex = Math.floor((brightness / 255) * (characters.length - 1));
+            ascii += characters[charIndex];
+
+            
+            if ((i / 4 + 1) % canvas.width === 0) {
+                ascii += '\n';
+            }
+        }
+
+        return ascii;
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>
+
+<style>
+    footer {
+        margin-top: 20px;
+        color: #4e4c4c;
+        font-family: Arial, sans-serif;
+        width: 80%;
+    }
+
+    .footer-container {
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        background-color: #E0E0E0;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .footer-links {
+        flex: 2;
+    }
+
+    .footer-tool-categories {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .footer-category {
+        flex: 1;
+        min-width: 200px;
+        margin: 10px;
+    }
+
+    .footer-links h3,
+    .footer-contact h3,
+    .footer-about h3 {
+        margin-bottom: 10px;
+    }
+
+    .footer-category h4 {
+        margin: 10px 0 5px 0;
+    }
+
+    .footer-links ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-links ul li {
+        margin: 5px 0;
+    }
+
+    .footer-links a,
+    .footer-contact a,
+    .footer-about a {
+        color: #5d605e;
+        text-decoration: none;
+    }
+
+    .footer-links a:hover,
+    .footer-contact a:hover,
+    .footer-about a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.9em;
+    }
+
+    .footer-bottom a {
+        color: #61dafb;
+    }
+
+    @media screen and (max-width: 768px) {
+        footer {
+            width: 100%;
+        }
+
+        .footer-container {
+            padding: 5px;
+        }
+    }
+</style>
+<footer>
+    <div class="footer-container">
+        <div class="footer-links">
+            <div class="footer-tool-categories">
+                <div class="footer-category">
+                    <h4>Text Conversion</h4>
+                    <ul>
+                        <li><a href="/base64">Base64 Encode/Decode</a></li>
+                        <li><a href="/text-transformer">Text Transformer</a></li>
+                        <li><a href="/ytext">YayText Similar</a></li>
+                        <li><a href="/url-encoder">URL Encoder/Decoder</a></li>
+                        <li><a href="/html-entities">HTML Entities Encoder/Decoder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-category">
+                    <h4>Password Tools</h4>
+                    <ul>
+                        <li><a href="/password-generator">Password Generator</a></li>
+                        <li><a href="/password-strength">Password Strength Checker</a></li>
+                        <li><a href="/password-encoder">Password Encoder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-category">
+                    <h4>Image Conversion</h4>
+                    <ul>
+                        <li><a href="/image-converter">Image Format Converter</a></li>
+                        <li><a href="/jpg-to-png">JPG to PNG</a></li>
+                        <li><a href="/png-to-jpg">PNG to JPG</a></li>
+                        <li><a href="/webp-to-png">WebP to PNG</a></li>
+                        <li><a href="/webp-to-jpg">WebP to JPG</a></li>
+                        <li><a href="/svg-to-png">SVG to PNG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-category">
+                    <h4>Encoding/Decoding</h4>
+                    <ul>
+                        <li><a href="/base64">Base64 Encode/Decode</a></li>
+                        <li><a href="/url-encoder">URL Encode/Decode</a></li>
+                        <li><a href="/html-entities">HTML Entities</a></li>
+                        <li><a href="/ascii-hex">ASCII to Hex Converter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-category">
+                    <h4>Other Tools</h4>
+                    <ul>
+                        <li><a href="/random-name-generator">Random Name Generator</a></li>
+                        <li><a href="/color-picker">Color Picker</a></li>
+                        <li><a href="/string-formatter">String Formatter</a></li>
+                        <li><a href="/text-analyzer">Text Analyzer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-about">
+            <h3>About Us</h3>
+            <p>
+                Welcome to Your Website Name, your go-to platform for free online tools designed to simplify your
+                digital tasks. Our mission is to empower users with powerful yet user-friendly tools for text
+                conversion, image format transformation, base64 encoding/decoding, and password generation. Whether you
+                need to transform text, convert images from JPG to PNG or WebP, or generate strong passwords, we’ve got
+                you covered.
+            </p>
+            <p>Our team is dedicated to providing reliable, fast, and secure tools that enhance productivity and make
+                your online experience seamless. We believe that everyone should have access to effective solutions
+                without the hassle of complicated processes. That’s why we focus on delivering straightforward and
+                intuitive tools that anyone can use.</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 https://uppercaseconverter.net | All rights reserved. | <a href="/privacy-policy">Privacy
+            Policy</a> | <a href="/terms-of-service">Terms of Service</a></p>
+    </div>
+</footer>
+
+<script>
+    function copyText(textAreaId, buttonId) {
+        const textArea = document.getElementById(textAreaId);
+        const button = document.getElementById(buttonId);
+        
+        console.log(textAreaId+':'+textArea)
+        let content = textArea.value;
+        if (!content) {
+            content = textArea.textContent;
+        }
+        if (!content) {
+            content = textArea.innerText;
+        }
+        console.log(content)
+        navigator.clipboard.writeText(content).then(function () {
+            const originalText = button.textContent;
+            button.textContent = "Copied";
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 1000);
+        }).catch(function (err) {
+        });
+    }
+
+    function copyToClipboard(text, button) {
+        navigator.clipboard.writeText(text).then(function () {
+            const originalText = button.textContent;
+            button.textContent = "Copied";
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 1000);
+        }).catch(function (err) {
+        });
+    }
+</script>
+</body>
+</html>

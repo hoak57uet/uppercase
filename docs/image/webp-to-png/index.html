@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert WebP to PNG - Bulk Image Converter for Multiple Files</title>
+    
+    <meta name="description"
+          content="Easily convert multiple WebP images to PNG format online. Upload, convert, and download your images in bulk with our fast and efficient WebP to PNG converter tool.">
+    <meta name="keywords"
+          content="[WebP to PNG converter, bulk image converter, convert WebP to PNG, online WebP to PNG, transparent image conversion, image format conversion, WebP to PNG online tool, download PNG images]">
+    <meta name="author" content="Alan">
+
+    
+    <meta property="og:title" content="Convert WebP to PNG - Bulk Image Converter for Multiple Files">
+    <meta property="og:description"
+          content="Easily convert multiple WebP images to PNG format online. Upload, convert, and download your images in bulk with our fast and efficient WebP to PNG converter tool.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+    <meta property="og:url" content="https://uppercaseconverter.net/image/webp-to-png/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Convert WebP to PNG - Bulk Image Converter for Multiple Files">
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:title" content="Convert WebP to PNG - Bulk Image Converter for Multiple Files">
+    <meta name="twitter:description"
+          content="Easily convert multiple WebP images to PNG format online. Upload, convert, and download your images in bulk with our fast and efficient WebP to PNG converter tool.">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
+
+    
+    <link rel="canonical" href="https://uppercaseconverter.net/image/webp-to-png/">
+
+    
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button.large {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button.large:hover {
+            background: #218838;
+        }
+
+        .copied-message {
+            font-size: 12px;
+            color: green;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .copy-button {
+            margin: 5px;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            font-size: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+        }
+
+        .action-btn {
+            height: 30px;
+            background: #1C2591;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 2px;
+            font-weight: bold;
+        }
+
+        .action-btn:hover {
+            background: #138496;
+        }
+
+        .action-btn-2 {
+            height: 30px;
+            background: #2831C3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 2px;
+            font-weight: bold;
+        }
+
+        .action-btn-2:hover {
+            background: #138496;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .textarea-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .vertical-container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            white-space: pre-wrap;  
+        }
+
+        .output-box {
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            word-wrap: break-word;
+            box-sizing: border-box;
+        }
+
+        .options label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+         
+        section {
+            margin: 10px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        section > h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        section > h3 {
+            font-size: 22px;
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        section > p {
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+         
+        .counts {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .upload-box {
+            height: 100px;
+            border: 2px dashed #aaa;
+            border-radius: 12px;
+            text-align: center;
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #444;
+            cursor: pointer;
+            background: #f9f9f9;
+            transition: border-color 0.4s ease, background-color 0.4s ease;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-box:hover {
+            border-color: #007bff;
+            background-color: #f0f8ff;
+        }
+
+        .upload-box p {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .upload-box span {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .header {
+                height: 50px;
+                display: flex;
+                align-content: center;
+            }
+
+            .container {
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+
+            .textarea-container {
+                flex-direction: column;
+            }
+
+            .output-box {
+                box-sizing: border-box;
+            }
+
+            textarea {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+<style amp-custom>
+     
+    nav {
+        background-color: #ffffff;
+        padding: 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1001;
+        color: #007bff;
+    }
+
+    .menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .menu > li {
+        position: relative;
+    }
+
+    .menu > li > a {
+        text-decoration: none;
+        color: #444444;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 10px 16px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .menu > li > a:hover,
+    .menu > li > a:focus {
+        color: #ffffff;
+        background-color: #007bff;
+    }
+
+    .submenu {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #f7e4e4;
+        list-style-type: none;
+        padding: 10px;
+        margin: 0;
+        border-radius: 8px;
+        min-width: 200px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        grid-gap: 20px;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 100;
+    }
+
+    .submenu li {
+        margin: 0;
+    }
+
+    .submenu li a {
+        padding: 10px 10px;
+        display: block;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border-radius: 4px;
+    }
+
+    .submenu li a:hover,
+    .submenu li a:focus {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .menu li:hover .submenu,
+    .menu li:focus-within .submenu {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .header-mobile {
+        display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .container {
+             
+        }
+
+        .header-mobile {
+            display: flex;
+            height: 50px;
+        }
+
+        .logo-menu-drawer{
+            padding-bottom: 40px;
+        }
+
+        .menu-toggle {
+            display: block;
+        }
+
+        nav {
+            padding: 5px;
+        }
+
+        .menu {
+            justify-content: left;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: #ffffff;
+            padding: 30px 0 20px;
+            overflow-y: auto;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            gap: 0px;
+        }
+
+        .menu.active {
+            left: 0;
+        }
+
+        .menu > li {
+            margin-bottom: 0;
+            border-bottom: 1px solid #f0f0f0;
+            width: 100%;
+        }
+
+        .menu > li:last-child {
+            border-bottom: none;
+        }
+
+        .submenu {
+            position: static;
+            visibility: visible;
+            opacity: 1;
+            background-color: #f8f9fa;
+            display: none;
+            padding: 0;
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+        }
+
+        .menu > li > a {
+            display: block;
+             
+            font-size: 18px;
+            color: #333;
+            border-radius: 0;
+            padding: 15px;
+        }
+
+        .submenu li {
+            margin-bottom: 0;
+        }
+
+        .submenu li a {
+            padding: 12px 20px 12px 40px;
+            font-size: 16px;
+        }
+
+        .menu > li > a::after {
+            content: '\25BC';
+            font-size: 12px;
+            float: right;
+            transition: transform 0.3s ease;
+        }
+
+        .menu > li > a.active::after {
+            transform: rotate(-180deg);
+        }
+
+        .menu > li > a:hover,
+        .menu > li > a:focus,
+        .submenu li a:hover,
+        .submenu li a:focus {
+            background-color: #e9ecef;
+            color: #007bff;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        nav {
+            padding: 0;
+        }
+    }
+
+    .logo {
+        margin: auto;
+        align-self: center;
+        height: 25px;
+        width: auto;
+    }
+
+     
+</style>
+<nav>
+    <div class="header-mobile">
+        <img class="logo" src="/img/logo.png"/>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+    <ul class="menu">
+        <div class="logo-menu-drawer">
+            <a href="/" style="width: 100%; display: flex;">
+                <img class="logo"
+                     src="/img/logo.png"/></a>
+        </div>
+        <li>
+            <a href="#" aria-haspopup="true">Text Transformation</a>
+            <ul class="submenu">
+                <li><a href="/yaytext-social/ancient-cuneiform">Ancient Cuneiform</a></li>
+                <li><a href="/yaytext-social/bamum">Bamum</a></li>
+                <li><a href="/yaytext-social/bold-italic">Bold Italic</a></li>
+                <li><a href="/yaytext-social/bubble-text">Bubble Text</a></li>
+                <li><a href="/yaytext-social/canadian-aboriainal">Canadian Aboriainal</a></li>
+                <li><a href="/yaytext-social/cursive-script">Cursive Script</a></li>
+                <li><a href="/yaytext-social/double-struck">Double Struck</a></li>
+                <li><a href="/yaytext-social/east-asian-letter-like">East Asian Letter Like</a></li>
+                <li><a href="/yaytext-social/faces">Faces</a></li>
+                <li><a href="/yaytext-social/fraktur-gothic-old-english">Fraktur Gothic Old English</a></li>
+                <li><a href="/yaytext-social/full-width-vaporwave">Full Width Vaporwave</a></li>
+                <li><a href="/yaytext-social/lightning">Lightning</a></li>
+                <li><a href="/yaytext-social/mini-me-stacked-text">Mini Me Stacked Text</a></li>
+                <li><a href="/yaytext-social/mono-space">Mono Space</a></li>
+                <li><a href="/yaytext-social/ransom-note-text">Ransom Note Text</a></li>
+                <li><a href="/yaytext-social/slash-through">Slash Through</a></li>
+                <li><a href="/yaytext-social/small-caps">Small Caps</a></li>
+                <li><a href="/yaytext-social/square-text">Square Text</a></li>
+                <li><a href="/yaytext-social/squiggles-and-hooks">Squiggles And Hooks</a></li>
+                <li><a href="/yaytext-social/strike-through">Strike Through</a></li>
+                <li><a href="/yaytext-social/tiny-text">Tiny Text</a></li>
+                <li><a href="/yaytext-social/underline">Underline</a></li>
+                <li><a href="/yaytext-social/upside-down">Upside Down</a></li>
+                <li><a href="/yaytext-social/vai-letter-like">Vai Letter Like</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Code & Data</a>
+            <ul class="submenu">
+                <li><a href="/data/beautify">Normalize paragraph</a></li>
+                <li><a href="/data/base64-encode-decode">Base64 Encode / Decode</a></li>
+                <li><a href="/data/csv-to-json">CSV To JSON</a></li>
+                <li><a href="/data/hex-to-text">HEX To Text</a></li>
+                <li><a href="/data/text-to-binary">BINARY To Text</a></li>
+                <li><a href="/data/text-to-morse-code">MORSE Encode / Decode</a></li>
+                <li><a href="/data/text-to-rot13">ROT13 Encode / Decode</a></li>
+                <li><a href="/data/url-encode-decode">URL Encode / Decode</a></li>
+                <li><a href="/data/url-slugify">URL Slugify</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Image</a>
+            <ul class="submenu">
+                <li><a href="/image/img-to-ascii">Image To ASCII</a></li>
+                <li><a href="/image/img-to-text">Image To Text</a></li>
+                <li><a href="/image/jpg-to-png">JPG To PNG Converter</a></li>
+                <li><a href="/image/png-to-jpg">PNG To JPG Converter</a></li>
+                <li><a href="/image/jpg-to-webp">JPG To WEBP Converter</a></li>
+                <li><a href="/image/webp-to-jpg">WEBP To JPG Converter</a></li>
+                <li><a href="/image/png-to-webp">PNG To WEBP Converter</a></li>
+                <li><a href="/image/webp-to-png">WEBP To PNG Converter</a></li>
+                <li><a href="/image/svg-to-png">SVG To PNG Converter</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Text Generator</a>
+            <ul class="submenu">
+                <li><a href="/text-generator/strong-password-generator">Secure Password Generator</a></li>
+                <li><a href="/text-generator/random-choice-wheel">Random Spinning Wheel</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-haspopup="true">Crypto Currency Generator</a>
+            <ul class="submenu">
+                <li><a href="/text-generator/strong-password-generator">Secure Password Generator</a></li>
+                <li><a href="/text-generator/random-choice-wheel">Random Spinning Wheel</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<div class="overlay"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        const menuItems = menu.querySelectorAll('li > a');
+        const overlay = document.querySelector('.overlay');
+
+        menuToggle.addEventListener('click', function () {
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', menu.classList.contains('active'));
+            menuToggle.innerHTML = menu.classList.contains('active') ? '✕' : '☰';
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (window.innerWidth <= 768) {
+                    const submenu = this.nextElementSibling;
+                    if (submenu) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                        const isExpanded = this.classList.contains('active');
+                        this.setAttribute('aria-expanded', isExpanded);
+                        submenu.style.display = isExpanded ? 'block' : 'none';
+
+                        
+                        
+
+                    }
+                }
+            });
+        });
+
+        
+        overlay.addEventListener('click', closeMenu);
+
+        function closeMenu() {
+            menu.classList.remove('active');
+            overlay.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.innerHTML = '☰';
+            document.body.style.overflow = '';
+        }
+    });
+</script>
+
+<style>
+    #gallery {
+        min-height: 200px;
+    }
+    .file-item img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .file-status {
+        margin-top: 5px;
+    }
+
+    .file-item {
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+        text-align: center;
+    }
+    .download-btn {
+        position: absolute;
+        bottom: 50%;  
+        left: 50%;  
+        transform: translate(-50%, 50%);  
+        background-color: #007BFF;  
+        color: white;
+        padding: 8px 12px;  
+        font-size: 14px;
+        border-radius: 25px;  
+        text-decoration: none;  
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+        opacity: 0;  
+        transition: opacity 0.3s ease;  
+    }
+
+    .file-item:hover .download-btn {
+        opacity: 1;  
+    }
+
+    .download-btn:hover {
+        background-color: #0056b3;  
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<div class="container">
+    <h1>Convert WebP to PNG - Bulk Image Converter for Multiple Files</h1>
+    <p>Easily convert multiple WebP images to PNG format online. Upload, convert, and download your images in bulk with
+        our fast and efficient WebP to PNG converter tool.</p>
+    <div class="upload-box" id="uploadBox">
+        <input type="file" id="fileInput" multiple accept="image/webp"/>
+        <p>Drag & drop an WEBP image here or <span>browse</span></p>
+    </div>
+    <div id="gallery"></div>
+    <button id="downloadAllBtn" style="display:none;">Download All</button>
+    <div>
+        <section>
+            <h2>About Our WebP to PNG Converter Tool</h2>
+            <p>Our WebP to PNG Converter tool is designed to help you convert multiple WebP images to PNG format in just
+                a few clicks. WebP is great for compressing images, but PNG is often preferred when transparency or
+                lossless image quality is needed. This tool simplifies the process, allowing you to convert several
+                images at once.</p>
+
+            <p>With our user-friendly interface, you can upload multiple WebP images, convert them to PNG format, and
+                download them either individually or as a ZIP file. The PNG format supports transparency, making it
+                ideal for graphics, web design, and projects requiring higher image fidelity.</p>
+
+            <h2>How It Works</h2>
+            <p>Follow these simple steps to convert your WebP images to PNG:</p>
+
+            <ul>
+                <li><strong>Upload WebP Files:</strong> Drag and drop or select the WebP files you want to convert using
+                    the "Upload" button.
+                </li>
+                <li><strong>Convert to PNG:</strong> Click the "Convert" button to begin converting your WebP images to
+                    PNG format.
+                </li>
+                <li><strong>Download PNG Files:</strong> After conversion, you can download each PNG image individually
+                    or use the "Download All" button to save all converted images in a ZIP file.
+                </li>
+            </ul>
+
+            <p>This tool is perfect for web developers, designers, and users who need to convert WebP images to PNG for
+                better compatibility or transparency features.</p>
+        </section>
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. Why should I convert WebP to PNG?</h3>
+            <p>The PNG format is often preferred when images need transparency or when high-quality, lossless
+                compression is required. WebP is great for compression, but PNG is more versatile for design work.</p>
+
+            <h3>2. Can I upload multiple WebP files at once?</h3>
+            <p>Yes, our tool supports uploading and converting multiple WebP images at once. Simply drag and drop your
+                files or use the upload button to select them from your device.</p>
+
+            <h3>3. Is there a file limit for conversion?</h3>
+            <p>There may be limitations based on the file size and browser capabilities, but you can convert multiple
+                WebP files in a single session. Keep file sizes reasonable for smooth operation.</p>
+
+            <h3>4. Will converting from WebP to PNG affect image quality?</h3>
+            <p>No, converting from WebP to PNG retains the original image quality. PNG is a lossless format, meaning
+                your images will maintain their quality, and you will also gain transparency support.</p>
+
+            <h3>5. Can I download all the converted files at once?</h3>
+            <p>Yes, after conversion, you can either download each PNG file individually or use the "Download All"
+                button to get all files in a ZIP package.</p>
+
+            <h3>6. Is this tool available on mobile devices?</h3>
+            <p>Yes, our WebP to PNG converter is fully optimized for both desktop and mobile browsers, providing
+                seamless conversion across all devices.</p>
+
+            <h3>7. Is my data secure?</h3>
+            <p>Yes, your images are processed directly in your browser, ensuring that they are not uploaded or stored on
+                any external servers. This ensures privacy and security for all your images.</p>
+        </section>
+
+
+    </div>
+
+
+</div>
+
+<script>
+    const gallery = document.getElementById('gallery');
+    const convertedFiles = []; 
+    function handleFiles(files) {
+        for (let file of files) {
+            if (file.type === 'image/webp') {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = new Image();
+                    img.src = e.target.result;
+                    img.onload = function () {
+                        convertToPNG(img, file.name);
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    }
+
+    function convertToPNG(webpImage, fileName) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        
+        canvas.width = webpImage.width;
+        canvas.height = webpImage.height;
+
+        
+        ctx.drawImage(webpImage, 0, 0);
+
+        
+        canvas.toBlob(function (blob) {
+            const pngFileName = fileName.replace('.webp', '.png');
+            displayImage(blob, pngFileName);
+            convertedFiles.push({name: pngFileName, blob});
+            updateDownloadAllButton();
+        }, 'image/png');
+    }
+
+
+    function displayImage(blob, fileName) {
+        const fileItem = document.createElement('div');
+        fileItem.classList.add('file-item');
+
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(blob);
+
+        
+        
+        
+
+        const downloadBtn = document.createElement('a');
+        downloadBtn.classList.add('download-btn');
+        downloadBtn.href = URL.createObjectURL(blob);
+        downloadBtn.download = fileName.replace('.webp', '.png');
+        downloadBtn.innerText = 'Download';
+
+        fileItem.appendChild(img);
+        
+        fileItem.appendChild(downloadBtn);
+        gallery.appendChild(fileItem);
+    }
+
+    function updateDownloadAllButton() {
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        if (convertedFiles.length > 0) {
+            downloadAllBtn.style.display = 'block'; 
+            downloadAllBtn.onclick = downloadAll; 
+        } else {
+            downloadAllBtn.style.display = 'none'; 
+        }
+    }
+
+    async function downloadAll() {
+        const zip = new JSZip();
+        for (const file of convertedFiles) {
+            zip.file(file.name, file.blob);
+        }
+        const content = await zip.generateAsync({type: 'blob'});
+        const url = URL.createObjectURL(content);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'converted_images.zip';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
+    uploadBox.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    uploadBox.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadBox.style.borderColor = '#007bff';
+        uploadBox.style.backgroundColor = '#f0f8ff';
+    });
+
+    uploadBox.addEventListener('dragleave', () => {
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    uploadBox.addEventListener('drop', (e) => {
+        e.preventDefault();
+        handleFiles(e.dataTransfer.files);
+        uploadBox.style.borderColor = '#aaa';
+        uploadBox.style.backgroundColor = '#f9f9f9';
+    });
+
+    fileInput.addEventListener('change', () => {
+        handleFiles(fileInput.files);
+    });
+</script>
+
+<style>
+    footer {
+        margin-top: 20px;
+        color: #4e4c4c;
+        font-family: Arial, sans-serif;
+        width: 80%;
+    }
+
+    .footer-container {
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        background-color: #E0E0E0;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .footer-links {
+        flex: 2;
+    }
+
+    .footer-tool-categories {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .footer-category {
+        flex: 1;
+        min-width: 200px;
+        margin: 10px;
+    }
+
+    .footer-links h3,
+    .footer-contact h3,
+    .footer-about h3 {
+        margin-bottom: 10px;
+    }
+
+    .footer-category h4 {
+        margin: 10px 0 5px 0;
+    }
+
+    .footer-links ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-links ul li {
+        margin: 5px 0;
+    }
+
+    .footer-links a,
+    .footer-contact a,
+    .footer-about a {
+        color: #5d605e;
+        text-decoration: none;
+    }
+
+    .footer-links a:hover,
+    .footer-contact a:hover,
+    .footer-about a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.9em;
+    }
+
+    .footer-bottom a {
+        color: #61dafb;
+    }
+
+    @media screen and (max-width: 768px) {
+        footer {
+            width: 100%;
+        }
+
+        .footer-container {
+            padding: 5px;
+        }
+    }
+</style>
+<footer>
+    <div class="footer-container">
+        <div class="footer-links">
+            <div class="footer-tool-categories">
+                <div class="footer-category">
+                    <h4>Text Conversion</h4>
+                    <ul>
+                        <li><a href="/base64">Base64 Encode/Decode</a></li>
+                        <li><a href="/text-transformer">Text Transformer</a></li>
+                        <li><a href="/ytext">YayText Similar</a></li>
+                        <li><a href="/url-encoder">URL Encoder/Decoder</a></li>
+                        <li><a href="/html-entities">HTML Entities Encoder/Decoder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-category">
+                    <h4>Password Tools</h4>
+                    <ul>
+                        <li><a href="/password-generator">Password Generator</a></li>
+                        <li><a href="/password-strength">Password Strength Checker</a></li>
+                        <li><a href="/password-encoder">Password Encoder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-category">
+                    <h4>Image Conversion</h4>
+                    <ul>
+                        <li><a href="/image-converter">Image Format Converter</a></li>
+                        <li><a href="/jpg-to-png">JPG to PNG</a></li>
+                        <li><a href="/png-to-jpg">PNG to JPG</a></li>
+                        <li><a href="/webp-to-png">WebP to PNG</a></li>
+                        <li><a href="/webp-to-jpg">WebP to JPG</a></li>
+                        <li><a href="/svg-to-png">SVG to PNG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-category">
+                    <h4>Encoding/Decoding</h4>
+                    <ul>
+                        <li><a href="/base64">Base64 Encode/Decode</a></li>
+                        <li><a href="/url-encoder">URL Encode/Decode</a></li>
+                        <li><a href="/html-entities">HTML Entities</a></li>
+                        <li><a href="/ascii-hex">ASCII to Hex Converter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-category">
+                    <h4>Other Tools</h4>
+                    <ul>
+                        <li><a href="/random-name-generator">Random Name Generator</a></li>
+                        <li><a href="/color-picker">Color Picker</a></li>
+                        <li><a href="/string-formatter">String Formatter</a></li>
+                        <li><a href="/text-analyzer">Text Analyzer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-about">
+            <h3>About Us</h3>
+            <p>
+                Welcome to Your Website Name, your go-to platform for free online tools designed to simplify your
+                digital tasks. Our mission is to empower users with powerful yet user-friendly tools for text
+                conversion, image format transformation, base64 encoding/decoding, and password generation. Whether you
+                need to transform text, convert images from JPG to PNG or WebP, or generate strong passwords, we’ve got
+                you covered.
+            </p>
+            <p>Our team is dedicated to providing reliable, fast, and secure tools that enhance productivity and make
+                your online experience seamless. We believe that everyone should have access to effective solutions
+                without the hassle of complicated processes. That’s why we focus on delivering straightforward and
+                intuitive tools that anyone can use.</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 https://uppercaseconverter.net | All rights reserved. | <a href="/privacy-policy">Privacy
+            Policy</a> | <a href="/terms-of-service">Terms of Service</a></p>
+    </div>
+</footer>
+
+<script>
+    function copyText(textAreaId, buttonId) {
+        const textArea = document.getElementById(textAreaId);
+        const button = document.getElementById(buttonId);
+        
+        console.log(textAreaId+':'+textArea)
+        let content = textArea.value;
+        if (!content) {
+            content = textArea.textContent;
+        }
+        if (!content) {
+            content = textArea.innerText;
+        }
+        console.log(content)
+        navigator.clipboard.writeText(content).then(function () {
+            const originalText = button.textContent;
+            button.textContent = "Copied";
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 1000);
+        }).catch(function (err) {
+        });
+    }
+
+    function copyToClipboard(text, button) {
+        navigator.clipboard.writeText(text).then(function () {
+            const originalText = button.textContent;
+            button.textContent = "Copied";
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 1000);
+        }).catch(function (err) {
+        });
+    }
+</script>
+</body>
+</html>
