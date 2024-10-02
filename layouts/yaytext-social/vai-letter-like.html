@@ -1,0 +1,124 @@
+{{ define "main" }}
+{{partial "output-box.html" .}}
+<div class="container">
+    <h1 id="page-title">Vai Syllabary Text Generator - Create Stylish Text from Vai Characters</h1>
+    <p id="page-description">Generate stylish text using the Vai syllabary. Copy and paste unique Vai characters for
+        your social media posts and profiles!</p>
+    <div class="vertical-container">
+        <div class="output-box">
+            <label for="inputText">Enter your text</label>
+            <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <div class="output-box" id="result">
+            <label>Preview</label>
+            <div class="result">
+                <span readonly class="input-result" id="result-01"></span>
+                <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-01" onclick="copyText('result-01', 'copy-result-01')">Copy
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="page-content">
+        <section>
+            <h2>Vai Syllabary Text Generator - Create Stylish Text from Vai Characters</h2>
+            <p>Unlock the beauty of the Vai syllabary with our text generator! This tool allows you to create stylish
+                ornamental text using characters from the Vai writing system, primarily used for the Vai language spoken
+                in
+                Liberia and Sierra Leone.</p>
+        </section>
+
+        <section>
+            <h2>What is the Vai Syllabary?</h2>
+            <p>The Vai syllabary is a unique writing system that represents the sounds and syllables of the Vai
+                language.
+                Some Vai characters resemble Latin letters, enhanced with artistic embellishments, offering a visually
+                captivating way to express text.</p>
+        </section>
+
+        <section>
+            <h2>Why Use the Vai Syllabary Text Generator?</h2>
+            <ul>
+                <li>Create beautiful and unique text for social media posts</li>
+                <li>Enhance your online presence with stylistic Vai characters</li>
+                <li>Preserve and promote linguistic diversity through digital communication</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How It Works:</h2>
+            <ol>
+                <li>Type your desired text into the input field</li>
+                <li>Watch as the generator transforms your text into elegant Vai characters</li>
+                <li>Copy the generated text</li>
+                <li>Paste it into your preferred platform, such as Facebook, Twitter, or Instagram</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>The Significance of Vai Characters</h2>
+            <p>Developed in the early 19th century by Momolu Duwalu Bukele, the Vai script serves as a crucial tool for
+                preserving the Vai language. Added to the Unicode Standard in version 5.2 (October 2009), the Vai block
+                allows for the digital representation of this important cultural heritage.</p>
+        </section>
+
+        <section>
+            <h2>Explore the Aesthetic of Vai Script</h2>
+            <p>Utilize our Vai Syllabary Text Generator to add a unique aesthetic to your posts, usernames, and bios. By
+                leveraging the beauty of Vai characters, you can express creativity while honoring the linguistic
+                diversity
+                of the Vai-speaking community.</p>
+        </section>
+    </div>
+</div>
+
+<script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = 'ꗇ|ꕗ|ꖀ|ꕒ|ꗍ|ꘘ|ꗱ|ꖾ|ꕯ|ʆ|ꗣ|Ꝇ|ꕮ|ꖦ|ꗞ|ꘝ|ꕪ|𐝥|ꕷ|ꖡ|ꖹ|ꘜ|Ⱳ|ꘉ|ꔇ|ꕩ|ꗇ|ꕗ|ꖀ|ꕒ|ꗍ|ꘘ|ꗱ|ꖾ|ꕯ|ʆ|ꗣ|Ꝇ|ꕮ|ꖦ|ꗞ|ꘝ|ꕪ|𐝥|ꕷ|ꖡ|ꖹ|ꘜ|Ⱳ|ꘉ|ꔇ|ꕩ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, standard).split("").reverse().join("");
+    }
+
+    function transformText() {
+        countWords()
+        convertTexts()
+    }
+
+    function countWords() {
+        const inputText = document.getElementById('inputText').value;
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+</script>
+{{ end }}

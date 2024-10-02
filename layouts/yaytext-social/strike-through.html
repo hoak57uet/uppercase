@@ -1,0 +1,162 @@
+{{ define "main" }}
+{{partial "output-box.html" .}}
+<div class="container">
+    <h1 id="page-title">Strikethrough Text Generator - Create Unique Crossed-Out Text</h1>
+    <p id="page-description">Easily generate strikethrough text that you can copy and paste into social media, messages,
+        and more. Perfect for indicating revisions or adding a touch of irony!</p>
+    <div class="vertical-container">
+        <div class="output-box">
+            <label for="inputText">Enter your text</label>
+            <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <div class="output-box" id="result">
+            <label>Preview</label>
+            <div class="result">
+                <span readonly class="input-result" id="result-01"></span>
+                <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-01" onclick="copyText('result-01', 'copy-result-01')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-02"></span>
+                <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-02" onclick="copyText('result-02', 'copy-result-02')">Copy
+                </button>
+            </div>
+            <div class="result">
+                <span readonly class="input-result" id="result-03"></span>
+                <span class="copied-message" id="copiedMessage3">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-03" onclick="copyText('result-03', 'copy-result-03')">Copy
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="page-content">
+        <section>
+            <h2>Strikethrough Text Generator - Create Unique Crossed-Out Text</h2>
+
+            <p>Transform your text into eye-catching strikethrough format with our Strikethrough Text Generator! This
+                tool
+                enables you to create text that appears crossed out (l̵i̵k̵e̵ ̵t̵h̵i̵s̵), perfect for use on platforms
+                like
+                Facebook, Twitter, YouTube, and SMS.</p>
+        </section>
+
+        <section>
+            <h2>Why Use Strikethrough Text?</h2>
+            <ul>
+                <li>Indicate revisions or edits for transparency and clarity</li>
+                <li>Express irony or humor in your written communication</li>
+                <li>Cross off mistakes or items from a to-do list</li>
+                <li>Add a distinctive aesthetic to your social media posts</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How It Works:</h2>
+            <ol>
+                <li>Type or paste your desired text into the input field</li>
+                <li>Watch as our tool applies the strikethrough effect in real-time</li>
+                <li>Copy the generated strikethrough text</li>
+                <li>Paste it anywhere online to enhance your message</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>The Significance of Strikethrough Text</h2>
+            <p>Strikethrough text has its roots in typewriters and handwritten edits, allowing for the easy indication
+                of
+                deleted or revised content without the need for rewriting. In today's digital landscape, its uses
+                include:</p>
+            <ul>
+                <li>Highlighting changes or updates in content</li>
+                <li>Providing alternative perspectives in discussions</li>
+                <li>Conveying playful or ironic tones in social media posts</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>FAQ:</h2>
+            <h3>Q: Can I use strikethrough text on any platform?</h3>
+            <p>A: Yes! The generated text can be used across social media platforms, messaging apps, and other
+                digital
+                formats that support Unicode.
+            </p>
+
+            <h3>Q: Is this text the same as using HTML or CSS for strikethrough?</h3>
+            <p>A: While it may look similar, our strikethrough text is generated using Unicode, which allows for
+                easy
+                copy-and-pasting without relying on HTML or CSS.
+            </p>
+
+            <h3>Q: How can I use strikethrough text creatively?</h3>
+            <p>A: Use it to indicate changes in your writing, add a playful touch to your posts, or highlight edits
+                in
+                a way that stands out to your audience.
+            </p>
+        </section>
+
+        <section>
+            <h2>Make Your Text Stand Out</h2>
+            <p>With our Strikethrough Text Generator, you can easily infuse your written content with creativity and
+                depth.
+                Whether you're highlighting revisions or adding irony, this tool is perfect for enhancing your online
+                presence. Try it now and see how strikethrough text can elevate your communication!</p>
+        </section>
+    </div>
+</div>
+
+<script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = 'a̵|̵b̵|̵c̵|̵d̵|̵e̵|̵f̵|̵g̵|̵h̵|̵i̵|̵j̵|̵k̵|̵l̵|̵m̵|̵n̵|̵o̵|̵p̵|̵q̵|̵r̵|̵s̵|̵t̵|̵u̵|̵v̵|̵w̵|̵x̵|̵y̵|̵z̵|̵A̵|̵B̵|̵C̵|̵D̵|̵E̵|̵F̵|̵G̵|̵H̵|̵I̵|̵J̵|̵K̵|̵L̵|̵M̵|̵N̵|̵O̵|̵P̵|̵Q̵|̵R̵|̵S̵|̵T̵|̵U̵|̵V̵|̵W̵|̵X̵|̵Y̵|̵Z̵|̵à̵|̵á̵|̵ạ̵|̵ả̵|̵ã̵|̵â̵|̵ầ̵|̵ấ̵|̵ẩ̵|̵ậ̵|̵ă̵|̵ằ̵|̵ắ̵|̵ẳ̵|̵ặ̵|̵è̵|̵é̵|̵ẹ̵|̵ẻ̵|̵ẽ̵|̵ê̵|̵ề̵|̵ế̵|̵ể̵|̵ệ̵|̵ì̵|̵í̵|̵ị̵|̵ỉ̵|̵ĩ̵|̵ò̵|̵ó̵|̵ọ̵|̵ỏ̵|̵õ̵|̵ô̵|̵ồ̵|̵ố̵|̵ổ̵|̵ộ̵|̵ơ̵|̵ờ̵|̵ớ̵|̵ở̵|̵ợ̵|̵ù̵|̵ú̵|̵ụ̵|̵ủ̵|̵ũ̵|̵ư̵|̵ừ̵|̵ứ̵|̵ử̵|̵ự̵|̵ỳ̵|̵ý̵|̵ỵ̵|̵ỷ̵|̵ỹ̵|̵đ̵|̵À̵|̵Á̵|̵Ạ̵|̵Ả̵|̵Ã̵|̵Â̵|̵Ầ̵|̵Ấ̵|̵Ẩ̵|̵Ậ̵|̵Ă̵|̵Ằ̵|̵Ắ̵|̵Ẳ̵|̵Ặ̵|̵È̵|̵É̵|̵Ẹ̵|̵Ẻ̵|̵Ẽ̵|̵Ê̵|̵Ề̵|̵Ế̵|̵Ể̵|̵Ệ̵|̵Ì̵|̵Í̵|̵Ị̵|̵Ỉ̵|̵Ĩ̵|̵Ò̵|̵Ó̵|̵Ọ̵|̵Ỏ̵|̵Õ̵|̵Ô̵|̵Ồ̵|̵Ố̵|̵Ổ̵|̵Ộ̵|̵Ơ̵|̵Ờ̵|̵Ớ̵|̵Ở̵|̵Ợ̵|̵Ù̵|̵Ú̵|̵Ụ̵|̵Ủ̵|̵Ũ̵|̵Ư̵|̵Ừ̵|̵Ứ̵|̵Ử̵|̵Ự̵|̵Ỳ̵|̵Ý̵|̵Ỵ̵|̵Ỷ̵|̵Ỹ̵|̵Đ̵';
+        const standard2 = 'a̶|̶b̶|̶c̶|̶d̶|̶e̶|̶f̶|̶g̶|̶h̶|̶i̶|̶j̶|̶k̶|̶l̶|̶m̶|̶n̶|̶o̶|̶p̶|̶q̶|̶r̶|̶s̶|̶t̶|̶u̶|̶v̶|̶w̶|̶x̶|̶y̶|̶z̶|̶A̶|̶B̶|̶C̶|̶D̶|̶E̶|̶F̶|̶G̶|̶H̶|̶I̶|̶J̶|̶K̶|̶L̶|̶M̶|̶N̶|̶O̶|̶P̶|̶Q̶|̶R̶|̶S̶|̶T̶|̶U̶|̶V̶|̶W̶|̶X̶|̶Y̶|̶Z̶|̶à̶|̶á̶|̶ạ̶|̶ả̶|̶ã̶|̶â̶|̶ầ̶|̶ấ̶|̶ẩ̶|̶ậ̶|̶ă̶|̶ằ̶|̶ắ̶|̶ẳ̶|̶ặ̶|̶è̶|̶é̶|̶ẹ̶|̶ẻ̶|̶ẽ̶|̶ê̶|̶ề̶|̶ế̶|̶ể̶|̶ệ̶|̶ì̶|̶í̶|̶ị̶|̶ỉ̶|̶ĩ̶|̶ò̶|̶ó̶|̶ọ̶|̶ỏ̶|̶õ̶|̶ô̶|̶ồ̶|̶ố̶|̶ổ̶|̶ộ̶|̶ơ̶|̶ờ̶|̶ớ̶|̶ở̶|̶ợ̶|̶ù̶|̶ú̶|̶ụ̶|̶ủ̶|̶ũ̶|̶ư̶|̶ừ̶|̶ứ̶|̶ử̶|̶ự̶|̶ỳ̶|̶ý̶|̶ỵ̶|̶ỷ̶|̶ỹ̶|̶đ̶|̶À̶|̶Á̶|̶Ạ̶|̶Ả̶|̶Ã̶|̶Â̶|̶Ầ̶|̶Ấ̶|̶Ẩ̶|̶Ậ̶|̶Ă̶|̶Ằ̶|̶Ắ̶|̶Ẳ̶|̶Ặ̶|̶È̶|̶É̶|̶Ẹ̶|̶Ẻ̶|̶Ẽ̶|̶Ê̶|̶Ề̶|̶Ế̶|̶Ể̶|̶Ệ̶|̶Ì̶|̶Í̶|̶Ị̶|̶Ỉ̶|̶Ĩ̶|̶Ò̶|̶Ó̶|̶Ọ̶|̶Ỏ̶|̶Õ̶|̶Ô̶|̶Ồ̶|̶Ố̶|̶Ổ̶|̶Ộ̶|̶Ơ̶|̶Ờ̶|̶Ớ̶|̶Ở̶|̶Ợ̶|̶Ù̶|̶Ú̶|̶Ụ̶|̶Ủ̶|̶Ũ̶|̶Ư̶|̶Ừ̶|̶Ứ̶|̶Ử̶|̶Ự̶|̶Ỳ̶|̶Ý̶|̶Ỵ̶|̶Ỷ̶|̶Ỹ̶|̶Đ̶';
+        const standard3 = 'a̴|̴b̴|̴c̴|̴d̴|̴e̴|̴f̴|̴g̴|̴h̴|̴i̴|̴j̴|̴k̴|̴l̴|̴m̴|̴n̴|̴o̴|̴p̴|̴q̴|̴r̴|̴s̴|̴t̴|̴u̴|̴v̴|̴w̴|̴x̴|̴y̴|̴z̴|̴A̴|̴B̴|̴C̴|̴D̴|̴E̴|̴F̴|̴G̴|̴H̴|̴I̴|̴J̴|̴K̴|̴L̴|̴M̴|̴N̴|̴O̴|̴P̴|̴Q̴|̴R̴|̴S̴|̴T̴|̴U̴|̴V̴|̴W̴|̴X̴|̴Y̴|̴Z̴|̴à̴|̴á̴|̴ạ̴|̴ả̴|̴ã̴|̴â̴|̴ầ̴|̴ấ̴|̴ẩ̴|̴ậ̴|̴ă̴|̴ằ̴|̴ắ̴|̴ẳ̴|̴ặ̴|̴è̴|̴é̴|̴ẹ̴|̴ẻ̴|̴ẽ̴|̴ê̴|̴ề̴|̴ế̴|̴ể̴|̴ệ̴|̴ì̴|̴í̴|̴ị̴|̴ỉ̴|̴ĩ̴|̴ò̴|̴ó̴|̴ọ̴|̴ỏ̴|̴õ̴|̴ô̴|̴ồ̴|̴ố̴|̴ổ̴|̴ộ̴|̴ơ̴|̴ờ̴|̴ớ̴|̴ở̴|̴ợ̴|̴ù̴|̴ú̴|̴ụ̴|̴ủ̴|̴ũ̴|̴ư̴|̴ừ̴|̴ứ̴|̴ử̴|̴ự̴|̴ỳ̴|̴ý̴|̴ỵ̴|̴ỷ̴|̴ỹ̴|̴đ̴|̴À̴|̴Á̴|̴Ạ̴|̴Ả̴|̴Ã̴|̴Â̴|̴Ầ̴|̴Ấ̴|̴Ẩ̴|̴Ậ̴|̴Ă̴|̴Ằ̴|̴Ắ̴|̴Ẳ̴|̴Ặ̴|̴È̴|̴É̴|̴Ẹ̴|̴Ẻ̴|̴Ẽ̴|̴Ê̴|̴Ề̴|̴Ế̴|̴Ể̴|̴Ệ̴|̴Ì̴|̴Í̴|̴Ị̴|̴Ỉ̴|̴Ĩ̴|̴Ò̴|̴Ó̴|̴Ọ̴|̴Ỏ̴|̴Õ̴|̴Ô̴|̴Ồ̴|̴Ố̴|̴Ổ̴|̴Ộ̴|̴Ơ̴|̴Ờ̴|̴Ớ̴|̴Ở̴|̴Ợ̴|̴Ù̴|̴Ú̴|̴Ụ̴|̴Ủ̴|̴Ũ̴|̴Ư̴|̴Ừ̴|̴Ứ̴|̴Ử̴|̴Ự̴|̴Ỳ̴|̴Ý̴|̴Ỵ̴|̴Ỷ̴|̴Ỹ̴|̴Đ̴';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, standard);
+        document.getElementById('result-02').textContent = convertText(inputText, standard2);
+        document.getElementById('result-03').textContent = convertText(inputText, standard3);
+    }
+
+    function transformText() {
+        countWords()
+        convertTexts()
+    }
+
+    function countWords() {
+        const inputText = document.getElementById('inputText').value;
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+</script>
+{{ end }}

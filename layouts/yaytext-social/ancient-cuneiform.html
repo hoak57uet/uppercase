@@ -1,0 +1,160 @@
+{{ define "main" }}
+{{partial "output-box.html" .}}
+<div class="container">
+    <h1 id="page-title">Old Persian Script Converter - Turn Your Text into Ancient Cuneiform for Social Media</h1>
+    <p id="page-description">Convert your regular text into ancient Old Persian script with our online tool. Ideal for
+        creating unique and historically inspired posts on social media platforms like Facebook, Twitter, and
+        Instagram.</p>
+    <div class="vertical-container">
+        <div class="output-box">
+            <label for="inputText">Enter your text</label>
+            <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <div class="output-box" id="result">
+            <label>Preview</label>
+            <div class="result">
+                <span readonly class="input-result" id="result-01"></span>
+                <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-01" onclick="copyText('result-01', 'copy-result-01')">Copy
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="page-content">
+        <section>
+            <h1>Convert Your Text into Ancient Old Persian Script for Social Media</h1>
+            <p>Want to make your social media posts stand out with an ancient and unique flair? Our online <strong>Old
+                Persian Script Converter</strong> allows you to transform your regular text into the historic and
+                distinctive
+                <strong>Old Persian script</strong>, perfect for adding a scholarly and creative touch to your posts on
+                platforms like <strong>Facebook</strong>, <strong>Twitter</strong>, and <strong>Instagram</strong>.</p>
+            <p>The Old Persian script carries a rich historical legacy, offering a visual appeal that transcends
+                modern-day fonts. Whether you're sharing a <strong>historical quote</strong>, writing a <strong>mysterious
+                    message</strong>, or adding an ancient twist to your social media captions, converting your plain
+                text
+                into
+                <strong>Old Persian</strong> can give your content a unique identity. Our tool helps you stand out by
+                adding a scholarly, historical aesthetic to your posts.</p>
+
+            <h2>Why Use Our Old Persian Script Converter?</h2>
+            <ul>
+                <li><strong>Unique and Eye-Catching:</strong> Using an ancient script like <strong>Old Persian</strong>
+                    in
+                    your social media posts instantly catches the eye and sparks curiosity among viewers.
+                </li>
+                <li><strong>Perfect for All Social Media Platforms:</strong> You can use Old Persian script in your
+                    posts on
+                    <strong>Facebook</strong>, <strong>Twitter</strong>, <strong>Instagram</strong>, and even in
+                    messaging
+                    apps like <strong>WhatsApp</strong>. Simply copy the converted text and paste it directly into your
+                    posts or messages.
+                </li>
+                <li><strong>Historically Inspired:</strong> Add a sense of mystery and history to your posts, making
+                    them
+                    both visually appealing and thought-provoking. Great for educational content, history-related
+                    discussions, and creative storytelling.
+                </li>
+                <li><strong>Mobile-Friendly:</strong> Our website is optimized for mobile use, allowing you to convert
+                    and
+                    share Old Persian text directly from your phone while on the go.
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>How to Use</h2>
+            <ol>
+                <li><strong>Step 1:</strong> Enter your text in the input field.</li>
+                <li><strong>Step 2:</strong> Click to convert your text into Old Persian script.</li>
+                <li><strong>Step 3:</strong> Copy the output and paste it into your social media post or message.</li>
+            </ol>
+            <p>Adding <strong>Old Persian script</strong> to your social media posts is an easy way to bring a
+                historical
+                touch and make your content stand out. Try our converter today and elevate your social media presence
+                with a
+                unique and ancient twist!</p>
+        </section>
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <h3>1. What is the Old Persian script converter?</h3>
+            <p>The Old Persian script converter is an online tool that transforms regular text into the <strong>Old
+                Persian cuneiform script</strong>. This historic writing system gives your social media posts a
+                distinctive
+                and
+                scholarly appearance.</p>
+            <h3>2. How can I use Old Persian script on social media?</h3>
+            <p>After converting your text using our <strong>Old Persian Script Converter</strong>, simply copy the
+                output
+                and paste it into your social media platforms like <strong>Facebook</strong>, <strong>Twitter</strong>,
+                or
+                <strong>Instagram</strong>.</p>
+            <h3>3. Is the Old Persian script converter mobile-friendly?</h3>
+            <p>Yes! Our tool is fully optimized for mobile devices, allowing you to easily convert text into <strong>Old
+                Persian script</strong> from your smartphone or tablet and share it on social media.</p>
+            <h3>4. Can using Old Persian script help with SEO?</h3>
+            <p>While using ancient scripts like <strong>Old Persian</strong> doesn't directly impact SEO rankings, it
+                helps your posts stand out and generate higher engagement on platforms like <strong>Facebook</strong>
+                and
+                <strong>Twitter</strong>. More engagement leads to better visibility, indirectly boosting your online
+                presence.
+            </p>
+            <h3>5. Do I need to download any software to use the Old Persian script converter?</h3>
+            <p>No, our <strong>Old Persian Script Converter</strong> works entirely online. You can convert your text
+                directly on our website without installing any additional software.</p>
+            <h3>6. Can I use Old Persian script for educational purposes?</h3>
+            <p>Yes, the <strong>Old Persian script</strong> is perfect for educational content. Whether you're
+                discussing
+                history, ancient cultures, or adding an academic touch to your posts, this tool is a great resource.</p>
+        </section>
+    </div>
+</div>
+
+<script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const boldSerifSt = '𒋻|𒁀|𐏓|𒁓|𒀼|𐎣|𒋝|𒀂|𒐕|𒑟|𒐞|𒁇|𐎠|𒐖|𒆸|𒇬|𒌒|𒇲|𒔼|𒈦|𒑚|𐎏|𒉼|𒉽|𒌨|𒑣|𒋻|𒁀|𐏓|𒁓|𒀼|𐎣|𒋝|𒀂|𒐕|𒑟|𒐞|𒁇|𐎠|𒐖|𒆸|𒇬|𒌒|𒇲|𒔼|𒈦|𒑚|𐎏|𒉼|𒉽|𒌨|𒑣|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, boldSerifSt);
+    }
+
+    function transformText() {
+        countWords()
+        convertTexts()
+    }
+
+    function countWords() {
+        const inputText = document.getElementById('inputText').value;
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+</script>
+{{ end }}

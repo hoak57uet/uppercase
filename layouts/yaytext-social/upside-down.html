@@ -1,0 +1,124 @@
+{{ define "main" }}
+{{partial "output-box.html" .}}
+<div class="container">
+    <h1 id="page-title">Upside-Down Text Generator - Create Fun Flipped Text for Social Media</h1>
+    <p id="page-description">Easily generate upside-down text that you can copy and paste into your social media posts.
+        Add a playful twist to your messages!</p>
+    <div class="vertical-container">
+        <div class="output-box">
+            <label for="inputText">Enter your text</label>
+            <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <div class="output-box" id="result">
+            <label>Preview</label>
+            <div class="result">
+                <span readonly class="input-result" id="result-01"></span>
+                <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-01" onclick="copyText('result-01', 'copy-result-01')">Copy
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="page-content">
+        <section>
+            <h2>Upside-Down Text Generator - Create Fun Flipped Text for Social Media</h2>
+
+            <p>Transform your text with our Upside-Down Text Generator! Create quirky upside-down text (like sıɥʇ ǝʞıן)
+                that
+                can be easily copied and pasted into Facebook statuses, tweets, YouTube comments, and more.</p>
+        </section>
+
+        <section>
+            <h2>Why Use Upside-Down Text?</h2>
+            <ul>
+                <li>Add a playful twist to your social media messages</li>
+                <li>Grab attention and make people laugh with flipped words</li>
+                <li>Express uniqueness and creativity in your writing</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How It Works:</h2>
+            <ol>
+                <li>Enter your desired text into the input field</li>
+                <li>Generate upside-down text using our tool</li>
+                <li>Copy the generated text</li>
+                <li>Paste it into your preferred social media platform or message</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>The Creative Power of Upside-Down Text</h2>
+            <p>Upside-down text offers a fun and intriguing way to captivate your audience. Here are some creative
+                uses:</p>
+            <ul>
+                <li>Use in social media captions to grab attention</li>
+                <li>Add to event invitations to generate excitement</li>
+                <li>Enhance personal branding with a distinctive visual identity</li>
+                <li>Incorporate into artistic projects for an unconventional touch</li>
+                <li>Enhance humorous content to maximize comedic effect</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Explore Unconventional Typography</h2>
+            <p>Whether it's for attention-grabbing headlines or to inject a sense of playfulness into your work,
+                upside-down
+                text allows you to explore creative typography. Remember to use it purposefully and sparingly, ensuring
+                that
+                your text remains legible while maintaining its impact. Let your creativity soar as you embrace the
+                captivating power of upside-down text!</p>
+        </section>
+    </div>
+</div>
+
+<script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = 'ɐ|q|ɔ|p|ǝ|ɟ|ƃ|ɥ|ı|ɾ|ʞ|ן|ɯ|u|o|d|b|ɹ|s|ʇ|n|ʌ|ʍ|x|ʎ|z|∀|q|Ͻ|ᗡ|Ǝ|Ⅎ|ƃ|H|I|ſ|ʞ|˥|W|N|O|Ԁ|Ὁ|ᴚ|S|⊥|∩|Λ|M|X|ʎ|Z|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, standard).split("").reverse().join("");
+    }
+
+    function transformText() {
+        countWords()
+        convertTexts()
+    }
+
+    function countWords() {
+        const inputText = document.getElementById('inputText').value;
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+</script>
+{{ end }}

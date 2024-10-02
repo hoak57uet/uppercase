@@ -1,0 +1,200 @@
+{{ define "main" }}
+{{partial "output-box.html" .}}
+<div class="container">
+    <h1 id="page-title">Canadian Aboriginal Script Converter - Transform Your Text into Culturally Rich Characters</h1>
+    <p id="page-description">Convert your regular text into beautiful Canadian Aboriginal script with our free online
+        tool. Ideal for creating culturally rich and visually unique posts on Facebook, Twitter, Instagram, and
+        more.</p>
+    <div class="vertical-container">
+        <div class="output-box">
+            <label for="inputText">Enter your text</label>
+            <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <div class="output-box" id="result">
+            <label>Preview</label>
+            <div class="result">
+                <span readonly class="input-result" id="result-01"></span>
+                <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-01" onclick="copyText('result-01', 'copy-result-01')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-02"></span>
+                <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-02" onclick="copyText('result-02', 'copy-result-02')">Copy
+                </button>
+            </div>
+            <div class="result">
+                <span readonly class="input-result" id="result-03"></span>
+                <span class="copied-message" id="copiedMessage3">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-03" onclick="copyText('result-03', 'copy-result-03')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-04"></span>
+                <span class="copied-message" id="copiedMessage4">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-04" onclick="copyText('result-04', 'copy-result-04')">Copy
+                </button>
+            </div>
+            <div class="result">
+                <span readonly class="input-result" id="result-05"></span>
+                <span class="copied-message" id="copiedMessage5">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-05" onclick="copyText('result-05', 'copy-result-05')">Copy
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="page-content">
+        <section>
+            <h2>Convert Your Text to Canadian Aboriginal Script for Unique Social Media Posts</h2>
+            <p>Enhance your social media presence with the stunning and culturally rich <strong>Canadian Aboriginal
+                script</strong>. Our online <strong>Canadian Aboriginal Converter</strong> transforms your regular text
+                into
+                beautiful indigenous characters, making your posts on <strong>Facebook</strong>,
+                <strong>Twitter</strong>,
+                <strong>Instagram</strong>, and other platforms stand out with cultural significance.</p>
+
+            <p>The <strong>Canadian Aboriginal script</strong> is deeply rooted in the heritage of Canada's First
+                Nations.
+                It offers a visually striking representation that adds a unique and authentic touch to your content.
+                Whether
+                you're sharing stories, messages, or creative captions, converting your text into this script will give
+                your
+                posts a distinctive and meaningful flair.</p>
+        </section>
+
+        <section>
+            <h2>Why Use Our Canadian Aboriginal Script Converter?</h2>
+            <ul>
+                <li><strong>Culturally Significant:</strong> The <strong>Canadian Aboriginal script</strong> brings a
+                    touch
+                    of indigenous heritage to your content, making it both visually appealing and respectful.
+                </li>
+                <li><strong>Perfect for Social Media:</strong> Enhance your posts on <strong>Facebook</strong>, <strong>Twitter</strong>,
+                    <strong>Instagram</strong>, and more with this unique script to engage your audience in a meaningful
+                    way.
+                </li>
+                <li><strong>Easy to Use:</strong> Enter your text, convert it into Canadian Aboriginal script, and copy
+                    it
+                    directly for your social media posts.
+                </li>
+                <li><strong>Mobile-Friendly:</strong> Our converter is optimized for mobile devices, allowing you to
+                    create
+                    and share culturally rich content on the go.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How to Use</h2>
+            <ol>
+                <li><strong>Step 1:</strong> Enter your regular text in the provided input field.</li>
+                <li><strong>Step 2:</strong> Click to convert your text into the beautiful Canadian Aboriginal script.
+                </li>
+                <li><strong>Step 3:</strong> Copy the converted script and paste it into your social media posts.</li>
+            </ol>
+
+            <p>Incorporating <strong>Canadian Aboriginal script</strong> into your social media posts adds a distinctive
+                and
+                culturally significant touch. Try our converter today to give your posts a unique and meaningful edge!
+            </p>
+        </section>
+
+        <section>
+            <!-- FAQ Section -->
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. What is the Canadian Aboriginal Script Converter?</h3>
+            <p>The <strong>Canadian Aboriginal Script Converter</strong> is an online tool that transforms regular text
+                into
+                the visually stunning characters of Canadian Aboriginal scripts, perfect for adding cultural depth to
+                your
+                social media posts.</p>
+
+            <h3>2. How can I use Canadian Aboriginal script on social media?</h3>
+            <p>After converting your text using our <strong>Canadian Aboriginal Converter</strong>, simply copy the
+                output
+                and paste it into your posts on <strong>Facebook</strong>, <strong>Twitter</strong>,
+                <strong>Instagram</strong>, or any other social media platform.</p>
+
+            <h3>3. Is this tool mobile-friendly?</h3>
+            <p>Yes, our <strong>Canadian Aboriginal Script Converter</strong> is fully optimized for mobile use,
+                allowing
+                you to easily create and share culturally rich text from your mobile device.</p>
+
+            <h3>4. Does using Canadian Aboriginal script help with SEO?</h3>
+            <p>While the Canadian Aboriginal script itself doesn’t impact SEO directly, it makes your posts more
+                engaging
+                and culturally meaningful, which can lead to higher interaction rates and increased visibility on social
+                media.</p>
+
+            <h3>5. Do I need to download anything to use the converter?</h3>
+            <p>No, the <strong>Canadian Aboriginal Script Converter</strong> is web-based. You can use it directly from
+                your
+                browser without the need to download or install any additional software.</p>
+
+            <h3>6. Can Canadian Aboriginal script be used for educational content?</h3>
+            <p>Absolutely! The <strong>Canadian Aboriginal script</strong> is perfect for educational content related to
+                indigenous languages and culture, adding an authentic touch to your materials.</p>
+        </section>
+    </div>
+</div>
+
+<script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = 'ᗅ|ᑲ|ᐸ|ᐅ|ᗕ|ᖴ|ᘜ|ᕼ|ᓵ|ᒍ|ᖾ|ᖶ|ᗑ|ᐱ|ᗝ|ᕈ|ᑫ|ᖇ|ᔑ|ᐪ|ᑌ|ᐯ|ᗐ|᙭|ᖿ|ᔨ|ᗅ|ᑲ|ᐸ|ᐅ|ᗕ|ᖴ|ᘜ|ᕼ|ᓵ|ᒍ|ᖾ|ᖶ|ᗑ|ᐱ|ᗝ|ᕈ|ᑫ|ᖇ|ᔑ|ᐪ|ᑌ|ᐯ|ᗐ|᙭|ᖿ|ᔨ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard2 = 'ᗩ|ᗷ|ᑕ|ᗞ|ᕮ|ᒋ|ᕋ|ᖺ|ᑊ|ᒎ|ᕙ|ᘂ|ᘻ|ᘯ|ᗜ|ᑭ|ᘝ|ᖇ|ᔕ|ᘕ|ᕞ|ᕓ|ᘺ|᙮|ᒉ|ᓯ|ᗩ|ᗷ|ᑕ|ᗞ|ᕮ|ᒋ|ᕋ|ᖺ|ᑊ|ᒎ|ᕙ|ᘂ|ᘻ|ᘯ|ᗜ|ᑭ|ᘝ|ᖇ|ᔕ|ᘕ|ᕞ|ᕓ|ᘺ|᙮|ᒉ|ᓯ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard3 = 'ᕱ|ᙖ|ᕳ|ᕲ|ᗴ|ᓕ|ᙍ|ᘵ|ᒑ|ᒎ|ᔦ|ᔈ|ᕬ|ᘉ|ᘓ|ᕵ|ᘮ|ᖆ|ᔥ|ᐩ|ᐡ|ᘁ|ᕫ|ᕽ|ᕃ|ᙆ|ᕱ|ᙖ|ᕳ|ᕲ|ᗴ|ᓕ|ᙍ|ᘵ|ᒑ|ᒎ|ᔦ|ᔈ|ᕬ|ᘉ|ᘓ|ᕵ|ᘮ|ᖆ|ᔥ|ᐩ|ᐡ|ᘁ|ᕫ|ᕽ|ᕃ|ᙆ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard4 = 'ᐞ|ᒃ|ᑦ|ᒄ|ᕪ|ᕝ|ᕐ|ᑋ|ᑊ|ᒢ|ᐟ|ᒻ|ᔿ|ᐢ|ᐤ|ᓐ|ᕐ|ᔇ|ᔆ|ᐩ|ᐡ|ᘁ|ᐜ|ᕽ|ᔉ|ᙆ|ᐞ|ᒃ|ᑦ|ᒄ|ᕪ|ᕝ|ᕐ|ᑋ|ᑊ|ᒢ|ᐟ|ᒻ|ᔿ|ᐢ|ᐤ|ᓐ|ᕐ|ᔇ|ᔆ|ᐩ|ᐡ|ᘁ|ᐜ|ᕽ|ᔉ|ᙆ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard5 = 'ᐞ|ᒃ|ᑦ|ᒄ|ᕪ|ᕝ|ᕐ|ᑋ|ᑊ|ᒢ|ᐟ|ᒻ|ᔿ|ᐢ|ᐤ|ᓐ|ᕐ|ᔇ|ᔆ|ᐩ|ᐡ|ᘁ|ᐜ|ᕽ|ᔉ|ᙆ|ᐞ|ᒃ|ᑦ|ᒄ|ᕪ|ᕝ|ᕐ|ᑋ|ᑊ|ᒢ|ᐟ|ᒻ|ᔿ|ᐢ|ᐤ|ᓐ|ᕐ|ᔇ|ᔆ|ᐩ|ᐡ|ᘁ|ᐜ|ᕽ|ᔉ|ᙆ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, standard);
+        document.getElementById('result-02').textContent = convertText(inputText, standard2);
+        document.getElementById('result-03').textContent = convertText(inputText, standard3);
+        document.getElementById('result-04').textContent = convertText(inputText, standard4);
+        document.getElementById('result-05').textContent = convertText(inputText, standard5);
+    }
+
+    function transformText() {
+        countWords()
+        convertTexts()
+    }
+
+    function countWords() {
+        const inputText = document.getElementById('inputText').value;
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+</script>
+{{ end }}

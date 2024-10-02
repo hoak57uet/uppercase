@@ -1,0 +1,155 @@
+{{ define "main" }}
+{{partial "output-box.html" .}}
+<div class="container">
+    <h1 id="page-title">Superscript and Subscript Text Generator - Create Tiny Text for Social Media</h1>
+    <p id="page-description">Generate superscript and subscript text effortlessly for your social media posts. Perfect
+        for adding a unique touch to your content!</p>
+    <div class="vertical-container">
+        <div class="output-box">
+            <label for="inputText">Enter your text</label>
+            <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <div class="output-box" id="result">
+            <label>Preview</label>
+            <div class="result">
+                <span readonly class="input-result" id="result-01"></span>
+                <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-01" onclick="copyText('result-01', 'copy-result-01')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-02"></span>
+                <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-02" onclick="copyText('result-02', 'copy-result-02')">Copy
+                </button>
+            </div>
+            <div class="result">
+                <span readonly class="input-result" id="result-03"></span>
+                <span class="copied-message" id="copiedMessage3">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-03" onclick="copyText('result-03', 'copy-result-03')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-04"></span>
+                <span class="copied-message" id="copiedMessage4">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-04" onclick="copyText('result-04', 'copy-result-04')">Copy
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="page-content">
+        <section>
+            <h2>Superscript and Subscript Text Generator - Create Tiny Text for Social Media</h2>
+            <p>Transform your text into unique tiny formats with our Superscript and Subscript Text Generator! Easily
+                generate small text that you can paste into Facebook, Twitter, Reddit, YouTube, and more.</p>
+        </section>
+
+        <section>
+            <h2>Why Use Tiny Text?</h2>
+            <ul>
+                <li>Add a playful touch to your social media content</li>
+                <li>Indicate whispering or high-pitched speaking styles</li>
+                <li>Enhance the visual appeal of your posts and captions</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How It Works:</h2>
+            <ol>
+                <li>Type or paste your desired text into the input field</li>
+                <li>Select between superscript or subscript styles</li>
+                <li>Copy the generated tiny text</li>
+                <li>Paste it into your favorite social media platform or messaging app</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>The Significance of Superscript and Subscript</h2>
+            <p>Superscript and subscript text have a rich historical background, originating from the need to represent
+                mathematical and scientific notations, footnotes, and linguistic elements:</p>
+            <ul>
+                <li><strong>Superscript:</strong> Text raised above the baseline, often used for exponents in equations
+                    (e.g., "x²").
+                </li>
+                <li><strong>Subscript:</strong> Text lowered below the baseline, commonly used for indices (e.g.,
+                    "H₂O").
+                </li>
+                <li>Footnotes often employ superscript numbers to reference additional information.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Creative Uses for Tiny Text:</h2>
+            <p>In social media posts, you can use superscript and subscript to add a distinctive flair, turning "sun"
+                into
+                "ˢᵘⁿ" or "moon" into "ₘₒₒₙ." These examples illustrate the versatility of tiny text in both technical
+                and
+                creative contexts, enhancing communication and visual presentation.</p>
+        </section>
+
+        <section>
+            <h2>Unlock Visual Creativity with Our Tool</h2>
+            <p>With our Superscript and Subscript Text Generators, you can effortlessly add these unique text styles to
+                your
+                posts, captions, or bios. Explore the endless possibilities of visual creativity and expression
+                today!</p>
+        </section>
+    </div>
+</div>
+
+<script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = 'ᵃ|ᵇ|ᶜ|ᵈ|ᵉ|ᶠ|ᵍ|ʰ|ᶦ|ʲ|ᵏ|ˡ|ᵐ|ⁿ|ᵒ|ᵖ|ᑫ|ʳ|ˢ|ᵗ|ᵘ|ᵛ|ʷ|ˣ|ʸ|ᶻ|ᴬ|ᴮ|ᶜ|ᴰ|ᴱ|ᶠ|ᴳ|ᴴ|ᴵ|ᴶ|ᴷ|ᴸ|ᴹ|ᴺ|ᴼ|ᴾ|Q|ᴿ|ˢ|ᵀ|ᵁ|ⱽ|ᵂ|ˣ|ʸ|ᶻ|ᵃ̀|ᵃ́|ᵃ̣|ᵃ̉|ᵃ̃|ᵃ̂|ᵃ̂̀|ᵃ̂́|ᵃ̂̉|ᵃ̣̂|ᵃ̆|ᵃ̆̀|ᵃ̆́|ᵃ̆̉|ᵃ̣̆|ᵉ̀|ᵉ́|ᵉ̣|ᵉ̉|ᵉ̃|ᵉ̂|ᵉ̂̀|ᵉ̂́|ᵉ̂̉|ᵉ̣̂|ᶦ̀|ᶦ́|ᶦ̣|ᶦ̉|ᶦ̃|ᵒ̀|ᵒ́|ᵒ̣|ᵒ̉|ᵒ̃|ᵒ̂|ᵒ̂̀|ᵒ̂́|ᵒ̂̉|ᵒ̣̂|ᵒ̛|ᵒ̛̀|ᵒ̛́|ᵒ̛̉|ᵒ̛̣|ᵘ̀|ᵘ́|ᵘ̣|ᵘ̉|ᵘ̃|ᵘ̛|ᵘ̛̀|ᵘ̛́|ᵘ̛̉|ᵘ̛̣|ʸ̀|ʸ́|ʸ̣|ʸ̉|ʸ̃|đ|ᴬ̀|ᴬ́|ᴬ̣|ᴬ̉|ᴬ̃|ᴬ̂|ᴬ̂̀|ᴬ̂́|ᴬ̂̉|ᴬ̣̂|ᴬ̆|ᴬ̆̀|ᴬ̆́|ᴬ̆̉|ᴬ̣̆|ᴱ̀|ᴱ́|ᴱ̣|ᴱ̉|ᴱ̃|ᴱ̂|ᴱ̂̀|ᴱ̂́|ᴱ̂̉|ᴱ̣̂|ᴵ̀|ᴵ́|ᴵ̣|ᴵ̉|ᴵ̃|ᴼ̀|ᴼ́|ᴼ̣|ᴼ̉|ᴼ̃|ᴼ̂|ᴼ̂̀|ᴼ̂́|ᴼ̂̉|ᴼ̣̂|ᴼ̛|ᴼ̛̀|ᴼ̛́|ᴼ̛̉|ᴼ̛̣|ᵁ̀|ᵁ́|ᵁ̣|ᵁ̉|ᵁ̃|ᵁ̛|ᵁ̛̀|ᵁ̛́|ᵁ̛̉|ᵁ̛̣|ʸ̀|ʸ́|ʸ̣|ʸ̉|ʸ̃|Đ';
+        const standard2 = 'a|b|c|d|ₑ|f|g|ₕ|ᵢ|ⱼ|ₖ|ₗ|ₘ|ₙ|ₒ|ₚ|q|ᵣ|ₛ|ₜ|ᵤ|ᵥ|w|ₓ|y|z|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|ₑ̀|ₑ́|ₑ̣|ₑ̉|ₑ̃|ₑ̂|ₑ̂̀|ₑ̂́|ₑ̂̉|ₑ̣̂|ᵢ̀|ᵢ́|ᵢ̣|ᵢ̉|ᵢ̃|ₒ̀|ₒ́|ₒ̣|ₒ̉|ₒ̃|ₒ̂|ₒ̂̀|ₒ̂́|ₒ̂̉|ₒ̣̂|ₒ̛|ₒ̛̀|ₒ̛́|ₒ̛̉|ₒ̛̣|ᵤ̀|ᵤ́|ᵤ̣|ᵤ̉|ᵤ̃|ᵤ̛|ᵤ̛̀|ᵤ̛́|ᵤ̛̉|ᵤ̛̣|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard3 = 'ᵃ|ᵇ|ᶜ|ᵈ|ᵉ|ᶠ|ᵍ|ʰ|ᶦ|ʲ|ᵏ|ˡ|ᵐ|ⁿ|ᵒ|ᵖ|ᑫ|ʳ|ˢ|ᵗ|ᵘ|ᵛ|ʷ|ˣ|ʸ|ᶻ|ᴬ|ᴮ|ᶜ|ᴰ|ᴱ|ᶠ|ᴳ|ᴴ|ᴵ|ᴶ|ᴷ|ᴸ|ᴹ|ᴺ|ᴼ|ᴾ|Q|ᴿ|ˢ|ᵀ|ᵁ|ⱽ|ᵂ|ˣ|ʸ|ᶻ|ᵃ̀|ᵃ́|ᵃ̣|ᵃ̉|ᵃ̃|ᵃ̂|ᵃ̂̀|ᵃ̂́|ᵃ̂̉|ᵃ̣̂|ᵃ̆|ᵃ̆̀|ᵃ̆́|ᵃ̆̉|ᵃ̣̆|ᵉ̀|ᵉ́|ᵉ̣|ᵉ̉|ᵉ̃|ᵉ̂|ᵉ̂̀|ᵉ̂́|ᵉ̂̉|ᵉ̣̂|ᶦ̀|ᶦ́|ᶦ̣|ᶦ̉|ᶦ̃|ᵒ̀|ᵒ́|ᵒ̣|ᵒ̉|ᵒ̃|ᵒ̂|ᵒ̂̀|ᵒ̂́|ᵒ̂̉|ᵒ̣̂|ᵒ̛|ᵒ̛̀|ᵒ̛́|ᵒ̛̉|ᵒ̛̣|ᵘ̀|ᵘ́|ᵘ̣|ᵘ̉|ᵘ̃|ᵘ̛|ᵘ̛̀|ᵘ̛́|ᵘ̛̉|ᵘ̛̣|ʸ̀|ʸ́|ʸ̣|ʸ̉|ʸ̃|đ|ᴬ̀|ᴬ́|ᴬ̣|ᴬ̉|ᴬ̃|ᴬ̂|ᴬ̂̀|ᴬ̂́|ᴬ̂̉|ᴬ̣̂|ᴬ̆|ᴬ̆̀|ᴬ̆́|ᴬ̆̉|ᴬ̣̆|ᴱ̀|ᴱ́|ᴱ̣|ᴱ̉|ᴱ̃|ᴱ̂|ᴱ̂̀|ᴱ̂́|ᴱ̂̉|ᴱ̣̂|ᴵ̀|ᴵ́|ᴵ̣|ᴵ̉|ᴵ̃|ᴼ̀|ᴼ́|ᴼ̣|ᴼ̉|ᴼ̃|ᴼ̂|ᴼ̂̀|ᴼ̂́|ᴼ̂̉|ᴼ̣̂|ᴼ̛|ᴼ̛̀|ᴼ̛́|ᴼ̛̉|ᴼ̛̣|ᵁ̀|ᵁ́|ᵁ̣|ᵁ̉|ᵁ̃|ᵁ̛|ᵁ̛̀|ᵁ̛́|ᵁ̛̉|ᵁ̛̣|ʸ̀|ʸ́|ʸ̣|ʸ̉|ʸ̃|Đ';
+        const standard4 = 'a|ᵇ|c|ᵈ|ₑ|ᶠ|g|ʰ|ᵢ|ʲ|ₖ|ˡ|ₘ|ⁿ|ₒ|ᵖ|q|ʳ|ₛ|ᵗ|ᵤ|ᵛ|w|ˣ|y|ᶻ|A|ᴮ|C|ᴰ|E|ᶠ|G|ᴴ|I|ᴶ|K|ᴸ|M|ᴺ|O|ᴾ|Q|ᴿ|S|ᵀ|U|ⱽ|W|ˣ|Y|ᶻ|à|ᵃ́|ạ|ᵃ̉|ã|ᵃ̂|ầ|ᵃ̂́|ẩ|ᵃ̣̂|ă|ᵃ̆̀|ắ|ᵃ̆̉|ặ|ᵉ̀|ₑ́|ᵉ̣|ₑ̉|ᵉ̃|ₑ̂|ᵉ̂̀|ₑ̂́|ᵉ̂̉|ₑ̣̂|ᶦ̀|ᵢ́|ᶦ̣|ᵢ̉|ᶦ̃|ₒ̀|ᵒ́|ₒ̣|ᵒ̉|ₒ̃|ᵒ̂|ₒ̂̀|ᵒ̂́|ₒ̂̉|ᵒ̣̂|ₒ̛|ᵒ̛̀|ₒ̛́|ᵒ̛̉|ₒ̛̣|ᵘ̀|ᵤ́|ᵘ̣|ᵤ̉|ᵘ̃|ᵤ̛|ᵘ̛̀|ᵤ̛́|ᵘ̛̉|ᵤ̛̣|ʸ̀|ý|ʸ̣|ỷ|ʸ̃|đ|ᴬ̀|Á|ᴬ̣|Ả|ᴬ̃|Â|ᴬ̂̀|Ấ|ᴬ̂̉|Ậ|ᴬ̆|Ằ|ᴬ̆́|Ẳ|ᴬ̣̆|È|ᴱ́|Ẹ|ᴱ̉|Ẽ|ᴱ̂|Ề|ᴱ̂́|Ể|ᴱ̣̂|Ì|ᴵ́|Ị|ᴵ̉|Ĩ|ᴼ̀|Ó|ᴼ̣|Ỏ|ᴼ̃|Ô|ᴼ̂̀|Ố|ᴼ̂̉|Ộ|ᴼ̛|Ờ|ᴼ̛́|Ở|ᴼ̛̣|Ù|ᵁ́|Ụ|ᵁ̉|Ũ|ᵁ̛|Ừ|ᵁ̛́|Ử|ᵁ̛̣|Ỳ|ʸ́|Ỵ|ʸ̉|Ỹ|Đ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, standard);
+        document.getElementById('result-02').textContent = convertText(inputText, standard2);
+        document.getElementById('result-03').textContent = convertText(inputText, standard3);
+        document.getElementById('result-04').textContent = convertText(inputText, standard4);
+    }
+
+    function transformText() {
+        countWords()
+        convertTexts()
+    }
+
+    function countWords() {
+        const inputText = document.getElementById('inputText').value;
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+</script>
+{{ end }}

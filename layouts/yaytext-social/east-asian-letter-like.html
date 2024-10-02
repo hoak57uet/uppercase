@@ -1,0 +1,216 @@
+{{ define "main" }}
+{{partial "output-box.html" .}}
+<div class="container">
+    <h1 id="page-title">East Asian Letterlike Text Generator - Transform Your Text into Elegant Characters</h1>
+    <p id="page-description">Discover our East Asian Letterlike Text Generator, which transforms your English text into
+        visually captivating characters inspired by Chinese, Japanese, and Korean scripts. This unique tool combines the
+        aesthetic appeal of East Asian characters with English readability, perfect for creating eye-catching and
+        distinctive social media posts.</p>
+    <div class="vertical-container">
+        <div class="output-box">
+            <label for="inputText">Enter your text</label>
+            <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <div class="output-box" id="result">
+            <label>Preview</label>
+            <div class="result">
+                <span readonly class="input-result" id="result-01"></span>
+                <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-01" onclick="copyText('result-01', 'copy-result-01')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-02"></span>
+                <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-02" onclick="copyText('result-02', 'copy-result-02')">Copy
+                </button>
+            </div>
+            <div class="result">
+                <span readonly class="input-result" id="result-03"></span>
+                <span class="copied-message" id="copiedMessage3">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-03" onclick="copyText('result-03', 'copy-result-03')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-04"></span>
+                <span class="copied-message" id="copiedMessage4">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-04" onclick="copyText('result-04', 'copy-result-04')">Copy
+                </button>
+            </div>
+            <div class="result">
+                <span readonly class="input-result" id="result-05"></span>
+                <span class="copied-message" id="copiedMessage5">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-05" onclick="copyText('result-05', 'copy-result-05')">Copy
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="page-content">
+        <section>
+            <h2>Transform Your Text into Elegant East Asian Letterlike Characters</h2>
+            <p>Elevate your social media content with our East Asian Letterlike Text Generator, a unique tool designed
+                to
+                blend the visual elegance of East Asian scripts with the readability of English. Many characters found
+                in
+                Unicode's CJK (Chinese, Japanese, Korean) blocks have visual similarities to Latin letters, such as 升,
+                乃,
+                and 匚. Our generator harnesses these resemblances to create text that captures the sophisticated
+                appearance
+                of East Asian writing systems while retaining the familiarity of the English alphabet.</p>
+
+            <p>With our tool, you can transform ordinary English text into stunning, letterlike characters that evoke
+                the
+                aesthetic charm of Chinese, Japanese, or Korean scripts. This transformation results in text that is not
+                only visually captivating but also easily readable, making it ideal for creating standout posts on
+                social
+                media platforms like <strong>Facebook</strong>, <strong>Twitter</strong>, and <strong>Instagram</strong>.
+            </p>
+
+            <p>Whether you're looking to make your captions more engaging, add a touch of exotic flair to your messages,
+                or
+                simply experiment with new text styles, our East Asian Letterlike Text Generator offers a seamless and
+                creative solution. It’s perfect for anyone seeking to combine the elegance of East Asian characters with
+                the
+                practicality of English, ensuring your content catches the eye and stands out from the crowd. Try it
+                today
+                and give your social media posts a distinctive and sophisticated edge!</p>
+        </section>
+
+
+        <section>
+            <h2>Why Use Our East Asian Letterlike Text Generator?</h2>
+            <ul>
+                <li><strong>Elegant Design:</strong> Combines the aesthetic charm of East Asian scripts with the
+                    familiarity
+                    of English characters.
+                </li>
+                <li><strong>Ideal for Social Media:</strong> Perfect for enhancing posts on <strong>Facebook</strong>,
+                    <strong>Twitter</strong>, <strong>Instagram</strong>, and other platforms with a unique and
+                    sophisticated touch.
+                </li>
+                <li><strong>Easy to Use:</strong> Enter your text, convert it into East Asian letterlike characters, and
+                    copy it directly into your social media posts.
+                </li>
+                <li><strong>Mobile-Friendly:</strong> Our generator is optimized for mobile devices, allowing you to
+                    create
+                    and share unique text effortlessly.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How to Use</h2>
+            <ol>
+                <li><strong>Step 1:</strong> Enter your regular text in the input field provided.</li>
+                <li><strong>Step 2:</strong> Click to convert your text into elegant East Asian letterlike characters.
+                </li>
+                <li><strong>Step 3:</strong> Copy the converted text and paste it into your social media posts.</li>
+            </ol>
+
+            <p>Transforming your text into <strong>East Asian letterlike characters</strong> adds a sophisticated and
+                exotic
+                element to your social media posts. Try our generator today to give your content a refined and
+                captivating
+                appearance!</p>
+        </section>
+
+        <section>
+            <!-- FAQ Section -->
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. What is the East Asian Letterlike Text Generator?</h3>
+            <p>The <strong>East Asian Letterlike Text Generator</strong> is an online tool that transforms regular
+                English
+                text into visually captivating characters inspired by Chinese, Japanese, and Korean scripts, blending
+                elegance with readability.</p>
+
+            <h3>2. How can I use East Asian letterlike characters on social media?</h3>
+            <p>After converting your text with our <strong>East Asian Letterlike Text Generator</strong>, copy the
+                output
+                and paste it into your posts on <strong>Facebook</strong>, <strong>Twitter</strong>,
+                <strong>Instagram</strong>, or any other social media platform to create visually sophisticated and
+                engaging
+                content.</p>
+
+            <h3>3. Is this tool mobile-friendly?</h3>
+            <p>Yes, the <strong>East Asian Letterlike Text Generator</strong> is fully optimized for mobile use,
+                allowing
+                you to easily create and share unique text from your mobile device.</p>
+
+            <h3>4. Does using East Asian letterlike characters help with SEO?</h3>
+            <p>While East Asian letterlike characters themselves don’t impact SEO directly, their unique and
+                sophisticated
+                appearance can increase engagement and make your posts stand out, potentially leading to higher
+                interaction
+                rates on social media.</p>
+
+            <h3>5. Do I need to download anything to use the generator?</h3>
+            <p>No, the <strong>East Asian Letterlike Text Generator</strong> is web-based and requires no downloads or
+                installations. Use it directly from your browser.</p>
+
+            <h3>6. Can East Asian letterlike characters be used for any type of content?</h3>
+            <p>Yes! East Asian letterlike characters are ideal for adding an elegant and exotic touch to any content,
+                whether it's creative captions, standout messages, or posts where you want to introduce a unique
+                style.</p>
+        </section>
+    </div>
+</div>
+
+<script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = '丹|乃|匚|刀|モ|下|ム|卄|工|丿|ㄑ|ㄥ|爪|力|口|ㄗ|口|尺|ち|匕|し|ソ|山|㐅|ソ|乙|丹|乃|匚|刀|モ|下|ム|卄|工|丿|ㄑ|ㄥ|爪|力|口|ㄗ|口|尺|ち|匕|し|ソ|山|㐅|ソ|乙|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard2 = '刄|马|匸|冂|㠪|于|已|卅|エ|丁|片|乚|从|几|囗|尸|冋|尺|丂|十|凵|ひ|丗|乂|ㄚ|之|刄|马|匸|冂|㠪|于|已|卅|エ|丁|片|乚|从|几|囗|尸|冋|尺|丂|十|凵|ひ|丗|乂|ㄚ|之|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard3 = '升|も|亡|问|乇|乍|彑|廾|工|亅|ズ|し|冊|刀|口|戶|디|尺|丂|丁|나|ᜠ|山|义|ﾘ|乙|升|も|亡|问|乇|乍|彑|廾|工|亅|ズ|し|冊|刀|口|戶|디|尺|丂|丁|나|ᜠ|山|义|ﾘ|乙|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard4 = '刄|乃|匚|冂|乇|于|ム|廾|工|亅|ㄑ|ㄥ|从|力|口|尸|디|尺|丂|丁|凵|ソ|山|乂|ﾘ|之|刄|乃|亡|问|モ|下|已|卄|エ|丿|片|ㄥ|冊|几|囗|ㄗ|冋|尺|丂|匕|し|ソ|丗|义|ソ|乙|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard5 = '升ａ|｜马ｂ|｜亡ｃ|｜冂ｄ|｜乇ｅ|｜乍ｆ|｜彑ｇ|｜廾ｈ|｜エｉ|｜丿ｊ|｜ズｋ|｜しｌ|｜爪ｍ|｜几ｎ|｜口ｏ|｜戶ｐ|｜디ｑ|｜尺ｒ|｜丂ｓ|｜匕ｔ|｜나ｕ|｜ソｖ|｜山ｗ|｜义ｘ|｜ﾘｙ|｜乙ｚ|｜丹Ａ|｜乃Ｂ|｜匸Ｃ|｜刀Ｄ|｜㠪Ｅ|｜乍Ｆ|｜彑Ｇ|｜卄Ｈ|｜エＩ|｜丁Ｊ|｜ズＫ|｜乚Ｌ|｜从Ｍ|｜刀Ｎ|｜口Ｏ|｜尸Ｐ|｜口Ｑ|｜尺Ｒ|｜丂Ｓ|｜十Ｔ|｜凵Ｕ|｜ソＶ|｜山Ｗ|｜乂Ｘ|｜ㄚＹ|｜乙Ｚ|｜àà|｜áá|｜ạạ|｜ảả|｜ãã|｜ââ|｜ầầ|｜ấấ|｜ẩẩ|｜ậậ|｜ăă|｜ằằ|｜ắắ|｜ẳẳ|｜ặặ|｜èè|｜éé|｜ẹẹ|｜ẻẻ|｜ẽẽ|｜êê|｜ềề|｜ếế|｜ểể|｜ệệ|｜ìì|｜íí|｜ịị|｜ỉỉ|｜ĩĩ|｜òò|｜óó|｜ọọ|｜ỏỏ|｜õõ|｜ôô|｜ồồ|｜ốố|｜ổổ|｜ộộ|｜ơơ|｜ờờ|｜ớớ|｜ởở|｜ợợ|｜ùù|｜úú|｜ụụ|｜ủủ|｜ũũ|｜ưư|｜ừừ|｜ứứ|｜ửử|｜ựự|｜ỳỳ|｜ýý|｜ỵỵ|｜ỷỷ|｜ỹỹ|｜đđ|｜ÀÀ|｜ÁÁ|｜ẠẠ|｜ẢẢ|｜ÃÃ|｜ÂÂ|｜ẦẦ|｜ẤẤ|｜ẨẨ|｜ẬẬ|｜ĂĂ|｜ẰẰ|｜ẮẮ|｜ẲẲ|｜ẶẶ|｜ÈÈ|｜ÉÉ|｜ẸẸ|｜ẺẺ|｜ẼẼ|｜ÊÊ|｜ỀỀ|｜ẾẾ|｜ỂỂ|｜ỆỆ|｜ÌÌ|｜ÍÍ|｜ỊỊ|｜ỈỈ|｜ĨĨ|｜ÒÒ|｜ÓÓ|｜ỌỌ|｜ỎỎ|｜ÕÕ|｜ÔÔ|｜ỒỒ|｜ỐỐ|｜ỔỔ|｜ỘỘ|｜ƠƠ|｜ỜỜ|｜ỚỚ|｜ỞỞ|｜ỢỢ|｜ÙÙ|｜ÚÚ|｜ỤỤ|｜ỦỦ|｜ŨŨ|｜ƯƯ|｜ỪỪ|｜ỨỨ|｜ỬỬ|｜ỰỰ|｜ỲỲ|｜ÝÝ|｜ỴỴ|｜ỶỶ|｜ỸỸ|｜ĐĐ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, standard);
+        document.getElementById('result-02').textContent = convertText(inputText, standard2);
+        document.getElementById('result-03').textContent = convertText(inputText, standard3);
+        document.getElementById('result-04').textContent = convertText(inputText, standard4);
+        document.getElementById('result-05').textContent = convertText(inputText, standard5);
+    }
+
+    function transformText() {
+        countWords()
+        convertTexts()
+    }
+
+    function countWords() {
+        const inputText = document.getElementById('inputText').value;
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+</script>
+{{ end }}

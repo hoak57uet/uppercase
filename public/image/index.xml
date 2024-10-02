@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Images on My New Hugo Site</title>
-    <link>http://localhost:1313/image/</link>
-    <description>Recent content in Images on My New Hugo Site</description>
+    <title>Images Processor on https://uppercaseconverter.net</title>
+    <link>https://uppercaseconverter.net/image/</link>
+    <description>Recent content in Images Processor on https://uppercaseconverter.net</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 01 Oct 2024 16:16:58 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/image/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://uppercaseconverter.net/image/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Convert JPG to PNG - Bulk Image Converter for Multiple Files</title>
-      <link>http://localhost:1313/image/jpg-to-png/</link>
+      <link>https://uppercaseconverter.net/image/jpg-to-png/</link>
       <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
-      <guid>http://localhost:1313/image/jpg-to-png/</guid>
+      <guid>https://uppercaseconverter.net/image/jpg-to-png/</guid>
       <description></description>
     </item>
     <item>
       <title>Convert JPG to WebP - Bulk Image Converter for Multiple Files</title>
-      <link>http://localhost:1313/image/jpg-to-webp/</link>
+      <link>https://uppercaseconverter.net/image/jpg-to-webp/</link>
       <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
-      <guid>http://localhost:1313/image/jpg-to-webp/</guid>
+      <guid>https://uppercaseconverter.net/image/jpg-to-webp/</guid>
       <description></description>
     </item>
     <item>
       <title>Convert PNG to JPG - Bulk Image Converter for Multiple Files</title>
-      <link>http://localhost:1313/image/png-to-jpg/</link>
+      <link>https://uppercaseconverter.net/image/png-to-jpg/</link>
       <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
-      <guid>http://localhost:1313/image/png-to-jpg/</guid>
+      <guid>https://uppercaseconverter.net/image/png-to-jpg/</guid>
       <description></description>
     </item>
     <item>
       <title>Convert PNG to WebP - Bulk Image Converter for Multiple Files</title>
-      <link>http://localhost:1313/image/png-to-webp/</link>
+      <link>https://uppercaseconverter.net/image/png-to-webp/</link>
       <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
-      <guid>http://localhost:1313/image/png-to-webp/</guid>
+      <guid>https://uppercaseconverter.net/image/png-to-webp/</guid>
       <description></description>
     </item>
     <item>
       <title>Convert SVG to PNG - Bulk Image Converter for Multiple Files</title>
-      <link>http://localhost:1313/image/svg-to-png/</link>
+      <link>https://uppercaseconverter.net/image/svg-to-png/</link>
       <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
-      <guid>http://localhost:1313/image/svg-to-png/</guid>
+      <guid>https://uppercaseconverter.net/image/svg-to-png/</guid>
       <description></description>
     </item>
     <item>
       <title>Convert WebP to JPG - Bulk Image Converter for Multiple Files</title>
-      <link>http://localhost:1313/image/webp-to-jpg/</link>
+      <link>https://uppercaseconverter.net/image/webp-to-jpg/</link>
       <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
-      <guid>http://localhost:1313/image/webp-to-jpg/</guid>
+      <guid>https://uppercaseconverter.net/image/webp-to-jpg/</guid>
       <description></description>
     </item>
     <item>
       <title>Convert WebP to PNG - Bulk Image Converter for Multiple Files</title>
-      <link>http://localhost:1313/image/webp-to-png/</link>
+      <link>https://uppercaseconverter.net/image/webp-to-png/</link>
       <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
-      <guid>http://localhost:1313/image/webp-to-png/</guid>
+      <guid>https://uppercaseconverter.net/image/webp-to-png/</guid>
       <description></description>
     </item>
     <item>
       <title>Image to ASCII Art Converter | Create Stunning ASCII Art Online</title>
-      <link>http://localhost:1313/image/img-to-ascii/</link>
+      <link>https://uppercaseconverter.net/image/img-to-ascii/</link>
       <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
-      <guid>http://localhost:1313/image/img-to-ascii/</guid>
+      <guid>https://uppercaseconverter.net/image/img-to-ascii/</guid>
       <description></description>
     </item>
     <item>
       <title>Image to Text Converter – Extract Text from Images</title>
-      <link>http://localhost:1313/image/img-to-text/</link>
+      <link>https://uppercaseconverter.net/image/img-to-text/</link>
       <pubDate>Tue, 01 Oct 2024 16:16:58 +0700</pubDate>
-      <guid>http://localhost:1313/image/img-to-text/</guid>
+      <guid>https://uppercaseconverter.net/image/img-to-text/</guid>
       <description></description>
     </item>
   </channel>

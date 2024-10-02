@@ -1,0 +1,178 @@
+{{ define "main" }}
+{{partial "output-box.html" .}}
+<div class="container">
+    <h1 id="page-title">Double Struck Text Converter - Transform Your Text into Stylish Double Struck Characters</h1>
+    <p id="page-description">Transform your regular text into stylish double struck text with our free online tool.
+        Perfect for adding a unique, eye-catching touch to your posts on Facebook, Twitter, Instagram, and other social
+        media platforms.</p>
+    <div class="vertical-container">
+        <div class="output-box">
+            <label for="inputText">Enter your text</label>
+            <textarea id="inputText" placeholder="Type your text here..." oninput="transformText()" rows="6"></textarea>
+            <div class="counts">
+                Character Count: <span id="charCount">0</span> |
+                Word Count: <span id="wordCount">0</span> |
+                Sentence Count: <span id="sentenceCount">0</span> |
+                Line Count: <span id="lineCount">0</span>
+            </div>
+        </div>
+        <div class="output-box" id="result">
+            <label>Preview</label>
+            <div class="result">
+                <span readonly class="input-result" id="result-01"></span>
+                <span class="copied-message" id="copiedMessage1">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-01" onclick="copyText('result-01', 'copy-result-01')">Copy
+                </button>
+            </div>
+            <div class="result-even">
+                <span readonly class="input-result" id="result-02"></span>
+                <span class="copied-message" id="copiedMessage2">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-02" onclick="copyText('result-02', 'copy-result-02')">Copy
+                </button>
+            </div>
+            <div class="result">
+                <span readonly class="input-result" id="result-03"></span>
+                <span class="copied-message" id="copiedMessage3">Copied ✓</span>
+                <button class="button-result copy-button" id="copy-result-03" onclick="copyText('result-03', 'copy-result-03')">Copy
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="page-content">
+        <section>
+            <h2>Convert Your Text to Double Struck Style for Unique Social Media Posts</h2>
+            <p>Give your social media content a distinctive and stylish flair with our online <strong>Double Struck Text
+                Converter</strong>. This tool transforms your regular text into striking double struck characters,
+                making
+                your posts on <strong>Facebook</strong>, <strong>Twitter</strong>, <strong>Instagram</strong>, and more
+                stand out with a bold and modern look.</p>
+
+            <p><strong>Double struck text</strong> features bold, stylized characters that are perfect for adding
+                emphasis
+                and visual appeal to your content. Whether you're creating standout captions, unique messages, or
+                eye-catching posts, converting your text into double struck style will make your content more engaging
+                and
+                memorable.</p>
+        </section>
+
+        <section>
+            <h2>Why Use Our Double Struck Text Converter?</h2>
+            <ul>
+                <li><strong>Stylish Design:</strong> Double struck text’s bold and modern appearance adds a unique touch
+                    to
+                    your posts.
+                </li>
+                <li><strong>Ideal for Social Media:</strong> Perfect for use on <strong>Facebook</strong>,
+                    <strong>Twitter</strong>, <strong>Instagram</strong>, and other platforms to create visually
+                    striking
+                    content.
+                </li>
+                <li><strong>Easy to Use:</strong> Simply input your text, convert it into double struck style, and copy
+                    it
+                    directly into your social media posts.
+                </li>
+                <li><strong>Mobile-Friendly:</strong> Our converter is optimized for mobile devices, allowing you to
+                    create
+                    and share unique content on the go.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How to Use</h2>
+            <ol>
+                <li><strong>Step 1:</strong> Enter your regular text in the input field provided.</li>
+                <li><strong>Step 2:</strong> Click to convert your text into stylish double struck characters.</li>
+                <li><strong>Step 3:</strong> Copy the converted text and paste it into your social media posts.</li>
+            </ol>
+
+            <p>Transforming your text into <strong>double struck style</strong> adds a bold and modern element to your
+                social media posts. Try our converter today to give your content a unique and eye-catching look!</p>
+        </section>
+
+        <section>
+            <!-- FAQ Section -->
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>1. What is the Double Struck Text Converter?</h3>
+            <p>The <strong>Double Struck Text Converter</strong> is an online tool that converts regular text into
+                double
+                struck style characters, adding a bold and stylish touch to your social media posts.</p>
+
+            <h3>2. How can I use double struck text on social media?</h3>
+            <p>After converting your text with our <strong>Double Struck Text Converter</strong>, copy the output and
+                paste
+                it into your posts on <strong>Facebook</strong>, <strong>Twitter</strong>, <strong>Instagram</strong>,
+                or
+                any other social media platform to create visually striking content.</p>
+
+            <h3>3. Is this tool mobile-friendly?</h3>
+            <p>Yes, the <strong>Double Struck Text Converter</strong> is fully optimized for mobile use, allowing you to
+                easily create and share stylish text from your mobile device.</p>
+
+            <h3>4. Does using double struck text help with SEO?</h3>
+            <p>While double struck text itself doesn’t impact SEO directly, its unique and bold appearance can increase
+                engagement and make your posts stand out, which may contribute to higher interaction rates on social
+                media.</p>
+
+            <h3>5. Do I need to download anything to use the converter?</h3>
+            <p>No, the <strong>Double Struck Text Converter</strong> is web-based and requires no downloads or
+                installations. Use it directly from your browser.</p>
+
+            <h3>6. Can double struck text be used for any type of content?</h3>
+            <p>Yes! Double struck text is ideal for making bold statements, creative captions, or any content where you
+                want
+                to add a distinctive and modern touch.</p>
+        </section>
+
+    </div>
+</div>
+
+<script>
+    function convertText(inputText, standard) {
+        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
+        const standardParts = standard.split('|');
+        return inputText.split('').map(char => {
+            const idx = original.indexOf(char.toString());
+            console.log(idx)
+            if (idx === -1) return char;
+            return standardParts[idx];
+        }).join('')
+    }
+
+    function convertTexts() {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = '𝕒|𝕓|𝕔|𝕕|𝕖|𝕗|𝕘|𝕙|𝕚|𝕛|𝕜|𝕝|𝕞|𝕟|𝕠|𝕡|𝕢|𝕣|𝕤|𝕥|𝕦|𝕧|𝕨|𝕩|𝕪|𝕫|𝔸|𝔹|ℂ|𝔻|𝔼|𝔽|𝔾|ℍ|𝕀|𝕁|𝕂|𝕃|𝕄|ℕ|𝕆|ℙ|ℚ|ℝ|𝕊|𝕋|𝕌|𝕍|𝕎|𝕏|𝕐|ℤ|𝕒̀|𝕒́|𝕒̣|𝕒̉|𝕒̃|𝕒̂|𝕒̂̀|𝕒̂́|𝕒̂̉|𝕒̣̂|𝕒̆|𝕒̆̀|𝕒̆́|𝕒̆̉|𝕒̣̆|𝕖̀|𝕖́|𝕖̣|𝕖̉|𝕖̃|𝕖̂|𝕖̂̀|𝕖̂́|𝕖̂̉|𝕖̣̂|𝕚̀|𝕚́|𝕚̣|𝕚̉|𝕚̃|𝕠̀|𝕠́|𝕠̣|𝕠̉|𝕠̃|𝕠̂|𝕠̂̀|𝕠̂́|𝕠̂̉|𝕠̣̂|𝕠̛|𝕠̛̀|𝕠̛́|𝕠̛̉|𝕠̛̣|𝕦̀|𝕦́|𝕦̣|𝕦̉|𝕦̃|𝕦̛|𝕦̛̀|𝕦̛́|𝕦̛̉|𝕦̛̣|𝕪̀|𝕪́|𝕪̣|𝕪̉|𝕪̃|đ|𝔸̀|𝔸́|𝔸̣|𝔸̉|𝔸̃|𝔸̂|𝔸̂̀|𝔸̂́|𝔸̂̉|𝔸̣̂|𝔸̆|𝔸̆̀|𝔸̆́|𝔸̆̉|𝔸̣̆|𝔼̀|𝔼́|𝔼̣|𝔼̉|𝔼̃|𝔼̂|𝔼̂̀|𝔼̂́|𝔼̂̉|𝔼̣̂|𝕀̀|𝕀́|𝕀̣|𝕀̉|𝕀̃|𝕆̀|𝕆́|𝕆̣|𝕆̉|𝕆̃|𝕆̂|𝕆̂̀|𝕆̂́|𝕆̂̉|𝕆̣̂|𝕆̛|𝕆̛̀|𝕆̛́|𝕆̛̉|𝕆̛̣|𝕌̀|𝕌́|𝕌̣|𝕌̉|𝕌̃|𝕌̛|𝕌̛̀|𝕌̛́|𝕌̛̉|𝕌̛̣|𝕐̀|𝕐́|𝕐̣|𝕐̉|𝕐̃|Đ';
+        const standard2 = '⋒|ᲇ|⋐|ⅆ|ⅇ|⨎|𓉛|ꖲ|ⅈ|ⅉ|Ԟ|ǁ|⩕|ℼ|☉|ꘝ|¶|ℾ|𝕤|╬|⋓|⩔|ꖿ|⨳|ℽ|ẕ|⩓|𝄡|ꗲ|ⅅ|⅀|╒|𓉙|⧦|⟦|╝|Ҝ|╚|⨇|ℿ|⌾|⁋|𓉗|𖤧|ꗟ|⍑|ᕰ|⨈|ꔞ|𖢗|𖥬|ꙃ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard3 = '𝕒|𝕓|𝕔|𝕕|𝕖|𝕗|𝕘|𝕙|𝕚|𝕛|𝕜|𝕝|𝕞|𝕟|𝕠|𝕡|𝕢|𝕣|𝕤|𝕥|𝕦|𝕧|𝕨|𝕩|𝕪|𝕫|𝔸|𝔹|ℂ|𝔻|𝔼|𝔽|𝔾|ℍ|𝕀|𝕁|𝕂|𝕃|𝕄|ℕ|𝕆|ℙ|ℚ|ℝ|𝕊|𝕋|𝕌|𝕍|𝕎|𝕏|𝕐|ℤ|𝕒̀|𝕒́|𝕒̣|𝕒̉|𝕒̃|𝕒̂|𝕒̂̀|𝕒̂́|𝕒̂̉|𝕒̣̂|𝕒̆|𝕒̆̀|𝕒̆́|𝕒̆̉|𝕒̣̆|𝕖̀|𝕖́|𝕖̣|𝕖̉|𝕖̃|𝕖̂|𝕖̂̀|𝕖̂́|𝕖̂̉|𝕖̣̂|𝕚̀|𝕚́|𝕚̣|𝕚̉|𝕚̃|𝕠̀|𝕠́|𝕠̣|𝕠̉|𝕠̃|𝕠̂|𝕠̂̀|𝕠̂́|𝕠̂̉|𝕠̣̂|𝕠̛|𝕠̛̀|𝕠̛́|𝕠̛̉|𝕠̛̣|𝕦̀|𝕦́|𝕦̣|𝕦̉|𝕦̃|𝕦̛|𝕦̛̀|𝕦̛́|𝕦̛̉|𝕦̛̣|𝕪̀|𝕪́|𝕪̣|𝕪̉|𝕪̃|đ|𝔸̀|𝔸́|𝔸̣|𝔸̉|𝔸̃|𝔸̂|𝔸̂̀|𝔸̂́|𝔸̂̉|𝔸̣̂|𝔸̆|𝔸̆̀|𝔸̆́|𝔸̆̉|𝔸̣̆|𝔼̀|𝔼́|𝔼̣|𝔼̉|𝔼̃|𝔼̂|𝔼̂̀|𝔼̂́|𝔼̂̉|𝔼̣̂|𝕀̀|𝕀́|𝕀̣|𝕀̉|𝕀̃|𝕆̀|𝕆́|𝕆̣|𝕆̉|𝕆̃|𝕆̂|𝕆̂̀|𝕆̂́|𝕆̂̉|𝕆̣̂|𝕆̛|𝕆̛̀|𝕆̛́|𝕆̛̉|𝕆̛̣|𝕌̀|𝕌́|𝕌̣|𝕌̉|𝕌̃|𝕌̛|𝕌̛̀|𝕌̛́|𝕌̛̉|𝕌̛̣|𝕐̀|𝕐́|𝕐̣|𝕐̉|𝕐̃|Đ';
+        const inputText = document.getElementById('inputText').value;
+        document.getElementById('result-01').textContent = convertText(inputText, standard);
+        document.getElementById('result-02').textContent = convertText(inputText, standard2);
+        document.getElementById('result-03').textContent = convertText(inputText, standard3);
+    }
+
+    function transformText() {
+        countWords()
+        convertTexts()
+    }
+
+    function countWords() {
+        const inputText = document.getElementById('inputText').value;
+
+        // Character count
+        document.getElementById('charCount').textContent = inputText.length;
+
+        // Word count
+        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
+        document.getElementById('wordCount').textContent = wordCount;
+
+        // Sentence count
+        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
+        document.getElementById('sentenceCount').textContent = sentenceCount;
+
+        // Line count
+        const lineCount = inputText.split(/\n/).length;
+        document.getElementById('lineCount').textContent = lineCount;
+    }
+</script>
+{{ end }}

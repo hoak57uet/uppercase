@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Encode/Decode Tool - Safely Encode or Decode Your URLs</title>
@@ -16,7 +16,7 @@
     <meta property="og:description"
           content="Easily encode or decode URLs with our online URL encode/decode tool. Convert special characters for safe transmission and decoding in seconds.">
     <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
-    <meta property="og:url" content="http://localhost:1313/data/url-encode-decode/">
+    <meta property="og:url" content="https://uppercaseconverter.net/data/url-encode-decode/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="URL Encode/Decode Tool - Safely Encode or Decode Your URLs">
 
@@ -29,7 +29,7 @@
     <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
 
     
-    <link rel="canonical" href="http://localhost:1313/data/url-encode-decode/">
+    <link rel="canonical" href="https://uppercaseconverter.net/data/url-encode-decode/">
 
     
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -135,6 +135,13 @@
 
         .textarea-container {
             display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .vertical-container {
+            display: flex;
+            flex-direction: column;
             flex-wrap: wrap;
             gap: 20px;
         }
@@ -544,6 +551,7 @@
         <li>
             <a href="#" aria-haspopup="true">Code & Data</a>
             <ul class="submenu">
+                <li><a href="/data/beautify">Normalize paragraph</a></li>
                 <li><a href="/data/base64-encode-decode">Base64 Encode / Decode</a></li>
                 <li><a href="/data/csv-to-json">CSV To JSON</a></li>
                 <li><a href="/data/hex-to-text">HEX To Text</a></li>
@@ -636,7 +644,8 @@
 
 <div class="container">
     <h1>URL Encode/Decode Tool - Safely Encode or Decode Your URLs</h1>
-    <p>Easily encode or decode URLs with our online URL encode/decode tool. Convert special characters for safe transmission and decoding in seconds.</p>
+    <p>Easily encode or decode URLs with our online URL encode/decode tool. Convert special characters for safe
+        transmission and decoding in seconds.</p>
 
     <div class="textarea-container">
         
@@ -655,7 +664,8 @@
             <label for="outputText">Encoded URL</label>
             <textarea id="outputText" placeholder="Encoded URL will appear here..."></textarea>
             <div>
-                <button class="copy-button" onclick="copyText('outputText', 'copiedMessage1')">
+                <button class="copy-button" id="copy-output"
+                        onclick="copyText('outputText', 'copy-output')">
                     Copy
                 </button>
                 <span class="copied-message" id="copiedMessage1">Copied</span>
@@ -666,43 +676,61 @@
     <div>
         <section>
             <h2>About Our URL Encode/Decode Tool</h2>
-            <p>Our URL Encode/Decode tool allows you to quickly and securely convert URLs into a safe format for transmission, or decode them back to their original state. URL encoding is essential when sending URLs through the internet, as it converts special characters (such as spaces or symbols) into a format that can be safely used in a URL string. The decode function converts these encoded characters back to their readable form.</p>
+            <p>Our URL Encode/Decode tool allows you to quickly and securely convert URLs into a safe format for
+                transmission, or decode them back to their original state. URL encoding is essential when sending URLs
+                through the internet, as it converts special characters (such as spaces or symbols) into a format that
+                can be safely used in a URL string. The decode function converts these encoded characters back to their
+                readable form.</p>
 
             <h2>How It Works</h2>
             <p>Using our tool is simple:</p>
 
             <ul>
-                <li><strong>Input URL:</strong> Enter or paste the URL you wish to encode or decode into the input field.</li>
-                <li><strong>Choose Action:</strong> Select "Encode" to convert the URL into a safe string, or "Decode" to revert an encoded URL back to its original form.</li>
-                <li><strong>Get Results:</strong> The result will be instantly displayed, and you can copy it or download it for further use.</li>
+                <li><strong>Input URL:</strong> Enter or paste the URL you wish to encode or decode into the input
+                    field.
+                </li>
+                <li><strong>Choose Action:</strong> Select "Encode" to convert the URL into a safe string, or "Decode"
+                    to revert an encoded URL back to its original form.
+                </li>
+                <li><strong>Get Results:</strong> The result will be instantly displayed, and you can copy it or
+                    download it for further use.
+                </li>
             </ul>
 
-            <p>This tool is ideal for web developers, digital marketers, and anyone needing to handle URLs securely and efficiently.</p>
+            <p>This tool is ideal for web developers, digital marketers, and anyone needing to handle URLs securely and
+                efficiently.</p>
         </section>
 
         <section>
             <h2>Frequently Asked Questions (FAQ)</h2>
 
             <h3>1. What is URL encoding?</h3>
-            <p>URL encoding is the process of converting special characters in a URL into a format that can be safely transmitted over the internet. It replaces unsafe characters with a percentage symbol (%) followed by two hexadecimal digits representing the character’s ASCII value.</p>
+            <p>URL encoding is the process of converting special characters in a URL into a format that can be safely
+                transmitted over the internet. It replaces unsafe characters with a percentage symbol (%) followed by
+                two hexadecimal digits representing the character’s ASCII value.</p>
 
             <h3>2. Why is URL encoding necessary?</h3>
-            <p>Encoding ensures that URLs containing special characters (such as spaces, ampersands, or symbols) can be transmitted over the internet without errors or misinterpretation by web servers or browsers.</p>
+            <p>Encoding ensures that URLs containing special characters (such as spaces, ampersands, or symbols) can be
+                transmitted over the internet without errors or misinterpretation by web servers or browsers.</p>
 
             <h3>3. What characters are encoded in a URL?</h3>
-            <p>Characters like spaces, punctuation marks, and symbols that are not allowed in URLs are encoded. For example, a space is encoded as `%20`, and an ampersand (`&`) is encoded as `%26`.</p>
+            <p>Characters like spaces, punctuation marks, and symbols that are not allowed in URLs are encoded. For
+                example, a space is encoded as `%20`, and an ampersand (`&`) is encoded as `%26`.</p>
 
             <h3>4. What is URL decoding?</h3>
-            <p>URL decoding is the process of converting an encoded URL back to its original format. It reverses the percent-encoded characters back to their readable form.</p>
+            <p>URL decoding is the process of converting an encoded URL back to its original format. It reverses the
+                percent-encoded characters back to their readable form.</p>
 
             <h3>5. Can I encode or decode any URL?</h3>
-            <p>Yes, our tool can handle any URL input, whether it's partially or fully encoded. It will safely convert it based on the selected action.</p>
+            <p>Yes, our tool can handle any URL input, whether it's partially or fully encoded. It will safely convert
+                it based on the selected action.</p>
 
             <h3>6. Is this tool free to use?</h3>
             <p>Yes, our URL Encode/Decode tool is completely free to use, without any limitations.</p>
 
             <h3>7. How is URL encoding different from base64 encoding?</h3>
-            <p>URL encoding is used for safe transmission of URLs, while base64 encoding is used for encoding binary data in text form. They serve different purposes and should not be confused.</p>
+            <p>URL encoding is used for safe transmission of URLs, while base64 encoding is used for encoding binary
+                data in text form. They serve different purposes and should not be confused.</p>
         </section>
 
     </div>
@@ -711,19 +739,6 @@
 </div>
 
 <script>
-    
-    function copyText(textAreaId, messageId) {
-        const textArea = document.getElementById(textAreaId);
-        const message = document.getElementById(messageId);
-
-        textArea.select();
-        document.execCommand('copy');
-
-        message.style.opacity = 1;
-        setTimeout(() => {
-            message.style.opacity = 0;
-        }, 1000);
-    }
 
     function countWords(inputText) {
 
@@ -746,6 +761,7 @@
     function encodeURL(url) {
         return encodeURIComponent(url);
     }
+
     function decodeURL(encodedURL) {
         return decodeURIComponent(encodedURL);
     }
@@ -927,7 +943,27 @@
         const textArea = document.getElementById(textAreaId);
         const button = document.getElementById(buttonId);
         
-        navigator.clipboard.writeText(textArea.value).then(function () {
+        console.log(textAreaId+':'+textArea)
+        let content = textArea.value;
+        if (!content) {
+            content = textArea.textContent;
+        }
+        if (!content) {
+            content = textArea.innerText;
+        }
+        console.log(content)
+        navigator.clipboard.writeText(content).then(function () {
+            const originalText = button.textContent;
+            button.textContent = "Copied";
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 1000);
+        }).catch(function (err) {
+        });
+    }
+
+    function copyToClipboard(text, button) {
+        navigator.clipboard.writeText(text).then(function () {
             const originalText = button.textContent;
             button.textContent = "Copied";
             setTimeout(() => {

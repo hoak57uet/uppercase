@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Name Picker with Spinning Wheel - Make Every Decision Fun!</title>
@@ -16,7 +16,7 @@
     <meta property="og:description"
           content="Use the Random Name Picker to spin a wheel and select a lucky winner. Ideal for classrooms, giveaways, work meetings, and everyday decisions. Create your spinning wheel and have fun!">
     <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
-    <meta property="og:url" content="http://localhost:1313/text-generator/random-choice-wheel/">
+    <meta property="og:url" content="https://uppercaseconverter.net/text-generator/random-choice-wheel/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Random Name Picker with Spinning Wheel - Make Every Decision Fun!">
 
@@ -29,7 +29,7 @@
     <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
 
     
-    <link rel="canonical" href="http://localhost:1313/text-generator/random-choice-wheel/">
+    <link rel="canonical" href="https://uppercaseconverter.net/text-generator/random-choice-wheel/">
 
     
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -135,6 +135,13 @@
 
         .textarea-container {
             display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .vertical-container {
+            display: flex;
+            flex-direction: column;
             flex-wrap: wrap;
             gap: 20px;
         }
@@ -544,6 +551,7 @@
         <li>
             <a href="#" aria-haspopup="true">Code & Data</a>
             <ul class="submenu">
+                <li><a href="/data/beautify">Normalize paragraph</a></li>
                 <li><a href="/data/base64-encode-decode">Base64 Encode / Decode</a></li>
                 <li><a href="/data/csv-to-json">CSV To JSON</a></li>
                 <li><a href="/data/hex-to-text">HEX To Text</a></li>
@@ -1451,7 +1459,16 @@
         const textArea = document.getElementById(textAreaId);
         const button = document.getElementById(buttonId);
         
-        navigator.clipboard.writeText(textArea.value).then(function () {
+        console.log(textAreaId+':'+textArea)
+        let content = textArea.value;
+        if (!content) {
+            content = textArea.textContent;
+        }
+        if (!content) {
+            content = textArea.innerText;
+        }
+        console.log(content)
+        navigator.clipboard.writeText(content).then(function () {
             const originalText = button.textContent;
             button.textContent = "Copied";
             setTimeout(() => {
@@ -1460,6 +1477,7 @@
         }).catch(function (err) {
         });
     }
+
     function copyToClipboard(text, button) {
         navigator.clipboard.writeText(text).then(function () {
             const originalText = button.textContent;
