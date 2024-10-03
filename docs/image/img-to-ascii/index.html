@@ -661,6 +661,12 @@
         text-align: center;
         margin-bottom: 10px;
     }
+    #asciiOutput{
+        font-size: 8px;
+        line-height: 5px;
+        font-family: Courier, monospace;
+        height: 500px;
+    }
 </style>
 <div class="container">
     <h1>Transform Your Images into Stunning ASCII Art with Our Easy-to-Use Converter</h1>
@@ -679,8 +685,8 @@
 
     <textarea id="asciiOutput" readonly disabled></textarea>
     <div>
-        <button class="copy-button" onclick="copyText('asciiOutput', 'copiedMessage1')">
-            <span class="copy-icon">📋</span>
+        <button class="copy-button copy-button" id="copy-result" onclick="copyText('asciiOutput', 'copy-result')">
+            Copy
         </button>
         <span class="copied-message" id="copiedMessage1">Copied ✓</span>
     </div>
