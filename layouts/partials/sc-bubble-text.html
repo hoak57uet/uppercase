@@ -1,0 +1,21 @@
+<script>
+    function convertBubbleTexts(inputTextId, resultIds) {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const boldSerifSt = 'ⓐ|ⓑ|ⓒ|ⓓ|ⓔ|ⓕ|ⓖ|ⓗ|ⓘ|ⓙ|ⓚ|ⓛ|ⓜ|ⓝ|ⓞ|ⓟ|ⓠ|ⓡ|ⓢ|ⓣ|ⓤ|ⓥ|ⓦ|ⓧ|ⓨ|ⓩ|Ⓐ|Ⓑ|Ⓒ|Ⓓ|Ⓔ|Ⓕ|Ⓖ|Ⓗ|Ⓘ|Ⓙ|Ⓚ|Ⓛ|Ⓜ|Ⓝ|Ⓞ|Ⓟ|Ⓠ|Ⓡ|Ⓢ|Ⓣ|Ⓤ|Ⓥ|Ⓦ|Ⓧ|Ⓨ|Ⓩ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const boldSans = '🅐|🅑|🅒|🅓|🅔|🅕|🅖|🅗|🅘|🅙|🅚|🅛|🅜|🅝|🅞|🅟|🅠|🅡|🅢|🅣|🅤|🅥|🅦|🅧|🅨|🅩|🅐|🅑|🅒|🅓|🅔|🅕|🅖|🅗|🅘|🅙|🅚|🅛|🅜|🅝|🅞|🅟|🅠|🅡|🅢|🅣|🅤|🅥|🅦|🅧|🅨|🅩|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const italicChars = 'ⓐ|ⓑ|ⓒ|ⓓ|ⓔ|ⓕ|ⓖ|ⓗ|ⓘ|ⓙ|ⓚ|ⓛ|ⓜ|ⓝ|ⓞ|ⓟ|ⓠ|ⓡ|ⓢ|ⓣ|ⓤ|ⓥ|ⓦ|ⓧ|ⓨ|ⓩ|Ⓐ|Ⓑ|Ⓒ|Ⓓ|Ⓔ|Ⓕ|Ⓖ|Ⓗ|Ⓘ|Ⓙ|Ⓚ|Ⓛ|Ⓜ|Ⓝ|Ⓞ|Ⓟ|Ⓠ|Ⓡ|Ⓢ|Ⓣ|Ⓤ|Ⓥ|Ⓦ|Ⓧ|Ⓨ|Ⓩ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const italicChars2 = '⒜|⒝|⒞|⒟|⒠|⒡|⒢|⒣|⒤|⒥|⒦|⒧|⒨|⒩|⒪|⒫|⒬|⒭|⒮|⒯|⒰|⒱|⒲|⒳|⒴|⒵|🄐|🄑|🄒|🄓|🄔|🄕|🄖|🄗|🄘|🄙|🄚|🄛|🄜|🄝|🄞|🄟|🄠|🄡|🄢|🄣|🄤|🄥|🄦|🄧|🄨|🄩|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standards = [boldSerifSt, boldSans, italicChars, italicChars2]
+        for (let i = 0; i < resultIds.length; i++) {
+            const inputText = document.getElementById(inputTextId).value;
+            document.getElementById(resultIds[i]).textContent = convertStandardText(inputText, standards[i]);
+        }
+        // const inputText = document.getElementById('inputText').value;
+        // console.log(convertText(inputText, boldSerifSt))
+        // document.getElementById('result-01').textContent = convertText(inputText, boldSerifSt);
+        // document.getElementById('result-02').textContent = convertText(inputText, boldSans);
+        // document.getElementById('result-03').textContent = convertText(inputText, italicChars);
+        // document.getElementById('result-04').textContent = convertText(inputText, italicChars2);
+    }
+
+</script>

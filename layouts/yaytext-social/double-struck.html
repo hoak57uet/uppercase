@@ -1,5 +1,8 @@
 {{ define "main" }}
 {{partial "output-box.html" .}}
+{{partial "sc-convert-standard-text.html" .}}
+{{partial "sc-count-word.html" .}}
+{{partial "sc-double-struck.html" .}}
 <div class="container">
     <h1 id="page-title">Double Struck Text Converter - Transform Your Text into Stylish Double Struck Characters</h1>
     <p id="page-description">Transform your regular text into stylish double struck text with our free online tool.
@@ -19,21 +22,24 @@
         <div class="output-box" id="result">
             <label>Preview</label>
             <div class="result">
-                <span readonly class="input-result" id="result-01"></span>
+                <span readonly class="input-result" id="double-struck-result-01"></span>
                 <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-01" onclick="copyText('result-01', 'copy-result-01')">Copy
+                <button class="button-result copy-button" id="copy-double-struck-result-01"
+                        onclick="copyText('double-struck-result-01', 'copy-double-struck-result-01')">Copy
                 </button>
             </div>
             <div class="result-even">
-                <span readonly class="input-result" id="result-02"></span>
+                <span readonly class="input-result" id="double-struck-result-02"></span>
                 <span class="copied-message" id="copiedMessage2">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-02" onclick="copyText('result-02', 'copy-result-02')">Copy
+                <button class="button-result copy-button" id="copy-double-struck-result-02"
+                        onclick="copyText('double-struck-result-02', 'copy-double-struck-result-02')">Copy
                 </button>
             </div>
             <div class="result">
-                <span readonly class="input-result" id="result-03"></span>
+                <span readonly class="input-result" id="double-struck-result-03"></span>
                 <span class="copied-message" id="copiedMessage3">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-03" onclick="copyText('result-03', 'copy-result-03')">Copy
+                <button class="button-result copy-button" id="copy-double-struck-result-03"
+                        onclick="copyText('double-struck-result-03', 'copy-double-struck-result-03')">Copy
                 </button>
             </div>
         </div>
@@ -129,50 +135,9 @@
 </div>
 
 <script>
-    function convertText(inputText, standard) {
-        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
-        const standardParts = standard.split('|');
-        return inputText.split('').map(char => {
-            const idx = original.indexOf(char.toString());
-            console.log(idx)
-            if (idx === -1) return char;
-            return standardParts[idx];
-        }).join('')
-    }
-
-    function convertTexts() {
-        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
-        const standard = '𝕒|𝕓|𝕔|𝕕|𝕖|𝕗|𝕘|𝕙|𝕚|𝕛|𝕜|𝕝|𝕞|𝕟|𝕠|𝕡|𝕢|𝕣|𝕤|𝕥|𝕦|𝕧|𝕨|𝕩|𝕪|𝕫|𝔸|𝔹|ℂ|𝔻|𝔼|𝔽|𝔾|ℍ|𝕀|𝕁|𝕂|𝕃|𝕄|ℕ|𝕆|ℙ|ℚ|ℝ|𝕊|𝕋|𝕌|𝕍|𝕎|𝕏|𝕐|ℤ|𝕒̀|𝕒́|𝕒̣|𝕒̉|𝕒̃|𝕒̂|𝕒̂̀|𝕒̂́|𝕒̂̉|𝕒̣̂|𝕒̆|𝕒̆̀|𝕒̆́|𝕒̆̉|𝕒̣̆|𝕖̀|𝕖́|𝕖̣|𝕖̉|𝕖̃|𝕖̂|𝕖̂̀|𝕖̂́|𝕖̂̉|𝕖̣̂|𝕚̀|𝕚́|𝕚̣|𝕚̉|𝕚̃|𝕠̀|𝕠́|𝕠̣|𝕠̉|𝕠̃|𝕠̂|𝕠̂̀|𝕠̂́|𝕠̂̉|𝕠̣̂|𝕠̛|𝕠̛̀|𝕠̛́|𝕠̛̉|𝕠̛̣|𝕦̀|𝕦́|𝕦̣|𝕦̉|𝕦̃|𝕦̛|𝕦̛̀|𝕦̛́|𝕦̛̉|𝕦̛̣|𝕪̀|𝕪́|𝕪̣|𝕪̉|𝕪̃|đ|𝔸̀|𝔸́|𝔸̣|𝔸̉|𝔸̃|𝔸̂|𝔸̂̀|𝔸̂́|𝔸̂̉|𝔸̣̂|𝔸̆|𝔸̆̀|𝔸̆́|𝔸̆̉|𝔸̣̆|𝔼̀|𝔼́|𝔼̣|𝔼̉|𝔼̃|𝔼̂|𝔼̂̀|𝔼̂́|𝔼̂̉|𝔼̣̂|𝕀̀|𝕀́|𝕀̣|𝕀̉|𝕀̃|𝕆̀|𝕆́|𝕆̣|𝕆̉|𝕆̃|𝕆̂|𝕆̂̀|𝕆̂́|𝕆̂̉|𝕆̣̂|𝕆̛|𝕆̛̀|𝕆̛́|𝕆̛̉|𝕆̛̣|𝕌̀|𝕌́|𝕌̣|𝕌̉|𝕌̃|𝕌̛|𝕌̛̀|𝕌̛́|𝕌̛̉|𝕌̛̣|𝕐̀|𝕐́|𝕐̣|𝕐̉|𝕐̃|Đ';
-        const standard2 = '⋒|ᲇ|⋐|ⅆ|ⅇ|⨎|𓉛|ꖲ|ⅈ|ⅉ|Ԟ|ǁ|⩕|ℼ|☉|ꘝ|¶|ℾ|𝕤|╬|⋓|⩔|ꖿ|⨳|ℽ|ẕ|⩓|𝄡|ꗲ|ⅅ|⅀|╒|𓉙|⧦|⟦|╝|Ҝ|╚|⨇|ℿ|⌾|⁋|𓉗|𖤧|ꗟ|⍑|ᕰ|⨈|ꔞ|𖢗|𖥬|ꙃ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
-        const standard3 = '𝕒|𝕓|𝕔|𝕕|𝕖|𝕗|𝕘|𝕙|𝕚|𝕛|𝕜|𝕝|𝕞|𝕟|𝕠|𝕡|𝕢|𝕣|𝕤|𝕥|𝕦|𝕧|𝕨|𝕩|𝕪|𝕫|𝔸|𝔹|ℂ|𝔻|𝔼|𝔽|𝔾|ℍ|𝕀|𝕁|𝕂|𝕃|𝕄|ℕ|𝕆|ℙ|ℚ|ℝ|𝕊|𝕋|𝕌|𝕍|𝕎|𝕏|𝕐|ℤ|𝕒̀|𝕒́|𝕒̣|𝕒̉|𝕒̃|𝕒̂|𝕒̂̀|𝕒̂́|𝕒̂̉|𝕒̣̂|𝕒̆|𝕒̆̀|𝕒̆́|𝕒̆̉|𝕒̣̆|𝕖̀|𝕖́|𝕖̣|𝕖̉|𝕖̃|𝕖̂|𝕖̂̀|𝕖̂́|𝕖̂̉|𝕖̣̂|𝕚̀|𝕚́|𝕚̣|𝕚̉|𝕚̃|𝕠̀|𝕠́|𝕠̣|𝕠̉|𝕠̃|𝕠̂|𝕠̂̀|𝕠̂́|𝕠̂̉|𝕠̣̂|𝕠̛|𝕠̛̀|𝕠̛́|𝕠̛̉|𝕠̛̣|𝕦̀|𝕦́|𝕦̣|𝕦̉|𝕦̃|𝕦̛|𝕦̛̀|𝕦̛́|𝕦̛̉|𝕦̛̣|𝕪̀|𝕪́|𝕪̣|𝕪̉|𝕪̃|đ|𝔸̀|𝔸́|𝔸̣|𝔸̉|𝔸̃|𝔸̂|𝔸̂̀|𝔸̂́|𝔸̂̉|𝔸̣̂|𝔸̆|𝔸̆̀|𝔸̆́|𝔸̆̉|𝔸̣̆|𝔼̀|𝔼́|𝔼̣|𝔼̉|𝔼̃|𝔼̂|𝔼̂̀|𝔼̂́|𝔼̂̉|𝔼̣̂|𝕀̀|𝕀́|𝕀̣|𝕀̉|𝕀̃|𝕆̀|𝕆́|𝕆̣|𝕆̉|𝕆̃|𝕆̂|𝕆̂̀|𝕆̂́|𝕆̂̉|𝕆̣̂|𝕆̛|𝕆̛̀|𝕆̛́|𝕆̛̉|𝕆̛̣|𝕌̀|𝕌́|𝕌̣|𝕌̉|𝕌̃|𝕌̛|𝕌̛̀|𝕌̛́|𝕌̛̉|𝕌̛̣|𝕐̀|𝕐́|𝕐̣|𝕐̉|𝕐̃|Đ';
-        const inputText = document.getElementById('inputText').value;
-        document.getElementById('result-01').textContent = convertText(inputText, standard);
-        document.getElementById('result-02').textContent = convertText(inputText, standard2);
-        document.getElementById('result-03').textContent = convertText(inputText, standard3);
-    }
-
     function transformText() {
         countWords()
-        convertTexts()
-    }
-
-    function countWords() {
-        const inputText = document.getElementById('inputText').value;
-
-        // Character count
-        document.getElementById('charCount').textContent = inputText.length;
-
-        // Word count
-        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
-        document.getElementById('wordCount').textContent = wordCount;
-
-        // Sentence count
-        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
-        document.getElementById('sentenceCount').textContent = sentenceCount;
-
-        // Line count
-        const lineCount = inputText.split(/\n/).length;
-        document.getElementById('lineCount').textContent = lineCount;
+        convertDoubleStruckTexts('inputText', ['double-struck-result-01', 'double-struck-result-02', 'double-struck-result-03'])
     }
 </script>
 {{ end }}

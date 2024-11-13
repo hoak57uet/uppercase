@@ -1,0 +1,17 @@
+<script>
+    function convertSquigglesAndHooksTexts(inputTextId, resultIds) {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = 'ả|ɓ|ƈ|ɗ|ẻ|ḟ|ɠ|ɦ|ỉ|ĵ|ƙ|ꞎ|ḿ|ή|ơ|ƥ|ʠ|ɼ|ś|ť|ư|ⱱ|ⱳ|x̂|ƴ|ź|Ả|Ɓ|Ć|Ď|Ế|Ḟ|Ɠ|Ɦ|Ỉ|Ĵ|Ƙ|Ĺ|Ḿ|Ń|Ơ|Ꝕ|℺|Ȑ|Ś|Ƭ|Ư|Ѵ|Ⱳ|X̂|Ƴ|Ž|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard2 = 'ᶏ|ᶀ|ꞔ|ᶁ|ᶒ|ᶂ|ᶃ|ⱨ|ᶖ|ʝ|ᶄ|ᶅ|ᶆ|ᶇ|ǫ|ᶈ|ɋ|ᶉ|ᶊ|ƫ|ᶙ|ᶌ|Щ|ᶍ|ƴ|ᶎ|Ą|Ɓ|Ç|Ɗ|Ę|Ƒ|Ģ|Ɦ̡|I̢|Ʝ|Ķ|L̡|Ɱ|Ɲ|Ǫ|Ƥ|Ꝗ|Ɽ|Ȿ|Ʈ|Ų|Ṿ|Ⱳ|Ҳ|Ƴ|Ȥ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard3 = 'ả|ɓ|ƈ|ɗ|ẻ|ḟ|ɠ|ɦ|ỉ|ĵ|ƙ|ꞎ|ḿ|ή|ơ|ƥ|ʠ|ɼ|ś|ť|ư|ⱱ|ⱳ|x̂|ƴ|ź|Ả|Ɓ|Ć|Ď|Ế|Ḟ|Ɠ|Ɦ|Ỉ|Ĵ|Ƙ|Ĺ|Ḿ|Ń|Ơ|Ꝕ|℺|Ȑ|Ś|Ƭ|Ư|Ѵ|Ⱳ|X̂|Ƴ|Ž|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standards = [standard, standard2, standard3]
+        for (let i = 0; i < resultIds.length; i++) {
+            const inputText = document.getElementById(inputTextId).value;
+            document.getElementById(resultIds[i]).textContent = convertStandardText(inputText, standards[i]);
+        }
+        // const inputText = document.getElementById('inputText').value;
+        // document.getElementById('result-01').textContent = convertText(inputText, standard);
+        // document.getElementById('result-02').textContent = convertText(inputText, standard2);
+        // document.getElementById('result-03').textContent = convertText(inputText, standard3);
+    }
+</script>

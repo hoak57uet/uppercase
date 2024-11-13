@@ -1,0 +1,11 @@
+<script>
+    function convertBamumTexts(inputTextId, resultIds) {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const boldSerifSt = '𖧥|𖧳|𖥐|𖦧|𖠢|𖨨|ꛪ|𖦙|𖥣|𖨗|𖢉|ꛚ|𖢑|ꛘ|𖥕|𖡮|𖥨|𖦪|𖨚|𖢧|ꚶ|𖡥|𖧉|𖧦|ꚲ|𖣩|𖧥|𖧳|𖥐|𖦧|𖠢|𖨨|ꛪ|𖦙|𖥣|𖨗|𖢉|ꛚ|𖢑|ꛘ|𖥕|𖡮|𖥨|𖦪|𖨚|𖢧|ꚶ|𖡥|𖧉|𖧦|ꚲ|𖣩|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standards = [boldSerifSt]
+        for (let i = 0; i < resultIds.length; i++) {
+            const inputText = document.getElementById(inputTextId).value;
+            document.getElementById(resultIds[i]).textContent = convertStandardText(inputText, standards[i]);
+        }
+    }
+</script>

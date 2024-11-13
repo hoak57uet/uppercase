@@ -1,0 +1,15 @@
+<script>
+    function convertSmallCapTexts(inputTextId, resultIds) {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = 'ᴀ|ʙ|ᴄ|ᴅ|ᴇ|ꜰ|ɢ|ʜ|ɪ|ᴊ|ᴋ|ʟ|ᴍ|ɴ|ᴏ|ᴘ|ǫ|ʀ|s|ᴛ|ᴜ|ᴠ|ᴡ|x|ʏ|ᴢ|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|ᴀ̀|ᴀ́|ᴀ̣|ᴀ̉|ᴀ̃|ᴀ̂|ᴀ̂̀|ᴀ̂́|ᴀ̂̉|ᴀ̣̂|ᴀ̆|ᴀ̆̀|ᴀ̆́|ᴀ̆̉|ᴀ̣̆|ᴇ̀|ᴇ́|ᴇ̣|ᴇ̉|ᴇ̃|ᴇ̂|ᴇ̂̀|ᴇ̂́|ᴇ̂̉|ᴇ̣̂|ɪ̀|ɪ́|ɪ̣|ɪ̉|ɪ̃|ᴏ̀|ᴏ́|ᴏ̣|ᴏ̉|ᴏ̃|ᴏ̂|ᴏ̂̀|ᴏ̂́|ᴏ̂̉|ᴏ̣̂|ᴏ̛|ᴏ̛̀|ᴏ̛́|ᴏ̛̉|ᴏ̛̣|ᴜ̀|ᴜ́|ᴜ̣|ᴜ̉|ᴜ̃|ᴜ̛|ᴜ̛̀|ᴜ̛́|ᴜ̛̉|ᴜ̛̣|ʏ̀|ʏ́|ʏ̣|ʏ̉|ʏ̃|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standard2 = 'ᴀ|ʙ|ᴄ|ᴅ|ᴇ|ғ|ɢ|ʜ|ɪ|ᴊ|ᴋ|ʟ|ᴍ|ɴ|ᴏ|ᴘ|ǫ|ʀ|s|ᴛ|ᴜ|ᴠ|ᴡ|x|ʏ|ᴢ|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|ᴀ̀|ᴀ́|ᴀ̣|ᴀ̉|ᴀ̃|ᴀ̂|ᴀ̂̀|ᴀ̂́|ᴀ̂̉|ᴀ̣̂|ᴀ̆|ᴀ̆̀|ᴀ̆́|ᴀ̆̉|ᴀ̣̆|ᴇ̀|ᴇ́|ᴇ̣|ᴇ̉|ᴇ̃|ᴇ̂|ᴇ̂̀|ᴇ̂́|ᴇ̂̉|ᴇ̣̂|ɪ̀|ɪ́|ɪ̣|ɪ̉|ɪ̃|ᴏ̀|ᴏ́|ᴏ̣|ᴏ̉|ᴏ̃|ᴏ̂|ᴏ̂̀|ᴏ̂́|ᴏ̂̉|ᴏ̣̂|ᴏ̛|ᴏ̛̀|ᴏ̛́|ᴏ̛̉|ᴏ̛̣|ᴜ̀|ᴜ́|ᴜ̣|ᴜ̉|ᴜ̃|ᴜ̛|ᴜ̛̀|ᴜ̛́|ᴜ̛̉|ᴜ̛̣|ʏ̀|ʏ́|ʏ̣|ʏ̉|ʏ̃|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
+        const standards = [standard, standard2]
+        for (let i = 0; i < resultIds.length; i++) {
+            const inputText = document.getElementById(inputTextId).value;
+            document.getElementById(resultIds[i]).textContent = convertStandardText(inputText, standards[i]);
+        }
+        // const inputText = document.getElementById('inputText').value;
+        // document.getElementById('result-01').textContent = convertText(inputText, standard);
+        // document.getElementById('result-02').textContent = convertText(inputText, standard2);
+    }
+</script>

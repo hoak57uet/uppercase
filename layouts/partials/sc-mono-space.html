@@ -1,0 +1,13 @@
+<script>
+    function convertMonoSpaceTexts(inputTextId, resultIds) {
+        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
+        const standard = '𝚊|𝚋|𝚌|𝚍|𝚎|𝚏|𝚐|𝚑|𝚒|𝚓|𝚔|𝚕|𝚖|𝚗|𝚘|𝚙|𝚚|𝚛|𝚜|𝚝|𝚞|𝚟|𝚠|𝚡|𝚢|𝚣|𝙰|𝙱|𝙲|𝙳|𝙴|𝙵|𝙶|𝙷|𝙸|𝙹|𝙺|𝙻|𝙼|𝙽|𝙾|𝙿|𝚀|𝚁|𝚂|𝚃|𝚄|𝚅|𝚆|𝚇|𝚈|𝚉|𝚊̀|𝚊́|𝚊̣|𝚊̉|𝚊̃|𝚊̂|𝚊̂̀|𝚊̂́|𝚊̂̉|𝚊̣̂|𝚊̆|𝚊̆̀|𝚊̆́|𝚊̆̉|𝚊̣̆|𝚎̀|𝚎́|𝚎̣|𝚎̉|𝚎̃|𝚎̂|𝚎̂̀|𝚎̂́|𝚎̂̉|𝚎̣̂|𝚒̀|𝚒́|𝚒̣|𝚒̉|𝚒̃|𝚘̀|𝚘́|𝚘̣|𝚘̉|𝚘̃|𝚘̂|𝚘̂̀|𝚘̂́|𝚘̂̉|𝚘̣̂|𝚘̛|𝚘̛̀|𝚘̛́|𝚘̛̉|𝚘̛̣|𝚞̀|𝚞́|𝚞̣|𝚞̉|𝚞̃|𝚞̛|𝚞̛̀|𝚞̛́|𝚞̛̉|𝚞̛̣|𝚢̀|𝚢́|𝚢̣|𝚢̉|𝚢̃|đ|𝙰̀|𝙰́|𝙰̣|𝙰̉|𝙰̃|𝙰̂|𝙰̂̀|𝙰̂́|𝙰̂̉|𝙰̣̂|𝙰̆|𝙰̆̀|𝙰̆́|𝙰̆̉|𝙰̣̆|𝙴̀|𝙴́|𝙴̣|𝙴̉|𝙴̃|𝙴̂|𝙴̂̀|𝙴̂́|𝙴̂̉|𝙴̣̂|𝙸̀|𝙸́|𝙸̣|𝙸̉|𝙸̃|𝙾̀|𝙾́|𝙾̣|𝙾̉|𝙾̃|𝙾̂|𝙾̂̀|𝙾̂́|𝙾̂̉|𝙾̣̂|𝙾̛|𝙾̛̀|𝙾̛́|𝙾̛̉|𝙾̛̣|𝚄̀|𝚄́|𝚄̣|𝚄̉|𝚄̃|𝚄̛|𝚄̛̀|𝚄̛́|𝚄̛̉|𝚄̛̣|𝚈̀|𝚈́|𝚈̣|𝚈̉|𝚈̃|Đ';
+        const standards = [standard]
+        for (let i = 0; i < resultIds.length; i++) {
+            const inputText = document.getElementById(inputTextId).value;
+            document.getElementById(resultIds[i]).textContent = convertStandardText(inputText, standards[i]);
+        }
+        // const inputText = document.getElementById('inputText').value;
+        // document.getElementById('result-01').textContent = convertText(inputText, standard);
+    }
+</script>

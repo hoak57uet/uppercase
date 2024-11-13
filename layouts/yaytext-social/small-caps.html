@@ -1,5 +1,8 @@
 {{ define "main" }}
 {{partial "output-box.html" .}}
+{{partial "sc-convert-standard-text.html" .}}
+{{partial "sc-count-word.html" .}}
+{{partial "sc-small-caps.html" .}}
 <div class="container">
     <h1 id="page-title">Small Caps Text Generator - Stylish Unicode Text for Social Media</h1>
     <p id="page-description">Create stylish small caps text for your social media posts, usernames, and more with our
@@ -18,15 +21,17 @@
         <div class="output-box" id="result">
             <label>Preview</label>
             <div class="result">
-                <span readonly class="input-result" id="result-01"></span>
+                <span readonly class="input-result" id="small-caps-result-01"></span>
                 <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-01" onclick="copyText('result-01', 'copy-result-01')">Copy
+                <button class="button-result copy-button" id="copy-small-caps-result-01"
+                        onclick="copyText('small-caps-result-01', 'copy-small-caps-result-01')">Copy
                 </button>
             </div>
             <div class="result-even">
-                <span readonly class="input-result" id="result-02"></span>
+                <span readonly class="input-result" id="small-caps-result-02"></span>
                 <span class="copied-message" id="copiedMessage2">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-02" onclick="copyText('result-02', 'copy-result-02')">Copy
+                <button class="button-result copy-button" id="copy-small-caps-result-02"
+                        onclick="copyText('small-caps-result-02', 'copy-small-caps-result-02')">Copy
                 </button>
             </div>
         </div>
@@ -106,48 +111,10 @@
 </div>
 
 <script>
-    function convertText(inputText, standard) {
-        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
-        const standardParts = standard.split('|');
-        return inputText.split('').map(char => {
-            const idx = original.indexOf(char.toString());
-            console.log(idx)
-            if (idx === -1) return char;
-            return standardParts[idx];
-        }).join('')
-    }
-
-    function convertTexts() {
-        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
-        const standard = 'ᴀ|ʙ|ᴄ|ᴅ|ᴇ|ꜰ|ɢ|ʜ|ɪ|ᴊ|ᴋ|ʟ|ᴍ|ɴ|ᴏ|ᴘ|ǫ|ʀ|s|ᴛ|ᴜ|ᴠ|ᴡ|x|ʏ|ᴢ|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|ᴀ̀|ᴀ́|ᴀ̣|ᴀ̉|ᴀ̃|ᴀ̂|ᴀ̂̀|ᴀ̂́|ᴀ̂̉|ᴀ̣̂|ᴀ̆|ᴀ̆̀|ᴀ̆́|ᴀ̆̉|ᴀ̣̆|ᴇ̀|ᴇ́|ᴇ̣|ᴇ̉|ᴇ̃|ᴇ̂|ᴇ̂̀|ᴇ̂́|ᴇ̂̉|ᴇ̣̂|ɪ̀|ɪ́|ɪ̣|ɪ̉|ɪ̃|ᴏ̀|ᴏ́|ᴏ̣|ᴏ̉|ᴏ̃|ᴏ̂|ᴏ̂̀|ᴏ̂́|ᴏ̂̉|ᴏ̣̂|ᴏ̛|ᴏ̛̀|ᴏ̛́|ᴏ̛̉|ᴏ̛̣|ᴜ̀|ᴜ́|ᴜ̣|ᴜ̉|ᴜ̃|ᴜ̛|ᴜ̛̀|ᴜ̛́|ᴜ̛̉|ᴜ̛̣|ʏ̀|ʏ́|ʏ̣|ʏ̉|ʏ̃|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
-        const standard2 = 'ᴀ|ʙ|ᴄ|ᴅ|ᴇ|ғ|ɢ|ʜ|ɪ|ᴊ|ᴋ|ʟ|ᴍ|ɴ|ᴏ|ᴘ|ǫ|ʀ|s|ᴛ|ᴜ|ᴠ|ᴡ|x|ʏ|ᴢ|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|ᴀ̀|ᴀ́|ᴀ̣|ᴀ̉|ᴀ̃|ᴀ̂|ᴀ̂̀|ᴀ̂́|ᴀ̂̉|ᴀ̣̂|ᴀ̆|ᴀ̆̀|ᴀ̆́|ᴀ̆̉|ᴀ̣̆|ᴇ̀|ᴇ́|ᴇ̣|ᴇ̉|ᴇ̃|ᴇ̂|ᴇ̂̀|ᴇ̂́|ᴇ̂̉|ᴇ̣̂|ɪ̀|ɪ́|ɪ̣|ɪ̉|ɪ̃|ᴏ̀|ᴏ́|ᴏ̣|ᴏ̉|ᴏ̃|ᴏ̂|ᴏ̂̀|ᴏ̂́|ᴏ̂̉|ᴏ̣̂|ᴏ̛|ᴏ̛̀|ᴏ̛́|ᴏ̛̉|ᴏ̛̣|ᴜ̀|ᴜ́|ᴜ̣|ᴜ̉|ᴜ̃|ᴜ̛|ᴜ̛̀|ᴜ̛́|ᴜ̛̉|ᴜ̛̣|ʏ̀|ʏ́|ʏ̣|ʏ̉|ʏ̃|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
-        const inputText = document.getElementById('inputText').value;
-        document.getElementById('result-01').textContent = convertText(inputText, standard);
-        document.getElementById('result-02').textContent = convertText(inputText, standard2);
-    }
-
     function transformText() {
         countWords()
-        convertTexts()
+        convertSmallCapTexts('inputText', ['small-caps-result-01', 'small-caps-result-02'])
     }
 
-    function countWords() {
-        const inputText = document.getElementById('inputText').value;
-
-        // Character count
-        document.getElementById('charCount').textContent = inputText.length;
-
-        // Word count
-        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
-        document.getElementById('wordCount').textContent = wordCount;
-
-        // Sentence count
-        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
-        document.getElementById('sentenceCount').textContent = sentenceCount;
-
-        // Line count
-        const lineCount = inputText.split(/\n/).length;
-        document.getElementById('lineCount').textContent = lineCount;
-    }
 </script>
 {{ end }}

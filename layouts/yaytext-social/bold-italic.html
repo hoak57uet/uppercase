@@ -1,5 +1,8 @@
 {{ define "main" }}
 {{partial "output-box.html" .}}
+{{partial "sc-convert-standard-text.html" .}}
+{{partial "sc-count-word.html" .}}
+{{partial "sc-bold-italic.html" .}}
 <div class="container">
     <h1 id="page-title">Transform Your Social Media Posts: Convert Text to Bold & Italic Using Unicode Magic</h1>
     <p id="page-description">Revamp your social media presence with our Unicode text transformation tool! Easily convert
@@ -19,27 +22,31 @@
         <div class="output-box" id="result">
             <label>Preview</label>
             <div class="result">
-                <span readonly class="input-result" id="result-01"></span>
+                <span readonly class="input-result" id="bold-italic-result-01"></span>
                 <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-01" onclick="copyText('result-01', 'copy-result-01')">Copy
+                <button class="button-result copy-button" id="copy-bold-italic-result-01"
+                        onclick="copyText('bold-italic-result-01', 'copy-bold-italic-result-01')">Copy
                 </button>
             </div>
             <div class="result-even">
-                <span readonly class="input-result" id="result-02"></span>
+                <span readonly class="input-result" id="bold-italic-result-02"></span>
                 <span class="copied-message" id="copiedMessage2">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-02" onclick="copyText('result-02', 'copy-result-02')">Copy
+                <button class="button-result copy-button" id="copy-bold-italic-result-02"
+                        onclick="copyText('bold-italic-result-02', 'copy-bold-italic-result-02')">Copy
                 </button>
             </div>
             <div class="result">
-                <span readonly class="input-result" id="result-03"></span>
+                <span readonly class="input-result" id="bold-italic-result-03"></span>
                 <span class="copied-message" id="copiedMessage3">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-03" onclick="copyText('result-03', 'copy-result-03')">Copy
+                <button class="button-result copy-button" id="copy-bold-italic-result-03"
+                        onclick="copyText('bold-italic-result-03', 'copy-bold-italic-result-03')">Copy
                 </button>
             </div>
             <div class="result-even">
-                <span readonly class="input-result" id="result-04"></span>
+                <span readonly class="input-result" id="bold-italic-result-04"></span>
                 <span class="copied-message" id="copiedMessage4">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-04" onclick="copyText('result-04', 'copy-result-04')">Copy
+                <button class="button-result copy-button" id="copy-bold-italic-result-04"
+                        onclick="copyText('bold-italic-result-04', 'copy-bold-italic-result-04')">Copy
                 </button>
             </div>
         </div>
@@ -98,53 +105,9 @@
 </div>
 
 <script>
-    function convertText(inputText, standard) {
-        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
-        const standardParts = standard.split('|');
-        return inputText.split('').map(char => {
-            const idx = original.indexOf(char.toString());
-            console.log(idx)
-            if (idx === -1) return char;
-            return standardParts[idx];
-        }).join('')
-    }
-
-    function convertTexts() {
-        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
-        const boldSerifSt = '𝐚|𝐛|𝐜|𝐝|𝐞|𝐟|𝐠|𝐡|𝐢|𝐣|𝐤|𝐥|𝐦|𝐧|𝐨|𝐩|𝐪|𝐫|𝐬|𝐭|𝐮|𝐯|𝐰|𝐱|𝐲|𝐳|𝐀|𝐁|𝐂|𝐃|𝐄|𝐅|𝐆|𝐇|𝐈|𝐉|𝐊|𝐋|𝐌|𝐍|𝐎|𝐏|𝐐|𝐑|𝐒|𝐓|𝐔|𝐕|𝐖|𝐗|𝐘|𝐙|𝐚̀|𝐚́|𝐚̣|𝐚̉|𝐚̃|𝐚̂|𝐚̂̀|𝐚̂́|𝐚̂̉|𝐚̣̂|𝐚̆|𝐚̆̀|𝐚̆́|𝐚̆̉|𝐚̣̆|𝐞̀|𝐞́|𝐞̣|𝐞̉|𝐞̃|𝐞̂|𝐞̂̀|𝐞̂́|𝐞̂̉|𝐞̣̂|𝐢̀|𝐢́|𝐢̣|𝐢̉|𝐢̃|𝐨̀|𝐨́|𝐨̣|𝐨̉|𝐨̃|𝐨̂|𝐨̂̀|𝐨̂́|𝐨̂̉|𝐨̣̂|𝐨̛|𝐨̛̀|𝐨̛́|𝐨̛̉|𝐨̛̣|𝐮̀|𝐮́|𝐮̣|𝐮̉|𝐮̃|𝐮̛|𝐮̛̀|𝐮̛́|𝐮̛̉|𝐮̛̣|𝐲̀|𝐲́|𝐲̣|𝐲̉|𝐲̃|𝐝|𝐀̀|𝐀́|𝐀̣|𝐀̉|𝐀̃|𝐀̂|𝐀̂̀|𝐀̂́|𝐀̂̉|𝐀̣̂|𝐀̆|𝐀̆̀|𝐀̆́|𝐀̆̉|𝐀̣̆|𝐄̀|𝐄́|𝐄̣|𝐄̉|𝐄̃|𝐄̂|𝐄̂̀|𝐄̂́|𝐄̂̉|𝐄̣̂|𝐈̀|𝐈́|𝐈̣|𝐈̉|𝐈̃|𝐎̀|𝐎́|𝐎̣|𝐎̉|𝐎̃|𝐎̂|𝐎̂̀|𝐎̂́|𝐎̂̉|𝐎̣̂|𝐎̛|𝐎̛̀|𝐎̛́|𝐎̛̉|𝐎̛̣|𝐔̀|𝐔́|𝐔̣|𝐔̉|𝐔̃|𝐔̛|𝐔̛̀|𝐔̛́|𝐔̛̉|𝐔̛̣|𝐘̀|𝐘́|𝐘̣|𝐘̉|𝐘̃|𝐃';
-        const boldSans = '𝗮|𝗯|𝗰|𝗱|𝗲|𝗳|𝗴|𝗵|𝗶|𝗷|𝗸|𝗹|𝗺|𝗻|𝗼|𝗽|𝗾|𝗿|𝘀|𝘁|𝘂|𝘃|𝘄|𝘅|𝘆|𝘇|𝗔|𝗕|𝗖|𝗗|𝗘|𝗙|𝗚|𝗛|𝗜|𝗝|𝗞|𝗟|𝗠|𝗡|𝗢|𝗣|𝗤|𝗥|𝗦|𝗧|𝗨|𝗩|𝗪|𝗫|𝗬|𝗭|𝗮̀|𝗮́|𝗮̣|𝗮̉|𝗮̃|𝗮̂|𝗮̂̀|𝗮̂́|𝗮̂̉|𝗮̣̂|𝗮̆|𝗮̆̀|𝗮̆́|𝗮̆̉|𝗮̣̆|𝗲̀|𝗲́|𝗲̣|𝗲̉|𝗲̃|𝗲̂|𝗲̂̀|𝗲̂́|𝗲̂̉|𝗲̣̂|𝗶̀|𝗶́|𝗶̣|𝗶̉|𝗶̃|𝗼̀|𝗼́|𝗼̣|𝗼̉|𝗼̃|𝗼̂|𝗼̂̀|𝗼̂́|𝗼̂̉|𝗼̣̂|𝗼̛|𝗼̛̀|𝗼̛́|𝗼̛̉|𝗼̛̣|𝘂̀|𝘂́|𝘂̣|𝘂̉|𝘂̃|𝘂̛|𝘂̛̀|𝘂̛́|𝘂̛̉|𝘂̛̣|𝘆̀|𝘆́|𝘆̣|𝘆̉|𝘆̃|𝗱|𝗔̀|𝗔́|𝗔̣|𝗔̉|𝗔̃|𝗔̂|𝗔̂̀|𝗔̂́|𝗔̂̉|𝗔̣̂|𝗔̆|𝗔̆̀|𝗔̆́|𝗔̆̉|𝗔̣̆|𝗘̀|𝗘́|𝗘̣|𝗘̉|𝗘̃|𝗘̂|𝗘̂̀|𝗘̂́|𝗘̂̉|𝗘̣̂|𝗜̀|𝗜́|𝗜̣|𝗜̉|𝗜̃|𝗢̀|𝗢́|𝗢̣|𝗢̉|𝗢̃|𝗢̂|𝗢̂̀|𝗢̂́|𝗢̂̉|𝗢̣̂|𝗢̛|𝗢̛̀|𝗢̛́|𝗢̛̉|𝗢̛̣|𝗨̀|𝗨́|𝗨̣|𝗨̉|𝗨̃|𝗨̛|𝗨̛̀|𝗨̛́|𝗨̛̉|𝗨̛̣|𝗬̀|𝗬́|𝗬̣|𝗬̉|𝗬̃|𝗗';
-        const italicChars = '𝑎|𝑏|𝑐|𝑑|𝑒|𝑓|𝑔|ℎ|𝑖|𝑗|𝑘|𝑙|𝑚|𝑛|𝑜|𝑝|𝑞|𝑟|𝑠|𝑡|𝑢|𝑣|𝑤|𝑥|𝑦|𝑧|𝐴|𝐵|𝐶|𝐷|𝐸|𝐹|𝐺|𝐻|𝐼|𝐽|𝐾|𝐿|𝑀|𝑁|𝑂|𝑃|𝑄|𝑅|𝑆|𝑇|𝑈|𝑉|𝑊|𝑋|𝑌|𝑍|𝑎̀|𝑎́|𝑎̣|𝑎̉|𝑎̃|𝑎̂|𝑎̂̀|𝑎̂́|𝑎̂̉|𝑎̣̂|𝑎̆|𝑎̆̀|𝑎̆́|𝑎̆̉|𝑎̣̆|𝑒̀|𝑒́|𝑒̣|𝑒̉|𝑒̃|𝑒̂|𝑒̂̀|𝑒̂́|𝑒̂̉|𝑒̣̂|𝑖̀|𝑖́|𝑖̣|𝑖̉|𝑖̃|𝑜̀|𝑜́|𝑜̣|𝑜̉|𝑜̃|𝑜̂|𝑜̂̀|𝑜̂́|𝑜̂̉|𝑜̣̂|𝑜̛|𝑜̛̀|𝑜̛́|𝑜̛̉|𝑜̛̣|𝑢̀|𝑢́|𝑢̣|𝑢̉|𝑢̃|𝑢̛|𝑢̛̀|𝑢̛́|𝑢̛̉|𝑢̛̣|𝑦̀|𝑦́|𝑦̣|𝑦̉|𝑦̃|𝑑|𝐴̀|𝐴́|𝐴̣|𝐴̉|𝐴̃|𝐴̂|𝐴̂̀|𝐴̂́|𝐴̂̉|𝐴̣̂|𝐴̆|𝐴̆̀|𝐴̆́|𝐴̆̉|𝐴̣̆|𝐸̀|𝐸́|𝐸̣|𝐸̉|𝐸̃|𝐸̂|𝐸̂̀|𝐸̂́|𝐸̂̉|𝐸̣̂|𝐼̀|𝐼́|𝐼̣|𝐼̉|𝐼̃|𝑂̀|𝑂́|𝑂̣|𝑂̉|𝑂̃|𝑂̂|𝑂̂̀|𝑂̂́|𝑂̂̉|𝑂̣̂|𝑂̛|𝑂̛̀|𝑂̛́|𝑂̛̉|𝑂̛̣|𝑈̀|𝑈́|𝑈̣|𝑈̉|𝑈̃|𝑈̛|𝑈̛̀|𝑈̛́|𝑈̛̉|𝑈̛̣|𝑌̀|𝑌́|𝑌̣|𝑌̉|𝑌̃|𝐷';
-        const italicChars2 = '𝘢|𝘣|𝘤|𝘥|𝘦|𝘧|𝘨|𝘩|𝘪|𝘫|𝘬|𝘭|𝘮|𝘯|𝘰|𝘱|𝘲|𝘳|𝘴|𝘵|𝘶|𝘷|𝘸|𝘹|𝘺|𝘻|𝘈|𝘉|𝘊|𝘋|𝘌|𝘍|𝘎|𝘏|𝘐|𝘑|𝘒|𝘓|𝘔|𝘕|𝘖|𝘗|𝘘|𝘙|𝘚|𝘛|𝘜|𝘝|𝘞|𝘟|𝘠|𝘡|𝑎̀|𝑎́|𝑎̣|𝑎̉|𝑎̃|𝑎̂|𝑎̂̀|𝑎̂́|𝑎̂̉|𝑎̣̂|𝑎̆|𝑎̆̀|𝑎̆́|𝑎̆̉|𝑎̣̆|𝑒̀|𝑒́|𝑒̣|𝑒̉|𝑒̃|𝑒̂|𝑒̂̀|𝑒̂́|𝑒̂̉|𝑒̣̂|𝑖̀|𝑖́|𝑖̣|𝑖̉|𝑖̃|𝑜̀|𝑜́|𝑜̣|𝑜̉|𝑜̃|𝑜̂|𝑜̂̀|𝑜̂́|𝑜̂̉|𝑜̣̂|𝑜̛|𝑜̛̀|𝑜̛́|𝑜̛̉|𝑜̛̣|𝑢̀|𝑢́|𝑢̣|𝑢̉|𝑢̃|𝑢̛|𝑢̛̀|𝑢̛́|𝑢̛̉|𝑢̛̣|𝑦̀|𝑦́|𝑦̣|𝑦̉|𝑦̃|𝑑|𝐴̀|𝐴́|𝐴̣|𝐴̉|𝐴̃|𝐴̂|𝐴̂̀|𝐴̂́|𝐴̂̉|𝐴̣̂|𝐴̆|𝐴̆̀|𝐴̆́|𝐴̆̉|𝐴̣̆|𝐸̀|𝐸́|𝐸̣|𝐸̉|𝐸̃|𝐸̂|𝐸̂̀|𝐸̂́|𝐸̂̉|𝐸̣̂|𝐼̀|𝐼́|𝐼̣|𝐼̉|𝐼̃|𝑂̀|𝑂́|𝑂̣|𝑂̉|𝑂̃|𝑂̂|𝑂̂̀|𝑂̂́|𝑂̂̉|𝑂̣̂|𝑂̛|𝑂̛̀|𝑂̛́|𝑂̛̉|𝑂̛̣|𝑈̀|𝑈́|𝑈̣|𝑈̉|𝑈̃|𝑈̛|𝑈̛̀|𝑈̛́|𝑈̛̉|𝑈̛̣|𝑌̀|𝑌́|𝑌̣|𝑌̉|𝑌̃|𝐷';
-        const inputText = document.getElementById('inputText').value;
-        console.log(convertText(inputText, boldSerifSt))
-        document.getElementById('result-01').textContent = convertText(inputText, boldSerifSt);
-        document.getElementById('result-02').textContent = convertText(inputText, boldSans);
-        document.getElementById('result-03').textContent = convertText(inputText, italicChars);
-        document.getElementById('result-04').textContent = convertText(inputText, italicChars2);
-    }
-
     function transformText() {
         countWords()
-        convertTexts()
-    }
-
-    function countWords() {
-        const inputText = document.getElementById('inputText').value;
-
-        // Character count
-        document.getElementById('charCount').textContent = inputText.length;
-
-        // Word count
-        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
-        document.getElementById('wordCount').textContent = wordCount;
-
-        // Sentence count
-        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
-        document.getElementById('sentenceCount').textContent = sentenceCount;
-
-        // Line count
-        const lineCount = inputText.split(/\n/).length;
-        document.getElementById('lineCount').textContent = lineCount;
+        convertBoldItalicTexts('inputText', ['bold-italic-result-01', 'bold-italic-result-02', 'bold-italic-result-03', 'bold-italic-result-04'])
     }
 </script>
 {{ end }}

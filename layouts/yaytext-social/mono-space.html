@@ -1,5 +1,8 @@
 {{ define "main" }}
 {{partial "output-box.html" .}}
+{{partial "sc-convert-standard-text.html" .}}
+{{partial "sc-count-word.html" .}}
+{{partial "sc-mono-space.html" .}}
 <div class="container">
     <h1 id="page-title">Monospace Text Generator - Create Fixed-Width Text for Social Media & ASCII Art</h1>
     <p id="page-description">Transform your text into monospace format for easy copying to social media, code displays,
@@ -19,10 +22,10 @@
         <div class="output-box" id="result">
             <label>Preview</label>
             <div class="result">
-                <span readonly class="input-result" id="result-01"></span>
+                <span readonly class="input-result" id="mono-space-result-01"></span>
                 <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-01"
-                        onclick="copyText('result-01', 'copy-result-01')">Copy
+                <button class="button-result copy-button" id="copy-mono-space-result-01"
+                        onclick="copyText('mono-space-result-01', 'copy-mono-space-result-01')">Copy
                 </button>
             </div>
         </div>
@@ -104,46 +107,9 @@
 </div>
 
 <script>
-    function convertText(inputText, standard) {
-        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
-        const standardParts = standard.split('|');
-        return inputText.split('').map(char => {
-            const idx = original.indexOf(char.toString());
-            console.log(idx)
-            if (idx === -1) return char;
-            return standardParts[idx];
-        }).join('')
-    }
-
-    function convertTexts() {
-        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
-        const standard = '𝚊|𝚋|𝚌|𝚍|𝚎|𝚏|𝚐|𝚑|𝚒|𝚓|𝚔|𝚕|𝚖|𝚗|𝚘|𝚙|𝚚|𝚛|𝚜|𝚝|𝚞|𝚟|𝚠|𝚡|𝚢|𝚣|𝙰|𝙱|𝙲|𝙳|𝙴|𝙵|𝙶|𝙷|𝙸|𝙹|𝙺|𝙻|𝙼|𝙽|𝙾|𝙿|𝚀|𝚁|𝚂|𝚃|𝚄|𝚅|𝚆|𝚇|𝚈|𝚉|𝚊̀|𝚊́|𝚊̣|𝚊̉|𝚊̃|𝚊̂|𝚊̂̀|𝚊̂́|𝚊̂̉|𝚊̣̂|𝚊̆|𝚊̆̀|𝚊̆́|𝚊̆̉|𝚊̣̆|𝚎̀|𝚎́|𝚎̣|𝚎̉|𝚎̃|𝚎̂|𝚎̂̀|𝚎̂́|𝚎̂̉|𝚎̣̂|𝚒̀|𝚒́|𝚒̣|𝚒̉|𝚒̃|𝚘̀|𝚘́|𝚘̣|𝚘̉|𝚘̃|𝚘̂|𝚘̂̀|𝚘̂́|𝚘̂̉|𝚘̣̂|𝚘̛|𝚘̛̀|𝚘̛́|𝚘̛̉|𝚘̛̣|𝚞̀|𝚞́|𝚞̣|𝚞̉|𝚞̃|𝚞̛|𝚞̛̀|𝚞̛́|𝚞̛̉|𝚞̛̣|𝚢̀|𝚢́|𝚢̣|𝚢̉|𝚢̃|đ|𝙰̀|𝙰́|𝙰̣|𝙰̉|𝙰̃|𝙰̂|𝙰̂̀|𝙰̂́|𝙰̂̉|𝙰̣̂|𝙰̆|𝙰̆̀|𝙰̆́|𝙰̆̉|𝙰̣̆|𝙴̀|𝙴́|𝙴̣|𝙴̉|𝙴̃|𝙴̂|𝙴̂̀|𝙴̂́|𝙴̂̉|𝙴̣̂|𝙸̀|𝙸́|𝙸̣|𝙸̉|𝙸̃|𝙾̀|𝙾́|𝙾̣|𝙾̉|𝙾̃|𝙾̂|𝙾̂̀|𝙾̂́|𝙾̂̉|𝙾̣̂|𝙾̛|𝙾̛̀|𝙾̛́|𝙾̛̉|𝙾̛̣|𝚄̀|𝚄́|𝚄̣|𝚄̉|𝚄̃|𝚄̛|𝚄̛̀|𝚄̛́|𝚄̛̉|𝚄̛̣|𝚈̀|𝚈́|𝚈̣|𝚈̉|𝚈̃|Đ';
-        const inputText = document.getElementById('inputText').value;
-        document.getElementById('result-01').textContent = convertText(inputText, standard);
-    }
-
     function transformText() {
         countWords()
-        convertTexts()
-    }
-
-    function countWords() {
-        const inputText = document.getElementById('inputText').value;
-
-        // Character count
-        document.getElementById('charCount').textContent = inputText.length;
-
-        // Word count
-        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
-        document.getElementById('wordCount').textContent = wordCount;
-
-        // Sentence count
-        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
-        document.getElementById('sentenceCount').textContent = sentenceCount;
-
-        // Line count
-        const lineCount = inputText.split(/\n/).length;
-        document.getElementById('lineCount').textContent = lineCount;
+        convertMonoSpaceTexts('inputText', ['mono-space-result-01'])
     }
 </script>
 {{ end }}

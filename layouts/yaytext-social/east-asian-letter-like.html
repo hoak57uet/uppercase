@@ -1,5 +1,8 @@
 {{ define "main" }}
 {{partial "output-box.html" .}}
+{{partial "sc-convert-standard-text.html" .}}
+{{partial "sc-count-word.html" .}}
+{{partial "sc-east-asian-letter-like.html" .}}
 <div class="container">
     <h1 id="page-title">East Asian Letterlike Text Generator - Transform Your Text into Elegant Characters</h1>
     <p id="page-description">Discover our East Asian Letterlike Text Generator, which transforms your English text into
@@ -20,33 +23,38 @@
         <div class="output-box" id="result">
             <label>Preview</label>
             <div class="result">
-                <span readonly class="input-result" id="result-01"></span>
+                <span readonly class="input-result" id="east-asian-letter-like-result-01"></span>
                 <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-01" onclick="copyText('result-01', 'copy-result-01')">Copy
+                <button class="button-result copy-button" id="copy-east-asian-letter-like-result-01"
+                        onclick="copyText('east-asian-letter-like-result-01', 'copy-east-asian-letter-like-result-01')">Copy
                 </button>
             </div>
             <div class="result-even">
-                <span readonly class="input-result" id="result-02"></span>
+                <span readonly class="input-result" id="east-asian-letter-like-result-02"></span>
                 <span class="copied-message" id="copiedMessage2">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-02" onclick="copyText('result-02', 'copy-result-02')">Copy
+                <button class="button-result copy-button" id="copy-east-asian-letter-like-result-02"
+                        onclick="copyText('east-asian-letter-like-result-02', 'copy-east-asian-letter-like-result-02')">Copy
                 </button>
             </div>
             <div class="result">
-                <span readonly class="input-result" id="result-03"></span>
+                <span readonly class="input-result" id="east-asian-letter-like-result-03"></span>
                 <span class="copied-message" id="copiedMessage3">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-03" onclick="copyText('result-03', 'copy-result-03')">Copy
+                <button class="button-result copy-button" id="copy-east-asian-letter-like-result-03"
+                        onclick="copyText('east-asian-letter-like-result-03', 'copy-east-asian-letter-like-result-03')">Copy
                 </button>
             </div>
             <div class="result-even">
-                <span readonly class="input-result" id="result-04"></span>
+                <span readonly class="input-result" id="east-asian-letter-like-result-04"></span>
                 <span class="copied-message" id="copiedMessage4">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-04" onclick="copyText('result-04', 'copy-result-04')">Copy
+                <button class="button-result copy-button" id="copy-east-asian-letter-like-result-04"
+                        onclick="copyText('east-asian-letter-like-result-04', 'copy-east-asian-letter-like-result-04')">Copy
                 </button>
             </div>
             <div class="result">
-                <span readonly class="input-result" id="result-05"></span>
+                <span readonly class="input-result" id="east-asian-letter-like-result-05"></span>
                 <span class="copied-message" id="copiedMessage5">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-05" onclick="copyText('result-05', 'copy-result-05')">Copy
+                <button class="button-result copy-button" id="copy-east-asian-letter-like-result-05"
+                        onclick="copyText('east-asian-letter-like-result-05', 'copy-east-asian-letter-like-result-05')">Copy
                 </button>
             </div>
         </div>
@@ -163,54 +171,9 @@
 </div>
 
 <script>
-    function convertText(inputText, standard) {
-        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
-        const standardParts = standard.split('|');
-        return inputText.split('').map(char => {
-            const idx = original.indexOf(char.toString());
-            console.log(idx)
-            if (idx === -1) return char;
-            return standardParts[idx];
-        }).join('')
-    }
-
-    function convertTexts() {
-        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
-        const standard = '丹|乃|匚|刀|モ|下|ム|卄|工|丿|ㄑ|ㄥ|爪|力|口|ㄗ|口|尺|ち|匕|し|ソ|山|㐅|ソ|乙|丹|乃|匚|刀|モ|下|ム|卄|工|丿|ㄑ|ㄥ|爪|力|口|ㄗ|口|尺|ち|匕|し|ソ|山|㐅|ソ|乙|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
-        const standard2 = '刄|马|匸|冂|㠪|于|已|卅|エ|丁|片|乚|从|几|囗|尸|冋|尺|丂|十|凵|ひ|丗|乂|ㄚ|之|刄|马|匸|冂|㠪|于|已|卅|エ|丁|片|乚|从|几|囗|尸|冋|尺|丂|十|凵|ひ|丗|乂|ㄚ|之|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
-        const standard3 = '升|も|亡|问|乇|乍|彑|廾|工|亅|ズ|し|冊|刀|口|戶|디|尺|丂|丁|나|ᜠ|山|义|ﾘ|乙|升|も|亡|问|乇|乍|彑|廾|工|亅|ズ|し|冊|刀|口|戶|디|尺|丂|丁|나|ᜠ|山|义|ﾘ|乙|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
-        const standard4 = '刄|乃|匚|冂|乇|于|ム|廾|工|亅|ㄑ|ㄥ|从|力|口|尸|디|尺|丂|丁|凵|ソ|山|乂|ﾘ|之|刄|乃|亡|问|モ|下|已|卄|エ|丿|片|ㄥ|冊|几|囗|ㄗ|冋|尺|丂|匕|し|ソ|丗|义|ソ|乙|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
-        const standard5 = '升ａ|｜马ｂ|｜亡ｃ|｜冂ｄ|｜乇ｅ|｜乍ｆ|｜彑ｇ|｜廾ｈ|｜エｉ|｜丿ｊ|｜ズｋ|｜しｌ|｜爪ｍ|｜几ｎ|｜口ｏ|｜戶ｐ|｜디ｑ|｜尺ｒ|｜丂ｓ|｜匕ｔ|｜나ｕ|｜ソｖ|｜山ｗ|｜义ｘ|｜ﾘｙ|｜乙ｚ|｜丹Ａ|｜乃Ｂ|｜匸Ｃ|｜刀Ｄ|｜㠪Ｅ|｜乍Ｆ|｜彑Ｇ|｜卄Ｈ|｜エＩ|｜丁Ｊ|｜ズＫ|｜乚Ｌ|｜从Ｍ|｜刀Ｎ|｜口Ｏ|｜尸Ｐ|｜口Ｑ|｜尺Ｒ|｜丂Ｓ|｜十Ｔ|｜凵Ｕ|｜ソＶ|｜山Ｗ|｜乂Ｘ|｜ㄚＹ|｜乙Ｚ|｜àà|｜áá|｜ạạ|｜ảả|｜ãã|｜ââ|｜ầầ|｜ấấ|｜ẩẩ|｜ậậ|｜ăă|｜ằằ|｜ắắ|｜ẳẳ|｜ặặ|｜èè|｜éé|｜ẹẹ|｜ẻẻ|｜ẽẽ|｜êê|｜ềề|｜ếế|｜ểể|｜ệệ|｜ìì|｜íí|｜ịị|｜ỉỉ|｜ĩĩ|｜òò|｜óó|｜ọọ|｜ỏỏ|｜õõ|｜ôô|｜ồồ|｜ốố|｜ổổ|｜ộộ|｜ơơ|｜ờờ|｜ớớ|｜ởở|｜ợợ|｜ùù|｜úú|｜ụụ|｜ủủ|｜ũũ|｜ưư|｜ừừ|｜ứứ|｜ửử|｜ựự|｜ỳỳ|｜ýý|｜ỵỵ|｜ỷỷ|｜ỹỹ|｜đđ|｜ÀÀ|｜ÁÁ|｜ẠẠ|｜ẢẢ|｜ÃÃ|｜ÂÂ|｜ẦẦ|｜ẤẤ|｜ẨẨ|｜ẬẬ|｜ĂĂ|｜ẰẰ|｜ẮẮ|｜ẲẲ|｜ẶẶ|｜ÈÈ|｜ÉÉ|｜ẸẸ|｜ẺẺ|｜ẼẼ|｜ÊÊ|｜ỀỀ|｜ẾẾ|｜ỂỂ|｜ỆỆ|｜ÌÌ|｜ÍÍ|｜ỊỊ|｜ỈỈ|｜ĨĨ|｜ÒÒ|｜ÓÓ|｜ỌỌ|｜ỎỎ|｜ÕÕ|｜ÔÔ|｜ỒỒ|｜ỐỐ|｜ỔỔ|｜ỘỘ|｜ƠƠ|｜ỜỜ|｜ỚỚ|｜ỞỞ|｜ỢỢ|｜ÙÙ|｜ÚÚ|｜ỤỤ|｜ỦỦ|｜ŨŨ|｜ƯƯ|｜ỪỪ|｜ỨỨ|｜ỬỬ|｜ỰỰ|｜ỲỲ|｜ÝÝ|｜ỴỴ|｜ỶỶ|｜ỸỸ|｜ĐĐ';
-        const inputText = document.getElementById('inputText').value;
-        document.getElementById('result-01').textContent = convertText(inputText, standard);
-        document.getElementById('result-02').textContent = convertText(inputText, standard2);
-        document.getElementById('result-03').textContent = convertText(inputText, standard3);
-        document.getElementById('result-04').textContent = convertText(inputText, standard4);
-        document.getElementById('result-05').textContent = convertText(inputText, standard5);
-    }
-
     function transformText() {
         countWords()
-        convertTexts()
-    }
-
-    function countWords() {
-        const inputText = document.getElementById('inputText').value;
-
-        // Character count
-        document.getElementById('charCount').textContent = inputText.length;
-
-        // Word count
-        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
-        document.getElementById('wordCount').textContent = wordCount;
-
-        // Sentence count
-        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
-        document.getElementById('sentenceCount').textContent = sentenceCount;
-
-        // Line count
-        const lineCount = inputText.split(/\n/).length;
-        document.getElementById('lineCount').textContent = lineCount;
+        convertEastAsianLetterLikeTexts('inputText', ['east-asian-letter-like-result-01', 'east-asian-letter-like-result-02', 'east-asian-letter-like-result-03', 'east-asian-letter-like-result-04', 'east-asian-letter-like-result-05'])
     }
 </script>
 {{ end }}

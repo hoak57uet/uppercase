@@ -1,5 +1,8 @@
 {{ define "main" }}
 {{partial "output-box.html" .}}
+{{partial "sc-convert-standard-text.html" .}}
+{{partial "sc-count-word.html" .}}
+{{partial "sc-mini-me-stacked-text.html" .}}
 <div class="container">
     <h1 id="page-title">StackText: Create Unique Layered Text with Mini Letters</h1>
     <p id="page-description">Transform ordinary text into eye-catching layered typography with StackText. Create
@@ -19,21 +22,24 @@
         <div class="output-box" id="result">
             <label>Preview</label>
             <div class="result">
-                <span readonly class="input-result" id="result-01"></span>
+                <span readonly class="input-result" id="mini-me-stacked-text-result-01"></span>
                 <span class="copied-message" id="copiedMessage1">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-01" onclick="copyText('result-01', 'copy-result-01')">Copy
+                <button class="button-result copy-button" id="copy-mini-me-stacked-text-result-01"
+                        onclick="copyText('mini-me-stacked-text-result-01', 'copy-mini-me-stacked-text-result-01')">Copy
                 </button>
             </div>
             <div class="result-even">
-                <span readonly class="input-result" id="result-02"></span>
+                <span readonly class="input-result" id="mini-me-stacked-text-result-02"></span>
                 <span class="copied-message" id="copiedMessage2">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-02" onclick="copyText('result-02', 'copy-result-02')">Copy
+                <button class="button-result copy-button" id="copy-mini-me-stacked-text-result-02"
+                        onclick="copyText('mini-me-stacked-text-result-02', 'copy-mini-me-stacked-text-result-02')">Copy
                 </button>
             </div>
             <div class="result">
-                <span readonly class="input-result" id="result-03"></span>
+                <span readonly class="input-result" id="mini-me-stacked-text-result-03"></span>
                 <span class="copied-message" id="copiedMessage3">Copied ✓</span>
-                <button class="button-result copy-button" id="copy-result-03" onclick="copyText('result-03', 'copy-result-03')">Copy
+                <button class="button-result copy-button" id="copy-mini-me-stacked-text-result-03"
+                        onclick="copyText('mini-me-stacked-text-result-03', 'copy-mini-me-stacked-text-result-03')">Copy
                 </button>
             </div>
         </div>
@@ -131,50 +137,10 @@
 </div>
 
 <script>
-    function convertText(inputText, standard) {
-        const original = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáạảãâầấẩậăằắẳặèéẹẻẽêềếểệìíịỉĩòóọỏõôồốổộơờớởợùúụủũưừứửựỳýỵỷỹđÀÁẠẢÃÂẦẤẨẬĂẰẮẲẶÈÉẸẺẼÊỀẾỂỆÌÍỊỈĨÒÓỌỎÕÔỒỐỔỘƠỜỚỞỢÙÚỤỦŨƯỪỨỬỰỲÝỴỶỸĐ'.split('');
-        const standardParts = standard.split('|');
-        return inputText.split('').map(char => {
-            const idx = original.indexOf(char.toString());
-            console.log(idx)
-            if (idx === -1) return char;
-            return standardParts[idx];
-        }).join('')
-    }
-
-    function convertTexts() {
-        // const original = 'aăâbcdđeêfghijklmnoôơpqrstuưvwxyz';
-        const standard = 'aͣ|b|cͨ|dͩ|eͤ|f|g|hͪ|iͥ|j|k|l|mͫ|n|oͦ|p|q|rͬ|s|tͭ|uͧ|vͮ|w|xͯ|y|z|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
-        const standard2 = ' ͣ|b| ͨ| ͩ| ͤ|f|g| ͪ| ͥ|j|k|l| ͫ|n| ͦ|p|q| ͬ|s| ͭ| ͧ| ͮ|w| ͯ|y|z|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
-        const standard3 = 'ᵃ|ᵇ|ᶜ|ᵈ|ᵉ|ᶠ|ᵍ|ʰ|ᶦ|ʲ|ᵏ|ˡ|ᵐ|ⁿ|ᵒ|ᵖ|ᑫ|ʳ|ˢ|ᵗ|ᵘ|ᵛ|ʷ|ˣ|ʸ|ᶻ|ᴬ|ᴮ|ᶜ|ᴰ|ᴱ|ᶠ|ᴳ|ᴴ|ᴵ|ᴶ|ᴷ|ᴸ|ᴹ|ᴺ|ᴼ|ᴾ|Q|ᴿ|ˢ|ᵀ|ᵁ|ⱽ|ᵂ|ˣ|ʸ|ᶻ|à|á|ạ|ả|ã|â|ầ|ấ|ẩ|ậ|ă|ằ|ắ|ẳ|ặ|è|é|ẹ|ẻ|ẽ|ê|ề|ế|ể|ệ|ì|í|ị|ỉ|ĩ|ò|ó|ọ|ỏ|õ|ô|ồ|ố|ổ|ộ|ơ|ờ|ớ|ở|ợ|ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ử|ự|ỳ|ý|ỵ|ỷ|ỹ|đ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ẩ|Ậ|Ă|Ằ|Ắ|Ẳ|Ặ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ệ|Ì|Í|Ị|Ỉ|Ĩ|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ơ|Ờ|Ớ|Ở|Ợ|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ỳ|Ý|Ỵ|Ỷ|Ỹ|Đ';
-        const inputText = document.getElementById('inputText').value;
-        document.getElementById('result-01').textContent = convertText(inputText, standard);
-        document.getElementById('result-02').textContent = convertText(inputText, standard2);
-        document.getElementById('result-03').textContent = convertText(inputText, standard3);
-    }
-
     function transformText() {
         countWords()
-        convertTexts()
+        convertMiniMeStackedTexts('inputText', ['mini-me-stacked-text-result-01', 'mini-me-stacked-text-result-02', 'mini-me-stacked-text-result-03'])
     }
 
-    function countWords() {
-        const inputText = document.getElementById('inputText').value;
-
-        // Character count
-        document.getElementById('charCount').textContent = inputText.length;
-
-        // Word count
-        const wordCount = inputText.trim() === '' ? 0 : inputText.trim().split(/\s+/).length;
-        document.getElementById('wordCount').textContent = wordCount;
-
-        // Sentence count
-        const sentenceCount = inputText.split(/[.!?]+/).filter(Boolean).length;
-        document.getElementById('sentenceCount').textContent = sentenceCount;
-
-        // Line count
-        const lineCount = inputText.split(/\n/).length;
-        document.getElementById('lineCount').textContent = lineCount;
-    }
 </script>
 {{ end }}
