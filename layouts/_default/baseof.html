@@ -34,6 +34,10 @@
     <!-- Robots Meta Tag -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -42,6 +46,37 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        select, input[type=number] {
+            width: 200px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            background-color: #fff;
+            font-size: 16px;
+            color: #495057;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            appearance: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .right {
+            position: absolute;
+            right: 12px;
+        }
+
+        select:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.25);
+        }
+
+        select option {
+            padding: 10px;
+            background-color: #fff;
+            color: #495057;
         }
 
         button.large {
@@ -55,6 +90,19 @@
         }
 
         button.large:hover {
+            background: #218838;
+        }
+
+        button.wrap {
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button.wrap:hover {
             background: #218838;
         }
 
@@ -158,18 +206,6 @@
             white-space: pre-wrap; /* Giữ lại dấu xuống dòng */
         }
 
-        .output-box {
-            flex: 1;
-            flex-direction: column;
-            display: flex;
-            background-color: #fff;
-            padding: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            word-wrap: break-word;
-            box-sizing: border-box;
-        }
-
         .options label {
             margin-right: 10px;
             font-size: 14px;
@@ -262,10 +298,6 @@
                 flex-direction: column;
             }
 
-            .output-box {
-                box-sizing: border-box;
-            }
-
             textarea {
                 height: 150px;
             }
@@ -282,7 +314,7 @@
         const textArea = document.getElementById(textAreaId);
         const button = document.getElementById(buttonId);
         // Sử dụng API clipboard để sao chép nội dung
-        console.log(textAreaId+':'+textArea)
+        console.log(textAreaId + ':' + textArea)
         let content = textArea.value;
         if (!content) {
             content = textArea.textContent;
@@ -309,6 +341,7 @@
                 button.textContent = originalText;
             }, 1000);
         }).catch(function (err) {
+            alert(err)
         });
     }
 </script>

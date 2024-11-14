@@ -1,0 +1,251 @@
+{{ define "main" }}
+{{partial "output-box.html" .}}
+<script src="https://cdn.jsdelivr.net/npm/bitcoinjs-lib@5.1.6/src/index.js"></script>
+<style>
+    .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .wallet-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #f5f5f5;
+        padding: 10px;
+        border-radius: 4px;
+        width: 100%;
+        margin-top: 5px;
+    }
+</style>
+<div class="container">
+    <h1 id="page-title">{{.Title}}</h1>
+    <p id="page-description">{{.Description}}</p>
+    <div class="vertical-container">
+        <div class="output-box">
+            <div class="controls">
+                <div class="input-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" min="1" max="100" value="1">
+                </div>
+
+                <div style="display: flex">
+                    <input type="checkbox" id="includePrivateKey">
+                    <label style="margin-bottom: 0px" for="includePrivateKey">Include Private key</label>
+                </div>
+
+                <button class="large" onclick="generateWallets()">Generate</button>
+            </div>
+
+            <div id="results" class="results"></div>
+        </div>
+    </div>
+    <div id="page-content">
+        <section>
+            <h2>Generate Ethereum (ETH) & EVM-Compatible Wallets Securely and Effortlessly</h2>
+            <p>
+                Welcome to our <strong>Ethereum Wallet Generator</strong>, an easy-to-use tool designed to create
+                Ethereum (ETH) and Ethereum Virtual Machine (EVM)-compatible wallets securely in your browser. Ethereum
+                wallets are essential for interacting with the Ethereum blockchain and related networks, allowing users
+                to store, send, and receive Ether (ETH) and other tokens. Our generator provides a user-friendly way to
+                produce multiple wallet addresses with or without private keys, making it ideal for blockchain
+                enthusiasts, developers, and anyone needing a safe and convenient way to manage digital assets.
+            </p>
+            <p>
+                Ethereum and EVM-compatible wallets are not just for storing ETH but can also hold a variety of tokens
+                and assets on networks like Binance Smart Chain, Polygon, Avalanche, and others. With this tool, you can
+                instantly create multiple wallet addresses, which saves time and minimizes the risk of human error
+                compared to generating each wallet individually. Our platform empowers users to produce wallets in bulk
+                for development, testing, or personal use, ensuring that each address generated is unique and secure.
+            </p>
+            <p>
+                Security is our priority. All wallet addresses and private keys are created on your device using
+                advanced cryptographic algorithms without transmitting any sensitive data to our servers. By keeping
+                wallet generation client-side, we eliminate the risk of unauthorized access to your private keys or
+                wallet addresses. You have complete control over your data, which remains private and secure.
+            </p>
+            <p>
+                Once you’ve generated your wallets, you can easily download them as a CSV file. This format is
+                convenient for managing a list of addresses and private keys offline and is compatible with spreadsheet
+                applications, making organization and backup effortless. Additionally, we provide a “Copy” feature next
+                to each wallet address for quick access if you prefer to use addresses individually.
+            </p>
+            <p>
+                Our tool supports all major EVM-compatible networks, so whether you're using Ethereum, Binance Smart
+                Chain, or another network built on the Ethereum infrastructure, you can create wallets that function
+                seamlessly. Start generating your ETH and EVM-compatible wallets now and take control of your digital
+                assets securely and conveniently.
+            </p>
+        </section>
+
+        <section>
+            <h2>How to Use the Ethereum & EVM-Compatible Wallet Generator</h2>
+            <ol>
+                <li>Enter the number of wallet addresses you wish to generate.</li>
+                <li>Choose whether to include private keys with each generated address. For added security, we recommend
+                    storing private keys in a secure location.
+                </li>
+                <li>Click on the <strong>Generate Wallet</strong> button to create your Ethereum or EVM-compatible
+                    wallets.
+                </li>
+                <li>After generation, copy each wallet address individually or download the entire set as a CSV file for
+                    easy access and backup.
+                </li>
+                <li>Keep your private keys private, as anyone with access to them can control your funds.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <div>
+                <h3>1. What is an Ethereum (ETH) Wallet?</h3>
+                <p>An Ethereum wallet is a digital storage address that allows you to hold, send, and receive Ether
+                    (ETH) and tokens on the Ethereum blockchain. It also works with other EVM-compatible networks, like
+                    Binance Smart Chain and Polygon.</p>
+            </div>
+
+            <div>
+                <h3>2. What does EVM-Compatible mean?</h3>
+                <p>EVM stands for Ethereum Virtual Machine. EVM-compatible wallets can be used on various blockchains
+                    that support Ethereum’s ecosystem, such as Binance Smart Chain, Avalanche, and Fantom. These wallets
+                    operate similarly to Ethereum wallets.</p>
+            </div>
+
+            <div>
+                <h3>3. Is it safe to generate wallets online?</h3>
+                <p>Yes, it is safe if the generator uses client-side scripts for wallet generation. This means that all
+                    private keys and wallet addresses are created directly in your browser without being sent to a
+                    server.</p>
+            </div>
+
+            <div>
+                <h3>4. Why should I download my wallets in a CSV file?</h3>
+                <p>Downloading wallets in a CSV file allows you to store multiple wallet addresses and private keys
+                    safely offline. It also provides an easy way to manage and backup your addresses for future use.</p>
+            </div>
+
+            <div>
+                <h3>5. Can I create wallets for other networks, like Binance Smart Chain or Polygon?</h3>
+                <p>Yes, our generator creates wallets compatible with Ethereum and any EVM-compatible network. This
+                    allows you to use your wallet addresses across networks like Binance Smart Chain, Polygon,
+                    Avalanche, and more.</p>
+            </div>
+
+            <div>
+                <h3>6. What should I do if I lose my private key?</h3>
+                <p>Unfortunately, if you lose your private key, you lose access to your funds in that wallet. Always
+                    keep a secure backup of your private keys in a safe location.</p>
+            </div>
+
+            <div>
+                <h3>7. Can I use these wallets to store tokens?</h3>
+                <p>Yes, Ethereum wallets can store ETH as well as ERC-20, ERC-721, and other token standards on the
+                    Ethereum network. On EVM-compatible networks, you can also store native assets and supported
+                    tokens.</p>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+<script>
+    let wallets = [];
+
+    async function generateWallets() {
+        const quantity = parseInt(document.getElementById('quantity').value);
+        const includePrivateKey = document.getElementById('includePrivateKey').checked;
+
+        wallets = [];
+        const resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = '';
+
+        for (let i = 0; i < quantity; i++) {
+            const keyPair = bitcoin.ECPair.makeRandom();
+
+            // Lấy private key dưới dạng WIF (Wallet Import Format)
+            const privateKey = keyPair.toWIF();
+
+            // Lấy địa chỉ Bitcoin từ public key
+            const { address } = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey });
+            const wallet = {
+                address : address,
+                privateKey:privateKey
+            }
+            wallets.push({
+                address: wallet.address,
+                privateKey: wallet.privateKey
+            });
+
+            const walletItem = document.createElement('div');
+            walletItem.className = 'wallet-item';
+
+            let walletText = `${wallet.address}`;
+            if (includePrivateKey) {
+                walletText += `<br>${wallet.privateKey}`;
+            }
+
+            walletItem.innerHTML = `<span style="flex-grow: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${walletText}</span>`;
+
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'copy-button';
+            copyBtn.textContent = 'Copy';
+            copyBtn.onclick = () => copyToClipboard(walletText, copyBtn);
+
+            walletItem.appendChild(copyBtn);
+            resultsDiv.appendChild(walletItem);
+        }
+
+        if (wallets.length > 0) {
+            const downloadBtn = document.createElement('button');
+            downloadBtn.className = 'wrap';
+            downloadBtn.textContent = 'Download CSV';
+            downloadBtn.onclick = downloadCSV;
+            resultsDiv.insertBefore(downloadBtn, resultsDiv.firstChild);
+        }
+    }
+
+    function copyWallet(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text.replace(/<br>/g, '\n');
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = 'Đã copy!';
+        setTimeout(() => {
+            btn.textContent = originalText;
+        }, 1500);
+    }
+
+    function downloadCSV() {
+        const includePrivateKey = document.getElementById('includePrivateKey').checked;
+
+        let csv = 'Address';
+        if (includePrivateKey) csv += ',PrivateKey';
+        csv += '\n';
+
+        wallets.forEach(wallet => {
+            csv += wallet.address;
+            if (includePrivateKey) csv += ',' + wallet.privateKey;
+            csv += '\n';
+        });
+
+        const blob = new Blob([csv], {type: 'text/csv'});
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.setAttribute('hidden', '');
+        a.setAttribute('href', url);
+        a.setAttribute('download', 'eth-wallets.csv');
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+</script>
+{{ end }}

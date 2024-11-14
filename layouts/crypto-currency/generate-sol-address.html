@@ -1,0 +1,390 @@
+{{ define "main" }}
+{{partial "output-box.html" .}}
+<script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+<style>
+    .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .wallet-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #f5f5f5;
+        padding: 10px;
+        border-radius: 4px;
+        width: 100%;
+        margin-top: 5px;
+    }
+</style>
+<div class="container">
+    <h1 id="page-title">{{.Title}}</h1>
+    <p id="page-description">{{.Description}}</p>
+    <div class="vertical-container">
+        <div class="output-box">
+            <div class="controls">
+                <div class="input-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" min="1" max="100" value="1">
+                </div>
+
+                <div style="display: flex">
+                    <input type="checkbox" id="includePrivateKey">
+                    <label style="margin-bottom: 0px" for="includePrivateKey">Include Private key</label>
+                </div>
+
+                <button class="large" onclick="generateWallets()">Generate</button>
+            </div>
+
+            <div id="results" class="results"></div>
+        </div>
+    </div>
+    <div id="page-content">
+        <section>
+            <h2>Generate Solana Wallets Securely in Bulk</h2>
+            <p>
+                Welcome to our <strong>Solana Wallet Generator</strong>, a free and easy-to-use tool designed to generate Solana wallet addresses in bulk. Whether you're a developer, crypto enthusiast, or business looking to manage multiple wallets, our tool allows you to create and download Solana wallet addresses along with their private keys securely, all within your browser.
+            </p>
+            <p>
+                Solana is one of the fastest-growing blockchains, offering high-speed transactions and low fees. Our Solana wallet generator ensures you can easily create multiple wallet addresses for the Solana network, ideal for managing SOL (Solana’s native cryptocurrency) and SPL (Solana Program Library) tokens. Whether you're developing dApps or conducting large-scale operations, this tool helps you save time and effort by generating wallets in bulk.
+            </p>
+            <p>
+                Security is our top priority. The wallet generation process is entirely client-side, meaning no private data or keys are transmitted to our servers. By keeping the wallet generation process local, we ensure your private keys remain secure on your device, minimizing the risk of exposure.
+            </p>
+            <p>
+                Once generated, you can easily download the wallet addresses and private keys as a CSV file for convenient management and offline backup. Alternatively, you can copy each wallet address individually using the "Copy" button for quick use. Our tool is designed to be simple and efficient, making it the perfect solution for anyone looking to generate multiple Solana wallets securely and without hassle.
+            </p>
+            <p>
+                Start creating your Solana wallets now and take control of your digital assets with complete security and ease.
+            </p>
+        </section>
+        <section>
+            <h2>How It Works</h2>
+            <p>Our Solana Wallet Generator is simple to use and completely secure. Follow these easy steps to start generating Solana wallets:</p>
+            <ol>
+                <li><strong>Choose the Number of Wallets:</strong> Select how many Solana wallet addresses you wish to generate. You can create multiple addresses at once for bulk management.</li>
+                <li><strong>Select Options:</strong> Choose whether you want to include private keys along with the wallet addresses. This is optional, but if you need access to your wallet for transactions, private keys will be necessary.</li>
+                <li><strong>Generate Wallets:</strong> Click on the "Generate" button to start the process. The tool will generate your Solana wallet addresses, and you can see them listed immediately.</li>
+                <li><strong>Download or Copy:</strong> Once the wallets are generated, you can either download all of them as a CSV file or copy individual wallet addresses to your clipboard for use.</li>
+            </ol>
+            <p>All the wallet generation happens on your device, ensuring that your private keys and data are never exposed to the internet. You can manage your wallets securely with ease.</p>
+        </section>
+        <section>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <div>
+                <h3>1. What is a Solana Wallet, and why do I need one?</h3>
+                <p>
+                    A Solana wallet is a digital wallet used to store and manage Solana (SOL) tokens and other assets on the Solana blockchain. It's necessary for sending, receiving, and interacting with decentralized applications (dApps) built on Solana, as well as participating in the Solana ecosystem. If you plan to hold or trade Solana tokens, you'll need a Solana wallet.
+                </p>
+            </div>
+
+            <div>
+                <h3>2. What does "bulk generation" mean?</h3>
+                <p>
+                    Bulk generation means creating multiple Solana wallet addresses at once. This feature is useful for developers, businesses, or anyone who needs to manage many wallets at once without having to generate them individually.
+                </p>
+            </div>
+
+            <div>
+                <h3>3. How secure is this Solana Wallet Generator?</h3>
+                <p>
+                    The Solana wallet generator is fully secure. All wallets are generated locally on your device, ensuring your private keys and wallet data are never transmitted to any external servers. This keeps your keys secure and private.
+                </p>
+            </div>
+
+            <div>
+                <h3>4. What should I do with my private keys?</h3>
+                <p>
+                    Your private keys are the most sensitive part of your wallet, as they grant access to your funds. Keep your private keys safe by storing them in a secure, offline location. We recommend using encrypted backups or a hardware wallet for long-term storage.
+                </p>
+            </div>
+
+            <div>
+                <h3>5. How do I download the generated wallets?</h3>
+                <p>
+                    After generating your Solana wallets, you can download them all as a CSV file. The CSV file will contain both the wallet addresses and private keys (if you selected this option), allowing you to back up and manage your wallets easily offline.
+                </p>
+            </div>
+
+            <div>
+                <h3>6. Can I import these wallets into my Solana wallet app?</h3>
+                <p>
+                    Yes, you can import the generated wallets into your preferred Solana wallet application. Most wallet apps allow you to import wallets by private key, so you can use these wallets immediately after generation.
+                </p>
+            </div>
+
+            <div>
+                <h3>7. How many wallets can I generate at once?</h3>
+                <p>
+                    You can generate as many Solana wallets as you need. Our tool supports bulk generation, so you can create hundreds or even thousands of wallets with just a few clicks.
+                </p>
+            </div>
+
+            <div>
+                <h3>8. Is there a fee for using this tool?</h3>
+                <p>
+                    No, the Solana Wallet Generator is completely free to use. There are no hidden fees or charges for generating wallets. You can generate as many wallets as you need without paying anything.
+                </p>
+            </div>
+
+            <div>
+                <h3>9. What should I do if I lose my private key?</h3>
+                <p>
+                    If you lose your private key, you will lose access to your Solana wallet and its contents. It is extremely important to back up your private keys securely. Without the private key, there is no way to recover the wallet, so make sure to store it in a safe place.
+                </p>
+            </div>
+
+            <div>
+                <h3>10. Can I use these wallets to store SPL tokens?</h3>
+                <p>
+                    Yes, the wallets generated by this tool are fully compatible with the Solana blockchain and can store Solana-native tokens (SOL) as well as any SPL tokens. You can interact with dApps and transfer tokens seamlessly within the Solana ecosystem.
+                </p>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+<script>
+    function base(ALPHABET) {
+        if (ALPHABET.length >= 255) {
+            throw new TypeError('Alphabet too long')
+        }
+        var BASE_MAP = new Uint8Array(256)
+        for (var j = 0; j < BASE_MAP.length; j++) {
+            BASE_MAP[j] = 255
+        }
+        for (var i = 0; i < ALPHABET.length; i++) {
+            var x = ALPHABET.charAt(i)
+            var xc = x.charCodeAt(0)
+            if (BASE_MAP[xc] !== 255) {
+                throw new TypeError(x + ' is ambiguous')
+            }
+            BASE_MAP[xc] = i
+        }
+        var BASE = ALPHABET.length
+        var LEADER = ALPHABET.charAt(0)
+        var FACTOR = Math.log(BASE) / Math.log(256) // log(BASE) / log(256), rounded up
+        var iFACTOR = Math.log(256) / Math.log(BASE) // log(256) / log(BASE), rounded up
+        function encode(source) {
+            if (source instanceof Uint8Array) {
+            } else if (ArrayBuffer.isView(source)) {
+                source = new Uint8Array(source.buffer, source.byteOffset, source.byteLength)
+            } else if (Array.isArray(source)) {
+                source = Uint8Array.from(source)
+            }
+            if (!(source instanceof Uint8Array)) {
+                throw new TypeError('Expected Uint8Array')
+            }
+            if (source.length === 0) {
+                return ''
+            }
+            // Skip & count leading zeroes.
+            var zeroes = 0
+            var length = 0
+            var pbegin = 0
+            var pend = source.length
+            while (pbegin !== pend && source[pbegin] === 0) {
+                pbegin++
+                zeroes++
+            }
+            // Allocate enough space in big-endian base58 representation.
+            var size = ((pend - pbegin) * iFACTOR + 1) >>> 0
+            var b58 = new Uint8Array(size)
+            // Process the bytes.
+            while (pbegin !== pend) {
+                var carry = source[pbegin]
+                // Apply "b58 = b58 * 256 + ch".
+                var i = 0
+                for (var it1 = size - 1; (carry !== 0 || i < length) && (it1 !== -1); it1--, i++) {
+                    carry += (256 * b58[it1]) >>> 0
+                    b58[it1] = (carry % BASE) >>> 0
+                    carry = (carry / BASE) >>> 0
+                }
+                if (carry !== 0) {
+                    throw new Error('Non-zero carry')
+                }
+                length = i
+                pbegin++
+            }
+            // Skip leading zeroes in base58 result.
+            var it2 = size - length
+            while (it2 !== size && b58[it2] === 0) {
+                it2++
+            }
+            // Translate the result into a string.
+            var str = LEADER.repeat(zeroes)
+            for (; it2 < size; ++it2) {
+                str += ALPHABET.charAt(b58[it2])
+            }
+            return str
+        }
+
+        function decodeUnsafe(source) {
+            if (typeof source !== 'string') {
+                throw new TypeError('Expected String')
+            }
+            if (source.length === 0) {
+                return new Uint8Array()
+            }
+            var psz = 0
+            // Skip and count leading '1's.
+            var zeroes = 0
+            var length = 0
+            while (source[psz] === LEADER) {
+                zeroes++
+                psz++
+            }
+            // Allocate enough space in big-endian base256 representation.
+            var size = (((source.length - psz) * FACTOR) + 1) >>> 0 // log(58) / log(256), rounded up.
+            var b256 = new Uint8Array(size)
+            // Process the characters.
+            while (source[psz]) {
+                // Decode character
+                var carry = BASE_MAP[source.charCodeAt(psz)]
+                // Invalid character
+                if (carry === 255) {
+                    return
+                }
+                var i = 0
+                for (var it3 = size - 1; (carry !== 0 || i < length) && (it3 !== -1); it3--, i++) {
+                    carry += (BASE * b256[it3]) >>> 0
+                    b256[it3] = (carry % 256) >>> 0
+                    carry = (carry / 256) >>> 0
+                }
+                if (carry !== 0) {
+                    throw new Error('Non-zero carry')
+                }
+                length = i
+                psz++
+            }
+            // Skip leading zeroes in b256.
+            var it4 = size - length
+            while (it4 !== size && b256[it4] === 0) {
+                it4++
+            }
+            var vch = new Uint8Array(zeroes + (size - it4))
+            var j = zeroes
+            while (it4 !== size) {
+                vch[j++] = b256[it4++]
+            }
+            return vch
+        }
+
+        function decode(string) {
+            var buffer = decodeUnsafe(string)
+            if (buffer) {
+                return buffer
+            }
+            throw new Error('Non-base' + BASE + ' character')
+        }
+
+        return {
+            encode: encode,
+            decodeUnsafe: decodeUnsafe,
+            decode: decode
+        }
+    }
+
+    function bytesToBase58(arr) {
+        const BASE58_ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+        const base58 = base(BASE58_ALPHABET);  // Create the Base58 encoder/decoder
+        return base58.encode(arr);
+    }
+
+    let wallets = [];
+
+    async function generateWallets() {
+        const quantity = parseInt(document.getElementById('quantity').value);
+        const includePrivateKey = document.getElementById('includePrivateKey').checked;
+
+        wallets = [];
+        const resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = '';
+
+        for (let i = 0; i < quantity; i++) {
+            const keypair = await solanaWeb3.Keypair.generate();
+            const wallet = {
+                address: keypair.publicKey.toBase58(),
+                privateKey: bytesToBase58(keypair.secretKey)
+            }
+            wallets.push({
+                address: keypair.publicKey.toBase58(),
+                privateKey: bytesToBase58(keypair.secretKey)
+            });
+
+
+            const walletItem = document.createElement('div');
+            walletItem.className = 'wallet-item';
+
+            let walletText = `${wallet.address}`;
+            if (includePrivateKey) {
+                walletText += `<br>${wallet.privateKey}`;
+            }
+
+            walletItem.innerHTML = `<span style="flex-grow: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${walletText}</span>`;
+
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'copy-button';
+            copyBtn.textContent = 'Copy';
+            copyBtn.onclick = () => copyToClipboard(walletText, copyBtn);
+
+            walletItem.appendChild(copyBtn);
+            resultsDiv.appendChild(walletItem);
+        }
+
+        if (wallets.length > 0) {
+            const downloadBtn = document.createElement('button');
+            downloadBtn.className = 'wrap';
+            downloadBtn.textContent = 'Download CSV';
+            downloadBtn.onclick = downloadCSV;
+            resultsDiv.insertBefore(downloadBtn, resultsDiv.firstChild);
+        }
+    }
+
+    function copyWallet(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text.replace(/<br>/g, '\n');
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = 'Đã copy!';
+        setTimeout(() => {
+            btn.textContent = originalText;
+        }, 1500);
+    }
+
+    function downloadCSV() {
+        const includePrivateKey = document.getElementById('includePrivateKey').checked;
+
+        let csv = 'Address';
+        if (includePrivateKey) csv += ',PrivateKey';
+        csv += '\n';
+
+        wallets.forEach(wallet => {
+            csv += wallet.address;
+            if (includePrivateKey) csv += ',' + wallet.privateKey;
+            csv += '\n';
+        });
+
+        const blob = new Blob([csv], {type: 'text/csv'});
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.setAttribute('hidden', '');
+        a.setAttribute('href', url);
+        a.setAttribute('download', 'eth-wallets.csv');
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+</script>
+{{ end }}
