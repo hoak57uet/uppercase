@@ -3,18 +3,18 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Old Persian Script Converter - Turn Your Text into Ancient Cuneiform for Social Media</title>
+    <title>Bitcoin Wallet Generator - Create Bulk Bitcoin Wallets Securely Online</title>
     
     <meta name="description"
-          content="Convert your regular text into ancient Old Persian script with our online tool. Ideal for creating unique and historically inspired posts on social media platforms like Facebook, Twitter, and Instagram.">
+          content="Generate Bitcoin wallets securely online with our free tool. Create bulk Bitcoin wallet addresses with or without private keys, and download them in CSV format for easy management.">
     <meta name="keywords"
-          content="[Old Persian Script Converter, Old Persian, Cuneiform Script, Ancient Script, Social Media, Facebook, Twitter, Instagram, Unique Fonts, Educational Content, SEO Friendly, Mobile-Friendly]">
+          content="[Bitcoin Wallet Generator, Generate Bitcoin Wallets, Create Bitcoin Wallet Address, Bulk Bitcoin Wallet Generator, Free Bitcoin Wallet Tool, Bitcoin Private Key Generator, Bitcoin Wallet Bulk CSV, Bitcoin Address Creator, Secure Bitcoin Wallet Generator, BTC Wallet Generator, Bitcoin Wallets with Private Keys, Download Bitcoin Wallet CSV, Bitcoin Wallet Address Tool, Bulk Crypto Wallet Generator, Generate BTC Wallets, Bitcoin Wallet Export CSV, Secure Bitcoin Address Generator.]">
     <meta name="author" content="Alan">
 
     
-    <meta property="og:title" content="Old Persian Script Converter - Turn Your Text into Ancient Cuneiform for Social Media">
+    <meta property="og:title" content="Bitcoin Wallet Generator - Create Bulk Bitcoin Wallets Securely Online">
     <meta property="og:description"
-          content="Convert your regular text into ancient Old Persian script with our online tool. Ideal for creating unique and historically inspired posts on social media platforms like Facebook, Twitter, and Instagram.">
+          content="Generate Bitcoin wallets securely online with our free tool. Create bulk Bitcoin wallet addresses with or without private keys, and download them in CSV format for easy management.">
     <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
     <meta property="og:url" content="http://localhost:1313/crypto-currency/generate-btc-address/">
     <meta property="og:type" content="website">
@@ -23,9 +23,9 @@
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@YourTwitterHandle">
-    <meta name="twitter:title" content="Old Persian Script Converter - Turn Your Text into Ancient Cuneiform for Social Media">
+    <meta name="twitter:title" content="Bitcoin Wallet Generator - Create Bulk Bitcoin Wallets Securely Online">
     <meta name="twitter:description"
-          content="Convert your regular text into ancient Old Persian script with our online tool. Ideal for creating unique and historically inspired posts on social media platforms like Facebook, Twitter, and Instagram.">
+          content="Generate Bitcoin wallets securely online with our free tool. Create bulk Bitcoin wallet addresses with or without private keys, and download them in CSV format for easy management.">
     <meta name="twitter:image" content="https://www.yourwebsite.com/twitter-image.jpg">
 
     
@@ -632,6 +632,7 @@
             <ul class="submenu">
                 <li><a href="/crypto-currency/generate-eth-address">EVM Wallet Address Generator</a></li>
                 <li><a href="/crypto-currency/generate-sol-address">SOL Wallet Generator</a></li>
+                <li><a href="/crypto-currency/generate-btc-address">BTC Wallet Generator</a></li>
             </ul>
         </li>
     </ul>
@@ -731,7 +732,8 @@
         align-self: center;
     }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/bitcoinjs-lib@5.1.6/src/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/elliptic/6.5.4/elliptic.min.js"></script>
 <style>
     .controls {
         display: flex;
@@ -752,8 +754,8 @@
     }
 </style>
 <div class="container">
-    <h1 id="page-title">Old Persian Script Converter - Turn Your Text into Ancient Cuneiform for Social Media</h1>
-    <p id="page-description">Convert your regular text into ancient Old Persian script with our online tool. Ideal for creating unique and historically inspired posts on social media platforms like Facebook, Twitter, and Instagram.</p>
+    <h1 id="page-title">Bitcoin Wallet Generator - Create Bulk Bitcoin Wallets Securely Online</h1>
+    <p id="page-description">Generate Bitcoin wallets securely online with our free tool. Create bulk Bitcoin wallet addresses with or without private keys, and download them in CSV format for easy management.</p>
     <div class="vertical-container">
         <div class="output-box">
             <div class="controls">
@@ -775,107 +777,130 @@
     </div>
     <div id="page-content">
         <section>
-            <h2>Generate Ethereum (ETH) & EVM-Compatible Wallets Securely and Effortlessly</h2>
+            <h2>Generate Bitcoin Wallets Securely in Bulk</h2>
             <p>
-                Welcome to our <strong>Ethereum Wallet Generator</strong>, an easy-to-use tool designed to create
-                Ethereum (ETH) and Ethereum Virtual Machine (EVM)-compatible wallets securely in your browser. Ethereum
-                wallets are essential for interacting with the Ethereum blockchain and related networks, allowing users
-                to store, send, and receive Ether (ETH) and other tokens. Our generator provides a user-friendly way to
-                produce multiple wallet addresses with or without private keys, making it ideal for blockchain
-                enthusiasts, developers, and anyone needing a safe and convenient way to manage digital assets.
+                Welcome to our <strong>Bitcoin Wallet Generator</strong>, a free and user-friendly tool to generate
+                multiple Bitcoin wallet addresses quickly and securely. Whether you are a developer, business, or
+                individual managing multiple Bitcoin accounts, this tool allows you to create wallet addresses with or
+                without private keys, which can then be downloaded in CSV format for easy management.
             </p>
             <p>
-                Ethereum and EVM-compatible wallets are not just for storing ETH but can also hold a variety of tokens
-                and assets on networks like Binance Smart Chain, Polygon, Avalanche, and others. With this tool, you can
-                instantly create multiple wallet addresses, which saves time and minimizes the risk of human error
-                compared to generating each wallet individually. Our platform empowers users to produce wallets in bulk
-                for development, testing, or personal use, ensuring that each address generated is unique and secure.
+                Bitcoin is the original cryptocurrency, offering decentralized financial transactions on a secure
+                blockchain network. Our wallet generator enables you to generate multiple Bitcoin addresses in one go,
+                ideal for businesses or developers who need bulk wallet creation. With our secure, client-side wallet
+                generation process, your private keys are generated locally on your device, ensuring they are never
+                transmitted to any external server, giving you full control and security.
             </p>
             <p>
-                Security is our priority. All wallet addresses and private keys are created on your device using
-                advanced cryptographic algorithms without transmitting any sensitive data to our servers. By keeping
-                wallet generation client-side, we eliminate the risk of unauthorized access to your private keys or
-                wallet addresses. You have complete control over your data, which remains private and secure.
+                Once generated, you can download your wallet addresses and optional private keys as a CSV file for
+                secure offline storage and easy management. For quick use, each address can be copied individually as
+                well. Our Bitcoin Wallet Generator is designed to provide a hassle-free and secure experience for anyone
+                needing multiple Bitcoin addresses.
             </p>
             <p>
-                Once you’ve generated your wallets, you can easily download them as a CSV file. This format is
-                convenient for managing a list of addresses and private keys offline and is compatible with spreadsheet
-                applications, making organization and backup effortless. Additionally, we provide a “Copy” feature next
-                to each wallet address for quick access if you prefer to use addresses individually.
-            </p>
-            <p>
-                Our tool supports all major EVM-compatible networks, so whether you're using Ethereum, Binance Smart
-                Chain, or another network built on the Ethereum infrastructure, you can create wallets that function
-                seamlessly. Start generating your ETH and EVM-compatible wallets now and take control of your digital
-                assets securely and conveniently.
+                Start generating your Bitcoin wallets securely and take advantage of this easy-to-use tool designed with
+                security and efficiency in mind.
             </p>
         </section>
-
         <section>
-            <h2>How to Use the Ethereum & EVM-Compatible Wallet Generator</h2>
+            <h2>How It Works</h2>
+            <p>Generating Bitcoin wallets in bulk is simple and secure with our tool. Follow these easy steps to
+                start:</p>
             <ol>
-                <li>Enter the number of wallet addresses you wish to generate.</li>
-                <li>Choose whether to include private keys with each generated address. For added security, we recommend
-                    storing private keys in a secure location.
+                <li><strong>Select the Number of Wallets:</strong> Choose how many Bitcoin wallet addresses you want to
+                    generate. This tool allows bulk creation, ideal for users needing multiple addresses.
                 </li>
-                <li>Click on the <strong>Generate Wallet</strong> button to create your Ethereum or EVM-compatible
-                    wallets.
+                <li><strong>Choose Options:</strong> Decide if you want to include private keys along with the wallet
+                    addresses. Private keys are essential for accessing your funds, but should be kept secure.
                 </li>
-                <li>After generation, copy each wallet address individually or download the entire set as a CSV file for
-                    easy access and backup.
+                <li><strong>Generate Wallets:</strong> Click the "Generate" button to create your wallets. Wallet
+                    addresses, with optional private keys, will be generated securely on your device.
                 </li>
-                <li>Keep your private keys private, as anyone with access to them can control your funds.</li>
+                <li><strong>Download or Copy:</strong> Download all wallets as a CSV file, or copy each address
+                    individually for immediate use.
+                </li>
             </ol>
+            <p>All wallet generation is client-side, meaning your private keys remain secure on your device and are
+                never transmitted online, ensuring maximum security.</p>
         </section>
-
         <section>
             <h2>Frequently Asked Questions (FAQ)</h2>
 
             <div>
-                <h3>1. What is an Ethereum (ETH) Wallet?</h3>
-                <p>An Ethereum wallet is a digital storage address that allows you to hold, send, and receive Ether
-                    (ETH) and tokens on the Ethereum blockchain. It also works with other EVM-compatible networks, like
-                    Binance Smart Chain and Polygon.</p>
+                <h3>1. What is a Bitcoin wallet, and why do I need one?</h3>
+                <p>
+                    A Bitcoin wallet is a digital address used to store, send, and receive Bitcoin. Each wallet has a
+                    unique address on the blockchain and a private key that grants access to the funds. You need a
+                    Bitcoin wallet to securely store and manage your Bitcoin.
+                </p>
             </div>
 
             <div>
-                <h3>2. What does EVM-Compatible mean?</h3>
-                <p>EVM stands for Ethereum Virtual Machine. EVM-compatible wallets can be used on various blockchains
-                    that support Ethereum’s ecosystem, such as Binance Smart Chain, Avalanche, and Fantom. These wallets
-                    operate similarly to Ethereum wallets.</p>
+                <h3>2. How secure is this Bitcoin Wallet Generator?</h3>
+                <p>
+                    This Bitcoin Wallet Generator is designed with security as the top priority. All wallets are
+                    generated locally on your device, ensuring that private keys and wallet data are never sent to our
+                    servers. This client-side process helps keep your wallets secure.
+                </p>
             </div>
 
             <div>
-                <h3>3. Is it safe to generate wallets online?</h3>
-                <p>Yes, it is safe if the generator uses client-side scripts for wallet generation. This means that all
-                    private keys and wallet addresses are created directly in your browser without being sent to a
-                    server.</p>
+                <h3>3. What is bulk wallet generation?</h3>
+                <p>
+                    Bulk wallet generation allows you to create multiple Bitcoin wallets at once, saving time and
+                    effort. This feature is helpful for businesses, developers, or users who need to manage many
+                    wallets.
+                </p>
             </div>
 
             <div>
-                <h3>4. Why should I download my wallets in a CSV file?</h3>
-                <p>Downloading wallets in a CSV file allows you to store multiple wallet addresses and private keys
-                    safely offline. It also provides an easy way to manage and backup your addresses for future use.</p>
+                <h3>4. Can I download the wallets I generate?</h3>
+                <p>
+                    Yes, after generating your wallets, you can download all wallet addresses and private keys (if
+                    selected) as a CSV file, allowing you to store and manage your wallets securely offline.
+                </p>
             </div>
 
             <div>
-                <h3>5. Can I create wallets for other networks, like Binance Smart Chain or Polygon?</h3>
-                <p>Yes, our generator creates wallets compatible with Ethereum and any EVM-compatible network. This
-                    allows you to use your wallet addresses across networks like Binance Smart Chain, Polygon,
-                    Avalanche, and more.</p>
+                <h3>5. How do I keep my private keys safe?</h3>
+                <p>
+                    Private keys grant access to your Bitcoin wallets, so they should be stored securely. We recommend
+                    using encrypted storage or a hardware wallet for long-term safety. Never share your private keys
+                    with anyone.
+                </p>
             </div>
 
             <div>
-                <h3>6. What should I do if I lose my private key?</h3>
-                <p>Unfortunately, if you lose your private key, you lose access to your funds in that wallet. Always
-                    keep a secure backup of your private keys in a safe location.</p>
+                <h3>6. Can I use these wallets in Bitcoin wallet apps?</h3>
+                <p>
+                    Yes, the generated wallets can be imported into most Bitcoin wallet applications. Many apps allow
+                    users to import wallets by private key, enabling you to use these addresses for transactions or
+                    storage.
+                </p>
             </div>
 
             <div>
-                <h3>7. Can I use these wallets to store tokens?</h3>
-                <p>Yes, Ethereum wallets can store ETH as well as ERC-20, ERC-721, and other token standards on the
-                    Ethereum network. On EVM-compatible networks, you can also store native assets and supported
-                    tokens.</p>
+                <h3>7. Is this tool free to use?</h3>
+                <p>
+                    Yes, our Bitcoin Wallet Generator is entirely free, with no hidden fees. You can create as many
+                    Bitcoin wallets as you need at no cost.
+                </p>
+            </div>
+
+            <div>
+                <h3>8. How many wallets can I generate at once?</h3>
+                <p>
+                    You can generate as many Bitcoin wallets as you require. This tool supports bulk wallet generation,
+                    allowing you to create hundreds of wallets if needed.
+                </p>
+            </div>
+
+            <div>
+                <h3>9. What happens if I lose my private key?</h3>
+                <p>
+                    Losing your private key means losing access to your Bitcoin wallet. Always back up your private keys
+                    securely and keep them in a safe place to ensure you can access your funds.
+                </p>
             </div>
         </section>
 
@@ -895,16 +920,23 @@
         resultsDiv.innerHTML = '';
 
         for (let i = 0; i < quantity; i++) {
-            const keyPair = bitcoin.ECPair.makeRandom();
+            const privateKeyBytes = new Uint8Array(32);
+            crypto.getRandomValues(privateKeyBytes);
+            const privateKeyHex = bytesToHex(privateKeyBytes);
 
             
-            const privateKey = keyPair.toWIF();
+            const ec = new elliptic.ec('secp256k1');
+            const keyPair = ec.keyFromPrivate(privateKeyHex);
 
             
-            const { address } = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey });
+            const publicKey = '04' + keyPair.getPublic().getX().toString(16).padStart(64, '0')
+                + keyPair.getPublic().getY().toString(16).padStart(64, '0');
+
+            
+            const address = publicKeyToAddress(publicKey);
             const wallet = {
-                address : address,
-                privateKey:privateKey
+                address: address,
+                privateKey: privateKeyHex
             }
             wallets.push({
                 address: wallet.address,
@@ -939,22 +971,6 @@
         }
     }
 
-    function copyWallet(text) {
-        const textarea = document.createElement('textarea');
-        textarea.value = text.replace(/<br>/g, '\n');
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-
-        const btn = event.target;
-        const originalText = btn.textContent;
-        btn.textContent = 'Đã copy!';
-        setTimeout(() => {
-            btn.textContent = originalText;
-        }, 1500);
-    }
-
     function downloadCSV() {
         const includePrivateKey = document.getElementById('includePrivateKey').checked;
 
@@ -977,6 +993,72 @@
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
+    }
+
+    const ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+
+    
+    function base58Encode(buffer) {
+        let digits = [0];
+
+        
+        for (let i = 0; i < buffer.length; i++) {
+            let carry = buffer[i];
+            for (let j = 0; j < digits.length; j++) {
+                carry += digits[j] << 8;
+                digits[j] = carry % 58;
+                carry = (carry / 58) | 0;
+            }
+            while (carry > 0) {
+                digits.push(carry % 58);
+                carry = (carry / 58) | 0;
+            }
+        }
+
+        
+        for (let i = 0; buffer[i] === 0 && i < buffer.length - 1; i++) {
+            digits.push(0);
+        }
+
+        
+        return digits.reverse().map(digit => ALPHABET[digit]).join('');
+    }
+
+    
+    function hexToBytes(hex) {
+        const bytes = [];
+        for (let i = 0; i < hex.length; i += 2) {
+            bytes.push(parseInt(hex.substr(i, 2), 16));
+        }
+        return bytes;
+    }
+
+    
+    function bytesToHex(bytes) {
+        return Array.from(bytes, byte => byte.toString(16).padStart(2, '0')).join('');
+    }
+
+    
+    function publicKeyToAddress(publicKey) {
+        
+        const sha256Hash = CryptoJS.SHA256(CryptoJS.enc.Hex.parse(publicKey));
+
+        
+        const ripemd160Hash = CryptoJS.RIPEMD160(sha256Hash);
+
+        
+        const versionedHash = '00' + ripemd160Hash.toString();
+
+        
+        const firstSHA = CryptoJS.SHA256(CryptoJS.enc.Hex.parse(versionedHash));
+        const secondSHA = CryptoJS.SHA256(firstSHA);
+        const checksum = secondSHA.toString().substring(0, 8);
+
+        
+        const binaryAddress = versionedHash + checksum;
+
+        
+        return base58Encode(hexToBytes(binaryAddress));
     }
 </script>
 
@@ -1139,6 +1221,7 @@
                     <ul>
                         <li><a href="/crypto-currency/generate-eth-address">EVM Wallet Address Generator</a></li>
                         <li><a href="/crypto-currency/generate-sol-address">SOL Wallet Generator</a></li>
+                        <li><a href="/crypto-currency/generate-btc-address">BTC Wallet Generator</a></li>
                     </ul>
                 </div>
             </div>
